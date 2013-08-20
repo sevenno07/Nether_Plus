@@ -20,6 +20,7 @@ tile.GrimwoodStairs.name = Grimwood Stairs
 #Items
 item.CharoiteCrystal.name = Charoite Crystal
 item.BlackIronIngot.name = Black Iron Ingot
+item.BlackBone.name = Os Noir
 
 #Entity
 entity.Salamander.name = Salamandre
