@@ -1,6 +1,7 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,6 +33,9 @@ public class NPBlockList
 	public static Block GrimwoodStairs;
 	public static Block CorruptedBrickStairs;
 	public static Block NetherrackBrickStairs;
+	
+	public static BlockHalfSlab ModSlab;
+	public static BlockHalfSlab ModDoubleSlab;
 
 	public static void loadBlock()
 	{
@@ -54,9 +58,12 @@ public class NPBlockList
 		NetherrackBrick = new NetherrackBrick(NPProperties.NetherrackBrickID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("NetherrackBrick");
 		GrimwoodWorkbench  = new GrimwoodWorkbench(NPProperties.GrimwoodWorkbenchID).setStepSound(Block.soundWoodFootstep).setHardness(1.5F).setResistance(5.0F).setUnlocalizedName("GrimwoodWorkbench");
 		
-		GrimwoodStairs = new ModStairs(NPProperties.GrimwoodStairsID, GrimwoodPlanks, 2).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
-		CorruptedBrickStairs = new ModStairs(NPProperties.CorruptedBrickStairsID, CorruptedBrick, 2).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
-		NetherrackBrickStairs = new ModStairs(NPProperties.NetherrackBrickStairsID, NetherrackBrick, 2).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("NetherrackBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		GrimwoodStairs = new ModStairs(NPProperties.GrimwoodStairsID, GrimwoodPlanks, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		CorruptedBrickStairs = new ModStairs(NPProperties.CorruptedBrickStairsID, CorruptedBrick, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		NetherrackBrickStairs = new ModStairs(NPProperties.NetherrackBrickStairsID, NetherrackBrick, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("NetherrackBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		
+		ModSlab = (BlockHalfSlab) new ModSlab(NPProperties.ModSlabID, false).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModSlab");
+		ModDoubleSlab = (BlockHalfSlab) new ModSlab(NPProperties.ModDoubleSlabID, true).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModSlab");
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
@@ -80,6 +87,9 @@ public class NPBlockList
 		GameRegistry.registerBlock(GrimwoodStairs, "Grimwood_Stairs");
 		GameRegistry.registerBlock(CorruptedBrickStairs, "Corrupted_Brick_Stairs");
 		GameRegistry.registerBlock(NetherrackBrickStairs, "Netherrack_Brick_Stairs");
+		
+		GameRegistry.registerBlock(ModSlab);
+		GameRegistry.registerBlock(ModDoubleSlab);
 		
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);

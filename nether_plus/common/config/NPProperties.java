@@ -1,5 +1,7 @@
 package nether_plus.common.config;
 
+import net.minecraft.block.Block;
+
 public class NPProperties
 {
 	//Block
@@ -26,9 +28,11 @@ public class NPProperties
 	public static int CorruptedBrickStairsID;
 	public static int NetherrackBrickStairsID;
 	
+	public static int ModSlabID;
+	public static int ModDoubleSlabID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
 	public static int BlackBoneID;
-
 }
