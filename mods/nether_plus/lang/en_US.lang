@@ -22,6 +22,7 @@ tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
 #Items
 item.CharoiteCrystal.name = Charoite Crystal
 item.BlackIronIngot.name = Black Iron Ingot
+item.BlackBone.name = BlackBone
 
 #Entity
 entity.Salamander.name = Salamander
