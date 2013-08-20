@@ -3,6 +3,7 @@ package nether_plus.common.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.World;
+import nether_plus.common.item.NPItemList;
 
 public class Salamander extends EntityMob
 {
@@ -45,6 +46,11 @@ public class Salamander extends EntityMob
     protected String getDeathSound()
     {
         return "mob.zombie.death";
+    }
+    
+    protected int getDropItemId()
+    {
+    	return NPItemList.BlackBone.itemID;
     }
 
 }
