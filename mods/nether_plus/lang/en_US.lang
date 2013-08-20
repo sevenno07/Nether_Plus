@@ -1,0 +1,23 @@
+#Blocks
+tile.GlowstoneSand.name = Glowstone Sand
+tile.SoulGlass.name = Soul Glass
+tile.Netherraze.name = Netherraze
+tile.BewitchedWood.name = bewitched Wood
+tile.CorruptionStone.name = Corruption Stone
+tile.GrimwoodLog.name = Grimwood Log
+tile.GrimwoodLeaves.name = Grimwood Leaves
+tile.GrimwoodSapling.name = Grimwood Sapling
+tile.CorruptedGoldOre.name = Corrupted Gold Ore
+tile.CorruptedCharoiteOre.name = Corrupted Charoite Ore
+tile.CorruptedBlackIronOre.name = Corrupted Black Iron Ore
+
+#Items
+item.CharoiteCrystal.name = Charoite Crystal
+item.BlackIronIngot.name = Black Iron Ingot
+item.BlackBone.name = Black Bone
+
+#Entity
+entity.Salamander.name = Salamander
+
+#CreativeTabs
+itemGroup.NetherPlusCreativeTabs = Nether Plus
