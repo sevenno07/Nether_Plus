@@ -52,6 +52,14 @@ public class CorruptedCharoiteOre extends Block
     public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
     {
         super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
+        	int var8 = 0;
+        	if (this.blockID == NPBlockList.CorruptedCharoiteOre.blockID)
+        	{
+        		var8 = MathHelper.getRandomIntegerInRange(par1World.rand, 15, 20);
+        	}
+        this.dropXpOnBlockBreak(par1World, par2, par3, par4, var8);  
+        {}
+        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
 
         if (this.idDropped(par5, par1World.rand, par7) != this.blockID)
         {
@@ -63,7 +71,7 @@ public class CorruptedCharoiteOre extends Block
             }
         }
     }
-	
+    
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)
 	{
