@@ -7,7 +7,7 @@ public class NPItemList
 {
 	public static Item CharoiteCrystal;
 	public static Item BlackIronIngot;
-	public static Item BlockBone;
+	public static Item BlackBone;
 	
 	public static void loadItem()
 	{
