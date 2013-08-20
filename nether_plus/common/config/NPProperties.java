@@ -17,9 +17,17 @@ public class NPProperties
 	public static int CorruptedCharoiteOreID;
 	public static int CorruptedBlackIronOreID;
 	
+	public static int GrimwoodPlanksID;
+	public static int CorruptedBrickID;
+	public static int NetherrackBrickID;
+	public static int GrimwoodWorkbenchID;
+	
+	public static int GrimwoodStairsID;
+	public static int CorruptedBrickStairsID;
+	public static int NetherrackBrickStairsID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
-	public static int BlackBoneID;
 
 }

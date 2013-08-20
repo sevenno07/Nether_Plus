@@ -7,6 +7,7 @@ import nether_plus.common.entity.Salamander;
 
 public class NPClientProxy extends NPCommonProxy
 {
+	
 	@Override
 	public void registerRender()
 	{

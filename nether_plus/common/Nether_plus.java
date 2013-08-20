@@ -37,7 +37,7 @@ public class Nether_plus
 	public static NPCommonProxy proxy;
 
 	@Instance("nether_plus")
-	public static Nether_plus instance;
+	public static nether_plus.common.Nether_plus instance;
 	
 	public static File ConfigFile;
 	
@@ -61,11 +61,20 @@ public class Nether_plus
 			NPProperties.CorruptedGoldOreID = cfg.getBlock("CorruptedGoldOre", 608).getInt();
 			NPProperties.CorruptedCharoiteOreID = cfg.getBlock("CorruptedCharoiteOre", 609).getInt();
 			NPProperties.CorruptedBlackIronOreID = cfg.getBlock("CorruptedBlackIronOre", 610).getInt();
+			NPProperties.GrimwoodPlanksID = cfg.getBlock("GrimwoodPlanks", 611).getInt();
+			NPProperties.CorruptedBrickID = cfg.getBlock("CorruptedBrick", 612).getInt();
+			NPProperties.NetherrackBrickID = cfg.getBlock("NetherrackBrick", 613).getInt();
+			NPProperties.GrimwoodWorkbenchID = cfg.getBlock("GrimwoodWorkbench", 614).getInt();
+//			NPProperties.CorruptedFurnace_offID = cfg.getBlock("CorruptedFurnace_off", 615).getInt();
+//			NPProperties.CorruptedFurnace_onID = cfg.getBlock("CorruptedFurnace_on", 616).getInt();
+			NPProperties.GrimwoodStairsID = cfg.getBlock("GrimwoodStairs", 617).getInt();
+			NPProperties.CorruptedBrickStairsID = cfg.getBlock("CorruptedBrickStairs", 618).getInt();
+			NPProperties.NetherrackBrickStairsID = cfg.getBlock("NetherrackBrickStairs", 619).getInt();
+			
 		
 			//Items
-			NPProperties.BlackIronIngotID = cfg.getItem("BlaackIronIngot", 4000).getInt();
-			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4001).getInt();
-			NPProperties.BlackBoneID = cfg.getItem("BlackBone", 4002).getInt();
+			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
+			NPProperties.BlackIronIngotID = cfg.getItem("BlaackIronIngot", 4001).getInt();
 		}
 		catch(Exception ex)
 		{
@@ -87,11 +96,12 @@ public class Nether_plus
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
-		NPEntityList.loadEntity();//Entity
+		NPEntityList.loadEntity();//Entity	
 		this.removeRecipe(new ItemStack(Block.glowStone));
 		
 		proxy.registerRender();
 		proxy.registerRenderEntity();
+
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());		
 	}
 

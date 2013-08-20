@@ -1,5 +1,3 @@
-#fr_FR -by Superloup10
-
 #Blocks
 tile.GlowstoneSand.name = Glowstone Sand
 tile.SoulGlass.name = Soul Glass
@@ -12,11 +10,16 @@ tile.GrimwoodSapling.name = Grimwood Sapling
 tile.CorruptedGoldOre.name = Corrupted Gold Ore
 tile.CorruptedCharoiteOre.name = Corrupted Charoite Ore
 tile.CorruptedBlackIronOre.name = Corrupted Black Iron Ore
+tile.GrimwoodPlanks.name = Grimwood Planks
+tile.CorruptedBrick.name = Corrupted Brick
+tile.NetherrackBrick.name = Netherrack Brick
+tile.GrimwoodWorkbench.name = Grimwood Workbench
+
+tile.GrimwoodStairs.name = Grimwood Stairs
 
 #Items
 item.CharoiteCrystal.name = Charoite Crystal
 item.BlackIronIngot.name = Black Iron Ingot
-item.BlackBone.name = Os noir
 
 #Entity
 entity.Salamander.name = Salamandre

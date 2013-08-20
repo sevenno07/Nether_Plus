@@ -10,11 +10,18 @@ tile.GrimwoodSapling.name = Grimwood Sapling
 tile.CorruptedGoldOre.name = Corrupted Gold Ore
 tile.CorruptedCharoiteOre.name = Corrupted Charoite Ore
 tile.CorruptedBlackIronOre.name = Corrupted Black Iron Ore
+tile.GrimwoodPlanks.name = Grimwood Planks
+tile.CorruptedBrick.name = Corrupted Brick
+tile.NetherrackBrick.name = Netherrack Brick
+tile.GrimwoodWorkbench.name = Grimwood Workbench
+
+tile.GrimwoodStairs.name = Grimwood Stairs
+tile.CorruptedBrickStairs.name = Corrupted Brick Stairs
+tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
 
 #Items
 item.CharoiteCrystal.name = Charoite Crystal
 item.BlackIronIngot.name = Black Iron Ingot
-item.BlackBone.name = Black Bone
 
 #Entity
 entity.Salamander.name = Salamander

@@ -3,9 +3,6 @@ package nether_plus.common.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.World;
-import nether_plus.common.block.NPBlockList;
-import nether_plus.common.config.NPProperties;
-import nether_plus.common.item.NPItemList;
 
 public class Salamander extends EntityMob
 {
@@ -49,9 +46,5 @@ public class Salamander extends EntityMob
     {
         return "mob.zombie.death";
     }
-    
-    protected int getDropItemId()
-    {
-        return NPItemList.BlackBone.itemID;
-    }
+
 }
