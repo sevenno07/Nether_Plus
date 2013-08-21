@@ -22,7 +22,10 @@ public class NPProperties
 	public static int GrimwoodPlanksID;
 	public static int CorruptedBrickID;
 	public static int NetherrackBrickID;
+	
 	public static int GrimwoodWorkbenchID;
+	public static int fourOnID;
+	public static int fourOffID;
 	
 	public static int GrimwoodStairsID;
 	public static int CorruptedBrickStairsID;
@@ -33,7 +36,7 @@ public class NPProperties
 //	public static int ModStoneSlabID;
 //	public static int ModStoneDoubleSlabID;
 	
-	public static int ModFence;
+	public static int ModFenceID;
 	
 	//Items
 	public static int CharoiteCrystalID;

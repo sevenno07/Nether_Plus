@@ -1,6 +1,7 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,6 +31,11 @@ public class NPBlockList
 	public static Block NetherrackBrick;
 	public static Block GrimwoodWorkbench;
 	
+//	public static Block CorruptedFurnace_Off;
+//	public static Block CorruptedFurnace_On;
+	public static Block fourOff;
+	public static Block fourOn;
+	
 	public static Block GrimwoodStairs;
 	public static Block CorruptedBrickStairs;
 	public static Block NetherrackBrickStairs;
@@ -38,6 +44,8 @@ public class NPBlockList
 //	public static BlockHalfSlab ModWoodDoubleSlab;
 //	public static BlockHalfSlab ModStoneSlab;
 //	public static BlockHalfSlab ModStoneDoubleSlab;
+	
+	public static Block ModFence;
 
 	public static void loadBlock()
 	{
@@ -60,12 +68,17 @@ public class NPBlockList
 		NetherrackBrick = new NetherrackBrick(NPProperties.NetherrackBrickID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("NetherrackBrick");
 		GrimwoodWorkbench  = new GrimwoodWorkbench(NPProperties.GrimwoodWorkbenchID).setStepSound(Block.soundWoodFootstep).setHardness(1.5F).setResistance(5.0F).setUnlocalizedName("GrimwoodWorkbench");
 		
+		fourOn = new BlockFour(616, true).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("Mon four");
+		fourOff = new BlockFour(615, false).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("Mon four");
+		
 		GrimwoodStairs = new ModStairs(NPProperties.GrimwoodStairsID, GrimwoodPlanks, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		CorruptedBrickStairs = new ModStairs(NPProperties.CorruptedBrickStairsID, CorruptedBrick, 0).setStepSound(Block.soundStoneFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		NetherrackBrickStairs = new ModStairs(NPProperties.NetherrackBrickStairsID, NetherrackBrick, 0).setStepSound(Block.soundStoneFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("NetherrackBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		
 //		ModStoneDoubleSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModStoneDoubleSlabID, true).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModWoodSlab");
 //		ModStoneSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModStoneSlabID, false).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModWoodSlab");
+		
+		ModFence = new BlockFence(624, "GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModFence");
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
@@ -86,12 +99,17 @@ public class NPBlockList
 		GameRegistry.registerBlock(NetherrackBrick, "Netherrack_Brick");
 		GameRegistry.registerBlock(GrimwoodWorkbench, "Grimwood_Workbench");
 		
+		GameRegistry.registerBlock(fourOn, "four_On");
+		GameRegistry.registerBlock(fourOff, "four_Off");
+		
 		GameRegistry.registerBlock(GrimwoodStairs, "Grimwood_Stairs");
 		GameRegistry.registerBlock(CorruptedBrickStairs, "Corrupted_Brick_Stairs");
 		GameRegistry.registerBlock(NetherrackBrickStairs, "Netherrack_Brick_Stairs");
 		
 //		GameRegistry.registerBlock(ModWoodSlab, "Mod_Wood_Slab");
 //		GameRegistry.registerBlock(ModWoodDoubleSlab, "Mod_Wood_Double_Slab");
+		
+		GameRegistry.registerBlock(ModFence, "Mod_Fence");
 		
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
