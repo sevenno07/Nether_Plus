@@ -13,12 +13,5 @@ public class ModFence extends BlockFence
     public ModFence(int par1, String par2Str, Material par3Material)
     {
         super(par1, par2Str, par3Material);
-        this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 	}
-    
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
-	{
-        this.blockIcon = iconregister.registerIcon("nether_plus:GrimwoodPlanks");
- 	}
 }

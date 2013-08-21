@@ -20,6 +20,8 @@ tile.GrimwoodStairs.name = Grimwood Stairs
 tile.CorruptedBrickStairs.name = Corrupted Brick Stairs
 tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
 
+tile.ModFence.name = Grimwood Fence
+
 #Items
 item.CharoiteCrystal.name = Charoite Crystal
 item.BlackIronIngot.name = Black Iron Ingot

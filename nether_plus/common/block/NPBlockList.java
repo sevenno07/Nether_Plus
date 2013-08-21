@@ -78,7 +78,7 @@ public class NPBlockList
 //		ModStoneDoubleSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModStoneDoubleSlabID, true).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModWoodSlab");
 //		ModStoneSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModStoneSlabID, false).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModWoodSlab");
 		
-		ModFence = new BlockFence(624, "GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModFence");
+		ModFence = new BlockFence(624, "nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModFence").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
