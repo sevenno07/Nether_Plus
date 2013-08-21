@@ -70,7 +70,6 @@ private final Random furnaceRand = new Random();
 	 if (tileentityfour != null)
 	 	{
 		 par5EntityPlayer.openGui(Nether_plus.instance, 1, par1World, par2, par3, par4);
-		 //Ok, je mais le nom de mod, mais sa ne va pas ...
 	 	}
 
 	 	return true;
