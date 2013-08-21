@@ -315,11 +315,6 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 				{
 					return 300;
 				}
-
-				if (block == Block.field_111034_cE)
-				{
-					return 16000;
-				}
 			}
 
 			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 200;
@@ -366,5 +361,11 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 	public boolean canExtractItem(int par1, ItemStack par2ItemStack, int par3)
 	{
 		return par3 != 0 || par1 != 1 || par2ItemStack.itemID == Item.bucketEmpty.itemID;
+	}
+
+	@Override
+	public boolean isStackValidForSlot(int i, ItemStack itemstack)
+	{
+        return i == 2 ? false : (i == 1 ? isItemFuel(itemstack) : true);
 	}
 }

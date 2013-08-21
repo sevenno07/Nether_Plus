@@ -11,7 +11,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.MathHelper;
 
-public class SlotFurnace extends Slot
+public class SlotFour extends Slot
 {
 	 private EntityPlayer thePlayer;
 	 private int field_75228_b;

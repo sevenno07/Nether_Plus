@@ -8,6 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -18,6 +19,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import nether_plus.common.Nether_plus;
 
 public class BlockFour extends BlockContainer
 {
@@ -67,7 +69,7 @@ private final Random furnaceRand = new Random();
 
 	 if (tileentityfour != null)
 	 	{
-		 par5EntityPlayer.openGui(MonMod.instance, 1, par1World, par2, par3, par4);
+		 par5EntityPlayer.openGui(Nether_plus.instance, 1, par1World, par2, par3, par4);
 		 //Ok, je mais le nom de mod, mais sa ne va pas ...
 	 	}
 
@@ -83,11 +85,11 @@ private final Random furnaceRand = new Random();
 
 		 if (par0)
 		 {
-			 par1World.setBlock(par2, par3, par4, BlockCentralization.smelterOn.blockID);
+			 par1World.setBlock(par2, par3, par4, NPBlockList.fourOn.blockID);
 		 }
 		 else
 		 {
-			 par1World.setBlock(par2, par3, par4, BlockCentralization.smelterOff.blockID);
+			 par1World.setBlock(par2, par3, par4, NPBlockList.fourOff.blockID);
 		 }
 
 		 keepFurnaceInventory = false;
@@ -141,7 +143,7 @@ private final Random furnaceRand = new Random();
 		 return new TileEntityFour();
 	 }
 
-	 public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase living, ItemStack stack)
+	 public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving living, ItemStack stack)
 	 {
 		 int direction = MathHelper.floor_double((double)(living.rotationYaw * 4.0F / 360.0F) + 2.5D) & 3;
 		 world.setBlockMetadataWithNotify(x, y, z, direction, 2);
@@ -151,7 +153,7 @@ private final Random furnaceRand = new Random();
 	 {
 		 if (!keepFurnaceInventory)
 		 {
-			 TileEntityFour tileentityfurnace = (TileEntitySmelter)par1World.getBlockTileEntity(par2, par3, par4);
+			 TileEntityFour tileentityfurnace = (TileEntityFour)par1World.getBlockTileEntity(par2, par3, par4);
 
 			 if (tileentityfurnace != null)
 			 {
