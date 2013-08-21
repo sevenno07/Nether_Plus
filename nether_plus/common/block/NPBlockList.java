@@ -34,8 +34,8 @@ public class NPBlockList
 	public static Block CorruptedBrickStairs;
 	public static Block NetherrackBrickStairs;
 	
-	public static BlockHalfSlab ModSlab;
-	public static BlockHalfSlab ModDoubleSlab;
+	public static BlockHalfSlab ModWoodSlab;
+	public static BlockHalfSlab ModWoodDoubleSlab;
 
 	public static void loadBlock()
 	{
@@ -62,8 +62,8 @@ public class NPBlockList
 		CorruptedBrickStairs = new ModStairs(NPProperties.CorruptedBrickStairsID, CorruptedBrick, 0).setStepSound(Block.soundStoneFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		NetherrackBrickStairs = new ModStairs(NPProperties.NetherrackBrickStairsID, NetherrackBrick, 0).setStepSound(Block.soundStoneFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("NetherrackBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		
-		ModSlab = (BlockHalfSlab) new ModSlab(NPProperties.ModSlabID, false).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModSlab");
-		ModDoubleSlab = (BlockHalfSlab) new ModSlab(NPProperties.ModDoubleSlabID, true).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModSlab");
+		ModWoodSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModWoodSlabID, false).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModSlab");
+		ModWoodDoubleSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModWoodDoubleSlabID, true).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModSlab");
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
@@ -88,8 +88,8 @@ public class NPBlockList
 		GameRegistry.registerBlock(CorruptedBrickStairs, "Corrupted_Brick_Stairs");
 		GameRegistry.registerBlock(NetherrackBrickStairs, "Netherrack_Brick_Stairs");
 		
-		GameRegistry.registerBlock(ModSlab);
-		GameRegistry.registerBlock(ModDoubleSlab);
+		GameRegistry.registerBlock(ModWoodSlab);
+		GameRegistry.registerBlock(ModWoodDoubleSlab);
 		
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
