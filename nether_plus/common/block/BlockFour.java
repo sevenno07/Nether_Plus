@@ -52,9 +52,9 @@ private final Random furnaceRand = new Random();
 	 @SideOnly(Side.CLIENT)
 	 public void registerIcons(IconRegister par1IconRegister)
 	 {
-		 this.blockIcon = par1IconRegister.registerIcon("CorruptedFurnace_side");
-		 this.furnaceIconFront = par1IconRegister.registerIcon(this.isActive ? "CorruptedFurnace_on" : "CorruptedFurnace_off");
-		 this.furnaceIconTop = par1IconRegister.registerIcon("CorruptedFurnace_top");
+		 this.blockIcon = par1IconRegister.registerIcon("nether_plus:CorruptedFurnace_side");
+		 this.furnaceIconFront = par1IconRegister.registerIcon(this.isActive ? "nether_plus:CorruptedFurnace_on" : "nether_plus:CorruptedFurnace_off");
+		 this.furnaceIconTop = par1IconRegister.registerIcon("nether_plus:CorruptedFurnace_top");
 	 }
 	 
 	 public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
