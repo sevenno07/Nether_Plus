@@ -1,5 +1,7 @@
 package nether_plus.common.entity;
 
+import java.awt.Color;
+
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenHell;
@@ -10,8 +12,8 @@ public class NPEntityList
 {
 	public static void loadEntity()
 	{
-		EntityRegistry.registerGlobalEntityID(Salamander.class, "Salamandre", EntityRegistry.findGlobalUniqueEntityId(), 20, 10);
+		EntityRegistry.registerGlobalEntityID(Salamander.class, "Salamandre", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 102, 0).getRGB(), new Color(0, 0, 0).getRGB());
 		EntityRegistry.registerModEntity(Salamander.class, "Salamandre", 1, Nether_plus.instance, 40, 1, true);
-		EntityRegistry.addSpawn(Salamander.class, 100, 4, 4, EnumCreatureType.monster, BiomeGenBase.hell);
+		EntityRegistry.addSpawn(Salamander.class, 100, 4, 4, EnumCreatureType.creature, BiomeGenBase.hell);
 	}
 }

@@ -25,7 +25,7 @@ item.BlackIronIngot.name = Black Iron Ingot
 item.BlackBone.name = BlackBone
 
 #Entity
-entity.Salamander.name = Salamander
+entity.Salamandre.name = Salamander
 
 #CreativeTabs
 itemGroup.NetherPlusCreativeTabs = Nether Plus
