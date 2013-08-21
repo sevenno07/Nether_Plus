@@ -70,8 +70,10 @@ public class Nether_plus
 			NPProperties.GrimwoodStairsID = cfg.getBlock("GrimwoodStairs", 617).getInt();
 			NPProperties.CorruptedBrickStairsID = cfg.getBlock("CorruptedBrickStairs", 618).getInt();
 			NPProperties.NetherrackBrickStairsID = cfg.getBlock("NetherrackBrickStairs", 619).getInt();
-			NPProperties.ModWoodSlabID = cfg.getBlock("ModWoodSlab", 620).getInt();
-			NPProperties.ModWoodDoubleSlabID = cfg.getBlock("ModWoodDoubleSlab", 621).getInt();
+//			NPProperties.ModWoodDoubleSlabID = cfg.getBlock("ModWoodDoubleSlab", 620).getInt();
+//			NPProperties.ModWoodSlabID = cfg.getBlock("ModWoodSlab", 621).getInt();
+//			NPProperties.ModStoneDoubleSlabID = cfg.getBlock("ModStoneDoubleSlab", 622).getInt();
+//			NPProperties.ModStoneSlabID = cfg.getBlock("ModStoneSlab", 623).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();

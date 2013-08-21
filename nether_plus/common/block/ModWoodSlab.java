@@ -1,4 +1,4 @@
-package nether_plus.common.block;
+/**package nether_plus.common.block;
 
 import java.util.List;
 import java.util.Random;
@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ModWoodSlab extends BlockHalfSlab
 	{
-	public static final String[] woodType = new String[] {"NPBlockList:GrimwoodPlanks"};
+	public static final String[] woodType = new String[] {"GrimwoodPlanks"};
 
 	public ModWoodSlab(int par1, boolean par2)
 
@@ -67,4 +67,4 @@ public class ModWoodSlab extends BlockHalfSlab
 	
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {}
-}
+}*/
