@@ -46,6 +46,8 @@ public class NPBlockList
 //	public static BlockHalfSlab ModStoneDoubleSlab;
 	
 	public static Block ModFence;
+	public static Block CorruptedBrickWall;
+	public static Block NetherrackBrickWall;
 
 	public static void loadBlock()
 	{
@@ -78,7 +80,9 @@ public class NPBlockList
 //		ModStoneDoubleSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModStoneDoubleSlabID, true).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModWoodSlab");
 //		ModStoneSlab = (BlockHalfSlab) new ModWoodSlab(NPProperties.ModStoneSlabID, false).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModWoodSlab");
 		
-		ModFence = new BlockFence(624, "nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModFence").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		ModFence = new BlockFence(624, "nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("BlockFence").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		CorruptedBrickWall = new CorruptedBrickWall(625, CorruptedBrick).setUnlocalizedName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		NetherrackBrickWall = new NetherrackBrickWall(626, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
@@ -110,6 +114,8 @@ public class NPBlockList
 //		GameRegistry.registerBlock(ModWoodDoubleSlab, "Mod_Wood_Double_Slab");
 		
 		GameRegistry.registerBlock(ModFence, "Mod_Fence");
+		GameRegistry.registerBlock(CorruptedBrickWall, "Corrupted_Brick_Wall");
+		GameRegistry.registerBlock(NetherrackBrickWall, "Netherrack_Brick_Wall");
 		
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);

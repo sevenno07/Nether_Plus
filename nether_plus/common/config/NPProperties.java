@@ -37,6 +37,8 @@ public class NPProperties
 //	public static int ModStoneDoubleSlabID;
 	
 	public static int ModFenceID;
+	public static int CorruptedBrickWallID;
+	public static int NetherrackBrickWallID;
 	
 	//Items
 	public static int CharoiteCrystalID;

@@ -77,6 +77,8 @@ public class Nether_plus
 //			NPProperties.ModStoneDoubleSlabID = cfg.getBlock("ModStoneDoubleSlab", 622).getInt();
 //			NPProperties.ModStoneSlabID = cfg.getBlock("ModStoneSlab", 623).getInt();
 			NPProperties.ModFenceID = cfg.getBlock("ModFence", 624).getInt();
+			NPProperties.CorruptedBrickWallID = cfg.getBlock("CorruptedBrickWall", 625).getInt();
+			NPProperties.NetherrackBrickWallID = cfg.getBlock("NetherrackBrickWall", 626).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
