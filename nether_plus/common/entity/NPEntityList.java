@@ -17,7 +17,7 @@ public class NPEntityList
 		EntityRegistry.addSpawn(Salamander.class, 100, 4, 4, EnumCreatureType.creature, BiomeGenBase.hell);
 		
 		EntityRegistry.registerGlobalEntityID(Wight.class, "Wight", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 255, 255).getRGB(), new Color(0, 0, 0).getRGB());
-		EntityRegistry.registerModEntity(Wight.class, "Wight", 1, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.registerModEntity(Wight.class, "Wight", 2, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(Wight.class, 100, 4, 4, EnumCreatureType.creature, BiomeGenBase.hell);
 	}
 }
