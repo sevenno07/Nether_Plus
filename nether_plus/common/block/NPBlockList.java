@@ -101,6 +101,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(CorruptedBrick, "Corrupted_Brick");
 		GameRegistry.registerBlock(NetherrackBrick, "Netherrack_Brick");
 		GameRegistry.registerBlock(GrimwoodWorkbench, "Grimwood_Workbench");
+		GameRegistry.registerBlock(GrimwoodChest, "Grimwood_Chest");
 		
 		GameRegistry.registerBlock(fourOn, "four_On");
 		GameRegistry.registerBlock(fourOff, "four_Off");

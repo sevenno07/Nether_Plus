@@ -13,11 +13,11 @@ public class NPEntityList
 	public static void loadEntity()
 	{
 		EntityRegistry.registerGlobalEntityID(Salamander.class, "Salamandre", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 102, 0).getRGB(), new Color(0, 0, 0).getRGB());
-		EntityRegistry.registerModEntity(Salamander.class, "Salamandre", 1, Nether_plus.instance, 40, 1, true);
-		EntityRegistry.addSpawn(Salamander.class, 100, 4, 4, EnumCreatureType.creature, BiomeGenBase.hell);
+		EntityRegistry.registerModEntity(Salamander.class, "Salamandre", 230, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.addSpawn(Salamander.class, 100, 4, 7, EnumCreatureType.creature, BiomeGenBase.hell);
 		
 		EntityRegistry.registerGlobalEntityID(Wight.class, "Wight", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 255, 255).getRGB(), new Color(0, 0, 0).getRGB());
-		EntityRegistry.registerModEntity(Wight.class, "Wight", 2, Nether_plus.instance, 40, 1, true);
-		EntityRegistry.addSpawn(Wight.class, 100, 4, 4, EnumCreatureType.creature, BiomeGenBase.hell);
+		EntityRegistry.registerModEntity(Wight.class, "Wight", 231, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.addSpawn(Wight.class, 100, 4, 7, EnumCreatureType.creature, BiomeGenBase.hell);
 	}
 }

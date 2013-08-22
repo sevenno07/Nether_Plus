@@ -20,21 +20,13 @@ public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
 
 	/** The normal small chest model. */
     private ModelChest chestModel = new ModelChest();
-
+    
     /** The large double chest model. */
     private ModelChest largeChestModel = new ModelLargeChest();
-
-    /** If true, chests will be rendered with the Christmas present textures. */
-    private boolean isChristmas;
 
     public TileEntityGrimwoodChestRenderer()
     {
         Calendar calendar = Calendar.getInstance();
-
-        if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26)
-        {
-            this.isChristmas = true;
-        }
     }
 
     /**
@@ -80,15 +72,7 @@ public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
 
                 if (par1TileEntityChest.func_98041_l() == 1)
                 {
-                    this.bindTextureByName("/item/chests/trap_small.png");
-                }
-                else if (this.isChristmas)
-                {
-                    this.bindTextureByName("/item/xmaschest.png");
-                }
-                else
-                {
-                    this.bindTextureByName("/item/chest.png");
+                    this.bindTextureByName("/mods/nether_plus/textures/GrimwoodChest.png");
                 }
             }
             else
@@ -97,15 +81,7 @@ public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
 
                 if (par1TileEntityChest.func_98041_l() == 1)
                 {
-                    this.bindTextureByName("/item/chests/trap_large.png");
-                }
-                else if (this.isChristmas)
-                {
-                    this.bindTextureByName("/item/largexmaschest.png");
-                }
-                else
-                {
-                    this.bindTextureByName("/item/largechest.png");
+                    this.bindTextureByName("/mods/nether_plus/textures/GrimwoodLargeChest.png");
                 }
             }
 
