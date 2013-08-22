@@ -44,4 +44,5 @@ public class NPProperties
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
 	public static int BlackBoneID;
+	public static int BlackBoneMealID;
 }

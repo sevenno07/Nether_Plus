@@ -12,7 +12,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
 
-public class Salamander extends EntityTameable
+public class Salamander extends EntityAnimal
 {
 
 	public Salamander(World par1World)

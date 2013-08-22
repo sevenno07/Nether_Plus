@@ -84,6 +84,7 @@ public class Nether_plus
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
 			NPProperties.BlackIronIngotID = cfg.getItem("BlaackIronIngot", 4001).getInt();
 			NPProperties.BlackBoneID = cfg.getItem("BlackBone", 4002).getInt();
+			NPProperties.BlackBoneMealID = cfg.getItem("BlackBoneMeal", 4003).getInt();
 		}
 		catch(Exception ex)
 		{
