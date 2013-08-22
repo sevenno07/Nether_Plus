@@ -1,4 +1,4 @@
-package nether_plus.common.block;
+package nether_plus.common.block.container;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,6 +8,9 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import nether_plus.common.block.slot.SlotFour;
+import nether_plus.common.recipe.RecipesFour;
+import nether_plus.common.tileentity.TileEntityFour;
 
 public class ContainerFour extends Container
 {

@@ -1,9 +1,11 @@
-package nether_plus.common.block;
+package nether_plus.common.gui;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import nether_plus.common.block.container.ContainerFour;
+import nether_plus.common.tileentity.TileEntityFour;
 
 public class GuiHandler implements IGuiHandler{
 

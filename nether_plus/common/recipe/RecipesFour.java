@@ -1,4 +1,4 @@
-package nether_plus.common.block;
+package nether_plus.common.recipe;
 
 import java.util.Arrays;
 import java.util.HashMap;

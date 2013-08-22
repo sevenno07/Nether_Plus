@@ -1,4 +1,4 @@
-package nether_plus.common.block;
+package nether_plus.common.gui;
 
 import org.lwjgl.opengl.GL11;
 
@@ -6,6 +6,8 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ContainerFurnace;
 import net.minecraft.util.StatCollector;
+import nether_plus.common.block.container.ContainerFour;
+import nether_plus.common.tileentity.TileEntityFour;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

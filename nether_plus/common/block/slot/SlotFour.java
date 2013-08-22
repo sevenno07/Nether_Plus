@@ -1,4 +1,4 @@
-package nether_plus.common.block;
+package nether_plus.common.block.slot;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.item.EntityXPOrb;

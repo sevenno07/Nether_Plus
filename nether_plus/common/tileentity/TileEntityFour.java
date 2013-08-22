@@ -1,4 +1,4 @@
-package nether_plus.common.block;
+package nether_plus.common.tileentity;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -16,6 +16,8 @@ import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import nether_plus.common.block.BlockFour;
+import nether_plus.common.recipe.RecipesFour;
 
 public class TileEntityFour extends TileEntity implements ISidedInventory
 {

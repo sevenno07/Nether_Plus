@@ -19,7 +19,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import nether_plus.common.NetherPlusCreativeTabs;
 import nether_plus.common.Nether_plus;
+import nether_plus.common.tileentity.TileEntityFour;
 
 public class BlockFour extends BlockContainer
 {
@@ -52,9 +54,9 @@ private final Random furnaceRand = new Random();
 	 @SideOnly(Side.CLIENT)
 	 public void registerIcons(IconRegister par1IconRegister)
 	 {
-		 this.blockIcon = par1IconRegister.registerIcon("nether_plus:CorruptedFurnace_side");
-		 this.furnaceIconFront = par1IconRegister.registerIcon(this.isActive ? "nether_plus:CorruptedFurnace_on" : "nether_plus:CorruptedFurnace_off");
-		 this.furnaceIconTop = par1IconRegister.registerIcon("nether_plus:CorruptedFurnace_top");
+		 this.blockIcon = par1IconRegister.registerIcon("Nether_Plus:CorruptedFurnace_side");
+		 this.furnaceIconFront = par1IconRegister.registerIcon(this.isActive ? "Nether_Plus:CorruptedFurnace_on" : "Nether_Plus:CorruptedFurnace_off");
+		 this.furnaceIconTop = par1IconRegister.registerIcon("Nether_Plus:CorruptedFurnace_top");
 	 }
 	 
 	 public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
