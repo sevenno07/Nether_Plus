@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
 
@@ -82,6 +83,13 @@ public class Salamander extends EntityAnimal
         return "mob.zombie.death";
     }
     
+    public boolean attackEntityFrom(DamageSource damagesource, int i)
+    {
+    	Entity entity = damagesource.getEntity();
+    	this.setTarget(entity);
+    	return super.attackEntityFrom(damagesource, i);
+    }
+    
     protected int getDropItemId()
     {
     	return NPItemList.BlackBone.itemID;
@@ -96,7 +104,7 @@ public class Salamander extends EntityAnimal
     {
     	return new Salamander(this.worldObj);
     }
-
+    
 	@Override
 	public EntityAgeable createChild(EntityAgeable entityageable)
 	{
