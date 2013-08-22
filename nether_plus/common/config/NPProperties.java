@@ -26,6 +26,7 @@ public class NPProperties
 	public static int GrimwoodWorkbenchID;
 	public static int fourOnID;
 	public static int fourOffID;
+	public static int GrimwoodChestID;
 	
 	public static int GrimwoodStairsID;
 	public static int CorruptedBrickStairsID;

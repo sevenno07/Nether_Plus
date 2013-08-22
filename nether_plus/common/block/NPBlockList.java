@@ -2,9 +2,7 @@ package nether_plus.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import nether_plus.common.NetherPlusCreativeTabs;
 import nether_plus.common.config.NPProperties;
@@ -29,12 +27,13 @@ public class NPBlockList
 	public static Block GrimwoodPlanks;
 	public static Block CorruptedBrick;
 	public static Block NetherrackBrick;
-	public static Block GrimwoodWorkbench;
 	
+	public static Block GrimwoodWorkbench;
 //	public static Block CorruptedFurnace_Off;
 //	public static Block CorruptedFurnace_On;
 	public static Block fourOff;
 	public static Block fourOn;
+	public static Block GrimwoodChest;
 	
 	public static Block GrimwoodStairs;
 	public static Block CorruptedBrickStairs;
@@ -69,7 +68,7 @@ public class NPBlockList
 		CorruptedBrick = new CorruptedBrick(NPProperties.CorruptedBrickID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedBrick");
 		NetherrackBrick = new NetherrackBrick(NPProperties.NetherrackBrickID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("NetherrackBrick");
 		GrimwoodWorkbench  = new GrimwoodWorkbench(NPProperties.GrimwoodWorkbenchID).setStepSound(Block.soundWoodFootstep).setHardness(1.5F).setResistance(5.0F).setUnlocalizedName("GrimwoodWorkbench");
-		
+		GrimwoodChest = new GrimwoodChest(NPProperties.GrimwoodChestID, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodChest");
 		fourOn = new BlockFour(616, true).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("Mon four");
 		fourOff = new BlockFour(615, false).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("Mon four").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		
