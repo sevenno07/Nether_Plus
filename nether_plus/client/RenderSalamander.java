@@ -2,6 +2,9 @@ package nether_plus.client;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,10 +13,11 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.boss.EntityDragon;
 import nether_plus.common.entity.Salamander;
 
+@SideOnly(Side.CLIENT)
 public class RenderSalamander extends RenderLiving
 {
 	
-    protected int renderGlow(EntityDragon par1EntityDragon, int par2, float par3)
+    protected int renderGlow(Salamander par1Salamander, int par2, float par3)
     {
         if (par2 == 1)
         {
@@ -26,7 +30,7 @@ public class RenderSalamander extends RenderLiving
         }
         else
         {
-            this.loadTexture("/mods/nether_plus/textures/Entitysalamander_orange_Collar.png");
+            this.loadTexture("/mods/nether_plus/textures/Entity/salamander_orange_Collar.png");
             float f1 = 1.0F;
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glDisable(GL11.GL_ALPHA_TEST);

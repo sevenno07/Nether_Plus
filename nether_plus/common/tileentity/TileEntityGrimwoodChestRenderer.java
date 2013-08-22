@@ -3,19 +3,18 @@ package nether_plus.common.tileentity;
 import java.util.Calendar;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.model.ModelLargeChest;
-import net.minecraft.client.renderer.tileentity.TileEntityChestRenderer;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
+import nether_plus.common.block.GrimwoodChest;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.common.FMLLog;
 
-public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
+public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer
 {
 
 	/** The normal small chest model. */
@@ -32,56 +31,56 @@ public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
     /**
      * Renders the TileEntity for the chest at a position.
      */
-    public void renderTileEntityChestAt(TileEntityChest par1TileEntityChest, double par2, double par4, double par6, float par8)
+    public void renderTileEntityGrimwoodChestAt(TileEntityGrimwoodChest par1TileEntityGrimwoodChest, double par2, double par4, double par6, float par8)
     {
         int i;
 
-        if (!par1TileEntityChest.func_70309_m())
+        if (!par1TileEntityGrimwoodChest.func_70309_m())
         {
             i = 0;
         }
         else
         {
-            Block block = par1TileEntityChest.getBlockType();
-            i = par1TileEntityChest.getBlockMetadata();
+            Block block = par1TileEntityGrimwoodChest.getBlockType();
+            i = par1TileEntityGrimwoodChest.getBlockMetadata();
 
-            if (block instanceof BlockChest && i == 0)
+            if (block instanceof GrimwoodChest && i == 0)
             {
                 try
                 {
-                    ((BlockChest)block).unifyAdjacentChests(par1TileEntityChest.getWorldObj(), par1TileEntityChest.xCoord, par1TileEntityChest.yCoord, par1TileEntityChest.zCoord);
+                    ((GrimwoodChest)block).unifyAdjacentChests(par1TileEntityGrimwoodChest.getWorldObj(), par1TileEntityGrimwoodChest.xCoord, par1TileEntityGrimwoodChest.yCoord, par1TileEntityGrimwoodChest.zCoord);
                 }
                 catch (ClassCastException e)
                 {
                     FMLLog.severe("Attempted to render a chest at %d,  %d, %d that was not a chest",
-                            par1TileEntityChest.xCoord, par1TileEntityChest.yCoord, par1TileEntityChest.zCoord);
+                            par1TileEntityGrimwoodChest.xCoord, par1TileEntityGrimwoodChest.yCoord, par1TileEntityGrimwoodChest.zCoord);
                 }
-                i = par1TileEntityChest.getBlockMetadata();
+                i = par1TileEntityGrimwoodChest.getBlockMetadata();
             }
 
-            par1TileEntityChest.checkForAdjacentChests();
+            par1TileEntityGrimwoodChest.checkForAdjacentChests();
         }
 
-        if (par1TileEntityChest.adjacentChestZNeg == null && par1TileEntityChest.adjacentChestXNeg == null)
+        if (par1TileEntityGrimwoodChest.adjacentChestZNeg == null && par1TileEntityGrimwoodChest.adjacentChestXNeg == null)
         {
             ModelChest modelchest;
 
-            if (par1TileEntityChest.adjacentChestXPos == null && par1TileEntityChest.adjacentChestZPosition == null)
+            if (par1TileEntityGrimwoodChest.adjacentChestXPos == null && par1TileEntityGrimwoodChest.adjacentChestZPosition == null)
             {
                 modelchest = this.chestModel;
 
-                if (par1TileEntityChest.func_98041_l() == 1)
+                if (par1TileEntityGrimwoodChest.func_98041_l() == 1)
                 {
-                    this.bindTextureByName("/mods/nether_plus/textures/GrimwoodChest.png");
+                    this.bindTextureByName("/mods/nether_plus/textures/items/GrimwoodChest.png");
                 }
             }
             else
             {
                 modelchest = this.largeChestModel;
 
-                if (par1TileEntityChest.func_98041_l() == 1)
+                if (par1TileEntityGrimwoodChest.func_98041_l() == 1)
                 {
-                    this.bindTextureByName("/mods/nether_plus/textures/GrimwoodLargeChest.png");
+                    this.bindTextureByName("/mods/nether_plus/textures/items/GrimwoodLargeChest.png");
                 }
             }
 
@@ -113,24 +112,24 @@ public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
                 short1 = -90;
             }
 
-            if (i == 2 && par1TileEntityChest.adjacentChestXPos != null)
+            if (i == 2 && par1TileEntityGrimwoodChest.adjacentChestXPos != null)
             {
                 GL11.glTranslatef(1.0F, 0.0F, 0.0F);
             }
 
-            if (i == 5 && par1TileEntityChest.adjacentChestZPosition != null)
+            if (i == 5 && par1TileEntityGrimwoodChest.adjacentChestZPosition != null)
             {
                 GL11.glTranslatef(0.0F, 0.0F, -1.0F);
             }
 
             GL11.glRotatef((float)short1, 0.0F, 1.0F, 0.0F);
             GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-            float f1 = par1TileEntityChest.prevLidAngle + (par1TileEntityChest.lidAngle - par1TileEntityChest.prevLidAngle) * par8;
+            float f1 = par1TileEntityGrimwoodChest.prevLidAngle + (par1TileEntityGrimwoodChest.lidAngle - par1TileEntityGrimwoodChest.prevLidAngle) * par8;
             float f2;
 
-            if (par1TileEntityChest.adjacentChestZNeg != null)
+            if (par1TileEntityGrimwoodChest.adjacentChestZNeg != null)
             {
-                f2 = par1TileEntityChest.adjacentChestZNeg.prevLidAngle + (par1TileEntityChest.adjacentChestZNeg.lidAngle - par1TileEntityChest.adjacentChestZNeg.prevLidAngle) * par8;
+                f2 = par1TileEntityGrimwoodChest.adjacentChestZNeg.prevLidAngle + (par1TileEntityGrimwoodChest.adjacentChestZNeg.lidAngle - par1TileEntityGrimwoodChest.adjacentChestZNeg.prevLidAngle) * par8;
 
                 if (f2 > f1)
                 {
@@ -138,9 +137,9 @@ public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
                 }
             }
 
-            if (par1TileEntityChest.adjacentChestXNeg != null)
+            if (par1TileEntityGrimwoodChest.adjacentChestXNeg != null)
             {
-                f2 = par1TileEntityChest.adjacentChestXNeg.prevLidAngle + (par1TileEntityChest.adjacentChestXNeg.lidAngle - par1TileEntityChest.adjacentChestXNeg.prevLidAngle) * par8;
+                f2 = par1TileEntityGrimwoodChest.adjacentChestXNeg.prevLidAngle + (par1TileEntityGrimwoodChest.adjacentChestXNeg.lidAngle - par1TileEntityGrimwoodChest.adjacentChestXNeg.prevLidAngle) * par8;
 
                 if (f2 > f1)
                 {
@@ -160,6 +159,6 @@ public class TileEntityGrimwoodChestRenderer extends TileEntityChestRenderer
 
     public void renderTileEntityAt(TileEntity par1TileEntity, double par2, double par4, double par6, float par8)
     {
-        this.renderTileEntityChestAt((TileEntityChest)par1TileEntity, par2, par4, par6, par8);
+        this.renderTileEntityGrimwoodChestAt((TileEntityGrimwoodChest)par1TileEntity, par2, par4, par6, par8);
     }
 }

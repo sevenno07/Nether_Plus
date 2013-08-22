@@ -16,6 +16,8 @@ import nether_plus.common.config.NPProperties;
 import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.item.NPItemList;
 import nether_plus.common.recipe.NPRecipe;
+import nether_plus.common.tileentity.NPTEntityList;
+import nether_plus.common.gui.GuiHandler;
 import nether_plus.proxy.NPCommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -27,6 +29,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "nether_plus", name = "Nether plus", version = "1.0.0")
@@ -40,6 +43,7 @@ public class Nether_plus
 	public static nether_plus.common.Nether_plus instance;
 	
 	public static File ConfigFile;
+	protected static final GuiHandler GuiHandler = new GuiHandler();
 	
 	@PreInit
 	public void preload(FMLPreInitializationEvent event)
@@ -113,7 +117,10 @@ public class Nether_plus
 		proxy.registerRender();
 		proxy.registerRenderEntity();
 
-		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());		
+		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
+		
+		NPTEntityList.loadTileEntity();
+		NetworkRegistry.instance().registerGuiHandler(this, GuiHandler);
 	}
 
 	@PostInit
