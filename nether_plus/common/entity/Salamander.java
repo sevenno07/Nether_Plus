@@ -30,44 +30,10 @@ public class Salamander extends EntityAnimal
 	{
 		return 20;
 	}
-	
-	public void setAttackTarget(EntityLiving par1EntityLiving)
-    {
-        super.setAttackTarget(par1EntityLiving);
-
-        if (par1EntityLiving instanceof EntityPlayer)
-        {
-            this.setAngry(true);
-        }
-    }
-	
-	public boolean isAngry()
-    {
-        return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
-    }
-	
-	private void setAngry(boolean b)
-	{
-		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
-
-        if (b)
-        {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 2)));
-        }
-        else
-        {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -3)));
-        }
-	}
 
 	public void onLivingUpdate()
 	{
 		super.onLivingUpdate();
-	}
-
-	public int getAttackStrength(Entity entity)
-	{
-		return 5;
 	}
 	
 	protected String getLivingSound()

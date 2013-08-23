@@ -16,38 +16,6 @@ import nether_plus.common.entity.Salamander;
 @SideOnly(Side.CLIENT)
 public class RenderSalamander extends RenderLiving
 {
-	
-    protected int renderGlow(Salamander par1Salamander, int par2, float par3)
-    {
-        if (par2 == 1)
-        {
-            GL11.glDepthFunc(GL11.GL_LEQUAL);
-        }
-
-        if (par2 != 0)
-        {
-            return -1;
-        }
-        else
-        {
-            this.loadTexture("/mods/nether_plus/textures/Entity/salamander_orange_Collar.png");
-            float f1 = 1.0F;
-            GL11.glEnable(GL11.GL_BLEND);
-            GL11.glDisable(GL11.GL_ALPHA_TEST);
-            GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
-            GL11.glDisable(GL11.GL_LIGHTING);
-            GL11.glDepthFunc(GL11.GL_EQUAL);
-            char c0 = 61680;
-            int j = c0 % 65536;
-            int k = c0 / 65536;
-            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j / 1.0F, (float)k / 1.0F);
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-            GL11.glEnable(GL11.GL_LIGHTING);
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, f1);
-            return 1;
-        }
-    }
-	
 	private ModelBase ModelSalamander = new ModelSalamander();
 	
 	public RenderSalamander(ModelSalamander par1ModelSalamander, float par2)

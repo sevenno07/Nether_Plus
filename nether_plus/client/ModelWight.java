@@ -1,4 +1,3 @@
-//Fish2's code 
 package nether_plus.client;
 
 import java.util.Random;
@@ -22,9 +21,11 @@ public class ModelWight extends ModelBase
 	public ModelRenderer LowBody;
 	public ModelRenderer Head;
 	public ModelRenderer Hood;
-	 public ModelWight()
-	 {
+	
+	public ModelWight()
+	{
 		    float scale = 0F;
+		    
 		    TopBody = new ModelRenderer(this, 14, 23);
 		    TopBody.addBox(-4.0F, -2.5F, -2F, 9, 5, 4, scale);
 		    TopBody.setRotationPoint(-0.5F, 5.5F, -0.5F);

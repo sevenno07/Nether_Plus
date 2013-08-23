@@ -18,6 +18,10 @@ public class NPEntityList
 		
 		EntityRegistry.registerGlobalEntityID(Wight.class, "Wight", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 255, 255).getRGB(), new Color(0, 0, 0).getRGB());
 		EntityRegistry.registerModEntity(Wight.class, "Wight", 231, Nether_plus.instance, 40, 1, true);
-		EntityRegistry.addSpawn(Wight.class, 100, 4, 7, EnumCreatureType.creature, BiomeGenBase.hell);
+		EntityRegistry.addSpawn(Wight.class, 100, 4, 7, EnumCreatureType.monster, BiomeGenBase.hell);
+		
+		EntityRegistry.registerGlobalEntityID(Mogus.class, "Mogus", EntityRegistry.findGlobalUniqueEntityId(), new Color(156, 88, 37).getRGB(), new Color(0, 0, 0).getRGB());
+		EntityRegistry.registerModEntity(Mogus.class, "Mogus", 232, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.addSpawn(Mogus.class, 500, 5, 12, EnumCreatureType.creature, BiomeGenBase.hell);
 	}
 }

@@ -6,31 +6,31 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import nether_plus.common.entity.Wight;
+import nether_plus.common.entity.Mogus;
 
 @SideOnly(Side.CLIENT)
-public class RenderWight extends RenderLiving
+public class RenderMogus extends RenderLiving
 {
-	private ModelBase ModelWight = new ModelWight();
+	private ModelBase ModelMogus = new ModelMogus();
 	
-	public RenderWight(ModelWight par1ModelWight, float par2)
+	public RenderMogus(ModelMogus par1ModelMogus, float par2)
 	{
-		super(new ModelWight(), 0.5F);
+		super(new ModelMogus(), 0.5F);
 	}
 	
-	public void renderWight(Wight entity, double par2, double par4, double par6, float par8, float par9)
+	public void rendermogus(Mogus entity, double par2, double par4, double par6, float par8, float par9)
     {
         super.doRenderLiving(entity, par2, par4, par6, par8, par9);
     }
  
 	public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
     {
-        renderWight((Wight) par1EntityLiving, par2, par4, par6, par8, par9);
+		rendermogus((Mogus) par1EntityLiving, par2, par4, par6, par8, par9);
     }
  
  	public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
-        renderWight((Wight)par1Entity, par2, par4, par6, par8, par9);
+ 		rendermogus((Mogus)par1Entity, par2, par4, par6, par8, par9);
     }
 
 }
