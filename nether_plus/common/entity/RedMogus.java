@@ -7,13 +7,13 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.src.*;
 import net.minecraft.world.World;
 
-public class Mogus extends EntityCreature
+public class RedMogus extends EntityCreature
 { 
 
-    public Mogus(World world)
+    public RedMogus(World world)
     {
         super(world);
-		this.texture = "/mods/nether_plus/textures/Entity/Mogus.png";
+		this.texture = "/mods/nether_plus/textures/Entity/RedMogus.png";
         moveSpeed = 1.0F;
         stepHeight = 0.0F;
         isImmuneToFire = true;
@@ -46,6 +46,6 @@ public class Mogus extends EntityCreature
 
     protected int getDropItemId()
     {
-        return Block.mushroomBrown.blockID;
+        return Block.mushroomRed.blockID;
     }
 }

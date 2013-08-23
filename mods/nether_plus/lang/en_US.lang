@@ -33,6 +33,7 @@ item.BlackBone.name = BlackBone
 entity.Salamandre.name = Salamandre
 entity.Wight.name = Wight
 entity.Mogus.name = Mogus
+entity.RedMogus.name = Red Mogus
 
 #CreativeTabs
 itemGroup.NetherPlusCreativeTabs = Nether Plus

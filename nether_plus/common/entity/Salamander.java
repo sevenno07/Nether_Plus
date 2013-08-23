@@ -2,10 +2,8 @@ package nether_plus.common.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -29,6 +27,11 @@ public class Salamander extends EntityAnimal
 	public int getMaxHealth()
 	{
 		return 20;
+	}
+	
+    public int getMaxSpawnedInChunk()
+	{
+	return 7;
 	}
 
 	public void onLivingUpdate()
