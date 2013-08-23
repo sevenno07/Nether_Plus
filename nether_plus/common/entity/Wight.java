@@ -1,16 +1,14 @@
 package nether_plus.common.entity;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class Wight extends EntityCreature
+public class Wight extends EntityMob
 {
 
 	public Wight(World World)
@@ -26,13 +24,28 @@ public class Wight extends EntityCreature
 		super.onLivingUpdate();
 	}
 	
+	protected Entity findPlayerToAttack()
+    {
+        float f = this.getBrightness(1.0F);
+
+        if (f < 0.5F)
+        {
+            double d0 = 16.0D;
+            return this.worldObj.getClosestVulnerablePlayerToEntity(this, d0);
+        }
+        else
+        {
+            return null;
+        }
+    }
+	
 	@Override
 	public int getMaxHealth()
 	{
 		return 10;
 	}
 	
-/**	private void setAngry(boolean b)
+	private void setAngry(boolean b)
 	{
 		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 
@@ -59,7 +72,7 @@ public class Wight extends EntityCreature
         {
             this.setAngry(true);
         }
-    }*/
+    }
 	
 	public int getAttackStrength(Entity entity)
 	{
