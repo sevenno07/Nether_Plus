@@ -12,19 +12,23 @@ public class NPEntityList
 	public static void loadEntity()
 	{
 		EntityRegistry.registerGlobalEntityID(Salamander.class, "Salamandre", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 102, 0).getRGB(), new Color(0, 0, 0).getRGB());
-		EntityRegistry.registerModEntity(Salamander.class, "Salamandre", 1, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.registerModEntity(Salamander.class, "Salamandre", 231, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(Salamander.class, 100, 7, 7, EnumCreatureType.creature, BiomeGenBase.hell);
 		
 		EntityRegistry.registerGlobalEntityID(Wight.class, "Wight", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 255, 255).getRGB(), new Color(0, 0, 0).getRGB());
-		EntityRegistry.registerModEntity(Wight.class, "Wight", 2, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.registerModEntity(Wight.class, "Wight", 232, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(Wight.class, 100, 7, 7, EnumCreatureType.creature, BiomeGenBase.hell);
 		
 		EntityRegistry.registerGlobalEntityID(Mogus.class, "Mogus", EntityRegistry.findGlobalUniqueEntityId(), new Color(156, 88, 37).getRGB(), new Color(255, 255, 255).getRGB());
-		EntityRegistry.registerModEntity(Mogus.class, "Mogus", 3, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.registerModEntity(Mogus.class, "Mogus", 233, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(Mogus.class, 75, 12, 12, EnumCreatureType.creature, BiomeGenBase.hell);
 		
 		EntityRegistry.registerGlobalEntityID(RedMogus.class, "RedMogus", EntityRegistry.findGlobalUniqueEntityId(), new Color(167, 37, 40).getRGB(), new Color(255, 255, 255).getRGB());
-		EntityRegistry.registerModEntity(RedMogus.class, "RedMogus", 4, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.registerModEntity(RedMogus.class, "RedMogus", 234, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(RedMogus.class, 75, 12, 12, EnumCreatureType.creature, BiomeGenBase.hell);
+		
+		EntityRegistry.registerGlobalEntityID(LavaTortoise.class, "LavaTortoise", EntityRegistry.findGlobalUniqueEntityId(), new Color(167, 37, 40).getRGB(), new Color(255, 255, 255).getRGB());
+		EntityRegistry.registerModEntity(LavaTortoise.class, "LavaTortoise", 235, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.addSpawn(LavaTortoise.class, 100, 7, 7, EnumCreatureType.creature, BiomeGenBase.hell);
 	}
 }

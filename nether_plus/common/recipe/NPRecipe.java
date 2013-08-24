@@ -18,8 +18,8 @@ public class NPRecipe
 	public static void loadSmelting()
 	{
 		GameRegistry.addSmelting(Block.slowSand.blockID, new ItemStack(NPBlockList.SoulGlass), 2.0F);
-		GameRegistry.addSmelting(NPProperties.GlowstoneSandID, new ItemStack(Block.glowStone), 2.0F);
-		GameRegistry.addSmelting(NPProperties.CorruptedGoldOreID, new ItemStack(Item.ingotGold), 2.0F);
-		GameRegistry.addSmelting(NPProperties.CorruptedBlackIronOreID, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
+		GameRegistry.addSmelting(NPBlockList.GlowstoneSand.blockID, new ItemStack(Block.glowStone), 2.0F);
+		GameRegistry.addSmelting(NPBlockList.CorruptedGoldOre.blockID, new ItemStack(Item.ingotGold), 2.0F);
+		GameRegistry.addSmelting(NPBlockList.CorruptedBlackIronOre.blockID, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
 	}
 }
