@@ -28,6 +28,8 @@ tile.NetherrackBrickWall.name = Netherrack Brick Wall
 item.CharoiteCrystal.name = Charoite Crystal
 item.BlackIronIngot.name = Black Iron Ingot
 item.BlackBone.name = Os Noir
+item.BlackBoneMeal.name = BlackBoneMeal
+item.Fireslimeball.name = Fireslimeball
 
 #Entity
 entity.Salamandre.name = Salamandre
@@ -35,6 +37,8 @@ entity.Wight.name = Wight
 entity.Mogus.name = Mogus
 entity.RedMogus.name = Red Mogus
 entity.LavaTortoise.name = LavaTortoise
+entity.Pordenfer.name = Pordenfer
+entity.FireSlime.name = FireSlime
 
 #CreativeTabs
 itemGroup.NetherPlusCreativeTabs = Nether Plus

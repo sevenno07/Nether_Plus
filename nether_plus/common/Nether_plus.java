@@ -90,6 +90,7 @@ public class Nether_plus
 			NPProperties.BlackIronIngotID = cfg.getItem("BlaackIronIngot", 4001).getInt();
 			NPProperties.BlackBoneID = cfg.getItem("BlackBone", 4002).getInt();
 			NPProperties.BlackBoneMealID = cfg.getItem("BlackBoneMeal", 4003).getInt();
+			NPProperties.FireslimeballID = cfg.getItem("Fireslimeball", 4004).getInt();
 		}
 		catch(Exception ex)
 		{

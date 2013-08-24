@@ -6,10 +6,9 @@ import nether_plus.common.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlackBone extends Item
+public class Fireslimeball extends Item
 {
-
-	public BlackBone(int id)
+	public Fireslimeball(int id)
 	{
 		super(id);
 		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
@@ -18,6 +17,6 @@ public class BlackBone extends Item
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)
 	{
-        this.itemIcon = iconregister.registerIcon("nether_plus:BlackBone");
+        this.itemIcon = iconregister.registerIcon("nether_plus:Fireslimeball");
  	}
 }
