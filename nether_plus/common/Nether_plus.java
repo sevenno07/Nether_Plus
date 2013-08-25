@@ -91,6 +91,16 @@ public class Nether_plus
 			NPProperties.BlackBoneID = cfg.getItem("BlackBone", 4002).getInt();
 			NPProperties.BlackBoneMealID = cfg.getItem("BlackBoneMeal", 4003).getInt();
 			NPProperties.FireslimeballID = cfg.getItem("Fireslimeball", 4004).getInt();
+			
+			NPProperties.SkeletonWhiteHelmetID = cfg.getItem("SkeletonWhiteHelmet", 4005).getInt();
+			NPProperties.SkeletonWhiteChestplateID = cfg.getItem("SkeletonWhiteChestplate", 4006).getInt();
+			NPProperties.SkeletonWhiteLeggingsID = cfg.getItem("SkeletonWhiteLeggings", 4007).getInt();
+			NPProperties.SkeletonWhiteBootID = cfg.getItem("SkeletonWhiteBoot", 4008).getInt();
+			
+			NPProperties.SkeletonBlackHelmetID = cfg.getItem("SkeletonBlackHelmet", 4009).getInt();
+			NPProperties.SkeletonBlackChestplateID = cfg.getItem("SkeletonBlackChestplate", 4010).getInt();
+			NPProperties.SkeletonBlackLeggingsID = cfg.getItem("SkeletonBlackLeggings", 4011).getInt();
+			NPProperties.SkeletonBlackBootID = cfg.getItem("SkeletonBlackBoot", 4012).getInt();
 		}
 		catch(Exception ex)
 		{

@@ -10,18 +10,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import nether_plus.common.NetherPlusCreativeTabs;
-import nether_plus.common.config.NPProperties;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ModWoodSlab extends BlockStep
-	{
+{
 	public static final String[] StepTypes = new String[] {"GrimwoodPlanks", "CorrutionStone"};
 
 	public ModWoodSlab(int id, boolean isDouble)
-
 	{
 		super(id, isDouble);
+		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		if(!this.isDoubleSlab)
 		{
 			setLightOpacity(0);

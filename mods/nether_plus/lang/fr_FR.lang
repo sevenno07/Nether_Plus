@@ -14,7 +14,7 @@ tile.GrimwoodPlanks.name = Grimwood Planks
 tile.CorruptedBrick.name = Corrupted Brick
 tile.NetherrackBrick.name = Netherrack Brick
 tile.GrimwoodWorkbench.name = Grimwood Workbench
-tile.fourOff.name = Corrupted Furnace
+container.furnace = Corrupted Furnace
 
 tile.GrimwoodStairs.name = Grimwood Stairs
 tile.CorruptedBrickStairs.name = Corrupted Brick Stairs
@@ -30,6 +30,14 @@ item.BlackIronIngot.name = Black Iron Ingot
 item.BlackBone.name = Os Noir
 item.BlackBoneMeal.name = BlackBoneMeal
 item.Fireslimeball.name = Fireslimeball
+item.SkeletonWhiteHelmet.name = Skeleton White Helmet
+item.SkeletonWhiteChestplate.name = Skeleton White Chestplate
+item.SkeletonWhiteLeggings.name = Skeleton White Leggings
+item.SkeletonWhiteBoot.name = Skeleton White Boot
+item.SkeletonBlackHelmet.name = Skeleton Black Helmet
+item.SkeletonBlackChestplate.name = Skeleton Black Chestplate
+item.SkeletonBlackLeggings.name = Skeleton Black Leggings
+item.SkeletonBlackBoot.name = Skeleton Black Boot
 
 #Entity
 entity.Salamandre.name = Salamandre

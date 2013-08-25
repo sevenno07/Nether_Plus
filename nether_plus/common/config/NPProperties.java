@@ -1,7 +1,5 @@
 package nether_plus.common.config;
 
-import net.minecraft.block.Block;
-
 public class NPProperties
 {
 	//Block
@@ -47,4 +45,14 @@ public class NPProperties
 	public static int BlackBoneID;
 	public static int BlackBoneMealID;
 	public static int FireslimeballID;
+	
+	public static int SkeletonWhiteHelmetID;
+	public static int SkeletonWhiteChestplateID;
+	public static int SkeletonWhiteLeggingsID;
+	public static int SkeletonWhiteBootID;
+	
+	public static int SkeletonBlackHelmetID;
+	public static int SkeletonBlackChestplateID;
+	public static int SkeletonBlackLeggingsID;
+	public static int SkeletonBlackBootID;
 }
