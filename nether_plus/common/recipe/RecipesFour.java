@@ -8,6 +8,8 @@ import java.util.Map;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import nether_plus.common.block.NPBlockList;
+import nether_plus.common.item.NPItemList;
 
 public class RecipesFour
 	{
@@ -44,6 +46,10 @@ public class RecipesFour
 		this.addSmelting(Block.oreRedstone.blockID, new ItemStack(Item.redstone), 0.7F);
 		this.addSmelting(Block.oreLapis.blockID, new ItemStack(Item.dyePowder, 1, 4), 0.2F);
 		this.addSmelting(Block.oreNetherQuartz.blockID, new ItemStack(Item.netherQuartz), 0.2F);
+		this.addSmelting(Block.slowSand.blockID, new ItemStack(NPBlockList.SoulGlass), 2.0F);
+		this.addSmelting(NPBlockList.GlowstoneSand.blockID, new ItemStack(Block.glowStone), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedGoldOre.blockID, new ItemStack(Item.ingotGold), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedBlackIronOre.blockID, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
 	}
 
 	public void addSmelting(int par1, ItemStack par2ItemStack, float par3)
