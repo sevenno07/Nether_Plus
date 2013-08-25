@@ -40,7 +40,7 @@ public class NPClientProxy extends NPCommonProxy
 	     RenderingRegistry.registerEntityRenderingHandler(RedMogus.class, new RenderRedMogus(new ModelRedMogus(), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(LavaTortoise.class, new RenderLavaTortoise(new ModelLavaTortoise(), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(Pordenfer.class, new RenderPordenfer(new ModelPordenfer(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(0), null, 0.5F));
+	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), null, 0.5F));
 
 	}
 }
