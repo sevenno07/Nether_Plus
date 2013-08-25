@@ -98,7 +98,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 	public String getInvName()
 	{
-		return this.isInvNameLocalized() ? this.field_94130_e : "container.furnace";
+		return this.isInvNameLocalized() ? this.field_94130_e : "container.four";
 	}
 
 	public boolean isInvNameLocalized()
