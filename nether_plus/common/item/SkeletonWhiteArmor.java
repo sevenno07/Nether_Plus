@@ -22,11 +22,11 @@ public class SkeletonWhiteArmor extends ItemArmor
 	{
 		if(stack.itemID == NPItemList.SkeletonWhiteLeggings.itemID)
 		{
-			return "/mods/nether_plus/textures/armors/skeleton_white_armor_2.png"; //armure WhiteSkeleton, jambières
+			return "/mods/nether_plus/textures/armors/Skelton_2.png"; //armure WhiteSkeleton, jambières
 		}
 		else
 		{
-			return "/mods/nether_plus/textures/armors/skeleton_white_armor_1.png"; //armure WhiteSkeleton, casque + plastron + bottes
+			return "/mods/nether_plus/textures/armors/Skelton_1.png"; //armure WhiteSkeleton, casque + plastron + bottes
 		}
 
 	}
