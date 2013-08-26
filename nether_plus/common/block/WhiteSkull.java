@@ -5,7 +5,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import nether_plus.common.NetherPlusCreativeTabs;
 
 public class WhiteSkull extends Block
@@ -15,14 +19,21 @@ public class WhiteSkull extends Block
 	
 	public WhiteSkull(int id)
 	{
-		super(id, Material.pumpkin);
+		super(id, Material.rock);
 		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 	}
-	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int metadata)
+	
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving living, ItemStack stack)
 	{
-		return side == 0 ? IconBottom : side == 1 ? IconTop : blockIcon;
+		int direction = MathHelper.floor_double((double)(living.rotationYaw * 4.0F / 360.0F) + 2.5D) & 3;
+		world.setBlockMetadataWithNotify(x, y, z, direction, 2);
 	}
+	
+	 @SideOnly(Side.CLIENT)
+	 public Icon getIcon(int side, int metadata)
+	 {
+	 return side == 1 ? this.IconTop : (side == 0 ? this.IconBottom : (metadata == 2 && side == 2 ? this.blockIcon : (metadata == 3 && side == 5 ? this.blockIcon : (metadata == 0 && side == 3 ? this.blockIcon : (metadata == 1 && side == 4 ? this.blockIcon : this.IconTop)))));
+	 }
 	 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)

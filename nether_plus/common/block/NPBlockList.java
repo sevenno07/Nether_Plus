@@ -76,8 +76,8 @@ public class NPBlockList
 		fourOn = new BlockFour(NPProperties.fourOnID, true).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedFurnace");
 		fourOff = new BlockFour(NPProperties.fourOffID, false).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedFurnace").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		
-		WhiteSkull = new WhiteSkull(NPProperties.WhiteSkullID).setStepSound(Block.soundWoodFootstep).setHardness(1.0F).setResistance(1.0F).setUnlocalizedName("WhiteSkull");
-		BlackSkull = new BlackSkull(NPProperties.BlackSkullID).setStepSound(Block.soundWoodFootstep).setHardness(1.0F).setResistance(1.0F).setUnlocalizedName("BlackSkull");
+		WhiteSkull = new WhiteSkull(NPProperties.WhiteSkullID).setStepSound(Block.soundStoneFootstep).setHardness(1.0F).setResistance(1.0F).setUnlocalizedName("WhiteSkull");
+		BlackSkull = new BlackSkull(NPProperties.BlackSkullID).setStepSound(Block.soundStoneFootstep).setHardness(1.0F).setResistance(1.0F).setUnlocalizedName("BlackSkull");
 		
 		GrimwoodStairs = new ModStairs(NPProperties.GrimwoodStairsID, GrimwoodPlanks, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		CorruptedBrickStairs = new ModStairs(NPProperties.CorruptedBrickStairsID, CorruptedBrick, 0).setStepSound(Block.soundStoneFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
