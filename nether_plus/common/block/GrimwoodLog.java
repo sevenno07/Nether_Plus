@@ -18,7 +18,7 @@ public class GrimwoodLog extends BlockLog
 	public GrimwoodLog(int id)
 	{
 		super(id);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 
 	public int idDropped(int side, Random random, int par3)

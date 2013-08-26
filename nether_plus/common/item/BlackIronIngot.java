@@ -12,7 +12,7 @@ public class BlackIronIngot extends Item
       public BlackIronIngot(int id)
       {
             super(id);
-    		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+    		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
       }
   	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)

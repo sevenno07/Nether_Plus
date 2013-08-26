@@ -37,7 +37,7 @@ public class GrimwoodChest extends BlockContainer
 	protected GrimwoodChest(int id, int par2)
 	{
 		super(id, Material.wood);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		this.isTrapped = par2;
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}

@@ -1,7 +1,5 @@
 package nether_plus.common.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -11,6 +9,8 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.NetherPlusCreativeTabs;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class WhiteSkull extends Block
 {
@@ -20,7 +20,7 @@ public class WhiteSkull extends Block
 	public WhiteSkull(int id)
 	{
 		super(id, Material.rock);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving living, ItemStack stack)

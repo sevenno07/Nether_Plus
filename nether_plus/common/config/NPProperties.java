@@ -49,6 +49,7 @@ public class NPProperties
 	public static int BlackBoneID;
 	public static int BlackBoneMealID;
 	public static int FireslimeballID;
+	public static int GrimwoodStickID;
 	
 	public static int SkeletonWhiteHelmetID;
 	public static int SkeletonWhiteChestplateID;

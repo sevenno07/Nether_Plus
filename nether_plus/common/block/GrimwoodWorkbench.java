@@ -17,7 +17,7 @@ public class GrimwoodWorkbench extends BlockWorkbench
     protected GrimwoodWorkbench(int par1)
     {
         super(par1);
-        this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+        this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
     }
 
     @SideOnly(Side.CLIENT)

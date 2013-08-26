@@ -20,7 +20,7 @@ public class SkeletonBlackArmor extends ItemArmor
 	public SkeletonBlackArmor(int id, EnumArmorMaterial armorMaterial, int type, int layer)
 	{
 		super(id, armorMaterial, type, layer);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsArmor);
 	}
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)

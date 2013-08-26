@@ -17,7 +17,7 @@ public class SoulGlass extends BlockBreakable
     protected SoulGlass(int id, Material par2Material, boolean par3)
     {
 		super(id, "glass", par2Material, par3);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 
 	public int quantityDropped(Random par1Random)

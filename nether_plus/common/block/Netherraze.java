@@ -3,7 +3,6 @@ package nether_plus.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -16,7 +15,7 @@ public class Netherraze extends Block
 	public Netherraze(int id, Material par2Material) 
 	{
 		super(id, par2Material);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
 	

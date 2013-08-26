@@ -12,7 +12,7 @@ public class BlackBoneMeal extends Item
 	public BlackBoneMeal(int id)
 	{
 		super(id);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)

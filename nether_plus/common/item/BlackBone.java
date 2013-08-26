@@ -12,7 +12,7 @@ public class BlackBone extends Item
 	public BlackBone(int id)
 	{
 		super(id);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
 	@SideOnly(Side.CLIENT)

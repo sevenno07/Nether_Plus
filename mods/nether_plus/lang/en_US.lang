@@ -48,6 +48,7 @@ item.GrimwoodPickaxe.name = GrimwoodPickaxe
 item.GrimwoodAxe.name = GrimwoodAxe
 item.GrimwoodShovel.name = GrimwoodShovel
 item.GrimwoodHoe.name = GrimwoodHoe
+item.GrimwoodStick.name = GrimwoodStick
 
 #Entity
 entity.Salamandre.name = Salamandre
@@ -61,3 +62,7 @@ entity.FireSlime.name = FireSlime
 
 #CreativeTabs
 itemGroup.NetherPlusCreativeTabs = Nether Plus
+itemGroup.NPCreativeTabsBlock = Nether Plus
+itemGroup.NPCreativeTabsItem = Nether Plus
+itemGroup.NPCreativeTabsArmor = Nether Plus
+itemGroup.NPCreativeTabsTool = Nether Plus

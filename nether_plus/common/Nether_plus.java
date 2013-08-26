@@ -109,6 +109,7 @@ public class Nether_plus
 			NPProperties.GrimwoodAxeID = cfg.getItem("GrimwoodAxe", 4015).getInt();
 			NPProperties.GrimwoodShovelID = cfg.getItem("GrimwoodShovel", 4016).getInt();
 			NPProperties.GrimwoodHoeID = cfg.getItem("GrimwoodHoe", 4017).getInt();
+			NPProperties.GrimwoodStickID = cfg.getItem("GrimwoodStick", 4018).getInt();
 		}
 		catch(Exception ex)
 		{

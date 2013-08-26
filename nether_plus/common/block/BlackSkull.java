@@ -20,7 +20,7 @@ public class BlackSkull extends Block
 	public BlackSkull(int id)
 	{
 		super(id, Material.rock);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving living, ItemStack stack)

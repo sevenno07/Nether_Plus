@@ -6,11 +6,17 @@ import nether_plus.common.block.NPBlockList;
 
 public class NetherPlusCreativeTabs extends CreativeTabs
 	{
-	public static CreativeTabs NetherPlusCreativeTabs;
+	public static CreativeTabs NPCreativeTabsBlock;
+	public static CreativeTabs NPCreativeTabsItem;
+	public static CreativeTabs NPCreativeTabsArmor;
+	public static CreativeTabs NPCreativeTabsTool;
 
 	public static void loadCreativeTab()
 	{
-		NetherPlusCreativeTabs = new NetherPlusCreativeTabs("NetherPlusCreativeTabs");
+		NPCreativeTabsBlock = new NetherPlusCreativeTabs("NPCreativeTabsBlock");
+		NPCreativeTabsItem = new NetherPlusCreativeTabs("NPCreativeTabsItem");
+		NPCreativeTabsArmor = new NetherPlusCreativeTabs("NPCreativeTabsArmor");
+		NPCreativeTabsTool = new NetherPlusCreativeTabs("NPCreativeTabsTool");
 	}
 
 	public NetherPlusCreativeTabs(String name)

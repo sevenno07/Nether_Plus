@@ -5,12 +5,9 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.NetherPlusCreativeTabs;
-import nether_plus.common.Nether_plus;
 import nether_plus.common.config.NPProperties;
 import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
@@ -21,7 +18,7 @@ public class CorruptedCharoiteOre extends Block
 	public CorruptedCharoiteOre(int id, Material par2Material) 
 	{
 		super(id, par2Material);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
 

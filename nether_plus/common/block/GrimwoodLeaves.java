@@ -26,7 +26,7 @@ public class GrimwoodLeaves extends BlockLeaves implements IShearable
 		super(id);
 		this.setTickRandomly(true);
 		this.setLightOpacity(1);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 
 	public void registerIcons(IconRegister iconregister)

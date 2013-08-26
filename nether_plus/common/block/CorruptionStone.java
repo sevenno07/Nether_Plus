@@ -1,6 +1,6 @@
 package nether_plus.common.block;
 
-import java.util.List;
+import java.awt.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,11 +15,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CorruptionStone extends Block
 {
 	private Icon CCStone;
-
+	
 	public CorruptionStone(int id) 
 	{
 		super(id, Material.rock);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -37,10 +37,10 @@ public class CorruptionStone extends Block
 		return blockIcon;
     }
 	
-    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    public void getSubBlocks(int id, CreativeTabs creativeTabs, List list)
     {
-        par3List.add(new ItemStack(par1, 1, 0));
-        par3List.add(new ItemStack(par1, 1, 1));
+        list.add(new ItemStack(id, 1, 0));
+        list.add(new ItemStack(id, 1, 1));
     }
 	
 	@SideOnly(Side.CLIENT)

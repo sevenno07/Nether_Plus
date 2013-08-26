@@ -20,7 +20,7 @@ public class ModWoodSlab extends BlockStep
 	public ModWoodSlab(int id, boolean isDouble)
 	{
 		super(id, isDouble);
-		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		if(!this.isDoubleSlab)
 		{
 			setLightOpacity(0);

@@ -23,6 +23,8 @@ public class NPRecipe
 		GameRegistry.addShapelessRecipe(new ItemStack(NPItemList.BlackBoneMeal, 3), new Object[]{NPItemList.BlackBone});
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.fourOff, 1), new Object[]{"XXX", "X X", "YYY", 'X', NPBlockList.CorruptedBrick, 'Y', Block.obsidian});
 		GameRegistry.addShapelessRecipe(new ItemStack(NPBlockList.GrimwoodPlanks, 4), new Object[]{NPBlockList.GrimwoodLog});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.GrimwoodWorkbench, 1), new Object[]{"XX", "XX", 'X', NPBlockList.GrimwoodPlanks});
+		
 	}
 	
 	public static void loadSmelting()
