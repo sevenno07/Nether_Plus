@@ -15,6 +15,10 @@ tile.CorruptedBrick.name = Corrupted Brick
 tile.NetherrackBrick.name = Netherrack Brick
 tile.GrimwoodWorkbench.name = Grimwood Workbench
 tile.CorruptedFurnace.name = Corrupted Furnace
+tile.WhiteSkull.name = WhiteSkull
+tile.BlackSkull.name = BlackSkull
+
+#Container
 container.four = Corrupted Furnace
 
 tile.GrimwoodStairs.name = Grimwood Stairs
@@ -42,7 +46,6 @@ item.SkeletonBlackBoot.name = Skeleton Black Boot
 
 #Entity
 entity.Salamandre.name = Salamandre
-entity.BlackSalamandre.name = Black Salamandre
 entity.Wight.name = Wight
 entity.Mogus.name = Mogus
 entity.RedMogus.name = Red Mogus

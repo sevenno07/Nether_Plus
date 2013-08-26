@@ -15,6 +15,10 @@ tile.CorruptedBrick.name = Corrupted Brick
 tile.NetherrackBrick.name = Netherrack Brick
 tile.GrimwoodWorkbench.name = Grimwood Workbench
 tile.CorruptedFurnace.name = Corrupted Furnace
+tile.WhiteSkull.name = WhiteSkull
+tile.BlackSkull.name = BlackSkull
+
+#Container
 container.four = Corrupted Furnace
 
 tile.GrimwoodStairs.name = Grimwood Stairs
