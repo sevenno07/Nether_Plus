@@ -18,9 +18,6 @@ tile.CorruptedFurnace.name = Corrupted Furnace
 tile.WhiteSkull.name = WhiteSkull
 tile.BlackSkull.name = BlackSkull
 
-#Container
-container.four = Corrupted Furnace
-
 tile.GrimwoodStairs.name = Grimwood Stairs
 tile.CorruptedBrickStairs.name = Corrupted Brick Stairs
 tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
@@ -28,6 +25,9 @@ tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
 tile.ModFence.name = Grimwood Fence
 tile.CorruptedBrickWall.name = Corrupted Brick Wall
 tile.NetherrackBrickWall.name = Netherrack Brick Wall
+
+#Container
+container.four = Corrupted Furnace
 
 #Items
 item.CharoiteCrystal.name = Charoite Crystal
