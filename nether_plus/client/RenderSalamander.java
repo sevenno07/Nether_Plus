@@ -33,7 +33,7 @@ public class RenderSalamander extends RenderLiving
         }
         else
         {
-            this.loadTexture("/mods/nether_plus/textures/entity/salamander_orange_Collar.png");
+            this.loadTexture("/mods/nether_plus/textures/Entity/salamander_orange_Collar.png");
             float f1 = 1.0F;
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glDisable(GL11.GL_ALPHA_TEST);

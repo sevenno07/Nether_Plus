@@ -3,20 +3,20 @@ package nether_plus.common.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
 
-public class Salamander extends EntityAnimal
+public class BlackSalamander extends EntityMob
 {
 
-	public Salamander(World par1World)
+	public BlackSalamander(World par1World)
 	{
 		super(par1World);
-		this.texture = "/mods/nether_plus/textures/entity/salamander_orange.png";
+		this.texture = "/mods/nether_plus/textures/entity/salamander_black.png";
 		this.moveSpeed = 0.8F;
 		this.setSize(0.6F, 0.8F);
 		this.stepHeight = 0.0F;
@@ -70,15 +70,4 @@ public class Salamander extends EntityAnimal
     {
         return par1ItemStack != null && par1ItemStack.itemID == NPItemList.BlackBone.itemID;
     }
-    
-    public Salamander spawnBabyAnimal(EntityAgeable par1EntityAgeable)
-    {
-    	return new Salamander(this.worldObj);
-    }
-    
-	@Override
-	public EntityAgeable createChild(EntityAgeable entityageable)
-	{
-		return this.spawnBabyAnimal(entityageable);
-	}
 }

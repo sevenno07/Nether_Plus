@@ -42,6 +42,7 @@ item.SkeletonBlackBoot.name = Skeleton Black Boot
 
 #Entity
 entity.Salamandre.name = Salamandre
+entity.BlackSalamandre.name = Black Salamandre
 entity.Wight.name = Wight
 entity.Mogus.name = Mogus
 entity.RedMogus.name = Red Mogus
