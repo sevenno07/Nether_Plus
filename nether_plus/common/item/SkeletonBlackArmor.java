@@ -14,10 +14,10 @@ import nether_plus.common.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class SkeletonArmor extends ItemArmor
+public class SkeletonBlackArmor extends ItemArmor
 {
 
-	public SkeletonArmor(int id, EnumArmorMaterial armorMaterial, int type, int layer)
+	public SkeletonBlackArmor(int id, EnumArmorMaterial armorMaterial, int type, int layer)
 	{
 		super(id, armorMaterial, type, layer);
 		this.setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
@@ -25,15 +25,7 @@ public class SkeletonArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.itemID == NPItemList.SkeletonWhiteLeggings.itemID)
-		{
-			return "/mods/nether_plus/textures/armors/skeleton_white_armor_2.png"; //armure WhiteSkeleton, jambières
-		}
-		else if(stack.itemID == NPItemList.SkeletonWhiteHelmet.itemID || stack.itemID == NPItemList.SkeletonWhiteChestplate.itemID || stack.itemID == NPItemList.SkeletonWhiteBoot.itemID)
-		{
-			return "/mods/nether_plus/textures/armors/skeleton_white_armor_1.png"; //armure WhiteSkeleton, casque + plastron + bottes
-		}
-		else if(stack.itemID == NPItemList.SkeletonBlackLeggings.itemID)
+		if(stack.itemID == NPItemList.SkeletonBlackLeggings.itemID)
 		{
 			return "/mods/nether_plus/textures/armors/skeleton_black_armor_2.png"; //armure BlackSkeleton, jambières
 		}

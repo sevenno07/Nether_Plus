@@ -1,5 +1,6 @@
 package nether_plus.proxy;
 
+import net.minecraft.client.model.ModelBase;
 import nether_plus.client.ModelFireSlime;
 import nether_plus.client.ModelLavaTortoise;
 import nether_plus.client.ModelMogus;
@@ -26,6 +27,9 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class NPClientProxy extends NPCommonProxy
 {
 	
+	private int i;
+	private ModelBase ModelBase;
+
 	@Override
 	public void registerRender()
 	{
@@ -40,7 +44,7 @@ public class NPClientProxy extends NPCommonProxy
 	     RenderingRegistry.registerEntityRenderingHandler(RedMogus.class, new RenderRedMogus(new ModelRedMogus(), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(LavaTortoise.class, new RenderLavaTortoise(new ModelLavaTortoise(), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(Pordenfer.class, new RenderPordenfer(new ModelPordenfer(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), null, 0.5F));
+	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(i), ModelBase, 0.5F));
 
 	}
 }

@@ -1,12 +1,13 @@
 package nether_plus.common.entity;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import nether_plus.common.item.NPItemList;
 
 public class LavaTortoise extends EntityMob
 {
@@ -103,6 +104,24 @@ public class LavaTortoise extends EntityMob
 
     protected int getDropItemId()
     {
-        return Item.bone.itemID;
+        return NPItemList.BlackBone.itemID;
+    }
+    
+    protected void dropFewItems(boolean par1, int par2)
+    {
+        int j = this.rand.nextInt(2 + par2);
+        int k;
+
+        for (k = 0; k < j; ++k)
+        {
+            this.dropItem(NPItemList.BlackBone.itemID, 1);
+        }
+
+        j = this.rand.nextInt(2 + par2);
+
+        for (k = 0; k < j; ++k)
+        {
+            this.dropItem(Block.obsidian.blockID, 1);
+        }
     }
 }
