@@ -27,11 +27,11 @@ public class SkeletonBlackArmor extends ItemArmor
 	{
 		if(stack.itemID == NPItemList.SkeletonBlackLeggings.itemID)
 		{
-			return "/mods/nether_plus/textures/armors/BlackSkelton_2.png"; //armure BlackSkeleton, jambières
+			return "/mods/nether_plus/textures/armors/BlackSkeleton_2.png"; //armure BlackSkeleton, jambières
 		}
 		else
 		{
-			return "/mods/nether_plus/textures/armors/BlackSkelton_1.png"; //armure BlackSkeleton, casque + plastron + bottes
+			return "/mods/nether_plus/textures/armors/BlackSkeleton_1.png"; //armure BlackSkeleton, casque + plastron + bottes
 		}	
 	}
 	

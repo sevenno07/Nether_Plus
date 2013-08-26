@@ -103,6 +103,12 @@ public class Nether_plus
 			NPProperties.SkeletonBlackChestplateID = cfg.getItem("SkeletonBlackChestplate", 4010).getInt();
 			NPProperties.SkeletonBlackLeggingsID = cfg.getItem("SkeletonBlackLeggings", 4011).getInt();
 			NPProperties.SkeletonBlackBootID = cfg.getItem("SkeletonBlackBoot", 4012).getInt();
+			
+			NPProperties.GrimwoodSwordID = cfg.getItem("GrimwoodSword", 4013).getInt();
+			NPProperties.GrimwoodPickaxeID = cfg.getItem("GrimwoodPickaxe", 4014).getInt();
+			NPProperties.GrimwoodAxeID = cfg.getItem("GrimwoodAxe", 4015).getInt();
+			NPProperties.GrimwoodShovelID = cfg.getItem("GrimwoodShovel", 4016).getInt();
+			NPProperties.GrimwoodHoeID = cfg.getItem("GrimwoodHoe", 4017).getInt();
 		}
 		catch(Exception ex)
 		{

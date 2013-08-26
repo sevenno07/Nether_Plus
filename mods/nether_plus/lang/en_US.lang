@@ -43,6 +43,11 @@ item.SkeletonBlackHelmet.name = Skeleton Black Helmet
 item.SkeletonBlackChestplate.name = Skeleton Black Chestplate
 item.SkeletonBlackLeggings.name = Skeleton Black Leggings
 item.SkeletonBlackBoot.name = Skeleton Black Boot
+item.GrimwoodSword.name = GrimwoodSword
+item.GrimwoodPickaxe.name = GrimwoodPickaxe
+item.GrimwoodAxe.name = GrimwoodAxe
+item.GrimwoodShovel.name = GrimwoodShovel
+item.GrimwoodHoe.name = GrimwoodHoe
 
 #Entity
 entity.Salamandre.name = Salamandre

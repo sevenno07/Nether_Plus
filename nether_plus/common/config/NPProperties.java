@@ -1,5 +1,6 @@
 package nether_plus.common.config;
 
+
 public class NPProperties
 {
 	//Block
@@ -58,4 +59,10 @@ public class NPProperties
 	public static int SkeletonBlackChestplateID;
 	public static int SkeletonBlackLeggingsID;
 	public static int SkeletonBlackBootID;
+	
+	public static int GrimwoodSwordID;
+	public static int GrimwoodPickaxeID;
+	public static int GrimwoodAxeID;
+	public static int GrimwoodShovelID;
+	public static int GrimwoodHoeID;
 }

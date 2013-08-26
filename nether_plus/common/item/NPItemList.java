@@ -1,6 +1,7 @@
 package nether_plus.common.item;
 
 import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.EnumHelper;
 import nether_plus.common.config.NPProperties;
@@ -23,8 +24,15 @@ public class NPItemList
 	public static Item SkeletonBlackLeggings;
 	public static Item SkeletonBlackBoot;
 	
+	public static Item GrimwoodSword;
+	public static Item GrimwoodPickaxe;
+	public static Item GrimwoodAxe;
+	public static Item GrimwoodShovel;
+	public static Item GrimwoodHoe;
+
 	public static EnumArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
 	public static EnumArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
+	public static EnumToolMaterial GrimwoodTool = EnumHelper.addToolMaterial("GrimwoodTool", 0, 89, 3.0F, 0, 23);
 	
 	public static void loadItem()
 	{
@@ -43,6 +51,11 @@ public class NPItemList
 		SkeletonBlackChestplate = new SkeletonBlackArmor(NPProperties.SkeletonBlackChestplateID, SkeletonBlackArmor, 0, 1).setUnlocalizedName("SkeletonBlackChestplate");
 		SkeletonBlackLeggings = new SkeletonBlackArmor(NPProperties.SkeletonBlackLeggingsID, SkeletonBlackArmor, 0, 2).setUnlocalizedName("SkeletonBlackLeggings");
 		SkeletonBlackBoot = new SkeletonBlackArmor(NPProperties.SkeletonBlackBootID, SkeletonBlackArmor, 0, 3).setUnlocalizedName("SkeletonBlackBoot");
-
+		
+		GrimwoodSword = new GrimwoodSword(NPProperties.GrimwoodSwordID, GrimwoodTool).setUnlocalizedName("GrimwoodSword");
+		GrimwoodPickaxe = new GrimwoodPickaxe(NPProperties.GrimwoodPickaxeID, GrimwoodTool).setUnlocalizedName("GrimwoodPickaxe");
+		GrimwoodAxe = new GrimwoodAxe(NPProperties.GrimwoodAxeID, GrimwoodTool).setUnlocalizedName("GrimwoodAxe");
+		GrimwoodShovel = new GrimwoodShovel(NPProperties.GrimwoodShovelID, GrimwoodTool).setUnlocalizedName("GrimwoodShovel");
+		GrimwoodHoe = new GrimwoodHoe(NPProperties.GrimwoodHoeID, GrimwoodTool).setUnlocalizedName("GrimwoodHoe");
 	}
 }
