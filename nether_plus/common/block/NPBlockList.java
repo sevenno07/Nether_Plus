@@ -16,6 +16,7 @@ public class NPBlockList
 	public static Block Netherraze;
 	public static Block BewitchedWood;
 	public static Block CorruptionStone;
+	public static Block CorruptedCobblestone;
 	
 	public static Block GrimwoodLog;
 	public static Block GrimwoodLeaves;
@@ -58,7 +59,8 @@ public class NPBlockList
 		SoulGlass = new SoulGlass(NPProperties.SoulGlassID, Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.3F).setUnlocalizedName("SoulGlass");
 		Netherraze = new Netherraze(NPProperties.NetherrazeID, Material.rock).setStepSound(Block.soundStoneFootstep).setLightValue(0.4F).setHardness(3.0F).setUnlocalizedName("Netherraze");
 		BewitchedWood = new BewitchedWood(NPProperties.BewitchedWoodID).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setUnlocalizedName("BewitchedWood");
-		CorruptionStone = new CorruptionStone(NPProperties.CorruptionStoneID).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setUnlocalizedName("CorruptionStone");
+		CorruptionStone = new CorruptionStone(NPProperties.CorruptionStoneID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.0F).setUnlocalizedName("CorruptionStone");
+		CorruptedCobblestone = new CorruptedCobblestone(NPProperties.CorruptedCobblestoneID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setUnlocalizedName("CorruptedCobblestone");
 		
 		GrimwoodLog = new GrimwoodLog(NPProperties.GrimwoodLogID).setHardness(1.0F).setResistance(5F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("GrimwoodLog");
 		GrimwoodLeaves = new GrimwoodLeaves(NPProperties.GrimwoodLeavesID).setHardness(0.5F).setResistance(5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("GrimwoodLeaves");
@@ -87,14 +89,15 @@ public class NPBlockList
 		ModWoodSlab = new ModWoodSlab(NPProperties.ModWoodSlabID, false).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModWoodSlab");
 		
 		ModFence = new BlockFence(624, "nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("BlockFence").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		CorruptedBrickWall = new CorruptedBrickWall(625, CorruptedBrick).setUnlocalizedName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherrackBrickWall = new NetherrackBrickWall(626, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		CorruptedBrickWall = new CorruptedBrickWall(626, CorruptedBrick).setUnlocalizedName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherrackBrickWall = new NetherrackBrickWall(627, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
 		GameRegistry.registerBlock(Netherraze, "Netherraze");
 		GameRegistry.registerBlock(BewitchedWood, "bewitched_Wood");
 		GameRegistry.registerBlock(CorruptionStone, "Corruption_Stone");
+		GameRegistry.registerBlock(CorruptedCobblestone, "Corrupted_Cobblestone");
 		
 		GameRegistry.registerBlock(GrimwoodLog, "Grimwood_Log");
 		GameRegistry.registerBlock(GrimwoodLeaves, "Grimwood_Leaves");

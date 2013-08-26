@@ -59,33 +59,34 @@ public class Nether_plus
 			NPProperties.NetherrazeID = cfg.getBlock("Netherraze", 602).getInt();
 			NPProperties.BewitchedWoodID = cfg.getBlock("BewitchedWood", 603).getInt();
 			NPProperties.CorruptionStoneID = cfg.getBlock("CorruptionStone", 604).getInt();
-			NPProperties.GrimwoodLogID = cfg.getBlock("GrimwoodLog", 605).getInt();
-			NPProperties.GrimwoodLeavesID = cfg.getBlock("GrimwoodLeaves", 606).getInt();
-			NPProperties.GrimwoodSaplingID = cfg.getBlock("GrimwoodSapling", 607).getInt();
-			NPProperties.CorruptedGoldOreID = cfg.getBlock("CorruptedGoldOre", 608).getInt();
-			NPProperties.CorruptedCharoiteOreID = cfg.getBlock("CorruptedCharoiteOre", 609).getInt();
-			NPProperties.CorruptedBlackIronOreID = cfg.getBlock("CorruptedBlackIronOre", 610).getInt();
-			NPProperties.GrimwoodPlanksID = cfg.getBlock("GrimwoodPlanks", 611).getInt();
-			NPProperties.CorruptedBrickID = cfg.getBlock("CorruptedBrick", 612).getInt();
-			NPProperties.NetherrackBrickID = cfg.getBlock("NetherrackBrick", 613).getInt();
-			NPProperties.GrimwoodWorkbenchID = cfg.getBlock("GrimwoodWorkbench", 614).getInt();
-			NPProperties.fourOffID = cfg.getBlock("fourOff", 615).getInt();
-			NPProperties.fourOnID = cfg.getBlock("fourOn", 616).getInt();
+			NPProperties.CorruptedCobblestoneID = cfg.getBlock("CorruptedCobblestone", 605).getInt();
+			NPProperties.GrimwoodLogID = cfg.getBlock("GrimwoodLog", 606).getInt();
+			NPProperties.GrimwoodLeavesID = cfg.getBlock("GrimwoodLeaves", 607).getInt();
+			NPProperties.GrimwoodSaplingID = cfg.getBlock("GrimwoodSapling", 608).getInt();
+			NPProperties.CorruptedGoldOreID = cfg.getBlock("CorruptedGoldOre", 609).getInt();
+			NPProperties.CorruptedCharoiteOreID = cfg.getBlock("CorruptedCharoiteOre", 610).getInt();
+			NPProperties.CorruptedBlackIronOreID = cfg.getBlock("CorruptedBlackIronOre", 611).getInt();
+			NPProperties.GrimwoodPlanksID = cfg.getBlock("GrimwoodPlanks", 612).getInt();
+			NPProperties.CorruptedBrickID = cfg.getBlock("CorruptedBrick", 613).getInt();
+			NPProperties.NetherrackBrickID = cfg.getBlock("NetherrackBrick", 614).getInt();
+			NPProperties.GrimwoodWorkbenchID = cfg.getBlock("GrimwoodWorkbench", 615).getInt();
+			NPProperties.fourOffID = cfg.getBlock("fourOff", 616).getInt();
+			NPProperties.fourOnID = cfg.getBlock("fourOn", 617).getInt();
 //			NPProperties.CorruptedFurnace_OffID = cfg.getBlock("CorruptedFurnace_Off", 615).getInt();
 //			NPProperties.CorruptedFurnace_OnID = cfg.getBlock("CorruptedFurnace_On", 616).getInt();
-			NPProperties.GrimwoodStairsID = cfg.getBlock("GrimwoodStairs", 617).getInt();
-			NPProperties.CorruptedBrickStairsID = cfg.getBlock("CorruptedBrickStairs", 618).getInt();
-			NPProperties.NetherrackBrickStairsID = cfg.getBlock("NetherrackBrickStairs", 619).getInt();
-			NPProperties.ModWoodDoubleSlabID = cfg.getBlock("ModWoodDoubleSlab", 620).getInt();
-			NPProperties.ModWoodSlabID = cfg.getBlock("ModWoodSlab", 621).getInt();
-//			NPProperties.ModStoneDoubleSlabID = cfg.getBlock("ModStoneDoubleSlab", 622).getInt();
-//			NPProperties.ModStoneSlabID = cfg.getBlock("ModStoneSlab", 623).getInt();
-			NPProperties.ModFenceID = cfg.getBlock("ModFence", 624).getInt();
-			NPProperties.CorruptedBrickWallID = cfg.getBlock("CorruptedBrickWall", 625).getInt();
-			NPProperties.NetherrackBrickWallID = cfg.getBlock("NetherrackBrickWall", 626).getInt();
-			NPProperties.GrimwoodChestID = cfg.getBlock("GrimwoodChest", 627).getInt();
-			NPProperties.WhiteSkullID = cfg.getBlock("WhiteSkull", 628).getInt();
-			NPProperties.BlackSkullID = cfg.getBlock("BlackSkull", 629).getInt();
+			NPProperties.GrimwoodStairsID = cfg.getBlock("GrimwoodStairs", 618).getInt();
+			NPProperties.CorruptedBrickStairsID = cfg.getBlock("CorruptedBrickStairs", 619).getInt();
+			NPProperties.NetherrackBrickStairsID = cfg.getBlock("NetherrackBrickStairs", 620).getInt();
+			NPProperties.ModWoodDoubleSlabID = cfg.getBlock("ModWoodDoubleSlab", 621).getInt();
+			NPProperties.ModWoodSlabID = cfg.getBlock("ModWoodSlab", 622).getInt();
+//			NPProperties.ModStoneDoubleSlabID = cfg.getBlock("ModStoneDoubleSlab", 623).getInt();
+//			NPProperties.ModStoneSlabID = cfg.getBlock("ModStoneSlab", 624).getInt();
+			NPProperties.ModFenceID = cfg.getBlock("ModFence", 625).getInt();
+			NPProperties.CorruptedBrickWallID = cfg.getBlock("CorruptedBrickWall", 626).getInt();
+			NPProperties.NetherrackBrickWallID = cfg.getBlock("NetherrackBrickWall", 627).getInt();
+			NPProperties.GrimwoodChestID = cfg.getBlock("GrimwoodChest", 628).getInt();
+			NPProperties.WhiteSkullID = cfg.getBlock("WhiteSkull", 629).getInt();
+			NPProperties.BlackSkullID = cfg.getBlock("BlackSkull", 630).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
@@ -110,6 +111,8 @@ public class Nether_plus
 			NPProperties.GrimwoodShovelID = cfg.getItem("GrimwoodShovel", 4016).getInt();
 			NPProperties.GrimwoodHoeID = cfg.getItem("GrimwoodHoe", 4017).getInt();
 			NPProperties.GrimwoodStickID = cfg.getItem("GrimwoodStick", 4018).getInt();
+			
+			NPProperties.BloodGemID = cfg.getItem("BloodGem", 4019).getInt();
 		}
 		catch(Exception ex)
 		{

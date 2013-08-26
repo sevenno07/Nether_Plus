@@ -14,6 +14,7 @@ public class NPItemList
 	public static Item BlackBoneMeal;
 	public static Item Fireslimeball;
 	public static Item GrimwoodStick;
+	public static Item BloodGem;
 	
 	public static Item SkeletonWhiteHelmet;
 	public static Item SkeletonWhiteChestplate;
@@ -43,6 +44,7 @@ public class NPItemList
 		BlackBoneMeal = new BlackBoneMeal(NPProperties.BlackBoneMealID).setUnlocalizedName("BlackBoneMeal");
 		Fireslimeball = new Fireslimeball(NPProperties.FireslimeballID).setUnlocalizedName("Fireslimeball");
 		GrimwoodStick = new GrimwoodStick(NPProperties.GrimwoodStickID).setUnlocalizedName("GrimwoodStick");
+		BloodGem = new BloodGem(NPProperties.BloodGemID).setUnlocalizedName("BloodGem");
 		
 		SkeletonWhiteHelmet = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteHelmetID, SkeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet");
 		SkeletonWhiteChestplate = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteChestplateID, SkeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate");

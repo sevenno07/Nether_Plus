@@ -9,6 +9,7 @@ public class NPProperties
 	public static int NetherrazeID;
 	public static int BewitchedWoodID;
 	public static int CorruptionStoneID;
+	public static int CorruptedCobblestoneID;
 	
 	public static int GrimwoodLogID;
 	public static int GrimwoodLeavesID;
@@ -50,6 +51,7 @@ public class NPProperties
 	public static int BlackBoneMealID;
 	public static int FireslimeballID;
 	public static int GrimwoodStickID;
+	public static int BloodGemID;
 	
 	public static int SkeletonWhiteHelmetID;
 	public static int SkeletonWhiteChestplateID;

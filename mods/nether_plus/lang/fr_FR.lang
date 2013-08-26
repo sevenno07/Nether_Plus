@@ -4,6 +4,7 @@ tile.SoulGlass.name = Soul Glass
 tile.Netherraze.name = Netherraze
 tile.BewitchedWood.name = bewitched Wood
 tile.CorruptionStone.name = Corruption Stone
+tile.CorruptedCobblestone.name = Corrupted Cobblestone
 tile.GrimwoodLog.name = Grimwood Log
 tile.GrimwoodLeaves.name = Grimwood Leaves
 tile.GrimwoodSapling.name = Grimwood Sapling
@@ -49,6 +50,7 @@ item.GrimwoodAxe.name = GrimwoodAxe
 item.GrimwoodShovel.name = GrimwoodShovel
 item.GrimwoodHoe.name = GrimwoodHoe
 item.GrimwoodStick.name = GrimwoodStick
+item.BloodGem.name = Blood Gem
 
 #Entity
 entity.Salamandre.name = Salamandre
