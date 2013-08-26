@@ -84,6 +84,8 @@ public class Nether_plus
 			NPProperties.CorruptedBrickWallID = cfg.getBlock("CorruptedBrickWall", 625).getInt();
 			NPProperties.NetherrackBrickWallID = cfg.getBlock("NetherrackBrickWall", 626).getInt();
 			NPProperties.GrimwoodChestID = cfg.getBlock("GrimwoodChest", 627).getInt();
+			NPProperties.WhiteSkullID = cfg.getBlock("WhiteSkull", 628).getInt();
+			NPProperties.BlackSkullID = cfg.getBlock("BlackSkull", 629).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();

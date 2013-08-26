@@ -48,6 +48,9 @@ public class NPBlockList
 	public static Block ModFence;
 	public static Block CorruptedBrickWall;
 	public static Block NetherrackBrickWall;
+	
+	public static Block WhiteSkull;
+	public static Block BlackSkull;
 
 	public static void loadBlock()
 	{
@@ -72,6 +75,9 @@ public class NPBlockList
 		GrimwoodChest = new GrimwoodChest(NPProperties.GrimwoodChestID, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodChest");
 		fourOn = new BlockFour(NPProperties.fourOnID, true).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedFurnace");
 		fourOff = new BlockFour(NPProperties.fourOffID, false).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedFurnace").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
+		
+		WhiteSkull = new WhiteSkull(NPProperties.WhiteSkullID).setStepSound(Block.soundWoodFootstep).setHardness(1.0F).setResistance(1.0F).setUnlocalizedName("WhiteSkull");
+		BlackSkull = new BlackSkull(NPProperties.BlackSkullID).setStepSound(Block.soundWoodFootstep).setHardness(1.0F).setResistance(1.0F).setUnlocalizedName("BlackSkull");
 		
 		GrimwoodStairs = new ModStairs(NPProperties.GrimwoodStairsID, GrimwoodPlanks, 0).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
 		CorruptedBrickStairs = new ModStairs(NPProperties.CorruptedBrickStairsID, CorruptedBrick, 0).setStepSound(Block.soundStoneFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NetherPlusCreativeTabs);
@@ -118,6 +124,9 @@ public class NPBlockList
 		GameRegistry.registerBlock(CorruptedBrickWall, "Corrupted_Brick_Wall");
 		GameRegistry.registerBlock(NetherrackBrickWall, "Netherrack_Brick_Wall");
 		
+		GameRegistry.registerBlock(WhiteSkull, "WhiteSkull");
+		GameRegistry.registerBlock(BlackSkull, "BlackSkull");
+
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedBlackIronOre, "pickaxe", 2);

@@ -39,6 +39,9 @@ public class NPProperties
 	public static int CorruptedBrickWallID;
 	public static int NetherrackBrickWallID;
 	
+	public static int WhiteSkullID;
+	public static int BlackSkullID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
