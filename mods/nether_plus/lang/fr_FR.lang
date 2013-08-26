@@ -14,8 +14,7 @@ tile.GrimwoodPlanks.name = Grimwood Planks
 tile.CorruptedBrick.name = Corrupted Brick
 tile.NetherrackBrick.name = Netherrack Brick
 tile.GrimwoodWorkbench.name = Grimwood Workbench
-tile.fourOn.name = Corrupted Furnace
-tile.fourOff.name = Corrupted furnace
+tile.CorruptedFurnace.name = Corrupted Furnace
 container.four = Corrupted Furnace
 
 tile.GrimwoodStairs.name = Grimwood Stairs
