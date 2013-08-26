@@ -11,7 +11,7 @@ import nether_plus.common.NetherPlusCreativeTabs;
 public class WhiteSkull extends Block
 {
 	private Icon IconTop;
-	private Icon IconFront;
+	private Icon IconBottom;
 	
 	public WhiteSkull(int id)
 	{
@@ -21,14 +21,14 @@ public class WhiteSkull extends Block
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata)
 	{
-		return side == 1 ? this.IconTop : (side == 0 ? this.IconTop : (metadata == 2 && side == 2 ? this.IconFront : (metadata == 3 && side == 5 ? this.IconFront : (metadata == 0 && side == 3 ? this.IconFront : (metadata == 1 && side == 4 ? this.IconFront : this.blockIcon)))));
+		return side == 0 ? IconBottom : side == 1 ? IconTop : blockIcon;
 	}
 	 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Bottom");
-	 	this.IconFront = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Front");
+		this.blockIcon = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Front");
+	 	this.IconBottom = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Bottom");
 	 	this.IconTop = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Top");
 	}
 }
