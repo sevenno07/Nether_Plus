@@ -172,7 +172,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 	@SideOnly(Side.CLIENT)
 	public int getCookProgressScaled(int par1)
 	{
-		return this.furnaceCookTime * par1 / 200;
+		return this.furnaceCookTime * par1 / 100;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -180,7 +180,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 	{
 		if (this.currentItemBurnTime == 0)
 		{
-			this.currentItemBurnTime = 200;
+			this.currentItemBurnTime = 100;
 		}
 
 		return this.furnaceBurnTime * par1 / this.currentItemBurnTime;
@@ -227,7 +227,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 			{
 				++this.furnaceCookTime;
 
-				if (this.furnaceCookTime == 200)
+				if (this.furnaceCookTime == 100)
 				{
 					this.furnaceCookTime = 0;
 					this.smeltItem();
@@ -310,23 +310,23 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 				if (block == Block.woodSingleSlab)
 				{
-					return 150;
+					return 75;
 				}
 
 				if (block.blockMaterial == Material.wood)
 				{
-					return 300;
+					return 150;
 				}
 			}
 
-			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 200;
-			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 200;
-			if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD")) return 200;
-			if (i == Item.stick.itemID) return 100;
-			if (i == Item.coal.itemID) return 1600;
-			if (i == Item.bucketLava.itemID) return 20000;
-			if (i == Block.sapling.blockID) return 100;
-			if (i == Item.blazeRod.itemID) return 2400;
+			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 100;
+			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 100;
+			if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD")) return 100;
+			if (i == Item.stick.itemID) return 50;
+			if (i == Item.coal.itemID) return 800;
+			if (i == Item.bucketLava.itemID) return 10000;
+			if (i == Block.sapling.blockID) return 50;
+			if (i == Item.blazeRod.itemID) return 1200;
 			return GameRegistry.getFuelValue(par0ItemStack);
 		}
 	}
