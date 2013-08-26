@@ -4,9 +4,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import nether_plus.common.item.NPItemList;
 
 public class Wight extends EntityMob
 {
@@ -103,7 +103,7 @@ public class Wight extends EntityMob
 
     protected int getDropItemId()
     {
-        return Item.bone.itemID;
+        return NPItemList.BlackBone.itemID;
     }
 
 }
