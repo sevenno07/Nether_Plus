@@ -1,5 +1,8 @@
 package nether_plus.common.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
@@ -18,4 +21,10 @@ public class GrimwoodHoe extends ItemHoe
 	{
 		return true;
 	}
+	
+	@SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconregister)
+	{
+        this.itemIcon = iconregister.registerIcon("nether_plus:GrimwoodHoe");
+ 	}
 }
