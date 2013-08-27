@@ -234,7 +234,12 @@ public class FireSlime extends EntityLiving implements IMob
     {
         return "mob.slime" + (this.getFireSlimeSize() > 1 ? "big" : "small");
     }
-
+    
+    protected void dropRareDrop(int par1)
+    {
+        this.dropItem(NPItemList.BloodGem.itemID, 1);
+    }
+    
     protected int getDropItemId()
     {
     	return this.getFireSlimeSize() == 1 ? NPItemList.Fireslimeball.itemID : 0;

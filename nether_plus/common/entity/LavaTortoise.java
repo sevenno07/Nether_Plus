@@ -124,4 +124,9 @@ public class LavaTortoise extends EntityMob
             this.dropItem(Block.obsidian.blockID, 1);
         }
     }
+    
+    protected void dropRareDrop(int par1)
+    {
+        this.dropItem(NPItemList.BloodGem.itemID, 1);
+    }
 }

@@ -105,5 +105,9 @@ public class Wight extends EntityMob
     {
         return NPItemList.BlackBone.itemID;
     }
-
+    
+    protected void dropRareDrop(int par1)
+    {
+        this.dropItem(NPItemList.BloodGem.itemID, 1);
+    }
 }

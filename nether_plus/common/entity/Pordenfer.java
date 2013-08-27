@@ -100,7 +100,12 @@ public class Pordenfer extends EntityMob
         this.setTarget(entity);
         return super.attackEntityFrom(damagesource, i);
     }
-
+    
+    protected void dropRareDrop(int par1)
+    {
+        this.dropItem(NPItemList.BloodGem.itemID, 1);
+    }
+    
     protected int getDropItemId()
     {
         return NPItemList.BlackBone.itemID;

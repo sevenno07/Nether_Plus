@@ -1,11 +1,9 @@
 package nether_plus.common.entity;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.src.*;
 import net.minecraft.world.World;
+import nether_plus.common.item.NPItemList;
 
 public class Mogus extends EntityCreature
 { 
@@ -42,6 +40,11 @@ public class Mogus extends EntityCreature
     protected String getDeathSound()
     {
         return "mob.zombiedeath";
+    }
+    
+    protected void dropRareDrop(int par1)
+    {
+        this.dropItem(NPItemList.BloodGem.itemID, 1);
     }
 
     protected int getDropItemId()

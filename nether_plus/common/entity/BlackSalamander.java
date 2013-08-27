@@ -1,10 +1,7 @@
 package nether_plus.common.entity;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -59,6 +56,11 @@ public class BlackSalamander extends EntityMob
     	Entity entity = damagesource.getEntity();
     	this.setTarget(entity);
     	return super.attackEntityFrom(damagesource, i);
+    }
+    
+    protected void dropRareDrop(int par1)
+    {
+        this.dropItem(NPItemList.BloodGem.itemID, 1);
     }
     
     protected int getDropItemId()

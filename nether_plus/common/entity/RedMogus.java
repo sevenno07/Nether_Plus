@@ -1,11 +1,9 @@
 package nether_plus.common.entity;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.src.*;
 import net.minecraft.world.World;
+import nether_plus.common.item.NPItemList;
 
 public class RedMogus extends EntityCreature
 { 
@@ -47,5 +45,10 @@ public class RedMogus extends EntityCreature
     protected int getDropItemId()
     {
         return Block.mushroomRed.blockID;
+    }
+    
+    protected void dropRareDrop(int par1)
+    {
+        this.dropItem(NPItemList.BloodGem.itemID, 1);
     }
 }

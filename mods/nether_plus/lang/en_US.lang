@@ -59,7 +59,7 @@ item.BloodGem.name = Blood Gem
 
 #Entity
 entity.Salamandre.name = Salamandre
-entity.BlackSalamandre.name = Black Salamandre
+entity.BlackSalamander.name = Black Salamandre
 entity.Wight.name = Wight
 entity.Mogus.name = Mogus
 entity.RedMogus.name = Red Mogus
