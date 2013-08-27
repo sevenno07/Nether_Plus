@@ -6,20 +6,21 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStep;
+import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import nether_plus.common.NetherPlusCreativeTabs;
 
-public class ModStoneSlab extends BlockStep
+public class ModStoneSlab extends BlockHalfSlab
 {
 public static final String[] StepTypes = new String[] {"CorruptedBrick", "NetherrackBrick"};
 
 	public ModStoneSlab(int id, boolean isdouble)
 	{
-		super(id, isdouble);
+		super(id, isdouble, Material.rock);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		if(!this.isDoubleSlab)
 		{
