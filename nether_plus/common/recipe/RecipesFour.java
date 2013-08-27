@@ -51,6 +51,7 @@ public class RecipesFour
 		this.addSmelting(NPBlockList.CorruptedGoldOre.blockID, new ItemStack(Item.ingotGold), 2.0F);
 		this.addSmelting(NPBlockList.CorruptedBlackIronOre.blockID, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
 		this.addSmelting(NPBlockList.CorruptedCharoiteOre.blockID, new ItemStack(NPItemList.CharoiteCrystal), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedCobblestone.blockID, new ItemStack(NPBlockList.CorruptionStone), 2.0F);
 
 	}
 
