@@ -13,11 +13,11 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import nether_plus.common.NetherPlusCreativeTabs;
 
-public class ModWoodSlab extends BlockStep
+public class ModStoneSlab extends BlockStep
 {
-public static final String[] StepTypes = new String[] {"GrimwoodPlanks"};
+public static final String[] StepTypes = new String[] {"CorruptedBrick", "NetherrackBrick"};
 
-	public ModWoodSlab(int id, boolean isdouble)
+	public ModStoneSlab(int id, boolean isdouble)
 	{
 		super(id, isdouble);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
@@ -30,23 +30,23 @@ public static final String[] StepTypes = new String[] {"GrimwoodPlanks"};
 	@SideOnly(Side.CLIENT)
 	private static boolean isBlockSingleSlab(int id)
 	{
-		return id == NPBlockList.ModWoodSlab.blockID;
+		return id == NPBlockList.ModStoneSlab.blockID;
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public int idPicked(World world, int x, int y, int z)
 	{
-		return isBlockSingleSlab(this.blockID) ? this.blockID : NPBlockList.ModWoodDoubleSlab.blockID;
+		return isBlockSingleSlab(this.blockID) ? this.blockID : NPBlockList.ModStoneDoubleSlab.blockID;
 	}
 	
 	public int idDropped(int metadata, Random rand, int fortune)
 	{
-		return NPBlockList.ModWoodSlab.blockID;
+		return NPBlockList.ModStoneSlab.blockID;
 	}
 	
 	protected ItemStack createStackedBlock(int metadata)
 	{
-		return new ItemStack(NPBlockList.ModWoodSlab.blockID, 2, metadata & 7);
+		return new ItemStack(NPBlockList.ModStoneSlab.blockID, 2, metadata & 7);
 	}
 	
 	public String getFullSlabName(int metadata)
@@ -61,7 +61,7 @@ public static final String[] StepTypes = new String[] {"GrimwoodPlanks"};
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(int id, CreativeTabs creativeTabs, List list)
 	{
-		if(id != NPBlockList.ModWoodDoubleSlab.blockID)
+		if(id != NPBlockList.ModStoneDoubleSlab.blockID)
 		{
 			for(int i = 0; i < StepTypes.length; i++)
 			{
@@ -74,6 +74,6 @@ public static final String[] StepTypes = new String[] {"GrimwoodPlanks"};
 	public Icon getIcon(int side, int metadata)
 	{
 		int k = metadata & 7;
-		return k == 0 ? NPBlockList.GrimwoodPlanks.getBlockTextureFromSide(side) : NPBlockList.GrimwoodPlanks.getBlockTextureFromSide(side);
+		return k == 0 ? NPBlockList.CorruptedBrick.getBlockTextureFromSide(side) : k == 1 ? NPBlockList.NetherrackBrick.getBlockTextureFromSide(side) : NPBlockList.CorruptedBrick.getBlockTextureFromSide(side);
 	}
 }

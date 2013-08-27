@@ -34,8 +34,8 @@ public class NPProperties
 	
 	public static int ModWoodSlabID;
 	public static int ModWoodDoubleSlabID;
-//	public static int ModStoneSlabID;
-//	public static int ModStoneDoubleSlabID;
+	public static int ModStoneSlabID;
+	public static int ModStoneDoubleSlabID;
 	
 	public static int ModFenceID;
 	public static int CorruptedBrickWallID;

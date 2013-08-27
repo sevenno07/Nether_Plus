@@ -1,28 +1,26 @@
-package nether_plus.common.item;
+package nether_plus.common.block;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import nether_plus.common.block.ModWoodSlab;
-import nether_plus.common.block.NPBlockList;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBlockModWoodSlab extends ItemBlock
-{
+public class ItemBlockModStoneSlab extends ItemBlock
+	{
 	private final boolean isFullBlock;
 	private final Block theHalfSlab;
 	private final Block doubleSlab;
 
-	public ItemBlockModWoodSlab(int id)
+	public ItemBlockModStoneSlab(int id)
 	{
 		super(id);
-		this.theHalfSlab = NPBlockList.ModWoodSlab;
-		this.doubleSlab = NPBlockList.ModWoodDoubleSlab;
-		if(id - 256 == NPBlockList.ModWoodDoubleSlab.blockID)
+		this.theHalfSlab = NPBlockList.ModStoneSlab;
+		this.doubleSlab = NPBlockList.ModStoneDoubleSlab;
+		if(id - 256 == NPBlockList.ModStoneDoubleSlab.blockID)
 		{
 			this.isFullBlock = true;
 		}
@@ -47,7 +45,7 @@ public class ItemBlockModWoodSlab extends ItemBlock
 
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return ((ModWoodSlab)theHalfSlab).getFullSlabName(stack.getItemDamage());
+		return ((ModStoneSlab)theHalfSlab).getFullSlabName(stack.getItemDamage());
 	}
 
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
