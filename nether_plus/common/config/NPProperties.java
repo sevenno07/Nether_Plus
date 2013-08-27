@@ -44,6 +44,8 @@ public class NPProperties
 	public static int WhiteSkullID;
 	public static int BlackSkullID;
 	
+	public static int SoulGlassPaneID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;

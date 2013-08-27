@@ -87,6 +87,7 @@ public class Nether_plus
 			NPProperties.GrimwoodChestID = cfg.getBlock("GrimwoodChest", 628).getInt();
 			NPProperties.WhiteSkullID = cfg.getBlock("WhiteSkull", 629).getInt();
 			NPProperties.BlackSkullID = cfg.getBlock("BlackSkull", 630).getInt();
+			NPProperties.SoulGlassPaneID = cfg.getBlock("SoulGlassPane", 631).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();

@@ -29,7 +29,7 @@ public class NPRecipe
 		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodPickaxe, 1), new Object[]{"XXX", " Y ", " Y ", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodAxe, 1), new Object[]{"XX ", "XY ", " Y ", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodShovel, 1), new Object[]{"X", "Y", "Y", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
-		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodHoe, 1), new Object[]{"XX", " Y ", " Y ", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodHoe, 1), new Object[]{"XX ", " Y ", " Y ", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
 
 	}
 	

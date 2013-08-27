@@ -51,6 +51,8 @@ public class NPBlockList
 	
 	public static Block WhiteSkull;
 	public static Block BlackSkull;
+	
+	public static Block SoulGlassPane;
 
 	public static void loadBlock()
 	{
@@ -92,6 +94,8 @@ public class NPBlockList
 		ModFence = new BlockFence(625, "nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("BlockFence").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		CorruptedBrickWall = new CorruptedBrickWall(626, CorruptedBrick).setUnlocalizedName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		NetherrackBrickWall = new NetherrackBrickWall(627, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		
+		SoulGlassPane = new SoulGlassPane(631, "nether_plus:SoulGlass", "nether_plus:SoulGlass", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlass").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
@@ -130,8 +134,10 @@ public class NPBlockList
 		GameRegistry.registerBlock(CorruptedBrickWall, "Corrupted_Brick_Wall");
 		GameRegistry.registerBlock(NetherrackBrickWall, "Netherrack_Brick_Wall");
 		
-		GameRegistry.registerBlock(WhiteSkull, "WhiteSkull");
-		GameRegistry.registerBlock(BlackSkull, "BlackSkull");
+		GameRegistry.registerBlock(WhiteSkull, "White_Skull");
+		GameRegistry.registerBlock(BlackSkull, "Black_Skull");
+		
+		GameRegistry.registerBlock(SoulGlassPane, "Soul_Glass_Pane");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
