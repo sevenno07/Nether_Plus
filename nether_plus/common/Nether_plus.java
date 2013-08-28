@@ -14,6 +14,8 @@ import net.minecraftforge.common.MinecraftForge;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.config.NPProperties;
 import nether_plus.common.entity.NPEntityList;
+import nether_plus.common.event.GrimBoneMeal;
+import nether_plus.common.event.LivingEvent;
 import nether_plus.common.gui.GuiHandler;
 import nether_plus.common.item.NPItemList;
 import nether_plus.common.recipe.NPRecipe;
@@ -88,6 +90,8 @@ public class Nether_plus
 			NPProperties.WhiteSkullID = cfg.getBlock("WhiteSkull", 629).getInt();
 			NPProperties.BlackSkullID = cfg.getBlock("BlackSkull", 630).getInt();
 			NPProperties.SoulGlassPaneID = cfg.getBlock("SoulGlassPane", 631).getInt();
+			NPProperties.InfernumOreID = cfg.getBlock("InfenumOre", 632).getInt();
+			NPProperties.InfernumBlockID = cfg.getBlock("InfernumBlock", 633).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
@@ -114,6 +118,7 @@ public class Nether_plus
 			NPProperties.GrimwoodStickID = cfg.getItem("GrimwoodStick", 4018).getInt();
 			
 			NPProperties.BloodGemID = cfg.getItem("BloodGem", 4019).getInt();
+			NPProperties.InfernumIngotID = cfg.getItem("InfernumIngot", 4020).getInt();
 		}
 		catch(Exception ex)
 		{
@@ -142,6 +147,7 @@ public class Nether_plus
 		proxy.registerRenderEntity();
 
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
+		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		
 		NPTEntityList.loadTileEntity();
 		NetworkRegistry.instance().registerGuiHandler(this, GuiHandler);

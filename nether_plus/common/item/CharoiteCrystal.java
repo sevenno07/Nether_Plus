@@ -9,11 +9,12 @@ import nether_plus.common.NetherPlusCreativeTabs;
 
 public class CharoiteCrystal extends Item
 {
-      public CharoiteCrystal(int id)
-      {
-            super(id);
-    		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
-      }
+    public CharoiteCrystal(int id)
+    {
+    	super(id);
+    	this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
+    }
+    
   	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)
 	{

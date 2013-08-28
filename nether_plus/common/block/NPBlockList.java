@@ -24,6 +24,8 @@ public class NPBlockList
 	public static Block CorruptedGoldOre;
 	public static Block CorruptedCharoiteOre;
 	public static Block CorruptedBlackIronOre;
+	public static Block InfernumOre;
+	public static Block InfernumBlock;
 	
 	public static Block GrimwoodPlanks;
 	public static Block CorruptedBrick;
@@ -70,6 +72,8 @@ public class NPBlockList
 		CorruptedGoldOre = new CorruptedGoldOre(NPProperties.CorruptedGoldOreID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("CorruptedGoldOre");
 		CorruptedCharoiteOre = new CorruptedCharoiteOre(NPProperties.CorruptedCharoiteOreID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("CorruptedCharoiteOre");
 		CorruptedBlackIronOre = new CorruptedBlackIronOre(NPProperties.CorruptedBlackIronOreID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBlackIronOre");
+		InfernumOre = new InfernumOre(NPProperties.InfernumOreID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("InfernumOre");
+		InfernumBlock = new InfernumBlock(NPProperties.InfernumBlockID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("InfernumBlock");
 		
 		GrimwoodPlanks = new GrimwoodPlanks(NPProperties.GrimwoodPlanksID, Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodPlanks");
 		CorruptedBrick = new CorruptedBrick(NPProperties.CorruptedBrickID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedBrick");
@@ -96,7 +100,7 @@ public class NPBlockList
 		NetherrackBrickWall = new NetherrackBrickWall(627, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
 		SoulGlassPane = new SoulGlassPane(631, "nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-
+		
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
 		GameRegistry.registerBlock(Netherraze, "Netherraze");
@@ -111,6 +115,9 @@ public class NPBlockList
 		GameRegistry.registerBlock(CorruptedGoldOre, "Corrupted_Gold_Ore");
 		GameRegistry.registerBlock(CorruptedCharoiteOre, "Corrupted_Charoite_Ore");
 		GameRegistry.registerBlock(CorruptedBlackIronOre, "Corrupted_Black_Iron_Ore");
+		GameRegistry.registerBlock(InfernumOre, "InfernumOre");
+
+		GameRegistry.registerBlock(InfernumBlock, "InfernumBlock");
 		
 		GameRegistry.registerBlock(GrimwoodPlanks, "Grimwood_Planks");
 		GameRegistry.registerBlock(CorruptedBrick, "Corrupted_Brick");

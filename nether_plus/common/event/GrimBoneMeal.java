@@ -1,4 +1,4 @@
-package nether_plus.common;
+package nether_plus.common.event;
 
 import net.minecraftforge.event.Event;
 import net.minecraftforge.event.ForgeSubscribe;

@@ -46,6 +46,9 @@ public class NPProperties
 	
 	public static int SoulGlassPaneID;
 	
+	public static int InfernumOreID;
+	public static int InfernumBlockID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
@@ -54,6 +57,7 @@ public class NPProperties
 	public static int FireslimeballID;
 	public static int GrimwoodStickID;
 	public static int BloodGemID;
+	public static int InfernumIngotID;
 	
 	public static int SkeletonWhiteHelmetID;
 	public static int SkeletonWhiteChestplateID;

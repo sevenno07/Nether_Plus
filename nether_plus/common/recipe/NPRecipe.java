@@ -30,6 +30,7 @@ public class NPRecipe
 		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodAxe, 1), new Object[]{"XX ", "XY ", " Y ", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodShovel, 1), new Object[]{"X", "Y", "Y", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.GrimwoodHoe, 1), new Object[]{"XX ", " Y ", " Y ", 'X', NPBlockList.GrimwoodPlanks, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.InfernumBlock, 1), new Object[]{"XXX", "XXX", "XXX", 'X', NPItemList.InfernumIngot});
 
 	}
 	
@@ -41,5 +42,6 @@ public class NPRecipe
 		GameRegistry.addSmelting(NPBlockList.CorruptedBlackIronOre.blockID, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
 		GameRegistry.addSmelting(NPBlockList.CorruptedCharoiteOre.blockID, new ItemStack(NPItemList.CharoiteCrystal), 2.0F);
 		GameRegistry.addSmelting(NPBlockList.CorruptedCobblestone.blockID, new ItemStack(NPBlockList.CorruptionStone), 2.0F);
+		GameRegistry.addSmelting(NPBlockList.InfernumOre.blockID, new ItemStack(NPItemList.InfernumIngot), 2.0F);
 	}
 }
