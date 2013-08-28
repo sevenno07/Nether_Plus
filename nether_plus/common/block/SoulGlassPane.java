@@ -19,11 +19,6 @@ public class SoulGlassPane extends BlockPane
 	{
 		super(par1, par2Str, par3Str, par4Material, par5);
 	}
-
-	public Icon getIcon(int par1, int par2)
-	{
-		return NPBlockList.SoulGlass.getBlockTextureFromSide(par1);
-	}
 	
 	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
@@ -37,7 +32,7 @@ public class SoulGlassPane extends BlockPane
 	
     public int getRenderBlockPass()
     {
-        return 1;
+        return 0;
     }
     
     public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)

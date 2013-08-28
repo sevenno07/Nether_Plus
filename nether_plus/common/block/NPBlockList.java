@@ -95,7 +95,7 @@ public class NPBlockList
 		CorruptedBrickWall = new CorruptedBrickWall(626, CorruptedBrick).setUnlocalizedName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		NetherrackBrickWall = new NetherrackBrickWall(627, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
-		SoulGlassPane = new SoulGlassPane(631, "nether_plus:SoulGlass", "nether_plus:SoulGlass", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlass").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		SoulGlassPane = new SoulGlassPane(631, "nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");

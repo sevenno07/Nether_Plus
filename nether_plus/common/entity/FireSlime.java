@@ -12,15 +12,15 @@ import nether_plus.common.item.NPItemList;
 
 public class FireSlime extends EntityLiving implements IMob
 {
-    private int slimeJumpDelay;
 	public float field_70811_b;
 	public float field_70812_c;
 	public float field_70813_a;
 
+    private int slimeJumpDelay = 0;
+	
     public FireSlime(World world)
     {
         super(world);
-        this.slimeJumpDelay = 0;
         this.texture = "/mods/nether_plus/textures/Entity/fireslime.png";
         int i = 1 << rand.nextInt(3);
         this.yOffset = 0.0F;
@@ -80,21 +80,22 @@ public class FireSlime extends EntityLiving implements IMob
 
     public void onUpdate()
     {
-        if(!worldObj.isRemote && worldObj.difficultySetting == 0 && this.getFireSlimeSize() > 0)
+        if (!this.worldObj.isRemote && this.worldObj.difficultySetting == 0 && this.getFireSlimeSize() > 0)
         {
         	this.isDead = true;
         }
+        
         this.field_70811_b += (this.field_70813_a - this.field_70811_b) * 0.5F;
         this.field_70812_c = this.field_70811_b;
         boolean flag = this.onGround;
         super.onUpdate();
         int i;
         
-        if(this.onGround && !flag)
+        if (this.onGround && !flag)
         {
             i = this.getFireSlimeSize();
             
-            for(int j = 0; j < i * 8; ++j)
+            for (int j = 0; j < i * 8; ++j)
             {
                 float f = this.rand.nextFloat() * (float)Math.PI * 2.0F;
                 float f1 = this.rand.nextFloat() * 0.5F + 0.5F;

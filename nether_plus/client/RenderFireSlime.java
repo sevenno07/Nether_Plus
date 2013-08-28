@@ -37,9 +37,9 @@ public class RenderFireSlime extends RenderLiving
  		renderFireSlime((FireSlime)entity, par2, par4, par6, par8, par9);
     }
  	
-    protected int shouldFireSlimeRenderPass(FireSlime FireSlime, int par2, float par3)
+    protected int shouldFireSlimeRenderPass(FireSlime par1FireSlime, int par2, float par3)
     {
-        if (FireSlime.isInvisible())
+        if (par1FireSlime.isInvisible())
         {
             return 0;
         }
