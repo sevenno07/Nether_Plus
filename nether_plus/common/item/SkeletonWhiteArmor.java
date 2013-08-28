@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import nether_plus.common.NetherPlusCreativeTabs;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

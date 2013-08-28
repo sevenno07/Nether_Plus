@@ -9,7 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import nether_plus.common.NetherPlusCreativeTabs;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
 public class BewitchedWood extends BlockLog
 	{

@@ -13,6 +13,7 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.config.NPProperties;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.event.GrimBoneMeal;
 import nether_plus.common.event.LivingEvent;

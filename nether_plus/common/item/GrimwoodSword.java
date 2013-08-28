@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import nether_plus.common.NetherPlusCreativeTabs;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
 public class GrimwoodSword extends ItemSword
 {

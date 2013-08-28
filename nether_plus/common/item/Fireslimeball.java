@@ -2,7 +2,7 @@ package nether_plus.common.item;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
-import nether_plus.common.NetherPlusCreativeTabs;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

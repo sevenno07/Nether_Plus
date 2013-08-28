@@ -3,7 +3,7 @@ package nether_plus.common.block;
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
-import nether_plus.common.NetherPlusCreativeTabs;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

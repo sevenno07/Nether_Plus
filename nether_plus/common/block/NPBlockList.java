@@ -4,8 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.MinecraftForge;
-import nether_plus.common.NetherPlusCreativeTabs;
 import nether_plus.common.config.NPProperties;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class NPBlockList
