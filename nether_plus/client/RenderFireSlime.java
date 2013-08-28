@@ -21,21 +21,6 @@ public class RenderFireSlime extends RenderLiving
         super(par1ModelBase, par3);
         this.scaleAmount = par2ModelBase;
     }
-    
-    public void renderFireSlime(FireSlime entity, double par2, double par4, double par6, float par8, float par9)
-    {
-        super.doRenderLiving(entity, par2, par4, par6, par8, par9);
-    }
- 
-	public void doRenderLiving(EntityLiving entityLiving, double par2, double par4, double par6, float par8, float par9)
-    {
-		renderFireSlime((FireSlime) entityLiving, par2, par4, par6, par8, par9);
-    }
- 
- 	public void doRender(Entity entity, double par2, double par4, double par6, float par8, float par9)
-    {
- 		renderFireSlime((FireSlime)entity, par2, par4, par6, par8, par9);
-    }
  	
     protected int shouldFireSlimeRenderPass(FireSlime par1FireSlime, int par2, float par3)
     {
