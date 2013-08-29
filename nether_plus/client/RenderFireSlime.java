@@ -2,6 +2,7 @@ package nether_plus.client;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import nether_plus.common.entity.FireSlime;
 

@@ -2,14 +2,14 @@ package nether_plus.common.entity;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
 
-public class LavaTortoise extends EntityMob
+public class LavaTortoise extends EntityCreature
 {
 
 	public LavaTortoise(World World)

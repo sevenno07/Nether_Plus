@@ -24,7 +24,7 @@ public class Mogus extends EntityCreature
     	 
     public int getMaxSpawnedInChunk()
 	{
-	return 12;
+	return 5;
 	}
 
     protected String getLivingSound()
