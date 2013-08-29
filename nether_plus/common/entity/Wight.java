@@ -81,17 +81,17 @@ public class Wight extends EntityMob
 	
 	protected String getLivingSound()
 	{
-		return "mob.zombie.say";
+		return "newsound.idle";
 	}
 	
 	protected String getHurtSound()
     {
-        return "mob.zombie.hurt";
+        return "newsound.hit";
     }
 
     protected String getDeathSound()
     {
-        return "mob.zombie.death";
+        return "newsound.death";
     }
     
     public boolean attackEntityFrom(DamageSource damagesource, int i)

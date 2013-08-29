@@ -1,6 +1,7 @@
 package nether_plus.proxy;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraftforge.common.MinecraftForge;
 import nether_plus.client.ModelBlackSalamander;
 import nether_plus.client.ModelFireSlime;
 import nether_plus.client.ModelLavaTortoise;
@@ -17,6 +18,7 @@ import nether_plus.client.RenderPordenfer;
 import nether_plus.client.RenderRedMogus;
 import nether_plus.client.RenderSalamander;
 import nether_plus.client.RenderWight;
+import nether_plus.client.audio.NPSounds;
 import nether_plus.common.entity.BlackSalamander;
 import nether_plus.common.entity.FireSlime;
 import nether_plus.common.entity.LavaTortoise;
@@ -35,10 +37,16 @@ public class NPClientProxy extends NPCommonProxy
 	
 	public static int shouldRenderPass;
 
+
 	@Override
 	public void registerRender()
 	{
 
+	}
+	
+	public void initSound()
+	{
+		MinecraftForge.EVENT_BUS.register(new NPSounds());
 	}
 	
 	public void registerRenderEntity()
@@ -51,7 +59,7 @@ public class NPClientProxy extends NPCommonProxy
 	     RenderingRegistry.registerEntityRenderingHandler(LavaTortoise.class, new RenderLavaTortoise(new ModelLavaTortoise(), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(Pordenfer.class, new RenderPordenfer(new ModelPordenfer(), 0.5F));
 //	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(i), ModelBase, 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), new ModelFireSlime(0), 0.5F));
+	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(i), new ModelFireSlime(0), 0.5F));
 
 	}
 }

@@ -2,6 +2,7 @@ package nether_plus.common;
 
 import java.io.File;
 import java.util.List;
+import java.util.logging.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -46,11 +47,15 @@ public class Nether_plus
 	public static nether_plus.common.Nether_plus instance;
 	
 	public static File ConfigFile;
+	public static Logger NPlog;
+	
 	protected static final GuiHandler GuiHandler = new GuiHandler();
 	
 	@PreInit
 	public void preload(FMLPreInitializationEvent event)
 	{
+		NPlog = event.getModLog();
+		
 		ConfigFile = new File(event.getModConfigurationDirectory(), "Nether_Plus.cfg");
 		Configuration cfg = new Configuration(ConfigFile);
 		try
@@ -123,7 +128,7 @@ public class Nether_plus
 		}
 		catch(Exception ex)
 		{
-			event.getModLog().severe("Failed to load configuration");
+			NPlog.severe("Failed to load configuration");
 		}
 		finally
 		{
@@ -134,8 +139,10 @@ public class Nether_plus
 		}
 		
 		NetherPlusCreativeTabs.loadCreativeTab();//CreativeTab
-		NPBlockList.loadBlock();//block
+		NPBlockList.loadBlock();//Block
 		NPItemList.loadItem();//Item
+		
+		proxy.initSound();//Sound
 	}
 
 	@Init

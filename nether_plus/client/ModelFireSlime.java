@@ -1,6 +1,6 @@
 package nether_plus.client;
 
-/**import cpw.mods.fml.relauncher.Side;
+/*import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -9,10 +9,12 @@ import net.minecraft.entity.Entity;
 @SideOnly(Side.CLIENT)
 public class ModelFireSlime extends ModelBase
 {
-	
     ModelRenderer slimeBodies;
+
     ModelRenderer slimeRightEye;
+
     ModelRenderer slimeLeftEye;
+
     ModelRenderer slimeMouth;
 
     public ModelFireSlime(int par1)
@@ -32,7 +34,7 @@ public class ModelFireSlime extends ModelBase
             this.slimeMouth.addBox(0.0F, 21.0F, -3.5F, 1, 1, 1);
         }
     }
-
+    
     public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, par1Entity);
@@ -47,7 +49,7 @@ public class ModelFireSlime extends ModelBase
     }
 }*/
 
-import cpw.mods.fml.relauncher.Side;
+/**import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -92,4 +94,4 @@ public class ModelFireSlime extends ModelBase
         	this.slimeMouth.render(f5);
         }
     }
-}
+}*/
