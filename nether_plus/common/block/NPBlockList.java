@@ -56,6 +56,8 @@ public class NPBlockList
 	public static Block BlackSkull;
 	
 	public static Block SoulGlassPane;
+	
+	public static Block BlockGrimwoodDoor;
 
 	public static void loadBlock()
 	{
@@ -101,6 +103,7 @@ public class NPBlockList
 		NetherrackBrickWall = new NetherrackBrickWall(627, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
 		SoulGlassPane = new SoulGlassPane(631, "nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		BlockGrimwoodDoor = new BlockGrimwoodDoor(NPProperties.BlockGrimwoodDoorID, Material.wood).setHardness(3.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("BlockGrimwoodDoor");
 		
 		try
 		{
@@ -148,6 +151,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(BlackSkull, "Black_Skull");
 		
 		GameRegistry.registerBlock(SoulGlassPane, "Soul_Glass_Pane");
+		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);

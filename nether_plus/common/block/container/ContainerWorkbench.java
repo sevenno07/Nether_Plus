@@ -27,36 +27,38 @@ public class ContainerWorkbench extends Container
 	{
 		this.worldObj = world;
 		this.tile_entity = tile_entity;
-
 		this.addSlotToContainer(new SlotCrafting(player_inventory.player, this.craftMatrix, this.craftResult, 0, 124, 35));
+        int l;
+        int i1;
 
-		this.addSlotToContainer(new Slot(this.craftMatrix, 6, 30 + 18, 35));
+        for (l = 0; l < 3; ++l)
+        {
+            for (i1 = 0; i1 < 3; ++i1)
+            {
+                this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 30 + i1 * 18, 17 + l * 18));
+            }
+        }
 
-		bindPlayerInventory(player_inventory);
+        for (l = 0; l < 3; ++l)
+        {
+            for (i1 = 0; i1 < 9; ++i1)
+            {
+                this.addSlotToContainer(new Slot(player_inventory, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
+            }
+        }
+
+        for (l = 0; l < 9; ++l)
+        {
+            this.addSlotToContainer(new Slot(player_inventory, l, 8 + l * 18, 142));
+        }
+
+        this.onCraftMatrixChanged(this.craftMatrix);
 	}
 	
 	@Override
 	public boolean canInteractWith(EntityPlayer player)
 	{
 		return tile_entity.isUseableByPlayer(player);
-	}
-	
-	protected void bindPlayerInventory(InventoryPlayer player_inventory)
-	{		
-		int var6;
-        int var7;
-		for (var6 = 0; var6 < 3; ++var6)
-        {
-            for (var7 = 0; var7 < 9; ++var7)
-            {
-                this.addSlotToContainer(new Slot(player_inventory, var7 + var6 * 9 + 9, 8 + var7 * 18, 84 + var6 * 18));
-            }
-        }
-        for (var6 = 0; var6 < 9; ++var6)
-        {
-            this.addSlotToContainer(new Slot(player_inventory, var6, 8 + var6 * 18, 142));
-        }
-        this.onCraftMatrixChanged(this.craftMatrix);
 	}
 	
 	public void onCraftMatrixChanged(IInventory par1IInventory)

@@ -104,6 +104,7 @@ public class Nether_plus
 			NPProperties.SoulGlassPaneID = cfg.getBlock("SoulGlassPane", 631).getInt();
 			NPProperties.InfernumOreID = cfg.getBlock("InfenumOre", 632).getInt();
 			NPProperties.InfernumBlockID = cfg.getBlock("InfernumBlock", 633).getInt();
+			NPProperties.BlockGrimwoodDoorID = cfg.getBlock("BlockGrimwoodDoor", 634).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
@@ -131,6 +132,8 @@ public class Nether_plus
 			
 			NPProperties.BloodGemID = cfg.getItem("BloodGem", 4019).getInt();
 			NPProperties.InfernumIngotID = cfg.getItem("InfernumIngot", 4020).getInt();
+			NPProperties.ItemGrimwoodDoorID = cfg.getItem("ItemGrimwoodDoor", 4021).getInt();
+
 		}
 		catch(Exception ex)
 		{

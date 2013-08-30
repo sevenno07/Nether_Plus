@@ -49,6 +49,8 @@ public class NPProperties
 	public static int InfernumOreID;
 	public static int InfernumBlockID;
 	
+	public static int BlockGrimwoodDoorID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
@@ -74,4 +76,5 @@ public class NPProperties
 	public static int GrimwoodAxeID;
 	public static int GrimwoodShovelID;
 	public static int GrimwoodHoeID;
+	public static int ItemGrimwoodDoorID;
 }
