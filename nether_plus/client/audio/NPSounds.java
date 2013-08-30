@@ -7,7 +7,7 @@ import nether_plus.common.Nether_plus;
 
 public class NPSounds
 {
-	private String[] soundNames = {"newsound/death.ogg", "newsound/hit1.ogg", "newsound/hit2.ogg", "newsound/hit3.ogg",  "newsound/hit4.ogg", "newsound/idle1.ogg", "newsound/idle2.ogg", "newsound/idle3.ogg", "newsound/idle4.ogg"};
+	private String[] soundNames = {"Wight/death.ogg", "Wight/hit1.ogg", "Wight/hit2.ogg", "Wight/hit3.ogg",  "Wight/hit4.ogg", "Wight/idle1.ogg", "Wight/idle2.ogg", "Wight/idle3.ogg", "Wight/idle4.ogg"};
 
 	@ForgeSubscribe
 	public void onSoundsLoad(SoundLoadEvent event)
@@ -17,7 +17,7 @@ public class NPSounds
 		{
 			for(String soundName : soundNames)
 			{
-				manager.soundPoolSounds.addSound(soundName, Nether_plus.class.getResource("/nether_plus/client/resources/" + soundName));
+				manager.soundPoolSounds.addSound(soundName, Nether_plus.class.getResource("/mods/nether_plus/sounds/" + soundName));
 			}
 		}
 		catch(Exception ex)

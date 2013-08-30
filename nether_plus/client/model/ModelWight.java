@@ -1,4 +1,4 @@
-package nether_plus.client;
+package nether_plus.client.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

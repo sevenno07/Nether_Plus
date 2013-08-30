@@ -1,9 +1,10 @@
-package nether_plus.client;
+package nether_plus.client.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import nether_plus.client.model.ModelLavaTortoise;
 import nether_plus.common.entity.LavaTortoise;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

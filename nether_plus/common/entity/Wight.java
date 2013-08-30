@@ -1,17 +1,15 @@
 package nether_plus.common.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import java.util.List;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class Wight extends EntityZombie
 {
@@ -80,17 +78,17 @@ public class Wight extends EntityZombie
 
     public String getLivingSound()
     {
-        return "newsound.idle";
+        return "Wight.idle";
     }
 
     protected String getHurtSound()
     {
-        return "newsound.hit";
+        return "Wight.hit";
     }
 
     protected String getDeathSound()
     {
-        return "newsound.death";
+        return "Wight.death";
     }
 
     public boolean interact(EntityPlayer par1EntityPlayer)

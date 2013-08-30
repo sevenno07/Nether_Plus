@@ -35,6 +35,7 @@ tile.InfernumBlock.name = InfernumBlock
 
 #Container
 container.four = Corrupted Furnace
+container.workbench = Grimwood Workbench
 
 #Items
 item.CharoiteCrystal.name = Charoite Crystal

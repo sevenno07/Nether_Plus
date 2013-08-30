@@ -23,6 +23,8 @@ import nether_plus.common.item.NPItemList;
 import nether_plus.common.recipe.NPRecipe;
 import nether_plus.common.tileentity.NPTEntityList;
 import nether_plus.proxy.NPCommonProxy;
+import nether_plus.proxy.network.ClientPacketHandler;
+import nether_plus.proxy.network.ServerPacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -33,11 +35,14 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "nether_plus", name = "Nether plus", version = "1.0.0")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@NetworkMod(clientSideRequired = true, serverSideRequired = false,
+clientPacketHandlerSpec = @SidedPacketHandler(channels = {"Nether_Plus"}, packetHandler = ClientPacketHandler.class),
+serverPacketHandlerSpec = @SidedPacketHandler(channels = {"Nether_Plus"}, packetHandler = ServerPacketHandler.class))
 public class Nether_plus
 {
 	@SidedProxy(clientSide = "nether_plus.proxy.NPClientProxy", serverSide = "nether_plus.proxy.NPCommonProxy")

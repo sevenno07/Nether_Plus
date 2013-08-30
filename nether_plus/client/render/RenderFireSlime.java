@@ -1,4 +1,4 @@
-package nether_plus.client;
+package nether_plus.client.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;

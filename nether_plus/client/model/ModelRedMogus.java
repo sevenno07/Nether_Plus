@@ -1,4 +1,4 @@
-package nether_plus.client;
+package nether_plus.client.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 
-public class ModelMogus extends ModelBase
+public class ModelRedMogus extends ModelBase
 {
 	//fields
 	
@@ -18,7 +18,7 @@ public class ModelMogus extends ModelBase
     public ModelRenderer right_arm;
     public ModelRenderer left_arm;
   
-    public ModelMogus()
+    public ModelRedMogus()
     {
 	    float scale = 0F;
 	    

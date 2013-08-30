@@ -1,13 +1,25 @@
 package nether_plus.common.block;
 
-import net.minecraft.block.BlockWorkbench;
+import java.util.Random;
+
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
+import nether_plus.common.Nether_plus;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import nether_plus.common.tileentity.TileEntityGrimwoodWorkbench;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class GrimwoodWorkbench extends BlockWorkbench
+public class GrimwoodWorkbench extends BlockContainer
 {
     @SideOnly(Side.CLIENT)
     private Icon workbenchIconTop;
@@ -16,7 +28,7 @@ public class GrimwoodWorkbench extends BlockWorkbench
 
     protected GrimwoodWorkbench(int par1)
     {
-        super(par1);
+        super(par1, Material.wood);
         this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
     }
 
@@ -33,4 +45,130 @@ public class GrimwoodWorkbench extends BlockWorkbench
         this.workbenchIconTop = par1IconRegister.registerIcon("Nether_plus:workbench_top");
         this.workbenchIconFront = par1IconRegister.registerIcon("Nether_plus:workbench_front");
     }
+
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float f, float g, float t)
+ 
+	{
+ 
+		TileEntityGrimwoodWorkbench tileentityworkbench = (TileEntityGrimwoodWorkbench) world.getBlockTileEntity(x, y, z);
+ 
+ 
+ 
+		if(tileentityworkbench == null || player.isSneaking())
+ 
+		{
+ 
+			return false;
+ 
+		}
+ 
+ 
+ 
+		player.openGui(Nether_plus.instance, 2, world, x, y, z);
+ 
+ 
+ 
+		return true;
+ 
+	}
+	
+	@Override
+	public void breakBlock(World world, int x, int y, int z, int i, int j)
+ 
+	{
+ 
+		dropItems(world, x, y, z);
+ 
+		super.breakBlock(world, x, y, z, i, j);
+ 
+	}
+	
+	private void dropItems(World world, int x, int y, int z)
+	 
+	{
+ 
+		Random rand = new Random();
+ 
+		
+ 
+		TileEntityGrimwoodWorkbench tileentityworkbench = (TileEntityGrimwoodWorkbench) world.getBlockTileEntity(x, y, z);
+ 
+		
+ 
+		if(!(tileentityworkbench instanceof IInventory))
+ 
+		{
+ 
+			return;
+ 
+		}
+ 
+		
+ 
+		IInventory inventory = (IInventory) tileentityworkbench;
+ 
+		
+ 
+		for(int i = 0; i < inventory.getSizeInventory(); i++)
+ 
+		{
+ 
+			ItemStack item = inventory.getStackInSlot(i);
+ 
+			
+ 
+			if(item != null && item.stackSize > 0)
+ 
+			{
+ 
+				float rx = rand.nextFloat() * 0.6F + 0.1F;
+ 
+				float ry = rand.nextFloat() * 0.6F + 0.1F;
+ 
+				float rz = rand.nextFloat() * 0.6F + 0.1F;
+ 
+				
+ 
+				EntityItem entity_item = new EntityItem(world, x + rx, y + ry, z + rz, new ItemStack(item.itemID, item.stackSize, item.getItemDamage()));
+ 
+				
+ 
+				if(item.hasTagCompound())
+ 
+				{
+ 
+					entity_item.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
+ 
+				}
+ 
+				
+ 
+				float factor = 0.5F;
+ 
+				
+ 
+				entity_item.motionX = rand.nextGaussian() * factor;
+ 
+				entity_item.motionY = rand.nextGaussian() * factor + 0.2F;
+ 
+				entity_item.motionZ = rand.nextGaussian() * factor;
+ 
+				world.spawnEntityInWorld(entity_item);
+ 
+				item.stackSize = 0;
+ 
+			}
+ 
+		}
+ 
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world)
+	{
+		return new TileEntityGrimwoodWorkbench();
+	}
+	
+	
 }
