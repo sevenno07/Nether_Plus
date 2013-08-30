@@ -14,6 +14,6 @@ public class NPCreativeTabsTool extends CreativeTabs {
 	@Override
 	public ItemStack getIconItemStack()
 	{
-		return new ItemStack(NPItemList.GrimwoodSword);
+		return new ItemStack(NPItemList.GrimwoodPickaxe);
 	}
 }

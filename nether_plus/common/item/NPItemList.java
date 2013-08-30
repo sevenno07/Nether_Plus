@@ -4,6 +4,7 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.EnumHelper;
+import nether_plus.common.Nether_plus;
 import nether_plus.common.config.NPProperties;
 
 public class NPItemList
@@ -39,6 +40,8 @@ public class NPItemList
 	
 	public static void loadItem()
 	{
+		try
+		{
 		CharoiteCrystal = new CharoiteCrystal(NPProperties.CharoiteCrystalID).setUnlocalizedName("CharoiteCrystal");
 		BlackIronIngot = new BlackIronIngot(NPProperties.BlackIronIngotID).setUnlocalizedName("BlackIronIngot");
 		BlackBone = new BlackBone(NPProperties.BlackBoneID).setUnlocalizedName("BlackBone");
@@ -63,5 +66,11 @@ public class NPItemList
 		GrimwoodAxe = new GrimwoodAxe(NPProperties.GrimwoodAxeID, GrimwoodTool).setUnlocalizedName("GrimwoodAxe");
 		GrimwoodShovel = new GrimwoodShovel(NPProperties.GrimwoodShovelID, GrimwoodTool).setUnlocalizedName("GrimwoodShovel");
 		GrimwoodHoe = new GrimwoodHoe(NPProperties.GrimwoodHoeID, GrimwoodTool).setUnlocalizedName("GrimwoodHoe");
+		}
+		catch(Exception ex)
+		{
+		Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Items!");
+		}
+		Nether_plus.NPlog.info("Initialisation des Items terminés!");
 	}
 }

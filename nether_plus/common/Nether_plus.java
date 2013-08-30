@@ -25,6 +25,7 @@ import nether_plus.common.tileentity.NPTEntityList;
 import nether_plus.proxy.NPCommonProxy;
 import nether_plus.proxy.network.ClientPacketHandler;
 import nether_plus.proxy.network.ServerPacketHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -52,14 +53,14 @@ public class Nether_plus
 	public static nether_plus.common.Nether_plus instance;
 	
 	public static File ConfigFile;
-	public static Logger NPlog;
+	public static Logger NPlog = Logger.getLogger("Nether_Plus");
 	
 	protected static final GuiHandler GuiHandler = new GuiHandler();
 	
 	@PreInit
 	public void preload(FMLPreInitializationEvent event)
 	{
-		NPlog = event.getModLog();
+		NPlog.setParent(FMLLog.getLogger());
 		
 		ConfigFile = new File(event.getModConfigurationDirectory(), "Nether_Plus.cfg");
 		Configuration cfg = new Configuration(ConfigFile);
@@ -141,6 +142,8 @@ public class Nether_plus
 			{
 				cfg.save();
 			}
+			
+			NPlog.info("Initialisation des ID's terminé!");
 		}
 		
 		NetherPlusCreativeTabs.loadCreativeTab();//CreativeTab

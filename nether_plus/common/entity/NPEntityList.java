@@ -11,6 +11,8 @@ public class NPEntityList
 {
 	public static void loadEntity()
 	{
+		try
+		{
 		EntityRegistry.registerGlobalEntityID(Salamander.class, "Salamandre", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 102, 0).getRGB(), new Color(0, 0, 0).getRGB());
 		EntityRegistry.registerModEntity(Salamander.class, "Salamandre", 231, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(Salamander.class, 100, 7, 7, EnumCreatureType.ambient, BiomeGenBase.hell);
@@ -42,5 +44,11 @@ public class NPEntityList
 		EntityRegistry.registerGlobalEntityID(FireSlime.class, "FireSlime", EntityRegistry.findGlobalUniqueEntityId(), new Color(167, 37, 40).getRGB(), new Color(255, 255, 255).getRGB());
 		EntityRegistry.registerModEntity(FireSlime.class, "FireSlime", 238, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(FireSlime.class, 1, 2, 2, EnumCreatureType.ambient, BiomeGenBase.hell);
+		}
+		catch(Exception ex)
+		{
+		Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Entity's!");
+		}
+		Nether_plus.NPlog.info("Initialisation des Entity's terminées!");
 	}
 }

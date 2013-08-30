@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.MinecraftForge;
+import nether_plus.common.Nether_plus;
 import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -101,6 +102,8 @@ public class NPBlockList
 		
 		SoulGlassPane = new SoulGlassPane(631, "nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
+		try
+		{
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
 		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
 		GameRegistry.registerBlock(Netherraze, "Netherraze");
@@ -149,5 +152,11 @@ public class NPBlockList
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedBlackIronOre, "pickaxe", 2);
+		}
+		catch(Exception ex)
+		{
+			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Blocks!");
+		}
+		Nether_plus.NPlog.info("Initialisation des Blocks terminés!");
 	}
 }

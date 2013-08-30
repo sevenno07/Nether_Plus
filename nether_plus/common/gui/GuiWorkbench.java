@@ -27,7 +27,7 @@ public class GuiWorkbench extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	 {
 		 String s = this.WorkbenchInventory.isInvNameLocalized() ? this.WorkbenchInventory.getInvName() : StatCollector.translateToLocal(this.WorkbenchInventory.getInvName());
-		 this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
+		 this.fontRenderer.drawString(s, 28, 6, 4210752);
 		 this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	 }
 	

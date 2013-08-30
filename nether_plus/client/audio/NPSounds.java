@@ -24,6 +24,10 @@ public class NPSounds
 		{
 			Nether_plus.NPlog.severe("Failed to register one or more sounds.");
 		}
+		finally
+		{
+			Nether_plus.NPlog.info("Initialisation des sons terminés!");
+		}
 	}
 
 }
