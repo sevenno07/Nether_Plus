@@ -58,6 +58,8 @@ public class NPBlockList
 	public static Block SoulGlassPane;
 	
 	public static Block BlockGrimwoodDoor;
+	
+	public static Block BlackIronBlock;
 
 	public static void loadBlock()
 	{
@@ -77,6 +79,7 @@ public class NPBlockList
 		CorruptedBlackIronOre = new CorruptedBlackIronOre(NPProperties.CorruptedBlackIronOreID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("CorruptedBlackIronOre");
 		InfernumOre = new InfernumOre(NPProperties.InfernumOreID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("InfernumOre");
 		InfernumBlock = new InfernumBlock(NPProperties.InfernumBlockID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("InfernumBlock");
+		BlackIronBlock = new BlackIronBlock(NPProperties.BlackIronBlockID, Material.iron).setStepSound(Block.soundMetalFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("BlackIronBlock");
 		
 		GrimwoodPlanks = new GrimwoodPlanks(NPProperties.GrimwoodPlanksID, Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodPlanks");
 		CorruptedBrick = new CorruptedBrick(NPProperties.CorruptedBrickID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedBrick");
@@ -123,7 +126,8 @@ public class NPBlockList
 		GameRegistry.registerBlock(CorruptedBlackIronOre, "Corrupted_Black_Iron_Ore");
 		GameRegistry.registerBlock(InfernumOre, "InfernumOre");
 
-		GameRegistry.registerBlock(InfernumBlock, "InfernumBlock");
+		GameRegistry.registerBlock(InfernumBlock, "Infernum_Block");
+		GameRegistry.registerBlock(BlackIronBlock, "Black_Iron_Block");
 		
 		GameRegistry.registerBlock(GrimwoodPlanks, "Grimwood_Planks");
 		GameRegistry.registerBlock(CorruptedBrick, "Corrupted_Brick");

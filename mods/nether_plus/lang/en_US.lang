@@ -30,8 +30,9 @@ tile.ModStoneSlab.NetherrackBrick.name = Netherrack Brick Slab
 tile.ModFence.name = Grimwood Fence
 tile.CorruptedBrickWall.name = Corrupted Brick Wall
 tile.NetherrackBrickWall.name = Netherrack Brick Wall
-tile.InfernumOre.name = InfernumOre
-tile.InfernumBlock.name = InfernumBlock
+tile.InfernumOre.name = Infernum Ore
+tile.InfernumBlock.name = Infernum Block
+tile.BlackIronBlock.name = Black Iron Block
 
 #Container
 container.four = Corrupted Furnace

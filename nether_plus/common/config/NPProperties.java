@@ -51,6 +51,8 @@ public class NPProperties
 	
 	public static int BlockGrimwoodDoorID;
 	
+	public static int BlackIronBlockID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
