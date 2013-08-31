@@ -33,6 +33,7 @@ tile.NetherrackBrickWall.name = Netherrack Brick Wall
 tile.InfernumOre.name = Infernum Ore
 tile.InfernumBlock.name = Infernum Block
 tile.BlackIronBlock.name = Black Iron Block
+tile.CharoiteBlock.name = Charoite Block
 
 #Container
 container.four = Corrupted Furnace

@@ -27,6 +27,8 @@ public class NPBlockList
 	public static Block CorruptedBlackIronOre;
 	public static Block InfernumOre;
 	public static Block InfernumBlock;
+	public static Block BlackIronBlock;
+	public static Block CharoiteBlock;
 	
 	public static Block GrimwoodPlanks;
 	public static Block CorruptedBrick;
@@ -58,8 +60,6 @@ public class NPBlockList
 	public static Block SoulGlassPane;
 	
 	public static Block BlockGrimwoodDoor;
-	
-	public static Block BlackIronBlock;
 
 	public static void loadBlock()
 	{
@@ -80,6 +80,7 @@ public class NPBlockList
 		InfernumOre = new InfernumOre(NPProperties.InfernumOreID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("InfernumOre");
 		InfernumBlock = new InfernumBlock(NPProperties.InfernumBlockID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("InfernumBlock");
 		BlackIronBlock = new BlackIronBlock(NPProperties.BlackIronBlockID, Material.iron).setStepSound(Block.soundMetalFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("BlackIronBlock");
+		CharoiteBlock = new CharoiteBlock(NPProperties.CharoiteBlockID, Material.iron).setStepSound(Block.soundMetalFootstep).setHardness(3.0F).setResistance(5.0F).setUnlocalizedName("CharoiteBlock");
 		
 		GrimwoodPlanks = new GrimwoodPlanks(NPProperties.GrimwoodPlanksID, Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodPlanks");
 		CorruptedBrick = new CorruptedBrick(NPProperties.CorruptedBrickID, Material.rock).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(7.0F).setUnlocalizedName("CorruptedBrick");
@@ -128,6 +129,7 @@ public class NPBlockList
 
 		GameRegistry.registerBlock(InfernumBlock, "Infernum_Block");
 		GameRegistry.registerBlock(BlackIronBlock, "Black_Iron_Block");
+		GameRegistry.registerBlock(CharoiteBlock, "Charoite_Block");
 		
 		GameRegistry.registerBlock(GrimwoodPlanks, "Grimwood_Planks");
 		GameRegistry.registerBlock(CorruptedBrick, "Corrupted_Brick");

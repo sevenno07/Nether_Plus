@@ -106,6 +106,7 @@ public class Nether_plus
 			NPProperties.InfernumBlockID = cfg.getBlock("InfernumBlock", 633).getInt();
 			NPProperties.BlockGrimwoodDoorID = cfg.getBlock("BlockGrimwoodDoor", 634).getInt();
 			NPProperties.BlackIronBlockID = cfg.getBlock("BlackIronBlock", 635).getInt();
+			NPProperties.CharoiteBlockID = cfg.getBlock("CharoiteBlock", 636).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
