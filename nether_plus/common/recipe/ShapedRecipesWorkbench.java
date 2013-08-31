@@ -102,5 +102,4 @@ public class ShapedRecipesWorkbench implements IRecipe
     {
         return this.recipeOutput;
     }
-
 }
