@@ -37,11 +37,11 @@ public class NPEntityList
 		EntityRegistry.registerModEntity(LavaTortoise.class, "LavaTortoise", 236, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(LavaTortoise.class, 100, 7, 7, EnumCreatureType.creature, BiomeGenBase.hell);
 		
-		EntityRegistry.registerGlobalEntityID(Pordenfer.class, "Pordenfer", EntityRegistry.findGlobalUniqueEntityId(), new Color(167, 37, 40).getRGB(), new Color(255, 255, 255).getRGB());
+		EntityRegistry.registerGlobalEntityID(Pordenfer.class, "Pordenfer", EntityRegistry.findGlobalUniqueEntityId(), new Color(64, 0, 0).getRGB(), new Color(128, 0, 0).getRGB());
 		EntityRegistry.registerModEntity(Pordenfer.class, "Pordenfer", 237, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(Pordenfer.class, 1, 3, 3, EnumCreatureType.ambient, BiomeGenBase.hell);
 		
-		EntityRegistry.registerGlobalEntityID(FireSlime.class, "FireSlime", EntityRegistry.findGlobalUniqueEntityId(), new Color(167, 37, 40).getRGB(), new Color(255, 255, 255).getRGB());
+		EntityRegistry.registerGlobalEntityID(FireSlime.class, "FireSlime", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 126, 0).getRGB(), new Color(206, 103, 0).getRGB());
 		EntityRegistry.registerModEntity(FireSlime.class, "FireSlime", 238, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(FireSlime.class, 1, 2, 2, EnumCreatureType.ambient, BiomeGenBase.hell);
 		}
