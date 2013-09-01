@@ -1,5 +1,6 @@
 package nether_plus.common.item;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
@@ -17,6 +18,7 @@ public class NPItemList
 	public static Item GrimwoodStick;
 	public static Item BloodGem;
 	public static Item InfernumIngot;
+	public static Item ItemGrimwoodDoor;
 	
 	public static Item SkeletonWhiteHelmet;
 	public static Item SkeletonWhiteChestplate;
@@ -50,6 +52,7 @@ public class NPItemList
 		GrimwoodStick = new GrimwoodStick(NPProperties.GrimwoodStickID).setUnlocalizedName("GrimwoodStick");
 		BloodGem = new BloodGem(NPProperties.BloodGemID).setUnlocalizedName("BloodGem");
 		InfernumIngot = new InfernumIngot(NPProperties.InfernumIngotID).setUnlocalizedName("InfernumIngot");
+		ItemGrimwoodDoor = new ItemGrimwoodDoor(NPProperties.ItemGrimwoodDoorID, Material.wood).setUnlocalizedName("ItemGrimwoodDoor");
 		
 		SkeletonWhiteHelmet = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteHelmetID, SkeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet");
 		SkeletonWhiteChestplate = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteChestplateID, SkeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate");

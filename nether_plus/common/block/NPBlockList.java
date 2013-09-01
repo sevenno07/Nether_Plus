@@ -60,7 +60,7 @@ public class NPBlockList
 	public static Block SoulGlassPane;
 	
 	public static Block BlockGrimwoodDoor;
-
+	
 	public static void loadBlock()
 	{
 		GlowstoneSand = new GlowstoneSand(NPProperties.GlowstoneSandID, Material.sand).setStepSound(Block.soundSandFootstep).setLightValue(1.0F).setHardness(0.5F).setUnlocalizedName("GlowstoneSand");

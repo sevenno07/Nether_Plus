@@ -18,7 +18,7 @@ tile.GrimwoodWorkbench.name = Grimwood Workbench
 tile.CorruptedFurnace.name = Corrupted Furnace
 tile.WhiteSkull.name = WhiteSkull
 tile.BlackSkull.name = BlackSkull
-
+tile.BlockGrimwoodDoor.name = GrimwoodDoor
 tile.GrimwoodStairs.name = Grimwood Stairs
 tile.CorruptedBrickStairs.name = Corrupted Brick Stairs
 tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
@@ -61,6 +61,7 @@ item.GrimwoodHoe.name = GrimwoodHoe
 item.GrimwoodStick.name = GrimwoodStick
 item.BloodGem.name = Blood Gem
 item.InfernumIngot.name = InfernumIngot
+item.BlockGrimwoodDoor.name = GrimwoodDoor
 
 #Entity
 entity.Salamandre.name = Salamandre
