@@ -9,6 +9,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
 import nether_plus.common.recipe.RecipesWorkbench;
 import nether_plus.common.tileentity.TileEntityGrimwoodWorkbench;
@@ -63,7 +64,7 @@ public class ContainerWorkbench extends Container
 	
 	public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-    	this.craftResult.setInventorySlotContents(0, RecipesWorkbench.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+    	this.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
     }
 	
 	public void onCraftGuiClosed(EntityPlayer par1EntityPlayer)
