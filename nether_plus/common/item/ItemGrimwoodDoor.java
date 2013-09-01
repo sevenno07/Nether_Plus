@@ -1,7 +1,10 @@
 package nether_plus.common.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -108,4 +111,10 @@ public class ItemGrimwoodDoor extends Item
         par0World.notifyBlocksOfNeighborChange(par1, par2, par3, par5Block.blockID);
         par0World.notifyBlocksOfNeighborChange(par1, par2 + 1, par3, par5Block.blockID);
     }
+    
+	@SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconregister)
+	{
+        this.itemIcon = iconregister.registerIcon("nether_plus:ItemGrimwoodDoor");
+ 	}
 }

@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockGrimwoodDoor extends Block
 {
-	private static final String[] doorIconNames = new String[] {"doorGrimwood_lower", "doorGrimwood_upper"};
+	private static final String[] doorIconNames = new String[] {"nether_plus:doorGrimwood_lower", "nether_plus:doorGrimwood_upper"};
     
 	private final int doorTypeForIcon;
 	
