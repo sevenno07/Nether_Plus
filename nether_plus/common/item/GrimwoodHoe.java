@@ -1,12 +1,12 @@
 package nether_plus.common.item;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class GrimwoodHoe extends ItemHoe
 {
