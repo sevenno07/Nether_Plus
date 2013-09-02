@@ -97,17 +97,18 @@ public class Nether_plus
 			NPProperties.ModStoneDoubleSlabID = cfg.getBlock("ModStoneDoubleSlab", 624).getInt();
 			NPProperties.ModStoneSlabID = cfg.getBlock("ModStoneSlab", 625).getInt();
 			NPProperties.ModFenceID = cfg.getBlock("ModFence", 626).getInt();
-			NPProperties.CorruptedBrickWallID = cfg.getBlock("CorruptedBrickWall", 627).getInt();
-			NPProperties.NetherrackBrickWallID = cfg.getBlock("NetherrackBrickWall", 628).getInt();
-			NPProperties.GrimwoodChestID = cfg.getBlock("GrimwoodChest", 629).getInt();
-			NPProperties.WhiteSkullID = cfg.getBlock("WhiteSkull", 630).getInt();
-			NPProperties.BlackSkullID = cfg.getBlock("BlackSkull", 631).getInt();
-			NPProperties.SoulGlassPaneID = cfg.getBlock("SoulGlassPane", 632).getInt();
-			NPProperties.InfernumOreID = cfg.getBlock("InfenumOre", 633).getInt();
-			NPProperties.InfernumBlockID = cfg.getBlock("InfernumBlock", 634).getInt();
-			NPProperties.BlockGrimwoodDoorID = cfg.getBlock("BlockGrimwoodDoor", 635).getInt();
-			NPProperties.BlackIronBlockID = cfg.getBlock("BlackIronBlock", 636).getInt();
-			NPProperties.CharoiteBlockID = cfg.getBlock("CharoiteBlock", 637).getInt();
+			NPProperties.CorruptedCobblestoneWallID = cfg.getBlock("CorruptedCobblestoneWall", 627).getInt();
+			NPProperties.CorruptedBrickWallID = cfg.getBlock("CorruptedBrickWall", 628).getInt();
+			NPProperties.NetherrackBrickWallID = cfg.getBlock("NetherrackBrickWall", 629).getInt();
+			NPProperties.GrimwoodChestID = cfg.getBlock("GrimwoodChest", 630).getInt();
+			NPProperties.WhiteSkullID = cfg.getBlock("WhiteSkull", 631).getInt();
+			NPProperties.BlackSkullID = cfg.getBlock("BlackSkull", 632).getInt();
+			NPProperties.SoulGlassPaneID = cfg.getBlock("SoulGlassPane", 633).getInt();
+			NPProperties.InfernumOreID = cfg.getBlock("InfenumOre", 634).getInt();
+			NPProperties.InfernumBlockID = cfg.getBlock("InfernumBlock", 635).getInt();
+			NPProperties.BlockGrimwoodDoorID = cfg.getBlock("BlockGrimwoodDoor", 636).getInt();
+			NPProperties.BlackIronBlockID = cfg.getBlock("BlackIronBlock", 637).getInt();
+			NPProperties.CharoiteBlockID = cfg.getBlock("CharoiteBlock", 638).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();

@@ -30,6 +30,7 @@ tile.ModStoneSlab.CorruptedBrick.name = Corrupted Brick Slab
 tile.ModStoneSlab.NetherrackBrick.name = Netherrack Brick Slab
 
 tile.ModFence.name = Grimwood Fence
+tile.CorruptedCobblestoneWall.name = Corrupted Cobblestone Wall
 tile.CorruptedBrickWall.name = Corrupted Brick Wall
 tile.NetherrackBrickWall.name = Netherrack Brick Wall
 

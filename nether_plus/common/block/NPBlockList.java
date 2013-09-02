@@ -51,6 +51,7 @@ public class NPBlockList
 	public static Block ModStoneDoubleSlab;
 	
 	public static Block ModFence;
+	public static Block CorruptedCobblestoneWall;
 	public static Block CorruptedBrickWall;
 	public static Block NetherrackBrickWall;
 	
@@ -104,10 +105,11 @@ public class NPBlockList
 		ModStoneSlab = new ModStoneSlab(NPProperties.ModStoneSlabID, false).setStepSound(Block.soundStoneFootstep).setHardness(1.5F).setResistance(5.0F).setUnlocalizedName("ModStoneSlab");
 		
 		ModFence = new ModFence(626, "nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ModFence");
-		CorruptedBrickWall = new CorruptedBrickWall(627, CorruptedBrick).setUnlocalizedName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherrackBrickWall = new NetherrackBrickWall(628, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		CorruptedCobblestoneWall = new CorruptedCobblestoneWall(627, CorruptedCobblestone).setUnlocalizedName("CorruptedCobblestoneWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		CorruptedBrickWall = new CorruptedBrickWall(628, CorruptedBrick).setUnlocalizedName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherrackBrickWall = new NetherrackBrickWall(629, NetherrackBrick).setUnlocalizedName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
-		SoulGlassPane = new SoulGlassPane(632, "nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		SoulGlassPane = new SoulGlassPane(633, "nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		BlockGrimwoodDoor = new BlockGrimwoodDoor(NPProperties.BlockGrimwoodDoorID, Material.wood).setHardness(3.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("BlockGrimwoodDoor");
 		
 		try
@@ -152,6 +154,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(ModStoneDoubleSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Double_Slab");
 		
 		GameRegistry.registerBlock(ModFence, "Mod_Fence");
+		GameRegistry.registerBlock(CorruptedCobblestoneWall, "Corrupted_Cobblestone_Wall");
 		GameRegistry.registerBlock(CorruptedBrickWall, "Corrupted_Brick_Wall");
 		GameRegistry.registerBlock(NetherrackBrickWall, "Netherrack_Brick_Wall");
 		
