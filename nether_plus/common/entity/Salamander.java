@@ -16,7 +16,7 @@ public class Salamander extends EntityAnimal
 		super(par1World);
 		this.texture = "/mods/nether_plus/textures/entity/salamander_orange.png";
 		this.moveSpeed = 0.8F;
-		this.setSize(0.6F, 0.8F);
+		this.setSize(1.25F, 0.75F);
 		this.stepHeight = 0.0F;
 		this.isImmuneToFire = true;
 	}

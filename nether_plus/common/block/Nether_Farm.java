@@ -147,7 +147,7 @@ public class Nether_Farm extends Block
 
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return Block.dirt.blockID;
+        return Block.slowSand.blockID;
     }
 
     @SideOnly(Side.CLIENT)

@@ -16,7 +16,7 @@ public class LavaTortoise extends EntityCreature
 	{
 		super(World);
 		this.texture = "/mods/nether_plus/textures/Entity/LavaTortoise.png";
-		this.setSize(0.5F, 0.5F);//Hitbox
+		this.setSize(2.20F, 1.75F);//Hitbox
         this.moveSpeed = 0.6F;
 		this.isImmuneToFire = true;
 	}
