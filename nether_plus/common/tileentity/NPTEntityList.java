@@ -10,8 +10,8 @@ public class NPTEntityList
 		try
 		{
 		GameRegistry.registerTileEntity(TileEntityFour.class, "TileEntityFour");
-		GameRegistry.registerTileEntity(TileEntityGrimwoodWorkbench.class, "TileEntityGrimwoodWorkbench");
 		GameRegistry.registerTileEntity(TileEntityGrimwoodChest.class, "TileEntityGrimwoodChest");
+		GameRegistry.registerTileEntity(TileEntityGrimwoodWorkbench.class, "TileEntityGrimwoodWorkbench");
 		}
 		catch(Exception ex)
 		{

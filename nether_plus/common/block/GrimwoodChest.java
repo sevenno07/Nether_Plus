@@ -2,7 +2,6 @@ package nether_plus.common.block;
 
 import static net.minecraftforge.common.ForgeDirection.DOWN;
 
-import java.util.Iterator;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -11,18 +10,16 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryLargeChest;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import nether_plus.common.Nether_plus;
+import nether_plus.common.block.container.InventoryGrimwoodLargeChest;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.tileentity.TileEntityGrimwoodChest;
 import cpw.mods.fml.relauncher.Side;
@@ -30,15 +27,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GrimwoodChest extends BlockContainer
 {
+
 	private final Random random = new Random();
 	
-	public final int isTrapped;
-	
-	protected GrimwoodChest(int id, int par2)
+	protected GrimwoodChest(int id)
 	{
 		super(id, Material.wood);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		this.isTrapped = par2;
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
 	
@@ -46,18 +41,18 @@ public class GrimwoodChest extends BlockContainer
     {
         return false;
     }
-	
-	public boolean renderAsNormalBlock()
+
+    public boolean renderAsNormalBlock()
     {
         return false;
     }
-	
-	public int getRenderType()
+
+    public int getRenderType()
     {
         return 22;
     }
-	
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+    
+    public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         if (par1IBlockAccess.getBlockId(par2, par3, par4 - 1) == this.blockID)
         {
@@ -80,8 +75,8 @@ public class GrimwoodChest extends BlockContainer
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         }
     }
-	
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
+
+    public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
         super.onBlockAdded(par1World, par2, par3, par4);
         this.unifyAdjacentChests(par1World, par2, par3, par4);
@@ -110,8 +105,8 @@ public class GrimwoodChest extends BlockContainer
             this.unifyAdjacentChests(par1World, par2 + 1, par3, par4);
         }
     }
-	
-	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
+    
+    public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
     {
         int l = par1World.getBlockId(par2, par3, par4 - 1);
         int i1 = par1World.getBlockId(par2, par3, par4 + 1);
@@ -180,8 +175,8 @@ public class GrimwoodChest extends BlockContainer
             ((TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4)).func_94043_a(par6ItemStack.getDisplayName());
         }
     }
-	
-	public void unifyAdjacentChests(World par1World, int par2, int par3, int par4)
+
+    public void unifyAdjacentChests(World par1World, int par2, int par3, int par4)
     {
         if (!par1World.isRemote)
         {
@@ -289,8 +284,8 @@ public class GrimwoodChest extends BlockContainer
             par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 3);
         }
     }
-	
-	public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+    
+    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
     {
         int l = 0;
 
@@ -316,13 +311,13 @@ public class GrimwoodChest extends BlockContainer
 
         return l > 1 ? false : (this.isThereANeighborChest(par1World, par2 - 1, par3, par4) ? false : (this.isThereANeighborChest(par1World, par2 + 1, par3, par4) ? false : (this.isThereANeighborChest(par1World, par2, par3, par4 - 1) ? false : !this.isThereANeighborChest(par1World, par2, par3, par4 + 1))));
     }
-	
-	private boolean isThereANeighborChest(World par1World, int par2, int par3, int par4)
+
+    private boolean isThereANeighborChest(World par1World, int par2, int par3, int par4)
     {
         return par1World.getBlockId(par2, par3, par4) != this.blockID ? false : (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID ? true : (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID ? true : (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID ? true : par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)));
     }
-	
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+
+    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
         super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
         TileEntityGrimwoodChest tileentitygrimwoodchest = (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4);
@@ -332,8 +327,8 @@ public class GrimwoodChest extends BlockContainer
             tileentitygrimwoodchest.updateContainingBlockInfo();
         }
     }
-	
-	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
+
+    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
     {
         TileEntityGrimwoodChest tileentitygrimwoodchest = (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4);
 
@@ -378,27 +373,28 @@ public class GrimwoodChest extends BlockContainer
 
         super.breakBlock(par1World, par2, par3, par4, par5, par6);
     }
-	
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+    
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float f, float g, float t)
     {
-        if (par1World.isRemote)
+        if (world.isRemote)
         {
             return true;
         }
         else
         {
-            IInventory iinventory = this.getInventory(par1World, par2, par3, par4);
+            IInventory iinventory = this.getInventory(world, x, y, z);
 
             if (iinventory != null)
             {
-                par5EntityPlayer.displayGUIChest(iinventory);
+            	player.openGui(Nether_plus.instance, 3, world, x, y, z);
             }
 
             return true;
         }
     }
-	
-	public IInventory getInventory(World par1World, int par2, int par3, int par4)
+    
+    public IInventory getInventory(World par1World, int par2, int par3, int par4)
     {
         Object object = (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4);
 
@@ -410,115 +406,41 @@ public class GrimwoodChest extends BlockContainer
         {
             return null;
         }
-        else if (isOcelotBlockingChest(par1World, par2, par3, par4))
-        {
-            return null;
-        }
-        else if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 - 1, par3 + 1, par4, DOWN) || isOcelotBlockingChest(par1World, par2 - 1, par3, par4)))
-        {
-            return null;
-        }
-        else if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 + 1, par3 + 1, par4, DOWN) || isOcelotBlockingChest(par1World, par2 + 1, par3, par4)))
-        {
-            return null;
-        }
-        else if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 - 1, DOWN) || isOcelotBlockingChest(par1World, par2, par3, par4 - 1)))
-        {
-            return null;
-        }
-        else if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 + 1, DOWN) || isOcelotBlockingChest(par1World, par2, par3, par4 + 1)))
-        {
-            return null;
-        }
         else
         {
             if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)object);
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)object);
             }
 
             if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2 + 1, par3, par4));
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2 + 1, par3, par4));
             }
 
             if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)object);
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)object);
             }
 
             if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)
             {
-                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4 + 1));
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4 + 1));
             }
 
             return (IInventory)object;
         }
     }
 	
-	public TileEntity createNewTileEntity(World par1World)
-    {
-        TileEntityGrimwoodChest tileentitygrimwoodchest = new TileEntityGrimwoodChest();
-        return tileentitygrimwoodchest;
-    }
-	
-	public boolean canProvidePower()
-    {
-        return this.isTrapped == 1;
-    }
-	
-	public int isProvidingWeakPower(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {
-        if (!this.canProvidePower())
-        {
-            return 0;
-        }
-        else
-        {
-            int i1 = ((TileEntityGrimwoodChest)par1IBlockAccess.getBlockTileEntity(par2, par3, par4)).numUsingPlayers;
-            return MathHelper.clamp_int(i1, 0, 15);
-        }
-    }
-	
-	public int isProvidingStrongPower(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {
-        return par5 == 1 ? this.isProvidingWeakPower(par1IBlockAccess, par2, par3, par4, par5) : 0;
-    }
-	
-	public static boolean isOcelotBlockingChest(World par0World, int par1, int par2, int par3)
-    {
-        Iterator iterator = par0World.getEntitiesWithinAABB(EntityOcelot.class, AxisAlignedBB.getAABBPool().getAABB((double)par1, (double)(par2 + 1), (double)par3, (double)(par1 + 1), (double)(par2 + 2), (double)(par3 + 1))).iterator();
-        EntityOcelot entityocelot;
-
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                return false;
-            }
-
-            EntityOcelot entityocelot1 = (EntityOcelot)iterator.next();
-            entityocelot = (EntityOcelot)entityocelot1;
-        }
-        while (!entityocelot.isSitting());
-
-        return true;
-    }
-	
-	public boolean hasComparatorInputOverride()
-    {
-        return true;
-    }
-	
-	public int getComparatorInputOverride(World par1World, int par2, int par3, int par4, int par5)
-    {
-        return Container.calcRedstoneFromInventory(this.getInventory(par1World, par2, par3, par4));
-    }
+	@Override
+	public TileEntity createNewTileEntity(World world)
+	{
+		return new TileEntityGrimwoodChest();
+	}
 	
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:GrimwoodPlanks");
     }
-
 }

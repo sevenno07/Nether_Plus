@@ -4,8 +4,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import nether_plus.common.block.container.ContainerFour;
+import nether_plus.common.block.container.ContainerGrimwoodChest;
 import nether_plus.common.block.container.ContainerWorkbench;
 import nether_plus.common.tileentity.TileEntityFour;
+import nether_plus.common.tileentity.TileEntityGrimwoodChest;
 import nether_plus.common.tileentity.TileEntityGrimwoodWorkbench;
 import cpw.mods.fml.common.network.IGuiHandler;
 
@@ -23,6 +25,10 @@ public class GuiHandler implements IGuiHandler{
 	{
 		return new ContainerWorkbench(player.inventory, (TileEntityGrimwoodWorkbench) tile_entity, world);
 	}
+	else if(tile_entity instanceof TileEntityGrimwoodChest)
+	{
+		return new ContainerGrimwoodChest(player.inventory, (TileEntityGrimwoodChest) tile_entity);
+	}
 		return null;
 	}
 
@@ -36,6 +42,10 @@ public class GuiHandler implements IGuiHandler{
 	else if(tile_entity instanceof TileEntityGrimwoodWorkbench)
 	{
 		return new GuiWorkbench(player.inventory, (TileEntityGrimwoodWorkbench) tile_entity, world);
+	}
+	else if(tile_entity instanceof TileEntityGrimwoodChest)
+	{
+		return new GuiGrimwoodChest(player.inventory, (TileEntityGrimwoodChest) tile_entity);
 	}
 		return null;
 	}

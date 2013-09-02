@@ -3,91 +3,75 @@ package nether_plus.common.tileentity;
 import java.util.Iterator;
 import java.util.List;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryLargeChest;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import nether_plus.common.block.GrimwoodChest;
+import nether_plus.common.block.container.ContainerGrimwoodChest;
+import nether_plus.common.block.container.InventoryGrimwoodLargeChest;
 
 public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 {
+
 	private ItemStack[] chestContents = new ItemStack[36];
+	
+	public boolean adjacentChestChecked = false;
 
-    /** Determines if the check for adjacent chests has taken place. */
-    public boolean adjacentChestChecked = false;
-
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityGrimwoodChest adjacentChestZNeg;
 
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityGrimwoodChest adjacentChestXPos;
 
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityGrimwoodChest adjacentChestXNeg;
 
-    /** Contains the chest tile located adjacent to this one (if any) */
     public TileEntityGrimwoodChest adjacentChestZPosition;
 
-    /** The current angle of the lid (between 0 and 1) */
     public float lidAngle;
 
-    /** The angle of the lid last tick */
     public float prevLidAngle;
 
-    /** The number of players currently using this chest */
     public int numUsingPlayers;
 
-    /** Server sync counter (once per 20 ticks) */
     private int ticksSinceSync;
     private int field_94046_i = -1;
     private String field_94045_s;
+	
+	@Override
+	public int getSizeInventory()
+	{
+		return 27;
+	}
 
-    /**
-     * Returns the number of slots in the inventory.
-     */
-    public int getSizeInventory()
-    {
-        return 27;
-    }
+	@Override
+	public ItemStack getStackInSlot(int i)
+	{
+		return this.chestContents[i];
+	}
 
-    /**
-     * Returns the stack in slot i
-     */
-    public ItemStack getStackInSlot(int par1)
-    {
-        return this.chestContents[par1];
-    }
-
-    /**
-     * Removes from an inventory slot (first arg) up to a specified number (second arg) of items and returns them in a
-     * new stack.
-     */
-    public ItemStack decrStackSize(int par1, int par2)
-    {
-        if (this.chestContents[par1] != null)
+	@Override
+	public ItemStack decrStackSize(int i, int j)
+	{
+		if (this.chestContents[i] != null)
         {
             ItemStack itemstack;
 
-            if (this.chestContents[par1].stackSize <= par2)
+            if (this.chestContents[i].stackSize <= j)
             {
-                itemstack = this.chestContents[par1];
-                this.chestContents[par1] = null;
+                itemstack = this.chestContents[i];
+                this.chestContents[i] = null;
                 this.onInventoryChanged();
                 return itemstack;
             }
             else
             {
-                itemstack = this.chestContents[par1].splitStack(par2);
+                itemstack = this.chestContents[i].splitStack(j);
 
-                if (this.chestContents[par1].stackSize == 0)
+                if (this.chestContents[i].stackSize == 0)
                 {
-                    this.chestContents[par1] = null;
+                    this.chestContents[i] = null;
                 }
 
                 this.onInventoryChanged();
@@ -98,67 +82,55 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
         {
             return null;
         }
-    }
+		
+	}
 
-    /**
-     * When some containers are closed they call this on each slot, then drop whatever it returns as an EntityItem -
-     * like when you close a workbench GUI.
-     */
-    public ItemStack getStackInSlotOnClosing(int par1)
-    {
-        if (this.chestContents[par1] != null)
+	@Override
+	public ItemStack getStackInSlotOnClosing(int i)
+	{
+		if (this.chestContents[i] != null)
         {
-            ItemStack itemstack = this.chestContents[par1];
-            this.chestContents[par1] = null;
+            ItemStack itemstack = this.chestContents[i];
+            this.chestContents[i] = null;
             return itemstack;
         }
         else
         {
             return null;
         }
-    }
+	}
 
-    /**
-     * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
-     */
-    public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
-    {
-        this.chestContents[par1] = par2ItemStack;
+	@Override
+	public void setInventorySlotContents(int i, ItemStack itemstack) 
+	{
+		this.chestContents[i] = itemstack;
 
-        if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit())
+        if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit())
         {
-            par2ItemStack.stackSize = this.getInventoryStackLimit();
+            itemstack.stackSize = this.getInventoryStackLimit();
         }
 
         this.onInventoryChanged();
-    }
+	}
 
-    /**
-     * Returns the name of the inventory.
-     */
-    public String getInvName()
-    {
-        return this.isInvNameLocalized() ? this.field_94045_s : "container.chest";
-    }
+	@Override
+	public String getInvName()
+	{
+		return this.isInvNameLocalized() ? this.field_94045_s : "container.grimwoodchest";
+	}
 
-    /**
-     * If this returns false, the inventory name will be used as an unlocalized name, and translated into the player's
-     * language. Otherwise it will be used directly.
-     */
-    public boolean isInvNameLocalized()
-    {
-        return this.field_94045_s != null && this.field_94045_s.length() > 0;
-    }
-
-    public void func_94043_a(String par1Str)
+	@Override
+	public boolean isInvNameLocalized()
+	{
+		return this.field_94045_s != null && this.field_94045_s.length() > 0;
+	}
+	
+	public void func_94043_a(String par1Str)
     {
         this.field_94045_s = par1Str;
     }
-
-    /**
-     * Reads a tile entity from NBT.
-     */
-    public void readFromNBT(NBTTagCompound par1NBTTagCompound)
+	
+	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.readFromNBT(par1NBTTagCompound);
         NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items");
@@ -181,9 +153,6 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
         }
     }
 
-    /**
-     * Writes a tile entity to NBT.
-     */
     public void writeToNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.writeToNBT(par1NBTTagCompound);
@@ -207,37 +176,28 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             par1NBTTagCompound.setString("CustomName", this.field_94045_s);
         }
     }
+	
+	@Override
+	public int getInventoryStackLimit()
+	{
+		return 64;
+	}
 
-    /**
-     * Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended. *Isn't
-     * this more of a set than a get?*
-     */
-    public int getInventoryStackLimit()
-    {
-        return 64;
-    }
-
-    /**
-     * Do not make give this method the name canInteractWith because it clashes with Container
-     */
-    public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
-    {
-        return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
-    }
-
-    /**
-     * Causes the TileEntity to reset all it's cached values for it's container block, blockID, metaData and in the case
-     * of chests, the adjcacent chest check
-     */
-    public void updateContainingBlockInfo()
+	@Override
+	public boolean isUseableByPlayer(EntityPlayer entityplayer)
+	{
+        return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityplayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+	}
+	
+	public void updateContainingBlockInfo()
     {
         super.updateContainingBlockInfo();
         this.adjacentChestChecked = false;
     }
 
-    private void func_90009_a(TileEntityGrimwoodChest par1TileEntityGrimwoodChest, int par2)
+    private void func_90009_a(TileEntityGrimwoodChest TileEntityGrimwoodChest, int par2)
     {
-        if (par1TileEntityGrimwoodChest.isInvalid())
+        if (TileEntityGrimwoodChest.isInvalid())
         {
             this.adjacentChestChecked = false;
         }
@@ -246,38 +206,35 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             switch (par2)
             {
                 case 0:
-                    if (this.adjacentChestZPosition != par1TileEntityGrimwoodChest)
+                    if (this.adjacentChestZPosition != TileEntityGrimwoodChest)
                     {
                         this.adjacentChestChecked = false;
                     }
 
                     break;
                 case 1:
-                    if (this.adjacentChestXNeg != par1TileEntityGrimwoodChest)
+                    if (this.adjacentChestXNeg != TileEntityGrimwoodChest)
                     {
                         this.adjacentChestChecked = false;
                     }
 
                     break;
                 case 2:
-                    if (this.adjacentChestZNeg != par1TileEntityGrimwoodChest)
+                    if (this.adjacentChestZNeg != TileEntityGrimwoodChest)
                     {
                         this.adjacentChestChecked = false;
                     }
 
                     break;
                 case 3:
-                    if (this.adjacentChestXPos != par1TileEntityGrimwoodChest)
+                    if (this.adjacentChestXPos != TileEntityGrimwoodChest)
                     {
                         this.adjacentChestChecked = false;
                     }
             }
         }
     }
-
-    /**
-     * Performs the check for adjacent chests to determine if this chest is double or not.
-     */
+    
     public void checkForAdjacentChests()
     {
         if (!this.adjacentChestChecked)
@@ -287,26 +244,6 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             this.adjacentChestXPos = null;
             this.adjacentChestXNeg = null;
             this.adjacentChestZPosition = null;
-
-            if (this.func_94044_a(this.xCoord - 1, this.yCoord, this.zCoord))
-            {
-                this.adjacentChestXNeg = (TileEntityGrimwoodChest)this.worldObj.getBlockTileEntity(this.xCoord - 1, this.yCoord, this.zCoord);
-            }
-
-            if (this.func_94044_a(this.xCoord + 1, this.yCoord, this.zCoord))
-            {
-                this.adjacentChestXPos = (TileEntityGrimwoodChest)this.worldObj.getBlockTileEntity(this.xCoord + 1, this.yCoord, this.zCoord);
-            }
-
-            if (this.func_94044_a(this.xCoord, this.yCoord, this.zCoord - 1))
-            {
-                this.adjacentChestZNeg = (TileEntityGrimwoodChest)this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord - 1);
-            }
-
-            if (this.func_94044_a(this.xCoord, this.yCoord, this.zCoord + 1))
-            {
-                this.adjacentChestZPosition = (TileEntityGrimwoodChest)this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord + 1);
-            }
 
             if (this.adjacentChestZNeg != null)
             {
@@ -329,17 +266,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             }
         }
     }
-
-    private boolean func_94044_a(int par1, int par2, int par3)
-    {
-        Block block = Block.blocksList[this.worldObj.getBlockId(par1, par2, par3)];
-        return block != null && block instanceof GrimwoodChest ? ((GrimwoodChest)block).isTrapped == this.func_98041_l() : false;
-    }
-
-    /**
-     * Allows the entity to update its state. Overridden in most subclasses, e.g. the mob spawner uses this to count
-     * ticks and creates a new spawn inside its implementation.
-     */
+    
     public void updateEntity()
     {
         super.updateEntity();
@@ -358,11 +285,11 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             {
                 EntityPlayer entityplayer = (EntityPlayer)iterator.next();
 
-                if (entityplayer.openContainer instanceof ContainerChest)
+                if (entityplayer.openContainer instanceof ContainerGrimwoodChest)
                 {
-                    IInventory iinventory = ((ContainerChest)entityplayer.openContainer).getLowerChestInventory();
+                    IInventory iinventory = ((ContainerGrimwoodChest)entityplayer.openContainer).getLowerChestInventory();
 
-                    if (iinventory == this || iinventory instanceof InventoryLargeChest && ((InventoryLargeChest)iinventory).isPartOfLargeChest(this))
+                    if (iinventory == this || iinventory instanceof InventoryGrimwoodLargeChest && ((InventoryGrimwoodLargeChest)iinventory).isPartOfLargeChest(this))
                     {
                         ++this.numUsingPlayers;
                     }
@@ -436,10 +363,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             }
         }
     }
-
-    /**
-     * Called when a client event is received with the event number and argument, see World.sendClientEvent
-     */
+    
     public boolean receiveClientEvent(int par1, int par2)
     {
         if (par1 == 1)
@@ -452,10 +376,11 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             return super.receiveClientEvent(par1, par2);
         }
     }
-
-    public void openChest()
-    {
-        if (this.numUsingPlayers < 0)
+    
+	@Override
+	public void openChest()
+	{
+		if (this.numUsingPlayers < 0)
         {
             this.numUsingPlayers = 0;
         }
@@ -464,50 +389,31 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
         this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID, 1, this.numUsingPlayers);
         this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID);
         this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType().blockID);
-    }
+	}
 
-    public void closeChest()
-    {
-        if (this.getBlockType() != null && this.getBlockType() instanceof GrimwoodChest)
-        {
-            --this.numUsingPlayers;
-            this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID, 1, this.numUsingPlayers);
-            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID);
-            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType().blockID);
-        }
-    }
+	@Override
+	public void closeChest()
+	{
+		  if (this.getBlockType() != null && this.getBlockType() instanceof GrimwoodChest)
+	        {
+	            --this.numUsingPlayers;
+	            this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID, 1, this.numUsingPlayers);
+	            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID);
+	            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType().blockID);
+	        }
+	}
 
-    /**
-     * Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot.
-     */
-    public boolean isStackValidForSlot(int par1, ItemStack par2ItemStack)
-    {
-        return true;
-    }
-
-    /**
-     * invalidates a tile entity
-     */
-    public void invalidate()
+	@Override
+	public boolean isStackValidForSlot(int i, ItemStack itemstack) 
+	{
+		return true;
+	}
+	
+	public void invalidate()
     {
         super.invalidate();
         this.updateContainingBlockInfo();
         this.checkForAdjacentChests();
-    }
-
-    public int func_98041_l()
-    {
-        if (this.field_94046_i == -1)
-        {
-            if (this.worldObj == null || !(this.getBlockType() instanceof GrimwoodChest))
-            {
-                return 0;
-            }
-
-            this.field_94046_i = ((GrimwoodChest)this.getBlockType()).isTrapped;
-        }
-
-        return this.field_94046_i;
     }
 
 }

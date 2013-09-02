@@ -16,6 +16,7 @@ tile.CorruptedBrick.name = Corrupted Brick
 tile.NetherrackBrick.name = Netherrack Brick
 tile.GrimwoodWorkbench.name = Grimwood Workbench
 tile.CorruptedFurnace.name = Corrupted Furnace
+tile.GrimwoodChest.name = GrimwoodChest
 tile.WhiteSkull.name = WhiteSkull
 tile.BlackSkull.name = BlackSkull
 tile.BlockGrimwoodDoor.name = GrimwoodDoor
@@ -30,6 +31,9 @@ tile.ModStoneSlab.NetherrackBrick.name = Netherrack Brick Slab
 tile.ModFence.name = Grimwood Fence
 tile.CorruptedBrickWall.name = Corrupted Brick Wall
 tile.NetherrackBrickWall.name = Netherrack Brick Wall
+
+tile.SoulGlassPane.name = SoulGlassPane
+
 tile.InfernumOre.name = Infernum Ore
 tile.InfernumBlock.name = Infernum Block
 tile.BlackIronBlock.name = Black Iron Block
@@ -38,6 +42,8 @@ tile.CharoiteBlock.name = Charoite Block
 #Container
 container.four = Corrupted Furnace
 container.workbench = Grimwood Workbench
+container.grimwoodchest = GrimwoodChest
+container.grimwoodchestDouble = GrimwoodChestDouble
 
 #Items
 item.CharoiteCrystal.name = Charoite Crystal
@@ -61,7 +67,7 @@ item.GrimwoodHoe.name = GrimwoodHoe
 item.GrimwoodStick.name = GrimwoodStick
 item.BloodGem.name = Blood Gem
 item.InfernumIngot.name = InfernumIngot
-item.BlockGrimwoodDoor.name = GrimwoodDoor
+item.ItemGrimwoodDoor.name = GrimwoodDoor
 
 #Entity
 entity.Salamandre.name = Salamandre

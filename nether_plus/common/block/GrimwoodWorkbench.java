@@ -48,40 +48,21 @@ public class GrimwoodWorkbench extends BlockContainer
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float f, float g, float t)
- 
 	{
- 
 		TileEntityGrimwoodWorkbench tileentityworkbench = (TileEntityGrimwoodWorkbench) world.getBlockTileEntity(x, y, z);
- 
- 
- 
 		if(tileentityworkbench == null || player.isSneaking())
- 
 		{
- 
 			return false;
- 
 		}
- 
- 
- 
 		player.openGui(Nether_plus.instance, 2, world, x, y, z);
- 
- 
- 
 		return true;
- 
 	}
 	
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int i, int j)
- 
 	{
- 
 		dropItems(world, x, y, z);
- 
 		super.breakBlock(world, x, y, z, i, j);
- 
 	}
 	
 	private void dropItems(World world, int x, int y, int z)
@@ -121,6 +102,4 @@ public class GrimwoodWorkbench extends BlockContainer
 	{
 		return new TileEntityGrimwoodWorkbench();
 	}
-	
-	
 }

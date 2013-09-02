@@ -1,6 +1,5 @@
 package nether_plus.proxy;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.common.MinecraftForge;
 import nether_plus.client.audio.NPSounds;
 import nether_plus.client.model.ModelBlackSalamander;
@@ -27,6 +26,9 @@ import nether_plus.common.entity.Pordenfer;
 import nether_plus.common.entity.RedMogus;
 import nether_plus.common.entity.Salamander;
 import nether_plus.common.entity.Wight;
+import nether_plus.common.tileentity.TileEntityGrimwoodChest;
+import nether_plus.common.tileentity.TileEntityGrimwoodChestRenderer;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class NPClientProxy extends NPCommonProxy
@@ -38,7 +40,7 @@ public class NPClientProxy extends NPCommonProxy
 	@Override
 	public void registerRender()
 	{
-
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrimwoodChest.class, new TileEntityGrimwoodChestRenderer());
 	}
 	
 	public void initSound()
