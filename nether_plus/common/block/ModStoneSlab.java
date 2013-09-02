@@ -16,7 +16,7 @@ import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
 public class ModStoneSlab extends BlockHalfSlab
 {
-public static final String[] StepTypes = new String[] {"CorruptedBrick", "NetherrackBrick", "CorruptedCobblestone"};
+public static final String[] StepTypes = new String[] {"CorruptedCobblestone", "CorruptedBrick", "NetherrackBrick"};
 
 	public ModStoneSlab(int id, boolean isdouble)
 	{

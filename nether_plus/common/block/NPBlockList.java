@@ -62,6 +62,8 @@ public class NPBlockList
 	
 	public static Block BlockGrimwoodDoor;
 	
+	public static Block Nether_Farm;
+	
 	public static void loadBlock()
 	{
 		GlowstoneSand = new GlowstoneSand(NPProperties.GlowstoneSandID, Material.sand).setStepSound(Block.soundSandFootstep).setLightValue(1.0F).setHardness(0.5F).setUnlocalizedName("GlowstoneSand");
@@ -111,6 +113,8 @@ public class NPBlockList
 		
 		SoulGlassPane = new SoulGlassPane(633, "nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundGlassFootstep).setHardness(0.5F).setResistance(5.0F).setUnlocalizedName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		BlockGrimwoodDoor = new BlockGrimwoodDoor(NPProperties.BlockGrimwoodDoorID, Material.wood).setHardness(3.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("BlockGrimwoodDoor");
+		
+		Nether_Farm = new Nether_Farm(NPProperties.Nether_FarmID).setStepSound(Block.soundSandFootstep).setHardness(0.5F).setUnlocalizedName("Nether_Farm");
 		
 		try
 		{
@@ -163,6 +167,7 @@ public class NPBlockList
 		
 		GameRegistry.registerBlock(SoulGlassPane, "Soul_Glass_Pane");
 		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
+		GameRegistry.registerBlock(Nether_Farm, "Nether_Farm");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);

@@ -52,9 +52,10 @@ public class NPProperties
 	public static int InfernumBlockID;
 	public static int BlackIronBlockID;
 	public static int CharoiteBlockID;
-
 	
 	public static int BlockGrimwoodDoorID;
+	
+	public static int Nether_FarmID;
 	
 	//Items
 	public static int CharoiteCrystalID;

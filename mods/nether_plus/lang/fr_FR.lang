@@ -26,6 +26,7 @@ tile.CorruptedBrickStairs.name = Corrupted Brick Stairs
 tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
 
 tile.ModWoodSlab.GrimwoodPlanks.name = Grimwood Planks Slab
+tile.ModStoneSlab.CorruptedCobblestone.name = Corrupted Cobblestone Slab
 tile.ModStoneSlab.CorruptedBrick.name = Corrupted Brick Slab
 tile.ModStoneSlab.NetherrackBrick.name = Netherrack Brick Slab
 

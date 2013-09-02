@@ -16,6 +16,7 @@ import nether_plus.common.block.NPBlockList;
 import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
+import nether_plus.common.event.FarmingNether;
 import nether_plus.common.event.GrimBoneMeal;
 import nether_plus.common.event.LivingEvent;
 import nether_plus.common.gui.GuiHandler;
@@ -109,6 +110,7 @@ public class Nether_plus
 			NPProperties.BlockGrimwoodDoorID = cfg.getBlock("BlockGrimwoodDoor", 636).getInt();
 			NPProperties.BlackIronBlockID = cfg.getBlock("BlackIronBlock", 637).getInt();
 			NPProperties.CharoiteBlockID = cfg.getBlock("CharoiteBlock", 638).getInt();
+			NPProperties.Nether_FarmID = cfg.getBlock("Nether_Farm", 639).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
@@ -171,6 +173,7 @@ public class Nether_plus
 
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
+		MinecraftForge.EVENT_BUS.register(new FarmingNether());
 		
 		NPTEntityList.loadTileEntity();
 		NetworkRegistry.instance().registerGuiHandler(this, GuiHandler);
