@@ -21,6 +21,7 @@ tile.WhiteSkull.name = WhiteSkull
 tile.BlackSkull.name = BlackSkull
 tile.BlockGrimwoodDoor.name = GrimwoodDoor
 tile.GrimwoodStairs.name = Grimwood Stairs
+tile.CorruptedCobblestoneStairs.name = Corrupted Cobblestone Stairs
 tile.CorruptedBrickStairs.name = Corrupted Brick Stairs
 tile.NetherrackBrickStairs.name = Netherrack Brick Stairs
 

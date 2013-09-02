@@ -16,7 +16,7 @@ import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
 public class ModStoneSlab extends BlockHalfSlab
 {
-public static final String[] StepTypes = new String[] {"CorruptedBrick", "NetherrackBrick"};
+public static final String[] StepTypes = new String[] {"CorruptedBrick", "NetherrackBrick", "CorruptedCobblestone"};
 
 	public ModStoneSlab(int id, boolean isdouble)
 	{
@@ -75,6 +75,6 @@ public static final String[] StepTypes = new String[] {"CorruptedBrick", "Nether
 	public Icon getIcon(int side, int metadata)
 	{
 		int k = metadata & 7;
-		return k == 0 ? NPBlockList.CorruptedBrick.getBlockTextureFromSide(side) : k == 1 ? NPBlockList.NetherrackBrick.getBlockTextureFromSide(side) : NPBlockList.CorruptedBrick.getBlockTextureFromSide(side);
+		return k == 0 ? NPBlockList.CorruptedCobblestone.getBlockTextureFromSide(side) : k == 1 ? NPBlockList.CorruptedBrick.getBlockTextureFromSide(side) : k == 2 ? NPBlockList.NetherrackBrick.getBlockTextureFromSide(side) : NPBlockList.CorruptedCobblestone.getBlockTextureFromSide(side);
 	}
 }

@@ -29,6 +29,7 @@ public class NPProperties
 	public static int GrimwoodChestID;
 	
 	public static int GrimwoodStairsID;
+	public static int CorruptedCobblestoneStairsID;
 	public static int CorruptedBrickStairsID;
 	public static int NetherrackBrickStairsID;
 	
