@@ -56,6 +56,7 @@ public class NPProperties
 	public static int BlockGrimwoodDoorID;
 	
 	public static int Nether_FarmID;
+	public static int CropsID;
 	
 	//Items
 	public static int CharoiteCrystalID;
@@ -83,4 +84,7 @@ public class NPProperties
 	public static int GrimwoodShovelID;
 	public static int GrimwoodHoeID;
 	public static int ItemGrimwoodDoorID;
+	
+	public static int WhiteWheatSeedsID;
+	public static int WhiteWheatID;
 }

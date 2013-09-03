@@ -63,6 +63,7 @@ public class NPBlockList
 	public static Block BlockGrimwoodDoor;
 	
 	public static Block Nether_Farm;
+	public static Block Crops;
 	
 	public static void loadBlock()
 	{
@@ -115,6 +116,7 @@ public class NPBlockList
 		BlockGrimwoodDoor = new BlockGrimwoodDoor(NPProperties.BlockGrimwoodDoorID, Material.wood).setHardness(3.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("BlockGrimwoodDoor");
 		
 		Nether_Farm = new Nether_Farm(NPProperties.Nether_FarmID).setStepSound(Block.soundSandFootstep).setHardness(0.5F).setUnlocalizedName("Nether_Farm");
+		Crops = new Crops(NPProperties.CropsID).setUnlocalizedName("Crops");
 		
 		try
 		{
@@ -168,6 +170,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(SoulGlassPane, "Soul_Glass_Pane");
 		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
 		GameRegistry.registerBlock(Nether_Farm, "Nether_Farm");
+		GameRegistry.registerBlock(Crops, "Crops");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);

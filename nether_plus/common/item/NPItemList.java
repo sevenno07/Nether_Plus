@@ -35,6 +35,9 @@ public class NPItemList
 	public static Item GrimwoodAxe;
 	public static Item GrimwoodShovel;
 	public static Item GrimwoodHoe;
+	
+	public static Item WhiteWheatSeeds;
+	public static Item WhiteWheat;
 
 	public static EnumArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
 	public static EnumArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
@@ -69,6 +72,9 @@ public class NPItemList
 		GrimwoodAxe = new GrimwoodAxe(NPProperties.GrimwoodAxeID, GrimwoodTool).setUnlocalizedName("GrimwoodAxe");
 		GrimwoodShovel = new GrimwoodShovel(NPProperties.GrimwoodShovelID, GrimwoodTool).setUnlocalizedName("GrimwoodShovel");
 		GrimwoodHoe = new GrimwoodHoe(NPProperties.GrimwoodHoeID, GrimwoodTool).setUnlocalizedName("GrimwoodHoe");
+		
+		WhiteWheatSeeds = new WhiteWheatSeeds(NPProperties.WhiteWheatSeedsID, NPProperties.CropsID, NPProperties.Nether_FarmID).setUnlocalizedName("WhiteWheatSeeds");
+		WhiteWheat = new WhiteWheat(NPProperties.WhiteWheatID).setUnlocalizedName("WhiteWheat");
 		}
 		catch(Exception ex)
 		{

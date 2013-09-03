@@ -111,6 +111,7 @@ public class Nether_plus
 			NPProperties.BlackIronBlockID = cfg.getBlock("BlackIronBlock", 637).getInt();
 			NPProperties.CharoiteBlockID = cfg.getBlock("CharoiteBlock", 638).getInt();
 			NPProperties.Nether_FarmID = cfg.getBlock("Nether_Farm", 639).getInt();
+			NPProperties.CropsID = cfg.getBlock("Crops", 640).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
@@ -139,7 +140,10 @@ public class Nether_plus
 			NPProperties.BloodGemID = cfg.getItem("BloodGem", 4019).getInt();
 			NPProperties.InfernumIngotID = cfg.getItem("InfernumIngot", 4020).getInt();
 			NPProperties.ItemGrimwoodDoorID = cfg.getItem("ItemGrimwoodDoor", 4021).getInt();
-
+			
+			NPProperties.WhiteWheatSeedsID = cfg.getItem("WhiteWheatSeeds", 4022).getInt();
+			NPProperties.WhiteWheatID = cfg.getItem("WhiteWheat", 4023).getInt();
+			
 		}
 		catch(Exception ex)
 		{

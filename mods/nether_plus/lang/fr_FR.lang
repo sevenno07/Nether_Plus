@@ -42,6 +42,8 @@ tile.InfernumBlock.name = Infernum Block
 tile.BlackIronBlock.name = Black Iron Block
 tile.CharoiteBlock.name = Charoite Block
 
+tile.Crops.name = Crops
+
 #Container
 container.four = Corrupted Furnace
 container.workbench = Grimwood Workbench
@@ -71,6 +73,9 @@ item.GrimwoodStick.name = GrimwoodStick
 item.BloodGem.name = Blood Gem
 item.InfernumIngot.name = InfernumIngot
 item.ItemGrimwoodDoor.name = GrimwoodDoor
+
+item.WhiteWheatSeeds.name = WhiteWheatSeeds
+item.WhiteWheat.name = WhiteWheat
 
 #Entity
 entity.Salamandre.name = Salamandre
