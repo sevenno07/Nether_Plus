@@ -34,17 +34,7 @@ public class Crops extends BlockFlower
     {
         return par1 == NPBlockList.Nether_Farm.blockID;
     }
-	
-  /**  public boolean canPlaceBlockAt(World world, int par2, int par3, int par4)
-    {
-    	int l = world.getBlockId(par2, par3 - 1, par4);
-    	if (l == this.blockID)
-    	{
-    		return true;
-    	}
-    	return l == NPBlockList.Nether_Farm.blockID;
-    }*/
-	
+
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         super.updateTick(par1World, par2, par3, par4, par5Random);
@@ -201,7 +191,7 @@ public class Crops extends BlockFlower
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon("Crops_" + i);
+            this.iconArray[i] = par1IconRegister.registerIcon("nether_plus:Crops_" + i);
         }
     }
 }

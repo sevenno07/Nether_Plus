@@ -18,6 +18,7 @@ import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.event.FarmingNether;
 import nether_plus.common.event.GrimBoneMeal;
+import nether_plus.common.event.GrimBoneMeal2;
 import nether_plus.common.event.LivingEvent;
 import nether_plus.common.gui.GuiHandler;
 import nether_plus.common.item.NPItemList;
@@ -176,6 +177,7 @@ public class Nether_plus
 		proxy.registerRenderEntity();
 
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
+		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal2());
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
 		

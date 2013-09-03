@@ -39,7 +39,7 @@ public class WhiteWheatSeeds extends Item implements IPlantable
             int i1 = par3World.getBlockId(par4, par5, par6);
             Block soil = Block.blocksList[i1];
 
-            if (soil != null && soil.canSustainPlant(par3World, par4, par5, par6, ForgeDirection.UP, this) && par3World.isAirBlock(par4, par5 + 1, par6))
+            if (soil != null && soil.blockID == NPBlockList.Nether_Farm.blockID && par3World.isAirBlock(par4, par5 + 1, par6))
             {
                 par3World.setBlock(par4, par5 + 1, par6, this.Blocktype);
                 --par1ItemStack.stackSize;
@@ -59,7 +59,7 @@ public class WhiteWheatSeeds extends Item implements IPlantable
 	@Override
 	public EnumPlantType getPlantType(World world, int x, int y, int z)
 	{
-		return (Blocktype == NPBlockList.Crops.blockID ? EnumPlantType.Nether : EnumPlantType.Crop);
+		return null;
 	}
 
 	@Override
