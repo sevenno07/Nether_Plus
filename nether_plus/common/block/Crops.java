@@ -26,6 +26,7 @@ public class Crops extends BlockFlower
         float f = 0.5F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
 		this.setHardness(0.0F);
+        this.setStepSound(soundGrassFootstep);
 		this.disableStats();
 	}
 	
@@ -33,6 +34,16 @@ public class Crops extends BlockFlower
     {
         return par1 == NPBlockList.Nether_Farm.blockID;
     }
+	
+  /**  public boolean canPlaceBlockAt(World world, int par2, int par3, int par4)
+    {
+    	int l = world.getBlockId(par2, par3 - 1, par4);
+    	if (l == this.blockID)
+    	{
+    		return true;
+    	}
+    	return l == NPBlockList.Nether_Farm.blockID;
+    }*/
 	
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
