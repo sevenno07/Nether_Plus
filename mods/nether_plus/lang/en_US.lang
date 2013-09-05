@@ -44,6 +44,12 @@ tile.CharoiteBlock.name = Charoite Block
 
 tile.Crops.name = Crops
 
+tile.Ladder.name = Ladder
+tile.NetherRail.name = Nether Rail
+tile.NetherDetectorRail.name = Nether Detector Rail
+tile.NetherPoweredRail.name = Nether Powered Rail
+tile.GrimwoodTorch.name = Grimwood Torch
+
 #Container
 container.four = Corrupted Furnace
 container.workbench = Grimwood Workbench

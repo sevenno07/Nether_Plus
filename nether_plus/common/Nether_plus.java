@@ -18,7 +18,6 @@ import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.event.FarmingNether;
 import nether_plus.common.event.GrimBoneMeal;
-import nether_plus.common.event.GrimBoneMeal2;
 import nether_plus.common.event.LivingEvent;
 import nether_plus.common.gui.GuiHandler;
 import nether_plus.common.item.NPItemList;
@@ -145,6 +144,12 @@ public class Nether_plus
 			NPProperties.WhiteWheatSeedsID = cfg.getItem("WhiteWheatSeeds", 4022).getInt();
 			NPProperties.WhiteWheatID = cfg.getItem("WhiteWheat", 4023).getInt();
 			
+			NPProperties.LadderID = cfg.getItem("Lader", 4026).getInt();
+			NPProperties.NetherRailID = cfg.getItem("NetherRail", 4027).getInt();
+			NPProperties.NetherDetectorRailID = cfg.getItem("NetherDetectorRail", 4028).getInt();
+			NPProperties.NetherPoweredRailID = cfg.getItem("NetherPoweredRail", 4029).getInt();
+			NPProperties.GrimwoodTorchID = cfg.getItem("GrimwoodTorch", 4030).getInt();
+			
 		}
 		catch(Exception ex)
 		{
@@ -177,7 +182,6 @@ public class Nether_plus
 		proxy.registerRenderEntity();
 
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
-		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal2());
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
 		

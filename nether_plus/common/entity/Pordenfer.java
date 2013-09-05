@@ -16,6 +16,7 @@ public class Pordenfer extends EntityMob
         super(world);
         this.texture = "/mods/nether_plus/textures/Entity/pordenfer.png";
         this.stepHeight = 0.0F;
+		this.setSize(1.25F, 0.75F);
         this.isImmuneToFire = true;
     }
     

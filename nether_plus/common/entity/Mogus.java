@@ -13,6 +13,7 @@ public class Mogus extends EntityCreature
         super(world);
 		this.texture = "/mods/nether_plus/textures/Entity/Mogus.png";
         moveSpeed = 1.0F;
+		this.setSize(0.50F, 0.50F);
         stepHeight = 0.0F;
         isImmuneToFire = true;
     }

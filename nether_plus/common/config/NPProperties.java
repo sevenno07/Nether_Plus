@@ -58,6 +58,12 @@ public class NPProperties
 	public static int Nether_FarmID;
 	public static int CropsID;
 	
+	public static int LadderID;
+	public static int NetherRailID;
+	public static int NetherDetectorRailID;
+	public static int NetherPoweredRailID;
+	public static int GrimwoodTorchID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;

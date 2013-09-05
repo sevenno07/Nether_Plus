@@ -66,6 +66,12 @@ public class NPBlockList
 	public static Block Nether_Farm;
 	public static Block Crops;
 	
+	public static Block Ladder;
+	public static Block NetherRail;
+	public static Block NetherDetectorRail;
+	public static Block NetherPoweredRail;
+	public static Block GrimwoodTorch;
+	
 	public static void loadBlock()
 	{
 		GlowstoneSand = new GlowstoneSand(NPProperties.GlowstoneSandID, Material.sand).setStepSound(Block.soundSandFootstep).setLightValue(1.0F).setHardness(0.5F).setUnlocalizedName("GlowstoneSand");
@@ -118,6 +124,12 @@ public class NPBlockList
 		
 		Nether_Farm = new Nether_Farm(NPProperties.Nether_FarmID).setStepSound(Block.soundSandFootstep).setHardness(0.5F).setUnlocalizedName("Nether_Farm");
 		Crops = new Crops(NPProperties.CropsID).setUnlocalizedName("Crops");
+		
+		Ladder = new Ladder(NPProperties.LadderID).setStepSound(Block.soundLadderFootstep).setHardness(0.4F).setResistance(5.0F).setUnlocalizedName("Ladder");
+		NetherRail = new NetherRail(NPProperties.NetherRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherDetectorRail = new NetherDetectorRail(NPProperties.NetherDetectorRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherPoweredRail = new NetherPoweredRail(NPProperties.NetherPoweredRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		GrimwoodTorch = new GrimwoodTorch(NPProperties.GrimwoodTorchID).setStepSound(Block.soundWoodFootstep).setLightValue(0.9375F).setHardness(0.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodTorch");
 		
 		try
 		{
@@ -172,6 +184,12 @@ public class NPBlockList
 		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
 		GameRegistry.registerBlock(Nether_Farm, "Nether_Farm");
 		GameRegistry.registerBlock(Crops, "Crops");
+		
+		GameRegistry.registerBlock(Ladder, "Ladder");
+		GameRegistry.registerBlock(NetherRail, "Nether_Rail");
+		GameRegistry.registerBlock(NetherDetectorRail, "Nether_Detector_Rail");
+		GameRegistry.registerBlock(NetherPoweredRail, "Nether_Powered_Rail");
+		GameRegistry.registerBlock(GrimwoodTorch, "Grimwood_Torch");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
