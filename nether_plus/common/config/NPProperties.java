@@ -94,4 +94,10 @@ public class NPProperties
 	
 	public static int WhiteWheatSeedsID;
 	public static int WhiteWheatID;
+	
+	public static int DeadBreadID;
+	public static int GoldBucketID;
+	public static int WaterBucketID;
+	public static int LavaBucketID;
+
 }

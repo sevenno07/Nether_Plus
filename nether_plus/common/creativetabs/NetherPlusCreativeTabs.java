@@ -9,7 +9,8 @@ public class NetherPlusCreativeTabs
 	public static CreativeTabs NPCreativeTabsItem;
 	public static CreativeTabs NPCreativeTabsArmor;
 	public static CreativeTabs NPCreativeTabsTool;
-
+	public static CreativeTabs NPCreativeTabsFood;
+	
 	public static void loadCreativeTab()
 	{
 		try
@@ -18,6 +19,7 @@ public class NetherPlusCreativeTabs
 			NPCreativeTabsItem = new NPCreativeTabsItem("NPCreativeTabsItem");
 			NPCreativeTabsArmor = new NPCreativeTabsArmor("NPCreativeTabsArmor");
 			NPCreativeTabsTool = new NPCreativeTabsTool("NPCreativeTabsTool");
+			NPCreativeTabsFood = new NPCreativeTabsFood("NPCreativeTabsFood");
 		}
 		catch(Exception ex)
 		{

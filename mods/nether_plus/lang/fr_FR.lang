@@ -82,6 +82,10 @@ item.ItemGrimwoodDoor.name = GrimwoodDoor
 
 item.WhiteWheatSeeds.name = WhiteWheatSeeds
 item.WhiteWheat.name = WhiteWheat
+item.DeadBread.name = DeadBread
+item.GoldBucket.name = GoldBucket
+item.WaterBucket.name = WaterBucket
+item.LavaBucket.name = LavaBucket
 
 #Entity
 entity.Salamandre.name = Salamandre
@@ -98,3 +102,4 @@ itemGroup.NPCreativeTabsBlock = Nether Plus
 itemGroup.NPCreativeTabsItem = Nether Plus
 itemGroup.NPCreativeTabsArmor = Nether Plus
 itemGroup.NPCreativeTabsTool = Nether Plus
+itemGroup.NPCreativeTabsFood = Nether Plus

@@ -1,9 +1,11 @@
 package nether_plus.common.item;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBucket;
 import net.minecraftforge.common.EnumHelper;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.config.NPProperties;
@@ -38,6 +40,11 @@ public class NPItemList
 	
 	public static Item WhiteWheatSeeds;
 	public static Item WhiteWheat;
+	public static Item DeadBread;
+	
+	public static Item GoldBucket;
+	public static Item WaterBucket;
+	public static Item LavaBucket;
 
 	public static EnumArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
 	public static EnumArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
@@ -75,6 +82,10 @@ public class NPItemList
 		
 		WhiteWheatSeeds = new WhiteWheatSeeds(NPProperties.WhiteWheatSeedsID, NPProperties.CropsID, NPProperties.Nether_FarmID).setUnlocalizedName("WhiteWheatSeeds");
 		WhiteWheat = new WhiteWheat(NPProperties.WhiteWheatID).setUnlocalizedName("WhiteWheat");
+		DeadBread = new DeadBread(NPProperties.DeadBreadID, 5, 0.6F, false).setUnlocalizedName("DeadBread");
+		GoldBucket = new GoldBucket(NPProperties.GoldBucketID, 0).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
+		WaterBucket = new GoldBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
+	    LavaBucket = new GoldBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
 		}
 		catch(Exception ex)
 		{
