@@ -27,11 +27,11 @@ public class NPEntityList
 		
 		EntityRegistry.registerGlobalEntityID(Mogus.class, "Mogus", EntityRegistry.findGlobalUniqueEntityId(), new Color(156, 88, 37).getRGB(), new Color(255, 255, 255).getRGB());
 		EntityRegistry.registerModEntity(Mogus.class, "Mogus", 234, Nether_plus.instance, 40, 1, true);
-		EntityRegistry.addSpawn(Mogus.class, 200, 5, 5, EnumCreatureType.creature, BiomeGenBase.hell);
+		EntityRegistry.addSpawn(Mogus.class, 75, 5, 5, EnumCreatureType.creature, BiomeGenBase.hell);
 		
 		EntityRegistry.registerGlobalEntityID(RedMogus.class, "RedMogus", EntityRegistry.findGlobalUniqueEntityId(), new Color(167, 37, 40).getRGB(), new Color(255, 255, 255).getRGB());
 		EntityRegistry.registerModEntity(RedMogus.class, "RedMogus", 235, Nether_plus.instance, 40, 1, true);
-		EntityRegistry.addSpawn(RedMogus.class, 200, 5, 5, EnumCreatureType.creature, BiomeGenBase.hell);
+		EntityRegistry.addSpawn(RedMogus.class, 75, 5, 5, EnumCreatureType.creature, BiomeGenBase.hell);
 		
 		EntityRegistry.registerGlobalEntityID(LavaTortoise.class, "LavaTortoise", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 126, 0).getRGB(), new Color(79, 0, 157).getRGB());
 		EntityRegistry.registerModEntity(LavaTortoise.class, "LavaTortoise", 236, Nether_plus.instance, 40, 1, true);

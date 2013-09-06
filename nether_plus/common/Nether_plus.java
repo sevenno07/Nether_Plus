@@ -111,7 +111,14 @@ public class Nether_plus
 			NPProperties.BlackIronBlockID = cfg.getBlock("BlackIronBlock", 637).getInt();
 			NPProperties.CharoiteBlockID = cfg.getBlock("CharoiteBlock", 638).getInt();
 			NPProperties.Nether_FarmID = cfg.getBlock("Nether_Farm", 639).getInt();
-			NPProperties.CropsID = cfg.getBlock("Crops", 640).getInt();
+			NPProperties.CropsID = cfg.getBlock("Crops", 640).getInt();		
+			
+			NPProperties.LadderID = cfg.getBlock("Lader", 643).getInt();
+			NPProperties.NetherRailID = cfg.getBlock("NetherRail", 644).getInt();
+			NPProperties.NetherDetectorRailID = cfg.getBlock("NetherDetectorRail", 645).getInt();
+			NPProperties.NetherPoweredRailID = cfg.getBlock("NetherPoweredRail", 646).getInt();
+			NPProperties.GrimwoodTorchID = cfg.getBlock("GrimwoodTorch", 647).getInt();
+			NPProperties.NetherDonjonSpawnerID = cfg.getBlock("NetherDonjonSpawner", 648).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
@@ -143,12 +150,6 @@ public class Nether_plus
 			
 			NPProperties.WhiteWheatSeedsID = cfg.getItem("WhiteWheatSeeds", 4022).getInt();
 			NPProperties.WhiteWheatID = cfg.getItem("WhiteWheat", 4023).getInt();
-			
-			NPProperties.LadderID = cfg.getItem("Lader", 4026).getInt();
-			NPProperties.NetherRailID = cfg.getItem("NetherRail", 4027).getInt();
-			NPProperties.NetherDetectorRailID = cfg.getItem("NetherDetectorRail", 4028).getInt();
-			NPProperties.NetherPoweredRailID = cfg.getItem("NetherPoweredRail", 4029).getInt();
-			NPProperties.GrimwoodTorchID = cfg.getItem("GrimwoodTorch", 4030).getInt();
 			
 		}
 		catch(Exception ex)

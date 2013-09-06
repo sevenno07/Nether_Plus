@@ -63,6 +63,7 @@ public class NPProperties
 	public static int NetherDetectorRailID;
 	public static int NetherPoweredRailID;
 	public static int GrimwoodTorchID;
+	public static int NetherDonjonSpawnerID;
 	
 	//Items
 	public static int CharoiteCrystalID;

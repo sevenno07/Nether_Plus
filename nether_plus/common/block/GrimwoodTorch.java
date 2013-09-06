@@ -28,43 +28,26 @@ public class GrimwoodTorch extends Block
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
     }
 
-    /**
-     * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-     * cleared to be reused)
-     */
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
     {
         return null;
     }
 
-    /**
-     * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
-     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-     */
     public boolean isOpaqueCube()
     {
         return false;
     }
 
-    /**
-     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
-     */
     public boolean renderAsNormalBlock()
     {
         return false;
     }
 
-    /**
-     * The type of render function that is called for this block
-     */
     public int getRenderType()
     {
         return 2;
     }
 
-    /**
-     * Gets if we can place a torch on a block.
-     */
     private boolean canPlaceTorchOn(World par1World, int par2, int par3, int par4)
     {
         if (par1World.doesBlockHaveSolidTopSurface(par2, par3, par4))
@@ -78,9 +61,6 @@ public class GrimwoodTorch extends Block
         }
     }
 
-    /**
-     * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
-     */
     public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
     {
         return par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST,  true) ||
@@ -90,9 +70,6 @@ public class GrimwoodTorch extends Block
                canPlaceTorchOn(par1World, par2, par3 - 1, par4);
     }
 
-    /**
-     * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
-     */
     public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
     {
         int j1 = par9;
@@ -125,9 +102,6 @@ public class GrimwoodTorch extends Block
         return j1;
     }
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         super.updateTick(par1World, par2, par3, par4, par5Random);
@@ -138,9 +112,6 @@ public class GrimwoodTorch extends Block
         }
     }
 
-    /**
-     * Called whenever the block is added into the world. Args: world, x, y, z
-     */
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
         if (par1World.getBlockMetadata(par2, par3, par4) == 0)
@@ -170,10 +141,6 @@ public class GrimwoodTorch extends Block
         this.dropTorchIfCantStay(par1World, par2, par3, par4);
     }
 
-    /**
-     * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-     * their own) Args: x, y, z, neighbor blockID
-     */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
         this.func_94397_d(par1World, par2, par3, par4, par5);
@@ -228,10 +195,6 @@ public class GrimwoodTorch extends Block
         }
     }
 
-    /**
-     * Tests if the block can remain at its current location and will drop as an item if it is unable to stay. Returns
-     * True if it can stay and False if it drops. Args: world, x, y, z
-     */
     protected boolean dropTorchIfCantStay(World par1World, int par2, int par3, int par4)
     {
         if (!this.canPlaceBlockAt(par1World, par2, par3, par4))
@@ -250,10 +213,6 @@ public class GrimwoodTorch extends Block
         }
     }
 
-    /**
-     * Ray traces through the blocks collision from start vector to end vector returning a ray trace hit. Args: world,
-     * x, y, z, startVec, endVec
-     */
     public MovingObjectPosition collisionRayTrace(World par1World, int par2, int par3, int par4, Vec3 par5Vec3, Vec3 par6Vec3)
     {
         int l = par1World.getBlockMetadata(par2, par3, par4) & 7;
@@ -285,10 +244,6 @@ public class GrimwoodTorch extends Block
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * A randomly called display update to be able to add particles or other items for display
-     */
     public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         int l = par1World.getBlockMetadata(par2, par3, par4);

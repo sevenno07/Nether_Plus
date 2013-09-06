@@ -71,6 +71,7 @@ public class NPBlockList
 	public static Block NetherDetectorRail;
 	public static Block NetherPoweredRail;
 	public static Block GrimwoodTorch;
+	public static Block NetherDonjonSpawner;
 	
 	public static void loadBlock()
 	{
@@ -130,7 +131,7 @@ public class NPBlockList
 		NetherDetectorRail = new NetherDetectorRail(NPProperties.NetherDetectorRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		NetherPoweredRail = new NetherPoweredRail(NPProperties.NetherPoweredRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		GrimwoodTorch = new GrimwoodTorch(NPProperties.GrimwoodTorchID).setStepSound(Block.soundWoodFootstep).setLightValue(0.9375F).setHardness(0.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodTorch");
-		
+		NetherDonjonSpawner = new NetherDonjonSpawner(NPProperties.NetherDonjonSpawnerID).setStepSound(Block.soundMetalFootstep).setHardness(5.0F).setResistance(5.0F).setUnlocalizedName("NetherDonjonSpawner");
 		try
 		{
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
@@ -190,6 +191,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(NetherDetectorRail, "Nether_Detector_Rail");
 		GameRegistry.registerBlock(NetherPoweredRail, "Nether_Powered_Rail");
 		GameRegistry.registerBlock(GrimwoodTorch, "Grimwood_Torch");
+		GameRegistry.registerBlock(NetherDonjonSpawner, "Nether_Donjon_Spawner");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
