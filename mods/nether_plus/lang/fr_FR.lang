@@ -70,22 +70,25 @@ item.SkeletonBlackHelmet.name = Skeleton Black Helmet
 item.SkeletonBlackChestplate.name = Skeleton Black Chestplate
 item.SkeletonBlackLeggings.name = Skeleton Black Leggings
 item.SkeletonBlackBoot.name = Skeleton Black Boot
-item.GrimwoodSword.name = GrimwoodSword
-item.GrimwoodPickaxe.name = GrimwoodPickaxe
-item.GrimwoodAxe.name = GrimwoodAxe
-item.GrimwoodShovel.name = GrimwoodShovel
-item.GrimwoodHoe.name = GrimwoodHoe
-item.GrimwoodStick.name = GrimwoodStick
+item.GrimwoodSword.name = Grimwood Sword
+item.GrimwoodPickaxe.name = Grimwood Pickaxe
+item.GrimwoodAxe.name = Grimwood Axe
+item.GrimwoodShovel.name = Grimwood Shovel
+item.GrimwoodHoe.name = Grimwood Hoe
+item.GrimwoodStick.name = Grimwood Stick
 item.BloodGem.name = Blood Gem
-item.InfernumIngot.name = InfernumIngot
-item.ItemGrimwoodDoor.name = GrimwoodDoor
+item.InfernumIngot.name = Infernum Ingot
+item.ItemGrimwoodDoor.name = Grimwood Door
 
-item.WhiteWheatSeeds.name = WhiteWheatSeeds
-item.WhiteWheat.name = WhiteWheat
-item.DeadBread.name = DeadBread
-item.GoldBucket.name = GoldBucket
-item.WaterBucket.name = WaterBucket
-item.LavaBucket.name = LavaBucket
+item.WhiteWheatSeeds.name = White Wheat Seeds
+item.WhiteWheat.name = White Wheat
+item.PepperSeed.name = Pepper Seed
+item.Pepper.name = Pepper
+
+item.DeadBread.name = Dead Bread
+item.GoldBucket.name = Gold Bucket
+item.WaterBucket.name = Water Bucket
+item.LavaBucket.name = Lava Bucket
 
 #Entity
 entity.Salamandre.name = Salamandre

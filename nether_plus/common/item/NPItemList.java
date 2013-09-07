@@ -40,6 +40,9 @@ public class NPItemList
 	
 	public static Item WhiteWheatSeeds;
 	public static Item WhiteWheat;
+	public static Item PepperSeed;
+	public static Item Pepper;
+	
 	public static Item DeadBread;
 	
 	public static Item GoldBucket;
@@ -82,6 +85,8 @@ public class NPItemList
 		
 		WhiteWheatSeeds = new WhiteWheatSeeds(NPProperties.WhiteWheatSeedsID, NPProperties.CropsID, NPProperties.Nether_FarmID).setUnlocalizedName("WhiteWheatSeeds");
 		WhiteWheat = new WhiteWheat(NPProperties.WhiteWheatID).setUnlocalizedName("WhiteWheat");
+		PepperSeed = new PepperSeed(NPProperties.PepperSeedID, NPProperties.PepperCID, NPProperties.Nether_FarmID).setUnlocalizedName("PepperSeed");
+		
 		DeadBread = new DeadBread(NPProperties.DeadBreadID, 5, 0.6F, false).setUnlocalizedName("DeadBread");
 		GoldBucket = new GoldBucket(NPProperties.GoldBucketID, 0).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
 		WaterBucket = new GoldBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);

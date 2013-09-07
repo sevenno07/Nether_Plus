@@ -30,5 +30,13 @@ public class GrimBoneMeal
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
+		else if (event.ID == NPProperties.PepperCID)
+		{
+			if (!event.world.isRemote)
+			{
+				((Crops)NPBlockList.Crops).fertilize(event.world, event.X, event.Y, event.Z);
+				event.setResult(Event.Result.ALLOW);
+			}
+		}
 	}
 }
