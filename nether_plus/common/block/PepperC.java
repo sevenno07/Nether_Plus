@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockStem;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
@@ -21,7 +19,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class PepperC extends BlockStem
 {
-    /** Defines if it is a Melon or a Pumpkin that the stem is producing. */
     private final Block fruitType;
     @SideOnly(Side.CLIENT)
     private Icon theIcon;
@@ -36,18 +33,11 @@ public class PepperC extends BlockStem
         this.setCreativeTab((CreativeTabs)null);
     }
 
-    /**
-     * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of
-     * blockID passed in. Args: blockID
-     */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
         return par1 == NPBlockList.Nether_Farm.blockID;
     }
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         super.updateTick(par1World, par2, par3, par4, par5Random);
@@ -184,18 +174,12 @@ public class PepperC extends BlockStem
         return f;
     }
 
-    /**
-     * Sets the block's bounds for rendering it as an item
-     */
     public void setBlockBoundsForItemRender()
     {
         float f = 0.125F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
     }
 
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y, z
-     */
     public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         this.maxY = (double)((float)(par1IBlockAccess.getBlockMetadata(par2, par3, par4) * 2 + 2) / 16.0F);
@@ -209,20 +193,12 @@ public class PepperC extends BlockStem
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * Returns the current state of the stem. Returns -1 if the stem is not fully grown, or a value between 0 and 3
-     * based on the direction the stem is facing.
-     */
     public int getState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         int l = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
         return l < 7 ? -1 : (par1IBlockAccess.getBlockId(par2 - 1, par3, par4) == this.fruitType.blockID ? 0 : (par1IBlockAccess.getBlockId(par2 + 1, par3, par4) == this.fruitType.blockID ? 1 : (par1IBlockAccess.getBlockId(par2, par3, par4 - 1) == this.fruitType.blockID ? 2 : (par1IBlockAccess.getBlockId(par2, par3, par4 + 1) == this.fruitType.blockID ? 3 : -1))));
     }
 
-    /**
-     * Drops the block items with a specified chance of dropping the specified items
-     */
     public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
     {
         super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
@@ -266,11 +242,6 @@ public class PepperC extends BlockStem
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-     * is the only chance you get to register icons.
-     */
     public void registerIcons(IconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:stem_straight");
