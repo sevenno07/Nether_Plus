@@ -48,6 +48,7 @@ public class NPItemList
 	public static Item GoldBucket;
 	public static Item WaterBucket;
 	public static Item LavaBucket;
+	public static Item MilkBucket;
 
 	public static EnumArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
 	public static EnumArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
@@ -91,6 +92,8 @@ public class NPItemList
 		GoldBucket = new GoldBucket(NPProperties.GoldBucketID, 0).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
 		WaterBucket = new GoldBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
 	    LavaBucket = new GoldBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
+	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
+
 		}
 		catch(Exception ex)
 		{

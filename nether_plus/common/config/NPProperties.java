@@ -103,5 +103,6 @@ public class NPProperties
 	public static int GoldBucketID;
 	public static int WaterBucketID;
 	public static int LavaBucketID;
+	public static int MilkBucketID;
 
 }

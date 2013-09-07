@@ -89,6 +89,7 @@ item.DeadBread.name = Dead Bread
 item.GoldBucket.name = Gold Bucket
 item.WaterBucket.name = Water Bucket
 item.LavaBucket.name = Lava Bucket
+item.MilkBucket.name = Milk Bucket
 
 #Entity
 entity.Salamandre.name = Salamandre

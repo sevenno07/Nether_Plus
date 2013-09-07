@@ -159,6 +159,7 @@ public class Nether_plus
 			NPProperties.GoldBucketID = cfg.getItem("GoldBucket", 4028).getInt();
 			NPProperties.WaterBucketID = cfg.getItem("WaterBucket", 4029).getInt();
 			NPProperties.LavaBucketID = cfg.getItem("LavaBucket", 4030).getInt();
+			NPProperties.MilkBucketID = cfg.getItem("MilkBucket", 4031).getInt();
 
 		}
 		catch(Exception ex)
