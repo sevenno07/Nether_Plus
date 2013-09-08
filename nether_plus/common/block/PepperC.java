@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStem;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -17,7 +17,7 @@ import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PepperC extends BlockStem
+public class PepperC extends BlockFlower
 {
     private final Block fruitType;
     @SideOnly(Side.CLIENT)
@@ -25,7 +25,7 @@ public class PepperC extends BlockStem
 
     protected PepperC(int par1, Block par2Block)
     {
-        super(par1, par2Block);
+        super(par1);
         this.fruitType = par2Block;
         this.setTickRandomly(true);
         float f = 0.125F;
@@ -172,6 +172,21 @@ public class PepperC extends BlockStem
         }
 
         return f;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(int par1)
+    {
+        int j = par1 * 32;
+        int k = 255 - par1 * 8;
+        int l = par1 * 4;
+        return j << 16 | k << 8 | l;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+    {
+        return this.getRenderColor(par1IBlockAccess.getBlockMetadata(par2, par3, par4));
     }
 
     public void setBlockBoundsForItemRender()

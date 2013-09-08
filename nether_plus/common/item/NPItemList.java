@@ -90,8 +90,8 @@ public class NPItemList
 		
 		DeadBread = new DeadBread(NPProperties.DeadBreadID, 5, 0.6F, false).setUnlocalizedName("DeadBread");
 		GoldBucket = new GoldBucket(NPProperties.GoldBucketID, 0).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
-		WaterBucket = new GoldBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
-	    LavaBucket = new GoldBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
+		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
+	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
 	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
 
 		}

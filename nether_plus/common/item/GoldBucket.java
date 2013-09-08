@@ -182,7 +182,7 @@ public class GoldBucket extends Item
             }
             else if (this.isFull == 0 && movingobjectposition.entityHit instanceof EntityCow)
             {
-                return new ItemStack(Item.bucketMilk);
+                return new ItemStack(NPItemList.MilkBucket);
             }
 
             return par1ItemStack;
@@ -217,5 +217,11 @@ public class GoldBucket extends Item
 
             return true;
         }
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister par1IconRegister)
+    {
+        this.itemIcon = par1IconRegister.registerIcon("nether_plus:GoldBucket");
     }
 }
