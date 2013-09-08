@@ -40,10 +40,10 @@ public class NPItemList
 	
 	public static Item WhiteWheatSeeds;
 	public static Item WhiteWheat;
-	public static Item PepperSeed;
-	public static Item Pepper;
+	public static Item ChiliSeed;
+	public static Item Chili;
 	
-	public static Item Riz;
+	public static Item Rice;
 	
 	public static Item DeadBread;
 	
@@ -88,10 +88,9 @@ public class NPItemList
 		
 		WhiteWheatSeeds = new WhiteWheatSeeds(NPProperties.WhiteWheatSeedsID, NPProperties.CropsID, NPProperties.Nether_FarmID).setUnlocalizedName("WhiteWheatSeeds");
 		WhiteWheat = new WhiteWheat(NPProperties.WhiteWheatID).setUnlocalizedName("WhiteWheat");
-		PepperSeed = new PepperSeed(NPProperties.PepperSeedID, NPProperties.PepperCID, NPProperties.Nether_FarmID).setUnlocalizedName("PepperSeed");
-		Pepper = new Pepper(NPProperties.PepperID, 10, 0.6F, false).setUnlocalizedName("Pepper");
-		
-		Riz = new Riz(NPProperties.RizID, 0, 0, NPProperties.RizCID, NPProperties.Nether_FarmID).setUnlocalizedName("Riz");
+		ChiliSeed = new ChiliSeed(NPProperties.ChiliSeedID, NPProperties.ChiliCID, NPProperties.Nether_FarmID).setUnlocalizedName("ChiliSeed");
+		Chili = new Chili(NPProperties.ChiliID, 10, 0.6F, false).setUnlocalizedName("Chili");
+		Rice = new Rice(NPProperties.RiceID, 0, 0, NPProperties.RiceCID, NPProperties.Nether_FarmID).setUnlocalizedName("Rice");
 		
 		DeadBread = new DeadBread(NPProperties.DeadBreadID, 5, 0.6F, false).setUnlocalizedName("DeadBread");
 		GoldBucket = new GoldBucket(NPProperties.GoldBucketID, 0).setUnlocalizedName("GoldBucket").setMaxStackSize(16);

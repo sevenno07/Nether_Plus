@@ -112,10 +112,9 @@ public class Nether_plus
 			NPProperties.CharoiteBlockID = cfg.getBlock("CharoiteBlock", 638).getInt();
 			NPProperties.Nether_FarmID = cfg.getBlock("Nether_Farm", 639).getInt();
 			NPProperties.CropsID = cfg.getBlock("Crops", 640).getInt();
-			NPProperties.PepperCID = cfg.getBlock("PepperC", 641).getInt();
-			NPProperties.PepperBID = cfg.getBlock("PepperB", 642).getInt();
-			NPProperties.RizCID = cfg.getBlock("RizC", 643).getInt();
-			
+			NPProperties.ChiliCID = cfg.getBlock("ChiliC", 641).getInt();
+			NPProperties.ChiliBID = cfg.getBlock("ChiliB", 642).getInt();
+			NPProperties.RiceCID = cfg.getBlock("RiceC", 643).getInt();
 			NPProperties.LadderID = cfg.getBlock("Lader", 644).getInt();
 			NPProperties.NetherRailID = cfg.getBlock("NetherRail", 645).getInt();
 			NPProperties.NetherDetectorRailID = cfg.getBlock("NetherDetectorRail", 646).getInt();
@@ -153,10 +152,9 @@ public class Nether_plus
 			
 			NPProperties.WhiteWheatSeedsID = cfg.getItem("WhiteWheatSeeds", 4022).getInt();
 			NPProperties.WhiteWheatID = cfg.getItem("WhiteWheat", 4023).getInt();
-			NPProperties.PepperSeedID = cfg.getItem("PepperSeed", 4024).getInt();
-			NPProperties.PepperID = cfg.getItem("Pepper", 4025).getInt();
-			NPProperties.RizID = cfg.getItem("Riz", 4026).getInt();
-			
+			NPProperties.ChiliSeedID = cfg.getItem("ChiliSeed", 4024).getInt();
+			NPProperties.ChiliID = cfg.getItem("Chili", 4025).getInt();
+			NPProperties.RiceID = cfg.getItem("Rice", 4026).getInt();
 			NPProperties.DeadBreadID = cfg.getItem("DeadBread", 4027).getInt();
 			NPProperties.GoldBucketID = cfg.getItem("GoldBucket", 4028).getInt();
 			NPProperties.WaterBucketID = cfg.getItem("WaterBucket", 4029).getInt();

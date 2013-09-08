@@ -6,9 +6,9 @@ import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Pepper extends ItemFood
+public class Chili extends ItemFood
 {
-	public Pepper(int id, int par2, float par3, boolean par4)
+	public Chili(int id, int par2, float par3, boolean par4)
 	{
 		super(id, par2, par3, par4);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsFood);
@@ -17,6 +17,6 @@ public class Pepper extends ItemFood
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)
 	{
-        this.itemIcon = iconregister.registerIcon("nether_plus:Pepper");
+        this.itemIcon = iconregister.registerIcon("nether_plus:Chili");
  	}
 }

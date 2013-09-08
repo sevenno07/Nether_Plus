@@ -6,8 +6,8 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import nether_plus.common.block.Crops;
 import nether_plus.common.block.GrimwoodSapling;
 import nether_plus.common.block.NPBlockList;
-import nether_plus.common.block.PepperC;
-import nether_plus.common.block.RizC;
+import nether_plus.common.block.ChiliC;
+import nether_plus.common.block.RiceC;
 import nether_plus.common.config.NPProperties;
  
 public class GrimBoneMeal
@@ -32,19 +32,19 @@ public class GrimBoneMeal
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
-		else if (event.ID == NPProperties.PepperCID)
+		else if (event.ID == NPProperties.ChiliCID)
 		{
 			if (!event.world.isRemote)
 			{
-				((PepperC)NPBlockList.PepperC).fertilizeStem(event.world, event.X, event.Y, event.Z);
+				((ChiliC)NPBlockList.ChiliC).fertilizeStem(event.world, event.X, event.Y, event.Z);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
-		else if (event.ID == NPProperties.RizCID)
+		else if (event.ID == NPProperties.RiceCID)
 		{
 			if (!event.world.isRemote)
 			{
-				((RizC)NPBlockList.RizC).fertilize(event.world, event.X, event.Y, event.Z);
+				((RiceC)NPBlockList.RiceC).fertilize(event.world, event.X, event.Y, event.Z);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}

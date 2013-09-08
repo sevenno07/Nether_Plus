@@ -14,13 +14,13 @@ import net.minecraftforge.common.IPlantable;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
-public class Riz extends ItemFood implements IPlantable
+public class Rice extends ItemFood implements IPlantable
 {
 	private int cropId;
 	
 	private int soilId;
 	
-	public Riz(int par1, int par2, float par3, int par4, int par5)
+	public Rice(int par1, int par2, float par3, int par4, int par5)
 	{
 		super(par1, par2, par3, false);
 		this.cropId = par4;
@@ -77,6 +77,6 @@ public class Riz extends ItemFood implements IPlantable
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)
 	{
-        this.itemIcon = iconregister.registerIcon("nether_plus:Riz");
+        this.itemIcon = iconregister.registerIcon("nether_plus:Rice");
  	}
 }

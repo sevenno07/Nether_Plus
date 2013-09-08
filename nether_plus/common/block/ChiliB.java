@@ -8,15 +8,16 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.Icon;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PepperB extends Block
+public class ChiliB extends Block
 {
     @SideOnly(Side.CLIENT)
     private Icon theIcon;
 
-    protected PepperB(int par1)
+    protected ChiliB(int par1)
     {
         super(par1, Material.pumpkin);
         this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
@@ -30,7 +31,7 @@ public class PepperB extends Block
 
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return Item.melon.itemID;
+        return NPItemList.Chili.itemID;
     }
 
     public int quantityDropped(Random par1Random)
@@ -53,7 +54,7 @@ public class PepperB extends Block
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("nether_plus:Pepper_side");
-        this.theIcon = par1IconRegister.registerIcon("nether_plus:Pepper_top");
+        this.blockIcon = par1IconRegister.registerIcon("nether_plus:Chili_side");
+        this.theIcon = par1IconRegister.registerIcon("nether_plus:Chili_top");
     }
 }

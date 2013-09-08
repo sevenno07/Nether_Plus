@@ -17,13 +17,13 @@ import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PepperC extends BlockFlower
+public class ChiliC extends BlockFlower
 {
     private final Block fruitType;
     @SideOnly(Side.CLIENT)
     private Icon theIcon;
 
-    protected PepperC(int par1, Block par2Block)
+    protected ChiliC(int par1, Block par2Block)
     {
         super(par1);
         this.fruitType = par2Block;
@@ -204,7 +204,7 @@ public class PepperC extends BlockFlower
     
     public int getRenderType()
     {
-        return 19;
+        return -1;
     }
 
     @SideOnly(Side.CLIENT)
@@ -228,7 +228,7 @@ public class PepperC extends BlockFlower
         {
             if (world.rand.nextInt(15) <= metadata)
             {
-                ret.add(new ItemStack(fruitType == NPBlockList.PepperB ? NPItemList.PepperSeed : null));
+                ret.add(new ItemStack(fruitType == NPBlockList.ChiliB ? NPItemList.ChiliSeed : null));
             }
         }
 
@@ -237,7 +237,7 @@ public class PepperC extends BlockFlower
 
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return NPItemList.PepperSeed.itemID;
+        return NPItemList.ChiliSeed.itemID;
     }
 
     public int quantityDropped(Random par1Random)
@@ -247,7 +247,7 @@ public class PepperC extends BlockFlower
 
     protected int getSeedItem()
     {
-        return NPItemList.PepperSeed.itemID;
+        return NPItemList.ChiliSeed.itemID;
     }
     
     @SideOnly(Side.CLIENT)

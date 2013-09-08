@@ -7,12 +7,12 @@ import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class RizC extends Crops
+public class RiceC extends Crops
 {
 	@SideOnly(Side.CLIENT)
     private Icon[] iconArray;
 	
-	public RizC(int id)
+	public RiceC(int id)
 	{
 		super(id);
 	}
@@ -37,12 +37,12 @@ public class RizC extends Crops
 
     protected int getSeedItem()
     {
-        return NPItemList.Riz.itemID;
+        return NPItemList.Rice.itemID;
     }
 
     protected int getCropItem()
     {
-        return NPItemList.Riz.itemID;
+        return NPItemList.Rice.itemID;
     }
 
     @SideOnly(Side.CLIENT)
@@ -52,7 +52,7 @@ public class RizC extends Crops
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon("rizs_" + i);
+            this.iconArray[i] = par1IconRegister.registerIcon("nether_plus:rices_" + i);
         }
     }
 }

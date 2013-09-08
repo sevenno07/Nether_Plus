@@ -65,9 +65,9 @@ public class NPBlockList
 	
 	public static Block Nether_Farm;
 	public static Block Crops;
-	public static Block PepperC;
-	public static Block PepperB;
-	public static Block RizC;
+	public static Block ChiliC;
+	public static Block ChiliB;
+	public static Block RiceC;
 	
 	public static Block Ladder;
 	public static Block NetherRail;
@@ -128,9 +128,9 @@ public class NPBlockList
 		
 		Nether_Farm = new Nether_Farm(NPProperties.Nether_FarmID).setStepSound(Block.soundSandFootstep).setHardness(0.5F).setUnlocalizedName("Nether_Farm");
 		Crops = new Crops(NPProperties.CropsID).setUnlocalizedName("Crops");
-		PepperC = new PepperC(NPProperties.PepperCID, PepperB).setUnlocalizedName("PepperC");
-		PepperB = new PepperB(NPProperties.PepperBID).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("PepperB");
-		RizC = new RizC(NPProperties.RizCID).setUnlocalizedName("RizC");
+		ChiliC = new ChiliC(NPProperties.ChiliCID, ChiliB).setUnlocalizedName("ChiliC");
+		ChiliB = new ChiliB(NPProperties.ChiliBID).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("ChiliB");
+		RiceC = new RiceC(NPProperties.RiceCID).setUnlocalizedName("RiceC");
 		
 		Ladder = new Ladder(NPProperties.LadderID).setStepSound(Block.soundLadderFootstep).setHardness(0.4F).setResistance(5.0F).setUnlocalizedName("Ladder");
 		NetherRail = new NetherRail(NPProperties.NetherRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
@@ -191,8 +191,8 @@ public class NPBlockList
 		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
 		GameRegistry.registerBlock(Nether_Farm, "Nether_Farm");
 		GameRegistry.registerBlock(Crops, "Crops");
-		GameRegistry.registerBlock(PepperC, "Pepper_Crops");
-		GameRegistry.registerBlock(PepperB, "Pepper_Block");
+		GameRegistry.registerBlock(ChiliC, "Chili_Crops");
+		GameRegistry.registerBlock(ChiliB, "Chili_Block");
 		
 		GameRegistry.registerBlock(Ladder, "Ladder");
 		GameRegistry.registerBlock(NetherRail, "Nether_Rail");

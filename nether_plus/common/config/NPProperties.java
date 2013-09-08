@@ -57,9 +57,9 @@ public class NPProperties
 	
 	public static int Nether_FarmID;
 	public static int CropsID;
-	public static int PepperCID;
-	public static int PepperBID;
-	public static int RizCID;
+	public static int ChiliCID;
+	public static int ChiliBID;
+	public static int RiceCID;
 	
 	public static int LadderID;
 	public static int NetherRailID;
@@ -97,10 +97,9 @@ public class NPProperties
 	
 	public static int WhiteWheatSeedsID;
 	public static int WhiteWheatID;
-	public static int PepperSeedID;
-	public static int PepperID;
-	
-	public static int RizID;
+	public static int ChiliSeedID;
+	public static int ChiliID;
+	public static int RiceID;
 	
 	public static int DeadBreadID;
 	public static int GoldBucketID;

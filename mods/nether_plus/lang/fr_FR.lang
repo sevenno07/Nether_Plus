@@ -45,7 +45,7 @@ tile.CharoiteBlock.name = Charoite Block
 tile.Crops.name = Crops
 tile.PepperC.name = PepperC
 tile.PepperB.name = PepperB
-tile.RizC.name = RizC
+tile.RiceC.name = Rice Crop
 
 tile.Ladder.name = Ladder
 tile.NetherRail.name = Nether Rail
@@ -87,7 +87,7 @@ item.WhiteWheatSeeds.name = White Wheat Seeds
 item.WhiteWheat.name = White Wheat
 item.PepperSeed.name = Pepper Seed
 item.Pepper.name = Pepper
-item.Riz.name = Riz
+item.Rice.name = Rice
 
 item.DeadBread.name = Dead Bread
 item.GoldBucket.name = Gold Bucket

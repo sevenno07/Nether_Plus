@@ -13,13 +13,13 @@ import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PepperSeed extends Item implements IPlantable
+public class ChiliSeed extends Item implements IPlantable
 {
 	private int Blocktype;
 	
 	private int soilBlockID;
 	
-	public PepperSeed(int id, int par2, int par3)
+	public ChiliSeed(int id, int par2, int par3)
 	{
 		super(id);
 		this.Blocktype = par2;
@@ -76,6 +76,6 @@ public class PepperSeed extends Item implements IPlantable
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconregister)
 	{
-        this.itemIcon = iconregister.registerIcon("nether_plus:Pepper");
+        this.itemIcon = iconregister.registerIcon("nether_plus:ChiliSeed");
  	}
 }
