@@ -59,6 +59,7 @@ public class NPProperties
 	public static int CropsID;
 	public static int PepperCID;
 	public static int PepperBID;
+	public static int RizCID;
 	
 	public static int LadderID;
 	public static int NetherRailID;
@@ -98,6 +99,8 @@ public class NPProperties
 	public static int WhiteWheatID;
 	public static int PepperSeedID;
 	public static int PepperID;
+	
+	public static int RizID;
 	
 	public static int DeadBreadID;
 	public static int GoldBucketID;

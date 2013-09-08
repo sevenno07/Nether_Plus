@@ -67,6 +67,7 @@ public class NPBlockList
 	public static Block Crops;
 	public static Block PepperC;
 	public static Block PepperB;
+	public static Block RizC;
 	
 	public static Block Ladder;
 	public static Block NetherRail;
@@ -129,6 +130,7 @@ public class NPBlockList
 		Crops = new Crops(NPProperties.CropsID).setUnlocalizedName("Crops");
 		PepperC = new PepperC(NPProperties.PepperCID, PepperB).setUnlocalizedName("PepperC");
 		PepperB = new PepperB(NPProperties.PepperBID).setStepSound(Block.soundWoodFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("PepperB");
+		RizC = new RizC(NPProperties.RizCID).setUnlocalizedName("RizC");
 		
 		Ladder = new Ladder(NPProperties.LadderID).setStepSound(Block.soundLadderFootstep).setHardness(0.4F).setResistance(5.0F).setUnlocalizedName("Ladder");
 		NetherRail = new NetherRail(NPProperties.NetherRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
