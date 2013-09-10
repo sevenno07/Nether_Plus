@@ -1,6 +1,5 @@
 package nether_plus.common.config;
 
-import net.minecraft.item.Item;
 
 
 
@@ -80,6 +79,7 @@ public class NPProperties
 	public static int GrimwoodStickID;
 	public static int BloodGemID;
 	public static int InfernumIngotID;
+	public static int SalamanderLeatherID;
 	
 	public static int SkeletonWhiteHelmetID;
 	public static int SkeletonWhiteChestplateID;

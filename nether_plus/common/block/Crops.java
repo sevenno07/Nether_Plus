@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
@@ -28,6 +29,7 @@ public class Crops extends BlockFlower
 		this.setHardness(0.0F);
         this.setStepSound(soundGrassFootstep);
 		this.disableStats();
+		this.setCreativeTab((CreativeTabs)null);
 	}
 	
 	protected boolean canThisPlantGrowOnThisBlockID(int par1)

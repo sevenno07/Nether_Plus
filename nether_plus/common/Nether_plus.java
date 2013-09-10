@@ -176,6 +176,7 @@ public class Nether_plus
 			NPProperties.SalamanderChestplateID = cfg.getItem("SalamanderChestplate", 4042).getInt();
 			NPProperties.SalamanderLeggingsID = cfg.getItem("SalamanderLeggings", 4043).getInt();
 			NPProperties.SalamanderBootID = cfg.getItem("SalamanderBoot", 4044).getInt();
+			NPProperties.SalamanderLeatherID = cfg.getItem("SalamanderLeather", 4045).getInt();
 
 		}
 		catch(Exception ex)

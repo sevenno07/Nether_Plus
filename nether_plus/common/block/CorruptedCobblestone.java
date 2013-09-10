@@ -12,6 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -26,6 +27,7 @@ public class CorruptedCobblestone extends Block
     {
         super(par1, Material.rock);
         this.setTickRandomly(true);
+        this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
     }
 
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4, int par5)
@@ -85,30 +87,18 @@ public class CorruptedCobblestone extends Block
         return false;
     }
 
-    /**
-     * Returns the ID of the items to drop on destruction.
-     */
     public int idDropped(int par1, Random par2Random, int par3)
     {
         return NPBlockList.CorruptedCobblestone.idDropped(0, par2Random, par3);
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
-     */
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
         return NPBlockList.CorruptedCobblestone.blockID;
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-     * is the only chance you get to register icons.
-     */
     public void registerIcons(IconRegister par1IconRegister)
     {
         this.field_94441_a = par1IconRegister.registerIcon("nether_plus:CorruptedCobblestone2");

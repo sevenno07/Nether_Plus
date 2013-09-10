@@ -50,6 +50,27 @@ public class NPRecipe
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.ModWoodSlab, 6, 0), new Object[]{"XXX", 'X', NPBlockList.GrimwoodPlanks});
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.ModStoneSlab, 6, 2), new Object[]{"XXX", 'X', NPBlockList.NetherrackBrick});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.ItemGrimwoodDoor, 1), new Object[]{"XX", "XX", "XX", 'X', NPBlockList.GrimwoodPlanks});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.DeadBread, 1), new Object[]{"XXX", 'X', NPItemList.WhiteWheat});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronHelmet, 1), new Object[]{"XXX", "X X", 'X', NPItemList.BlackIronIngot});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronChestplate, 1), new Object[]{"X X", "XXX", "XXX", 'X', NPItemList.BlackIronIngot});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronLeggings, 1), new Object[]{"XXX", "X X", "X X", 'X', NPItemList.BlackIronIngot});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronBoot, 1), new Object[]{"X X", "X X", 'X', NPItemList.BlackIronIngot});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronSword, 1), new Object[]{"X", "X", "Y", 'X', NPItemList.BlackIronIngot, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronPickaxe, 1), new Object[]{"XXX", " Y ", " Y ", 'X', NPItemList.BlackIronIngot, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronAxe, 1), new Object[]{"XX ", "XY ", " Y ", 'X', NPItemList.BlackIronIngot, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronShovel, 1), new Object[]{"X", "Y", "Y", 'X', NPItemList.BlackIronIngot, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.BlackIronHoe, 1), new Object[]{"XX ", " Y ", " Y ", 'X', NPItemList.BlackIronIngot, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.SalamanderHelmet, 1), new Object[]{"XXX", "X X", 'X', NPItemList.SalamanderLeather});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.SalamanderChestplate, 1), new Object[]{"X X", "XXX", "XXX", 'X', NPItemList.SalamanderLeather});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.SalamanderLeggings, 1), new Object[]{"XXX", "X X", "X X", 'X', NPItemList.SalamanderLeather});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.SalamanderBoot, 1), new Object[]{"X X", "X X", 'X', NPItemList.SalamanderLeather});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.ChiliSeed, 1), new Object[]{"X", 'X', NPItemList.Chili});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.ChiliB, 1), new Object[]{"XXX", "XXX", "XXX", 'X', NPItemList.Chili});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.GrimwoodTorch, 4), new Object[]{"X", "Y",  'X', Item.coal, 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.GrimwoodTorch, 4), new Object[]{"X", "Y",  'X', new ItemStack(Item.coal, 1, 1), 'Y', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.Ladder, 3), new Object[]{"X X", "XXX", "X X", 'X', NPItemList.GrimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.GoldBucket, 1), new Object[]{"X X", " X ", 'X', Item.ingotGold});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.SoulGlassPane, 16), new Object[]{"XXX", "XXX", 'X', NPBlockList.SoulGlass});
 	}
 	
 	public static void loadSmelting()
