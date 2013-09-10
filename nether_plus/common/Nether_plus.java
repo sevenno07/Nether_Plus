@@ -160,6 +160,22 @@ public class Nether_plus
 			NPProperties.WaterBucketID = cfg.getItem("WaterBucket", 4029).getInt();
 			NPProperties.LavaBucketID = cfg.getItem("LavaBucket", 4030).getInt();
 			NPProperties.MilkBucketID = cfg.getItem("MilkBucket", 4031).getInt();
+			
+			NPProperties.BlackIronHelmetID = cfg.getItem("BlackIronHelmet", 4032).getInt();
+			NPProperties.BlackIronChestplateID = cfg.getItem("BlackIronChestplate", 4033).getInt();
+			NPProperties.BlackIronLeggingsID = cfg.getItem("BlackIronLeggings", 4034).getInt();
+			NPProperties.BlackIronBootID = cfg.getItem("BlackIronBoot", 4035).getInt();
+			
+			NPProperties.BlackIronSwordID = cfg.getItem("BlackIronSword", 4036).getInt();
+			NPProperties.BlackIronPickaxeID = cfg.getItem("BlackIronPickaxe", 4037).getInt();
+			NPProperties.BlackIronAxeID = cfg.getItem("BlackIronAxe", 4038).getInt();
+			NPProperties.BlackIronShovelID = cfg.getItem("BlackIronShovel", 4039).getInt();
+			NPProperties.BlackIronHoeID = cfg.getItem("BlackIronHoe", 4040).getInt();
+			
+			NPProperties.SalamanderHelmetID = cfg.getItem("SalamanderHelmet", 4041).getInt();
+			NPProperties.SalamanderChestplateID = cfg.getItem("SalamanderChestplate", 4042).getInt();
+			NPProperties.SalamanderLeggingsID = cfg.getItem("SalamanderLeggings", 4043).getInt();
+			NPProperties.SalamanderBootID = cfg.getItem("SalamanderBoot", 4044).getInt();
 
 		}
 		catch(Exception ex)

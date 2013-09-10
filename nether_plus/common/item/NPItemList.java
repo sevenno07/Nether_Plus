@@ -38,6 +38,22 @@ public class NPItemList
 	public static Item GrimwoodShovel;
 	public static Item GrimwoodHoe;
 	
+	public static Item BlackIronHelmet;
+	public static Item BlackIronChestplate;
+	public static Item BlackIronLeggings;
+	public static Item BlackIronBoot;
+	
+	public static Item BlackIronSword;
+	public static Item BlackIronPickaxe;
+	public static Item BlackIronAxe;
+	public static Item BlackIronShovel;
+	public static Item BlackIronHoe;
+	
+	public static Item SalamanderHelmet;
+	public static Item SalamanderChestplate;
+	public static Item SalamanderLeggings;
+	public static Item SalamanderBoot;
+	
 	public static Item WhiteWheatSeeds;
 	public static Item WhiteWheat;
 	public static Item ChiliSeed;
@@ -54,8 +70,11 @@ public class NPItemList
 
 	public static EnumArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
 	public static EnumArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
+	public static EnumArmorMaterial BlackIronArmor = EnumHelper.addArmorMaterial("BlackIronArmor", 23, new int[]{3, 9, 8, 3}, 14);
+	public static EnumArmorMaterial SalamanderArmor = EnumHelper.addArmorMaterial("SalamanderArmor", 8, new int[]{2, 5, 3, 2}, 23);
 	public static EnumToolMaterial GrimwoodTool = EnumHelper.addToolMaterial("GrimwoodTool", 0, 89, 3.0F, 0, 23);
-	
+	public static EnumToolMaterial BlackIronTool = EnumHelper.addToolMaterial("BlackIronTool", 3, 375, 9.0F, 3, 21);
+
 	public static void loadItem()
 	{
 		try
@@ -97,7 +116,22 @@ public class NPItemList
 		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
 	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
 	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
-
+	    
+	    BlackIronHelmet = new BlackIronArmor(NPProperties.BlackIronHelmetID, BlackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
+	    BlackIronChestplate = new BlackIronArmor(NPProperties.BlackIronChestplateID, BlackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
+		BlackIronLeggings = new BlackIronArmor(NPProperties.BlackIronLeggingsID, BlackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings");
+		BlackIronBoot = new BlackIronArmor(NPProperties.BlackIronBootID, BlackIronArmor, 0, 3).setUnlocalizedName("BlackIronBoot");
+		
+		BlackIronSword = new BlackIronSword(NPProperties.BlackIronSwordID, BlackIronTool).setUnlocalizedName("BlackIronSword");
+		BlackIronPickaxe = new BlackIronPickaxe(NPProperties.BlackIronPickaxeID, BlackIronTool).setUnlocalizedName("BlackIronPickaxe");
+		BlackIronAxe = new BlackIronAxe(NPProperties.BlackIronAxeID, BlackIronTool).setUnlocalizedName("BlackIronAxe");
+		BlackIronShovel = new BlackIronShovel(NPProperties.BlackIronShovelID, BlackIronTool).setUnlocalizedName("BlackIronShovel");
+		BlackIronHoe = new BlackIronHoe(NPProperties.BlackIronHoeID, BlackIronTool).setUnlocalizedName("BlackIronHoe");
+		
+		SalamanderHelmet = new SalamanderArmor(NPProperties.SalamanderHelmetID, SalamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet");
+	    SalamanderChestplate = new SalamanderArmor(NPProperties.SalamanderChestplateID, SalamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate");
+		SalamanderLeggings = new SalamanderArmor(NPProperties.SalamanderLeggingsID, SalamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings");
+		SalamanderBoot = new SalamanderArmor(NPProperties.SalamanderBootID, SalamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot");
 		}
 		catch(Exception ex)
 		{

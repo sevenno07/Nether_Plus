@@ -78,6 +78,21 @@ item.GrimwoodPickaxe.name = Grimwood Pickaxe
 item.GrimwoodAxe.name = Grimwood Axe
 item.GrimwoodShovel.name = Grimwood Shovel
 item.GrimwoodHoe.name = Grimwood Hoe
+
+item.BlackIronHelmet.name = BlackIron Helmet
+item.BlackIronChestplate.name = BlackIron Chestplate
+item.BlackIronLeggings.name = BlackIron Leggings
+item.BlackIronBoot.name = BlackIron Boot
+item.BlackIronSword.name = BlackIron Sword
+item.BlackIronPickaxe.name = BlackIron Pickaxe
+item.BlackIronAxe.name = BlackIron Axe
+item.BlackIronShovel.name = BlackIron Shovel
+item.BlackIronHoe.name = BlackIron Hoe
+item.SalamanderHelmet.name = Salamander Helmet
+item.SalamanderChestplate.name = Salamander Chestplate
+item.SalamanderLeggings.name = Salamander Leggings
+item.SalamanderBoot.name = Salamander Boot
+
 item.GrimwoodStick.name = Grimwood Stick
 item.BloodGem.name = Blood Gem
 item.InfernumIngot.name = Infernum Ingot

@@ -1,5 +1,8 @@
 package nether_plus.common.config;
 
+import net.minecraft.item.Item;
+
+
 
 public class NPProperties
 {
@@ -94,6 +97,22 @@ public class NPProperties
 	public static int GrimwoodShovelID;
 	public static int GrimwoodHoeID;
 	public static int ItemGrimwoodDoorID;
+	
+	public static int BlackIronHelmetID;
+	public static int BlackIronChestplateID;
+	public static int BlackIronLeggingsID;
+	public static int BlackIronBootID;
+	
+	public static int BlackIronSwordID;
+	public static int BlackIronPickaxeID;
+	public static int BlackIronAxeID;
+	public static int BlackIronShovelID;
+	public static int BlackIronHoeID;
+	
+	public static int SalamanderHelmetID;
+	public static int SalamanderChestplateID;
+	public static int SalamanderLeggingsID;
+	public static int SalamanderBootID;
 	
 	public static int WhiteWheatSeedsID;
 	public static int WhiteWheatID;
