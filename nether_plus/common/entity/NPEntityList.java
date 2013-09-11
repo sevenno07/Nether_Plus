@@ -44,6 +44,9 @@ public class NPEntityList
 		EntityRegistry.registerGlobalEntityID(FireSlime.class, "FireSlime", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 126, 0).getRGB(), new Color(206, 103, 0).getRGB());
 		EntityRegistry.registerModEntity(FireSlime.class, "FireSlime", 238, Nether_plus.instance, 40, 1, true);
 		EntityRegistry.addSpawn(FireSlime.class, 100, 2, 2, EnumCreatureType.monster, BiomeGenBase.hell);
+		
+		EntityRegistry.registerGlobalEntityID(SalamanderBoat.class, "SalamanderBoat", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(SalamanderBoat.class, "SalamanderBoat", 239, Nether_plus.instance, 40, 1, true);
 		}
 		catch(Exception ex)
 		{

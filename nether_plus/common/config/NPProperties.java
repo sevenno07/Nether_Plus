@@ -1,8 +1,6 @@
 package nether_plus.common.config;
 
 
-
-
 public class NPProperties
 {
 	//Block
@@ -113,6 +111,7 @@ public class NPProperties
 	public static int SalamanderChestplateID;
 	public static int SalamanderLeggingsID;
 	public static int SalamanderBootID;
+
 	
 	public static int WhiteWheatSeedsID;
 	public static int WhiteWheatID;
@@ -125,5 +124,6 @@ public class NPProperties
 	public static int WaterBucketID;
 	public static int LavaBucketID;
 	public static int MilkBucketID;
+	public static int SalamanderBoatID;
 
 }

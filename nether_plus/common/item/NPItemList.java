@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBucket;
 import net.minecraftforge.common.EnumHelper;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.config.NPProperties;
@@ -67,6 +68,8 @@ public class NPItemList
 	public static Item WaterBucket;
 	public static Item LavaBucket;
 	public static Item MilkBucket;
+	
+	public static Item SalamanderBoat;
 
 	public static EnumArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
 	public static EnumArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
@@ -74,7 +77,7 @@ public class NPItemList
 	public static EnumArmorMaterial SalamanderArmor = EnumHelper.addArmorMaterial("SalamanderArmor", 8, new int[]{2, 5, 3, 2}, 23);
 	public static EnumToolMaterial GrimwoodTool = EnumHelper.addToolMaterial("GrimwoodTool", 0, 89, 3.0F, 0, 23);
 	public static EnumToolMaterial BlackIronTool = EnumHelper.addToolMaterial("BlackIronTool", 3, 375, 9.0F, 3, 21);
-
+	
 	public static void loadItem()
 	{
 		try
@@ -88,8 +91,9 @@ public class NPItemList
 		BloodGem = new BloodGem(NPProperties.BloodGemID).setUnlocalizedName("BloodGem");
 		InfernumIngot = new InfernumIngot(NPProperties.InfernumIngotID).setUnlocalizedName("InfernumIngot");
 		ItemGrimwoodDoor = new ItemGrimwoodDoor(NPProperties.ItemGrimwoodDoorID, Material.wood).setUnlocalizedName("ItemGrimwoodDoor");
+		
 		SalamanderLeather = new SalamanderLeather(NPProperties.SalamanderLeatherID).setUnlocalizedName("SalamanderLeather");
-
+		
 		SkeletonWhiteHelmet = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteHelmetID, SkeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet");
 		SkeletonWhiteChestplate = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteChestplateID, SkeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate");
 		SkeletonWhiteLeggings = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteLeggingsID, SkeletonWhiteArmor, 0, 2).setUnlocalizedName("SkeletonWhiteLeggings");
@@ -133,6 +137,9 @@ public class NPItemList
 	    SalamanderChestplate = new SalamanderArmor(NPProperties.SalamanderChestplateID, SalamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate");
 		SalamanderLeggings = new SalamanderArmor(NPProperties.SalamanderLeggingsID, SalamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings");
 		SalamanderBoot = new SalamanderArmor(NPProperties.SalamanderBootID, SalamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot");
+	    
+	    SalamanderBoat = new ItemSalamanderBoat(NPProperties.SalamanderBoatID).setUnlocalizedName("SalamanderBoat");
+
 		}
 		catch(Exception ex)
 		{

@@ -14,7 +14,7 @@ public class BlackIronSword extends ItemSword
 	public BlackIronSword(int id, EnumToolMaterial toolmaterial)
 	{
 		super(id, toolmaterial);
-		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsTool);
+		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsArmor);
 	}
 	
 	public boolean getIsRepairable(ItemStack stack, ItemStack outputstack)

@@ -39,7 +39,7 @@ public class BlackIronArmor extends ItemArmor
 	{
 		if(!stack.isItemEnchanted())
 		{
-			stack.addEnchantment(Enchantment.featherFalling, 100);
+			stack.addEnchantment(Enchantment.featherFalling, 10);
 		}
 	}
 	

@@ -111,6 +111,8 @@ item.WaterBucket.name = Water Bucket
 item.LavaBucket.name = Lava Bucket
 item.MilkBucket.name = Milk Bucket
 
+item.SalamanderBoat.name = Salamander Boat
+
 #Entity
 entity.Salamandre.name = Salamandre
 entity.BlackSalamander.name = Black Salamandre
@@ -120,6 +122,8 @@ entity.RedMogus.name = Red Mogus
 entity.LavaTortoise.name = LavaTortoise
 entity.Pordenfer.name = Pordenfer
 entity.FireSlime.name = FireSlime
+
+entity.SalamanderBoat.name = Salamander Boat
 
 #CreativeTabs
 itemGroup.NetherPlusCreativeTabs = Nether Plus
