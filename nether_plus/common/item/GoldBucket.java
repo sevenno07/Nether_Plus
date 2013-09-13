@@ -131,6 +131,27 @@ public class GoldBucket extends Item
 
                         return par1ItemStack;
                     }
+                    if (par2World.getBlockMaterial(i, j, k) == Material.water && par2World.getBlockMetadata(i, j, k) == 0)
+                    {
+                        par2World.setBlockToAir(i, j, k);
+
+                        if (par3EntityPlayer.capabilities.isCreativeMode)
+                        {
+                            return par1ItemStack;
+                        }
+
+                        if (--par1ItemStack.stackSize <= 0)
+                        {
+                            return new ItemStack(NPItemList.QuickSilverBucket);
+                        }
+
+                        if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(NPItemList.QuickSilverBucket)))
+                        {
+                            par3EntityPlayer.dropPlayerItem(new ItemStack(NPItemList.QuickSilverBucket.itemID, 1, 0));
+                        }
+
+                        return par1ItemStack;
+                    }
                 }
                 else
                 {

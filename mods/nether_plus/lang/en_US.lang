@@ -53,7 +53,7 @@ tile.NetherDetectorRail.name = Nether Detector Rail
 tile.NetherPoweredRail.name = Nether Powered Rail
 tile.GrimwoodTorch.name = Grimwood Torch
 
-tile.SteelWool.name = Iron lWool
+tile.SteelWool.name = Iron Wool
 
 #Container
 container.four = Corrupted Furnace
@@ -112,6 +112,7 @@ item.GoldBucket.name = Gold Bucket
 item.WaterBucket.name = Water Bucket
 item.LavaBucket.name = Lava Bucket
 item.MilkBucket.name = Milk Bucket
+item.QuickSilverBucket.name = QuickSilverBucket
 
 item.SalamanderBoat.name = Salamander Boat
 

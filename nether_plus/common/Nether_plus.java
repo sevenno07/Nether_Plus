@@ -130,7 +130,6 @@ public class Nether_plus
 			//milk 657
 			NPProperties.SteelWoolID = cfg.getBlock("SteelWool", 658).getInt();
 
-		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
 			NPProperties.BlackIronIngotID = cfg.getItem("BlaackIronIngot", 4001).getInt();
