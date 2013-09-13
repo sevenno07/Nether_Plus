@@ -15,7 +15,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class SoulplasmStationary extends BlockStationary implements ILiquid
-
 {
 	public SoulplasmStationary(int par1)
 	{
