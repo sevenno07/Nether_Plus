@@ -68,6 +68,7 @@ public class NPItemList
 	public static Item WaterBucket;
 	public static Item LavaBucket;
 	public static Item MilkBucket;
+	public static Item QuickSilverBucket;
 	
 	public static Item SalamanderBoat;
 
@@ -121,7 +122,8 @@ public class NPItemList
 		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
 	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
 	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
-	    
+	    QuickSilverBucket = new QuickSilverBucket(NPProperties.QuickSilverBucketID, 0).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
+
 	    BlackIronHelmet = new BlackIronArmor(NPProperties.BlackIronHelmetID, BlackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
 	    BlackIronChestplate = new BlackIronArmor(NPProperties.BlackIronChestplateID, BlackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
 		BlackIronLeggings = new BlackIronArmor(NPProperties.BlackIronLeggingsID, BlackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings");

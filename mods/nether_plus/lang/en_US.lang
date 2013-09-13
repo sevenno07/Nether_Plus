@@ -122,6 +122,7 @@ entity.RedMogus.name = Red Mogus
 entity.LavaTortoise.name = LavaTortoise
 entity.Pordenfer.name = Pordenfer
 entity.FireSlime.name = FireSlime
+entity.IronSheep.name = IronSheep
 
 entity.SalamanderBoat.name = Salamander Boat
 

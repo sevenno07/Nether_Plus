@@ -3,6 +3,7 @@ package nether_plus.common.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -62,6 +63,16 @@ public class Salamander extends EntityAnimal
     protected int getDropItemId()
     {
     	return NPItemList.BlackBone.itemID;
+    }
+    
+    protected void dropFewItems(boolean par1, int par2)
+    {
+    	super.dropFewItems(par1, par2);
+
+        if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
+        {
+            this.dropItem(NPItemList.SalamanderLeather.itemID, 1);
+        }
     }
     
     public boolean isBreedingItem(ItemStack par1ItemStack)

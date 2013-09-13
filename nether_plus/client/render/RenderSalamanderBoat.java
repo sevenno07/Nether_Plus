@@ -4,8 +4,8 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
-import nether_plus.common.entity.SalamanderBoat;
 import nether_plus.client.model.ModelSalamanderBoat;
+import nether_plus.common.entity.SalamanderBoat;
 
 import org.lwjgl.opengl.GL11;
 

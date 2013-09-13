@@ -68,12 +68,13 @@ public class NPProperties
 	public static int GrimwoodTorchID;
 	public static int NetherDonjonSpawnerID;
 	
-	public static int QuicksilverMovingID;
-	public static int QuicksilverStillID;
+ 	public static int QuicksilverMovingID;
+ 	public static int QuicksilverStillID;
 	public static int SoulplasmMovingID;
 	public static int SoulplasmStillID;
 	public static int AcidMovingID;
 	public static int AcidStillID;
+
 	
 	//Items
 	public static int CharoiteCrystalID;
@@ -118,6 +119,7 @@ public class NPProperties
 	public static int SalamanderChestplateID;
 	public static int SalamanderLeggingsID;
 	public static int SalamanderBootID;
+
 	
 	public static int WhiteWheatSeedsID;
 	public static int WhiteWheatID;
@@ -130,6 +132,7 @@ public class NPProperties
 	public static int WaterBucketID;
 	public static int LavaBucketID;
 	public static int MilkBucketID;
+	public static int QuickSilverBucketID;
 	public static int SalamanderBoatID;
 
 }

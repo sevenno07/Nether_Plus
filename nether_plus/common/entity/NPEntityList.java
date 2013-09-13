@@ -47,6 +47,10 @@ public class NPEntityList
 		
 		EntityRegistry.registerGlobalEntityID(SalamanderBoat.class, "SalamanderBoat", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(SalamanderBoat.class, "SalamanderBoat", 239, Nether_plus.instance, 40, 1, true);
+		
+		EntityRegistry.registerGlobalEntityID(IronSheep.class, "IronSheep", EntityRegistry.findGlobalUniqueEntityId(), new Color(255, 126, 0).getRGB(), new Color(206, 103, 0).getRGB());
+		EntityRegistry.registerModEntity(IronSheep.class, "IronSheep", 240, Nether_plus.instance, 40, 1, true);
+		EntityRegistry.addSpawn(IronSheep.class, 100, 5, 5, EnumCreatureType.creature, BiomeGenBase.hell);
 		}
 		catch(Exception ex)
 		{

@@ -4,15 +4,17 @@ import net.minecraftforge.common.MinecraftForge;
 import nether_plus.client.audio.NPSounds;
 import nether_plus.client.model.ModelBlackSalamander;
 import nether_plus.client.model.ModelFireSlime;
+import nether_plus.client.model.ModelIronSheep1;
+import nether_plus.client.model.ModelIronSheep2;
 import nether_plus.client.model.ModelLavaTortoise;
 import nether_plus.client.model.ModelMogus;
 import nether_plus.client.model.ModelPordenfer;
 import nether_plus.client.model.ModelRedMogus;
 import nether_plus.client.model.ModelSalamander;
-import nether_plus.client.model.ModelSalamanderBoat;
 import nether_plus.client.model.ModelWight;
 import nether_plus.client.render.RenderBlackSalamander;
 import nether_plus.client.render.RenderFireSlime;
+import nether_plus.client.render.RenderIronSheep;
 import nether_plus.client.render.RenderLavaTortoise;
 import nether_plus.client.render.RenderMogus;
 import nether_plus.client.render.RenderPordenfer;
@@ -22,6 +24,7 @@ import nether_plus.client.render.RenderSalamanderBoat;
 import nether_plus.client.render.RenderWight;
 import nether_plus.common.entity.BlackSalamander;
 import nether_plus.common.entity.FireSlime;
+import nether_plus.common.entity.IronSheep;
 import nether_plus.common.entity.LavaTortoise;
 import nether_plus.common.entity.Mogus;
 import nether_plus.common.entity.Pordenfer;
@@ -62,5 +65,7 @@ public class NPClientProxy extends NPCommonProxy
 	     RenderingRegistry.registerEntityRenderingHandler(Pordenfer.class, new RenderPordenfer(new ModelPordenfer(), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), new ModelFireSlime(0), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(SalamanderBoat.class, new RenderSalamanderBoat());
+	     RenderingRegistry.registerEntityRenderingHandler(IronSheep.class, new RenderIronSheep(new ModelIronSheep1(), new ModelIronSheep2(), 0.5F));
+
 	}
 }
