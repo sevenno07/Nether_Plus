@@ -1,5 +1,7 @@
 package nether_plus.common.block;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStationary;
 import net.minecraft.block.material.Material;
@@ -11,23 +13,17 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import net.minecraftforge.liquids.ILiquid;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-public class AcidStationary extends BlockStationary implements ILiquid
-
+public class AcidStationary extends BlockStationary
 {
 	public AcidStationary(int par1)
 	{
 		super(par1, Material.water);
 		this.blockHardness = 100.0F;
-		this.setLightOpacity(2);
+		this.setLightOpacity(3);
 		this.disableStats();
-		this.setTickRandomly(true);
 	}
-
+       
 	public void onEntityCollidedWithBlock(World world, int par2, int par3, int par4, Entity entity)
 	{
 		if (entity instanceof EntityLiving)
@@ -43,7 +39,7 @@ public class AcidStationary extends BlockStationary implements ILiquid
 		super.onNeighborBlockChange(world, x, y, z, blockid);
 		this.checkdoexplode(world, x, y, z);
 	}
-
+	
 	public void checkdoexplode(World world, int x, int y, int z)
 	{
 		if(world.getBlockId(x, y - 1, z) == Block.waterStill.blockID || world.getBlockId(x, y + 1, z) == Block.waterStill.blockID || world.getBlockId(x - 1, y, z) == Block.waterStill.blockID || world.getBlockId(x + 1, y, z) == Block.waterStill.blockID || world.getBlockId(x, y, z - 1) == Block.waterStill.blockID || world.getBlockId(x, y, z + 1) == Block.waterStill.blockID || world.getBlockId(x, y - 1, z) == Block.waterMoving.blockID || world.getBlockId(x, y + 1, z) == Block.waterMoving.blockID || world.getBlockId(x - 1, y, z) == Block.waterMoving.blockID || world.getBlockId(x + 1, y, z) == Block.waterMoving.blockID || world.getBlockId(x, y, z - 1) == Block.waterMoving.blockID || world.getBlockId(x, y, z + 1) == Block.waterMoving.blockID ||
@@ -65,39 +61,15 @@ public class AcidStationary extends BlockStationary implements ILiquid
 			}
 		}
 	}
-
+	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister reg)
+	public void registerIcons(IconRegister iconRegister)
 	{
 		this.theIcon = new Icon[]
-		{
-		reg.registerIcon("nether_plus:Acid"), reg.registerIcon("nether_plus:Acid_flow")
-		};
+				{
+				iconRegister.registerIcon("nether_plus:Acid"),
+				iconRegister.registerIcon("nether_plus:Acid_flow")
+				};
 	}
-
-	@Override
-	public int stillLiquidId()
-	{
-		return this.blockID;
-	}
-
-	@Override
-	public boolean isMetaSensitive()
-	{
-		return true;
-	}
-
-	@Override
-	public int stillLiquidMeta()
-	{
-		return 0;
-	}
-
-	@Override
-	public boolean isBlockReplaceable(World world, int i, int j, int k)
-	{
-		return true;
-	}
-
 }
