@@ -68,6 +68,9 @@ public class NPProperties
 	public static int GrimwoodTorchID;
 	public static int NetherDonjonSpawnerID;
 	
+	public static int QuicksilverMovingID;
+	public static int QuicksilverStillID;
+	
 	//Items
 	public static int CharoiteCrystalID;
 	public static int BlackIronIngotID;
@@ -111,7 +114,6 @@ public class NPProperties
 	public static int SalamanderChestplateID;
 	public static int SalamanderLeggingsID;
 	public static int SalamanderBootID;
-
 	
 	public static int WhiteWheatSeedsID;
 	public static int WhiteWheatID;

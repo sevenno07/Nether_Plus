@@ -87,8 +87,6 @@ public class Nether_plus
 			NPProperties.GrimwoodWorkbenchID = cfg.getBlock("GrimwoodWorkbench", 615).getInt();
 			NPProperties.fourOffID = cfg.getBlock("fourOff", 616).getInt();
 			NPProperties.fourOnID = cfg.getBlock("fourOn", 617).getInt();
-//			NPProperties.CorruptedFurnace_OffID = cfg.getBlock("CorruptedFurnace_Off", 615).getInt();
-//			NPProperties.CorruptedFurnace_OnID = cfg.getBlock("CorruptedFurnace_On", 616).getInt();
 			NPProperties.GrimwoodStairsID = cfg.getBlock("GrimwoodStairs", 618).getInt();
 			NPProperties.CorruptedCobblestoneStairsID = cfg.getBlock("CorruptedCobblestoneStairs", 619).getInt();
 			NPProperties.CorruptedBrickStairsID = cfg.getBlock("CorruptedBrickStairs", 620).getInt();
@@ -121,6 +119,9 @@ public class Nether_plus
 			NPProperties.NetherPoweredRailID = cfg.getBlock("NetherPoweredRail", 647).getInt();
 			NPProperties.GrimwoodTorchID = cfg.getBlock("GrimwoodTorch", 648).getInt();
 			NPProperties.NetherDonjonSpawnerID = cfg.getBlock("NetherDonjonSpawner", 649).getInt();
+			
+			NPProperties.QuicksilverMovingID = cfg.getBlock("QuicksilverMoving", 650).getInt();
+			NPProperties.QuicksilverStillID = cfg.getBlock("QuicksilverStill", 651).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();

@@ -1,6 +1,8 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlowing;
+import net.minecraft.block.BlockFluid;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,8 +37,6 @@ public class NPBlockList
 	public static Block NetherrackBrick;
 	
 	public static Block GrimwoodWorkbench;
-//	public static Block CorruptedFurnace_Off;
-//	public static Block CorruptedFurnace_On;
 	public static Block fourOff;
 	public static Block fourOn;
 	public static Block GrimwoodChest;
@@ -75,6 +75,9 @@ public class NPBlockList
 	public static Block NetherPoweredRail;
 	public static Block GrimwoodTorch;
 	public static Block NetherDonjonSpawner;
+	
+	public static Block QuicksilverMoving;
+	public static Block QuicksilverStill;
 	
 	public static void loadBlock()
 	{
@@ -138,6 +141,11 @@ public class NPBlockList
 		NetherPoweredRail = new NetherPoweredRail(NPProperties.NetherPoweredRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		GrimwoodTorch = new GrimwoodTorch(NPProperties.GrimwoodTorchID).setStepSound(Block.soundWoodFootstep).setLightValue(0.9375F).setHardness(0.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodTorch");
 		NetherDonjonSpawner = new NetherDonjonSpawner(NPProperties.NetherDonjonSpawnerID).setStepSound(Block.soundMetalFootstep).setHardness(5.0F).setResistance(5.0F).setUnlocalizedName("NetherDonjonSpawner");
+		
+		//liquides
+		QuicksilverMoving = new QuicksilverFluid(NPProperties.QuicksilverMovingID).setUnlocalizedName("QuicksilverMoving");
+		QuicksilverStill = new QuicksilverStationary(NPProperties.QuicksilverStillID).setUnlocalizedName("QuicksilverStill");
+		
 		try
 		{
 		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
@@ -200,6 +208,9 @@ public class NPBlockList
 		GameRegistry.registerBlock(NetherPoweredRail, "Nether_Powered_Rail");
 		GameRegistry.registerBlock(GrimwoodTorch, "Grimwood_Torch");
 		GameRegistry.registerBlock(NetherDonjonSpawner, "Nether_Donjon_Spawner");
+		
+		GameRegistry.registerBlock(QuicksilverMoving, "Quicksilver_Moving");
+		GameRegistry.registerBlock(QuicksilverStill, "Quicksilver_Still");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
