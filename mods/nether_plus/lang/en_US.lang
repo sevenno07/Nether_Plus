@@ -53,6 +53,8 @@ tile.NetherDetectorRail.name = Nether Detector Rail
 tile.NetherPoweredRail.name = Nether Powered Rail
 tile.GrimwoodTorch.name = Grimwood Torch
 
+tile.SteelWool.name = Iron lWool
+
 #Container
 container.four = Corrupted Furnace
 container.workbench = Grimwood Workbench

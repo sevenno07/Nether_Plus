@@ -24,6 +24,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import nether_plus.common.block.NPBlockList;
 import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -287,7 +288,7 @@ public class IronSheep extends EntityAnimal implements IShearable
         int i = 1 + rand.nextInt(3);
         for (int j = 0; j < i; j++)
         {
-            ret.add(new ItemStack(Block.cloth.blockID, 1, getFleeceColor()));
+            ret.add(new ItemStack(NPBlockList.SteelWool.blockID, 1, getFleeceColor()));
         }
         this.worldObj.playSoundAtEntity(this, "mob.sheep.shear", 1.0F, 1.0F);
         return ret;

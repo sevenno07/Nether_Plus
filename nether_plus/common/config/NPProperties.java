@@ -74,6 +74,7 @@ public class NPProperties
 	public static int SoulplasmStillID;
 	public static int AcidMovingID;
 	public static int AcidStillID;
+	public static int SteelWoolID;
 
 	
 	//Items

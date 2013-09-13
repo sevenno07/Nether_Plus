@@ -126,7 +126,9 @@ public class Nether_plus
 			NPProperties.SoulplasmStillID = cfg.getBlock("SoulplasmStill", 653).getInt();
 			NPProperties.AcidMovingID = cfg.getBlock("AcidMoving", 654).getInt();
 			NPProperties.AcidStillID = cfg.getBlock("AcidStill", 655).getInt();
-
+			//milk 656
+			//milk 657
+			NPProperties.SteelWoolID = cfg.getBlock("SteelWool", 658).getInt();
 
 		
 			//Items

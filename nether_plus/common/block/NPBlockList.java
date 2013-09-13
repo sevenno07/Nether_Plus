@@ -83,6 +83,8 @@ public class NPBlockList
 	public static Block AcidMoving;
 	public static Block AcidStill;
 	
+	public static Block SteelWool;
+	
 	public static void loadBlock()
 	{
 		GlowstoneSand = new GlowstoneSand(NPProperties.GlowstoneSandID, Material.sand).setStepSound(Block.soundSandFootstep).setLightValue(1.0F).setHardness(0.5F).setUnlocalizedName("GlowstoneSand");
@@ -145,6 +147,8 @@ public class NPBlockList
 		NetherPoweredRail = new NetherPoweredRail(NPProperties.NetherPoweredRailID).setStepSound(Block.soundMetalFootstep).setHardness(0.7F).setResistance(5.0F).setUnlocalizedName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		GrimwoodTorch = new GrimwoodTorch(NPProperties.GrimwoodTorchID).setStepSound(Block.soundWoodFootstep).setLightValue(0.9375F).setHardness(0.0F).setResistance(5.0F).setUnlocalizedName("GrimwoodTorch");
 		NetherDonjonSpawner = new NetherDonjonSpawner(NPProperties.NetherDonjonSpawnerID).setStepSound(Block.soundMetalFootstep).setHardness(5.0F).setResistance(5.0F).setUnlocalizedName("NetherDonjonSpawner");
+		
+		SteelWool = new SteelWool(NPProperties.SteelWoolID, Material.cloth).setStepSound(Block.soundClothFootstep).setHardness(2.0F).setResistance(5.0F).setUnlocalizedName("SteelWool");
 		
 		//liquides
 		QuicksilverMoving = new QuicksilverFluid(NPProperties.QuicksilverMovingID).setUnlocalizedName("QuicksilverMoving");
@@ -223,6 +227,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(SoulplasmStill, "Soulplasm_Still");
 		GameRegistry.registerBlock(AcidMoving, "Acid_Moving");
 		GameRegistry.registerBlock(AcidStill, "Acid_Still");
+		GameRegistry.registerBlock(SteelWool, "Iron_Wool");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
