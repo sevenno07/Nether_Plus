@@ -122,6 +122,10 @@ public class Nether_plus
 			
 			NPProperties.QuicksilverMovingID = cfg.getBlock("QuicksilverMoving", 650).getInt();
 			NPProperties.QuicksilverStillID = cfg.getBlock("QuicksilverStill", 651).getInt();
+			NPProperties.SoulplasmMovingID = cfg.getBlock("SoulplasmMoving", 652).getInt();
+			NPProperties.SoulplasmStillID = cfg.getBlock("SoulplasmStill", 653).getInt();
+			NPProperties.AcidMovingID = cfg.getBlock("AcidMoving", 654).getInt();
+			NPProperties.AcidStillID = cfg.getBlock("AcidStill", 655).getInt();
 		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();

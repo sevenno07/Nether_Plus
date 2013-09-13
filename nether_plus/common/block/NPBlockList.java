@@ -78,6 +78,10 @@ public class NPBlockList
 	
 	public static Block QuicksilverMoving;
 	public static Block QuicksilverStill;
+	public static Block SoulplasmMoving;
+	public static Block SoulplasmStill;
+	public static Block AcidMoving;
+	public static Block AcidStill;
 	
 	public static void loadBlock()
 	{
@@ -145,6 +149,10 @@ public class NPBlockList
 		//liquides
 		QuicksilverMoving = new QuicksilverFluid(NPProperties.QuicksilverMovingID).setUnlocalizedName("QuicksilverMoving");
 		QuicksilverStill = new QuicksilverStationary(NPProperties.QuicksilverStillID).setUnlocalizedName("QuicksilverStill");
+		SoulplasmMoving = new SoulplasmFluid(NPProperties.SoulplasmMovingID).setLightValue(1.0F).setUnlocalizedName("SoulplasmMoving");
+		SoulplasmStill = new SoulplasmStationary(NPProperties.SoulplasmStillID).setLightValue(1.0F).setUnlocalizedName("SoulplasmStill");
+		AcidMoving = new AcidFluid(NPProperties.AcidMovingID).setUnlocalizedName("AcidMoving");
+		AcidStill = new AcidStationary(NPProperties.AcidStillID).setUnlocalizedName("AcidStill");
 		
 		try
 		{
@@ -211,6 +219,10 @@ public class NPBlockList
 		
 		GameRegistry.registerBlock(QuicksilverMoving, "Quicksilver_Moving");
 		GameRegistry.registerBlock(QuicksilverStill, "Quicksilver_Still");
+		GameRegistry.registerBlock(SoulplasmMoving, "Soulplasm_Moving");
+		GameRegistry.registerBlock(SoulplasmStill, "Soulplasm_Still");
+		GameRegistry.registerBlock(AcidMoving, "Acid_Moving");
+		GameRegistry.registerBlock(AcidStill, "Acid_Still");
 
 		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);

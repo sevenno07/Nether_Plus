@@ -70,6 +70,10 @@ public class NPProperties
 	
 	public static int QuicksilverMovingID;
 	public static int QuicksilverStillID;
+	public static int SoulplasmMovingID;
+	public static int SoulplasmStillID;
+	public static int AcidMovingID;
+	public static int AcidStillID;
 	
 	//Items
 	public static int CharoiteCrystalID;
