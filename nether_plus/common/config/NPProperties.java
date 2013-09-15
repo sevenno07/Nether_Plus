@@ -134,6 +134,10 @@ public class NPProperties
 	public static int LavaBucketID;
 	public static int MilkBucketID;
 	public static int QuickSilverBucketID;
+	public static int SoulplasmBucketID;
+	public static int AcidBucket1ID;
+	public static int AcidBucket2ID;
+	
 	public static int SalamanderBoatID;
 
 }

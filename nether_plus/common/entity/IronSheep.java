@@ -288,7 +288,7 @@ public class IronSheep extends EntityAnimal implements IShearable
         int i = 1 + rand.nextInt(3);
         for (int j = 0; j < i; j++)
         {
-            ret.add(new ItemStack(NPBlockList.SteelWool.blockID, 1, getFleeceColor()));
+            ret.add(new ItemStack(NPBlockList.SteelWool.blockID, 0, getFleeceColor()));
         }
         this.worldObj.playSoundAtEntity(this, "mob.sheep.shear", 1.0F, 1.0F);
         return ret;

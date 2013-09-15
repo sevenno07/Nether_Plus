@@ -29,6 +29,11 @@ public class GoldBucket extends Item
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
+/**	private ItemStack onItemUse() // Robin4002 doit m'aidé ici.
+	{
+		
+	}*/
+	
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
         float f = 1.0F;
@@ -131,6 +136,7 @@ public class GoldBucket extends Item
 
                         return par1ItemStack;
                     }
+                    
                     if (par2World.getBlockMaterial(i, j, k) == Material.water && par2World.getBlockMetadata(i, j, k) == 0)
                     {
                         par2World.setBlockToAir(i, j, k);

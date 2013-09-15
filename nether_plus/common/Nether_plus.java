@@ -19,6 +19,7 @@ import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.event.FarmingNether;
 import nether_plus.common.event.GrimBoneMeal;
 import nether_plus.common.event.LivingEvent;
+import nether_plus.common.event.ModBucket;
 import nether_plus.common.gui.GuiHandler;
 import nether_plus.common.item.NPItemList;
 import nether_plus.common.recipe.NPRecipe;
@@ -130,6 +131,7 @@ public class Nether_plus
 			//milk 657
 			NPProperties.SteelWoolID = cfg.getBlock("SteelWool", 658).getInt();
 
+		
 			//Items
 			NPProperties.CharoiteCrystalID = cfg.getItem("CharoiteCrystal", 4000).getInt();
 			NPProperties.BlackIronIngotID = cfg.getItem("BlaackIronIngot", 4001).getInt();
@@ -169,25 +171,28 @@ public class Nether_plus
 			NPProperties.LavaBucketID = cfg.getItem("LavaBucket", 4030).getInt();
 			NPProperties.MilkBucketID = cfg.getItem("MilkBucket", 4031).getInt();
 			NPProperties.QuickSilverBucketID = cfg.getItem("QuickSilverBucket", 4032).getInt();
+			NPProperties.SoulplasmBucketID = cfg.getItem("SoulplasmBucket", 4033).getInt();
+			NPProperties.AcidBucket1ID = cfg.getItem("AcidBucket1", 4034).getInt();
+			NPProperties.AcidBucket2ID = cfg.getItem("AcidBucket2", 4035).getInt();
 
-			NPProperties.BlackIronHelmetID = cfg.getItem("BlackIronHelmet", 4033).getInt();
-			NPProperties.BlackIronChestplateID = cfg.getItem("BlackIronChestplate", 4034).getInt();
-			NPProperties.BlackIronLeggingsID = cfg.getItem("BlackIronLeggings", 4035).getInt();
-			NPProperties.BlackIronBootID = cfg.getItem("BlackIronBoot", 4036).getInt();
+			NPProperties.BlackIronHelmetID = cfg.getItem("BlackIronHelmet", 4036).getInt();
+			NPProperties.BlackIronChestplateID = cfg.getItem("BlackIronChestplate", 4037).getInt();
+			NPProperties.BlackIronLeggingsID = cfg.getItem("BlackIronLeggings", 4038).getInt();
+			NPProperties.BlackIronBootID = cfg.getItem("BlackIronBoot", 4039).getInt();
 			
-			NPProperties.BlackIronSwordID = cfg.getItem("BlackIronSword", 4037).getInt();
-			NPProperties.BlackIronPickaxeID = cfg.getItem("BlackIronPickaxe", 4038).getInt();
-			NPProperties.BlackIronAxeID = cfg.getItem("BlackIronAxe", 4039).getInt();
-			NPProperties.BlackIronShovelID = cfg.getItem("BlackIronShovel", 4040).getInt();
-			NPProperties.BlackIronHoeID = cfg.getItem("BlackIronHoe", 4041).getInt();
+			NPProperties.BlackIronSwordID = cfg.getItem("BlackIronSword", 4040).getInt();
+			NPProperties.BlackIronPickaxeID = cfg.getItem("BlackIronPickaxe", 4041).getInt();
+			NPProperties.BlackIronAxeID = cfg.getItem("BlackIronAxe", 4042).getInt();
+			NPProperties.BlackIronShovelID = cfg.getItem("BlackIronShovel", 4043).getInt();
+			NPProperties.BlackIronHoeID = cfg.getItem("BlackIronHoe", 4044).getInt();
 			
-			NPProperties.SalamanderHelmetID = cfg.getItem("SalamanderHelmet", 4042).getInt();
-			NPProperties.SalamanderChestplateID = cfg.getItem("SalamanderChestplate", 4043).getInt();
-			NPProperties.SalamanderLeggingsID = cfg.getItem("SalamanderLeggings", 4044).getInt();
-			NPProperties.SalamanderBootID = cfg.getItem("SalamanderBoot", 4045).getInt();
-			NPProperties.SalamanderLeatherID = cfg.getItem("SalamanderLeather", 4046).getInt();
+			NPProperties.SalamanderHelmetID = cfg.getItem("SalamanderHelmet", 4045).getInt();
+			NPProperties.SalamanderChestplateID = cfg.getItem("SalamanderChestplate", 4046).getInt();
+			NPProperties.SalamanderLeggingsID = cfg.getItem("SalamanderLeggings", 4047).getInt();
+			NPProperties.SalamanderBootID = cfg.getItem("SalamanderBoot", 4048).getInt();
+			NPProperties.SalamanderLeatherID = cfg.getItem("SalamanderLeather", 4049).getInt();
 			
-			NPProperties.SalamanderBoatID = cfg.getItem("SalamanderBoat", 4047).getInt();
+			NPProperties.SalamanderBoatID = cfg.getItem("SalamanderBoat", 4050).getInt();
 
 		}
 		catch(Exception ex)
@@ -223,6 +228,15 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
+		
+		//*1 /A enlevais d'apré robin4002, mais j'attent son aide.
+		ModBucket.INSTANCE.buckets.put(NPBlockList.QuicksilverStill, NPItemList.QuickSilverBucket);
+		ModBucket.INSTANCE.buckets.put(NPBlockList.SoulplasmStill, NPItemList.SoulplasmBucket);
+		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.AcidBucket1);
+		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.AcidBucket2);
+		MinecraftForge.EVENT_BUS.register(ModBucket.INSTANCE);
+		//*1
+		
 		
 		NPTEntityList.loadTileEntity();
 		NetworkRegistry.instance().registerGuiHandler(this, GuiHandler);

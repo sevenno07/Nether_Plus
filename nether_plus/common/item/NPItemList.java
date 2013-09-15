@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;
 import net.minecraftforge.common.EnumHelper;
 import nether_plus.common.Nether_plus;
+import nether_plus.common.block.NPBlockList;
 import nether_plus.common.config.NPProperties;
 
 public class NPItemList
@@ -69,6 +70,9 @@ public class NPItemList
 	public static Item LavaBucket;
 	public static Item MilkBucket;
 	public static Item QuickSilverBucket;
+	public static Item SoulplasmBucket;
+	public static Item AcidBucket1;
+	public static Item AcidBucket2;
 	
 	public static Item SalamanderBoat;
 
@@ -122,7 +126,10 @@ public class NPItemList
 		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
 	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
 	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
-	    QuickSilverBucket = new QuickSilverBucket(NPProperties.QuickSilverBucketID, 0).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
+	    QuickSilverBucket = new QuickSilverBucket(NPProperties.QuickSilverBucketID, NPBlockList.QuicksilverMoving.blockID).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
+	    SoulplasmBucket = new SoulplasmBucket(NPProperties.SoulplasmBucketID, NPBlockList.SoulplasmMoving.blockID).setUnlocalizedName("SoulplasmBucket").setContainerItem(GoldBucket);
+	    AcidBucket1 = new AcidBucket1(NPProperties.AcidBucket1ID, NPBlockList.AcidMoving.blockID).setUnlocalizedName("AcidBucket1").setContainerItem(GoldBucket);
+	    AcidBucket2 = new AcidBucket2(NPProperties.AcidBucket2ID, NPBlockList.AcidMoving.blockID).setUnlocalizedName("AcidBucket2").setContainerItem(Item.bucketEmpty);
 
 	    BlackIronHelmet = new BlackIronArmor(NPProperties.BlackIronHelmetID, BlackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
 	    BlackIronChestplate = new BlackIronArmor(NPProperties.BlackIronChestplateID, BlackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");

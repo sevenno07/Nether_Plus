@@ -112,7 +112,7 @@ item.GoldBucket.name = Gold Bucket
 item.WaterBucket.name = Water Bucket
 item.LavaBucket.name = Lava Bucket
 item.MilkBucket.name = Milk Bucket
-item.QuickSilverBucket.name = QuickSilverBucket
+item.QuickSilverBucket.name = Quick Silver Bucket
 
 item.SalamanderBoat.name = Salamander Boat
 
