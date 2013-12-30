@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<project name="Nether_Plus" default="build">
+	<property file="build.properties" prefix="buildprop"/>
+	<property name="forge.dir" value="..\forge"/>
+	<property file="mcp.dir" value="${forge.dir}\${buildprop.forge}\mcp"/>
+	<available property="mcp-exists" file="${mcp.dir}"/>
+	
+	<!-- Download and setup forge -->
+    <target name="download-and-setup-forge" unless="mcp-exists">
+        <propertyfile file="build.properties">
+            <entry key="mc" type="string" default="error"/>
+        </propertyfile>
+        <propertyfile file="build.properties">
+            <entry key="forge" type="string" default="error"/>
+        </propertyfile>
+            <property name="forge.name" value="minecraftforge-src-${buildprop.mc}-${buildprop.forge}.zip"/>
+
+        <get src="http://files.minecraftforge.net/${forge.name}" dest="..\" usetimestamp="True"/>
+        
+        <!-- setup -->
+        <mkdir dir="..\forgetemp"/>
+        <unzip dest="..\forgetemp" src="..\${forge.name}"/>
+        <mkdir dir="${forge.dir}\${buildprop.forge}\"/>
+        <move todir="${forge.dir}\${buildprop.forge}\">
+            <fileset dir="..\forgetemp\forge">
+            </fileset>
+        </move>
+
+        <delete dir="..\forgetemp"/>
+        <delete file="..\${forge.name}"/>
+
+        <!-- Fix executable permissions -->
+        <chmod dir="${forge.dir}/${buildprop.forge}" perm="ugo+rx" includes="**.sh"/>
+
+        <!-- Install forge -->
+        <exec dir="${forge.dir}/${buildprop.forge}" executable="cmd" osfamily="windows">
+            <arg line="/c install.cmd"/>
+        </exec>
+
+        <exec dir="${forge.dir}/${buildprop.forge}" executable="sh" osfamily="unix">
+            <arg value="install.sh"/>
+        </exec>
+    </target>
+    
+    <!-- Build Number -->
+    <target name="increment_build_number">
+        <propertyfile file="build.properties">
+        <entry key="build_number" type="int" operation="+" default="error"/>
+        </propertyfile>
+    </target>
+    
+    <!-- Copy Nether_Plus source into mcp -->
+    <target name="copy_np_sources">
+        <copy todir="${mcp.dir}\src\minecraft\">
+            <fileset dir="common\"/>
+            <fileset dir="resources\"/>
+        </copy>
+    </target>
+    
+    <!-- Recompile -->
+    <target name="recompile">
+        <exec dir="${mcp.dir}" executable="cmd" osfamily="windows">
+            <arg line="/c recompile.bat" />
+        </exec>
+        <exec dir="${mcp.dir}" executable="bash" osfamily="unix">
+            <arg line="recompile.sh" />
+        </exec>
+    </target>
+
+    <!-- Reobfuscate -->
+    <target name="reobfuscate">
+        <exec dir="${mcp.dir}" executable="cmd" osfamily="windows">
+            <arg line="/c reobfuscate_srg.bat" />
+        </exec>
+        <exec dir="${mcp.dir}" executable="bash" osfamily="unix">
+            <arg line="reobfuscate_srg.sh" />
+        </exec>
+    </target>
+    
+    <!-- Build the jar -->
+    <target name="create_np_jar">
+        <mkdir dir="releases\" />
+        <jar destfile="releases\Nether_Plus-universal-${buildprop.eg_version}.${buildprop.build_number}-mc${buildprop.mc}.jar">
+            <fileset dir="resources\">
+                <include name ="assets\nether_plus\**" />
+                <exclude name ="assets\nether_plus\**.db" />
+            </fileset>
+            <fileset dir="${mcp.dir}\reobf\minecraft" includes= "nether_plus\"/>
+        </jar>
+    </target>
+
+    <!-- Clean up the MCP source now that we are done -->
+    <target name="clean">
+        <delete file="${mcp.dir}\src\minecraft\mcmod.info" />
+        <delete dir="${mcp.dir}\src\minecraft\nether_plus" />
+        <delete dir="${mcp.dir}\reobf\minecraft" />
+    </target>
+
+    <target name="build">
+        <delete dir="releases\" />
+        <antcall target="clean" />
+        <antcall target="download-and-setup-forge" />
+        <antcall target="increment_build_number" />
+        <antcall target="copy_np_sources" />
+        <antcall target="recompile" />
+        <antcall target="reobfuscate" />
+        <antcall target="create_np_jar" />
+        <antcall target="clean" />
+    </target>
+</project>
