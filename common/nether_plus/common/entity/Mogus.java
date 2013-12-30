@@ -2,30 +2,30 @@ package nether_plus.common.entity;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
 
 public class Mogus extends EntityCreature
 { 
-
     public Mogus(World world)
     {
         super(world);
-		this.texture = "/mods/nether_plus/textures/Entity/Mogus.png";
-        moveSpeed = 1.0F;
 		this.setSize(0.50F, 0.50F);
         stepHeight = 0.0F;
         isImmuneToFire = true;
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(10D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(2.0D);
     }
     
-	public int getMaxHealth() 
+    protected void applyEntityAttributes()
 	{
-		return 5;
+		super.applyEntityAttributes();
 	}
     	 
     public int getMaxSpawnedInChunk()
 	{
-	return 5;
+    	return 5;
 	}
 
     protected String getLivingSound()

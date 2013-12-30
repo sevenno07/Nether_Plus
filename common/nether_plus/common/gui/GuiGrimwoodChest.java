@@ -2,6 +2,7 @@ package nether_plus.common.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import nether_plus.common.block.container.ContainerGrimwoodChest;
 
@@ -9,6 +10,8 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiGrimwoodChest extends GuiContainer
 {
+    private static final ResourceLocation field_110421_t = new ResourceLocation("textures/gui/container/generic_54.png");
+	
 	private IInventory upperChestInventory;
     private IInventory lowerChestInventory;
 
@@ -35,7 +38,7 @@ public class GuiGrimwoodChest extends GuiContainer
     protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
     {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.renderEngine.bindTexture("/gui/container.png");
+        this.mc.getTextureManager().bindTexture(field_110421_t);
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.inventoryRows * 18 + 17);

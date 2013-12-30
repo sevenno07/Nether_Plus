@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 import nether_plus.client.model.ModelLavaTortoise;
 import nether_plus.common.entity.LavaTortoise;
 import cpw.mods.fml.relauncher.Side;
@@ -12,6 +13,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderLavaTortoise extends RenderLiving
 {
+	protected static final ResourceLocation texture = new ResourceLocation("nether_plus", "textures/entity/LavaTortoise.png");
+	
 	private ModelBase ModelLavaTortoise = new ModelLavaTortoise();
 	
 	public RenderLavaTortoise(ModelLavaTortoise par1ModelLavaTortoise, float par2)
@@ -34,4 +37,14 @@ public class RenderLavaTortoise extends RenderLiving
  		renderLavaTortoise((LavaTortoise)par1Entity, par2, par4, par6, par8, par9);
     }
 
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity)
+	{
+		return getTextures((LavaTortoise)entity);
+	}
+
+	protected ResourceLocation getTextures(LavaTortoise lavaTortoise)
+	{
+		return texture;
+	}
 }

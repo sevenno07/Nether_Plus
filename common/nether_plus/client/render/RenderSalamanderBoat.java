@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import nether_plus.client.model.ModelSalamanderBoat;
 import nether_plus.common.entity.SalamanderBoat;
 
@@ -15,6 +16,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderSalamanderBoat extends Render
 {
+    private static final ResourceLocation boatTexture = new ResourceLocation("nether_plus", "textures/entity/salamanderboat.png");
+	
     /** instance of ModelBoat for rendering */
     protected ModelBase ModelSalamanderBoat;
 
@@ -44,12 +47,11 @@ public class RenderSalamanderBoat extends Render
         {
             GL11.glRotatef(MathHelper.sin(f2) * f2 * f3 / 10.0F * (float)par1EntityBoat.getForwardDirection(), 1.0F, 0.0F, 0.0F);
         }
-
-        this.loadTexture("/terrain.png");
+        
         float f4 = 0.75F;
         GL11.glScalef(f4, f4, f4);
         GL11.glScalef(1.0F / f4, 1.0F / f4, 1.0F / f4);
-        this.loadTexture("/mods/nether_plus/textures/entity/salamanderboat.png");
+        this.bindEntityTexture(par1EntityBoat);
         GL11.glScalef(-1.0F, -1.0F, 1.0F);
         this.ModelSalamanderBoat.render(par1EntityBoat, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
         GL11.glPopMatrix();
@@ -65,4 +67,15 @@ public class RenderSalamanderBoat extends Render
     {
         this.renderSalamanderBoat((SalamanderBoat)par1Entity, par2, par4, par6, par8, par9);
     }
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity)
+	{
+		return getTexture((SalamanderBoat)entity);
+	}
+
+	private ResourceLocation getTexture(SalamanderBoat salamanderBoat)
+	{
+		return boatTexture;
+	}
 }

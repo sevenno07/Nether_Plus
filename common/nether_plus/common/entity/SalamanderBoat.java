@@ -532,7 +532,7 @@ public class SalamanderBoat extends EntityBoat
     /**
      * Gets the damage taken from the last hit.
      */
-    public int getDamageTaken()
+    public float getDamageTaken()
     {
         return this.dataWatcher.getWatchableObjectInt(19);
     }

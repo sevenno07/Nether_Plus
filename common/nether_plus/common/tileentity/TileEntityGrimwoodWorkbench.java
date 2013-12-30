@@ -9,7 +9,6 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityGrimwoodWorkbench extends TileEntity implements IInventory
 {
-
 	public ItemStack[] inventory = new ItemStack[9];
 	private String field_94130_e;
 	
@@ -155,10 +154,14 @@ public class TileEntityGrimwoodWorkbench extends TileEntity implements IInventor
 	@Override
 	public void closeChest(){}
 
-	@Override
 	public boolean isStackValidForSlot(int i, ItemStack itemstack)
 	{
 		return false;
 	}
 
+	@Override
+	public boolean isItemValidForSlot(int i, ItemStack itemstack)
+	{
+		return false;
+	}
 }

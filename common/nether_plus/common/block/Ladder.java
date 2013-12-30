@@ -159,7 +159,6 @@ public class Ladder extends Block
         return 1;
     }
 
-    @Override
     public boolean isLadder(World world, int x, int y, int z, EntityLiving entity)
     {
         return true;

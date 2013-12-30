@@ -67,19 +67,19 @@ public class ContainerWorkbench extends Container
     	this.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
     }
 	
-	public void onCraftGuiClosed(EntityPlayer par1EntityPlayer)
+	public void onContainerClosed(EntityPlayer par1EntityPlayer)
     {
-        super.onCraftGuiClosed(par1EntityPlayer);
+        super.onContainerClosed(par1EntityPlayer);
 
         if (!this.worldObj.isRemote)
         {
-            for (int var2 = 0; var2 < 9; ++var2)
+            for (int i = 0; i < 9; ++i)
             {
-                ItemStack var3 = this.craftMatrix.getStackInSlotOnClosing(var2);
+                ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(i);
 
-                if (var3 != null)
+                if (itemstack != null)
                 {
-                    par1EntityPlayer.dropPlayerItem(var3);
+                    par1EntityPlayer.dropPlayerItem(itemstack);
                 }
             }
         }

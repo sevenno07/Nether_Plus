@@ -1,6 +1,7 @@
 package nether_plus.common.entity;
 
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -9,7 +10,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
 
-public class FireSlime extends EntityMob implements IMob
+public class FireSlime extends EntityLiving implements IMob
 {
     public float field_70813_a;
     public float field_70811_b;
@@ -20,7 +21,6 @@ public class FireSlime extends EntityMob implements IMob
     public FireSlime(World par1World)
     {
         super(par1World);
-        this.texture = "/mods/nether_plus/textures/Entity/fireslime.png";
         int i = 1 << this.rand.nextInt(3);
         this.yOffset = 0.0F;
         this.slimeJumpDelay = this.rand.nextInt(20) + 10;
@@ -39,14 +39,9 @@ public class FireSlime extends EntityMob implements IMob
         this.dataWatcher.updateObject(16, new Byte((byte)par1));
         this.setSize(0.6F * (float)par1, 0.6F * (float)par1);
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.setEntityHealth(this.getMaxHealth());
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute((double)(par1 * par1));
+        this.setHealth(this.getMaxHealth());
         this.experienceValue = par1;
-    }
-
-    public int getMaxHealth()
-    {
-        int i = this.getFireSlimeSize();
-        return i * i;
     }
 
     public int getFireSlimeSize()

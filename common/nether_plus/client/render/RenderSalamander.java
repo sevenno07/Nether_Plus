@@ -1,22 +1,20 @@
 package nether_plus.client.render;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.boss.EntityDragon;
+import net.minecraft.util.ResourceLocation;
 import nether_plus.client.model.ModelSalamander;
 import nether_plus.common.entity.Salamander;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderSalamander extends RenderLiving
 {
+	protected static final ResourceLocation texture = new ResourceLocation("nether_plus", "textures/entity/salamander_orange.png");
+	
 	private ModelBase ModelSalamander = new ModelSalamander();
 	
 	public RenderSalamander(ModelSalamander par1ModelSalamander, float par2)
@@ -38,4 +36,15 @@ public class RenderSalamander extends RenderLiving
     {
         renderSalamander((Salamander)par1Entity, par2, par4, par6, par8, par9);
     }
+ 	
+ 	@Override
+	protected ResourceLocation getEntityTexture(Entity entity)
+	{
+		return this.getTexture((Salamander)entity);
+	}
+
+	protected ResourceLocation getTexture(Salamander salamander)
+	{
+		return texture;
+	}
 }

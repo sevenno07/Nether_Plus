@@ -48,7 +48,7 @@ public class ItemSalamanderBoat extends ItemBoat
         float f8 = f3 * f5;
         double d3 = 5.0D;
         Vec3 vec31 = vec3.addVector((double)f7 * d3, (double)f6 * d3, (double)f8 * d3);
-        MovingObjectPosition movingobjectposition = par2World.rayTraceBlocks_do(vec3, vec31, true);
+        MovingObjectPosition movingobjectposition = par2World.clip(vec3, vec31, true);
 
         if (movingobjectposition == null)
         {

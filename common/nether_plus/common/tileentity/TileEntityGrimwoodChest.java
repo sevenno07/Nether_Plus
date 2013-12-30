@@ -403,7 +403,6 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 	        }
 	}
 
-	@Override
 	public boolean isStackValidForSlot(int i, ItemStack itemstack) 
 	{
 		return true;
@@ -416,4 +415,9 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
         this.checkForAdjacentChests();
     }
 
+	@Override
+	public boolean isItemValidForSlot(int i, ItemStack itemstack)
+	{
+		return false;
+	}
 }

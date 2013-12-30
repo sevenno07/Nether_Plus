@@ -2,8 +2,8 @@ package nether_plus.common.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -15,22 +15,21 @@ public class Salamander extends EntityAnimal
 	public Salamander(World par1World)
 	{
 		super(par1World);
-		this.texture = "/mods/nether_plus/textures/entity/salamander_orange.png";
-		this.moveSpeed = 0.8F;
 		this.setSize(1.25F, 0.75F);
 		this.stepHeight = 0.0F;
 		this.isImmuneToFire = true;
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(40D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(1.6D);
 	}
-
-	@Override
-	public int getMaxHealth()
+	
+	protected void applyEntityAttributes()
 	{
-		return 20;
+		super.applyEntityAttributes();
 	}
 	
     public int getMaxSpawnedInChunk()
 	{
-	return 7;
+    	return 7;
 	}
 
 	public void onLivingUpdate()

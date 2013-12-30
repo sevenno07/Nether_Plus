@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 import nether_plus.common.entity.FireSlime;
 
 import org.lwjgl.opengl.GL11;
@@ -14,6 +15,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderFireSlime extends RenderLiving
 {
+	protected static final ResourceLocation texture = new ResourceLocation("nether_plus", "textures/entity/fireslime.png");
+	
     private ModelBase scaleAmount;
 
     public RenderFireSlime(ModelBase par1ModelBase, ModelBase par2ModelBase, float par3)
@@ -66,4 +69,14 @@ public class RenderFireSlime extends RenderLiving
         return this.shouldFireSlimeRenderPass((FireSlime)entityLiving, par2, par3);
     }
 
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity)
+	{
+		return this.getTextures((FireSlime)entity);
+	}
+
+	protected ResourceLocation getTextures(FireSlime fireSlime)
+	{
+		return texture;
+	}
 }

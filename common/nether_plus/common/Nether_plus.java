@@ -29,10 +29,8 @@ import nether_plus.proxy.network.ClientPacketHandler;
 import nether_plus.proxy.network.ServerPacketHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -52,14 +50,14 @@ public class Nether_plus
 	public static NPCommonProxy proxy;
 
 	@Instance("nether_plus")
-	public static nether_plus.common.Nether_plus instance;
+	public static Nether_plus instance;
 	
 	public static File ConfigFile;
 	public static Logger NPlog = Logger.getLogger("Nether_Plus");
 	
 	protected static final GuiHandler GuiHandler = new GuiHandler();
 	
-	@PreInit
+	@EventHandler
 	public void preload(FMLPreInitializationEvent event)
 	{
 		NPlog.setParent(FMLLog.getLogger());
@@ -216,7 +214,7 @@ public class Nether_plus
 		proxy.initSound();//Sound
 	}
 
-	@Init
+	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
 		NPEntityList.loadEntity();//Entity	
@@ -229,7 +227,7 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
 		
-		//*1 /A enlevais d'apré robin4002, mais j'attent son aide.
+		//*1 /A enlevais d'aprï¿½ robin4002, mais j'attent son aide.
 		ModBucket.INSTANCE.buckets.put(NPBlockList.QuicksilverStill, NPItemList.QuickSilverBucket);
 		ModBucket.INSTANCE.buckets.put(NPBlockList.SoulplasmStill, NPItemList.SoulplasmBucket);
 		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.AcidBucket1);
@@ -242,7 +240,7 @@ public class Nether_plus
 		NetworkRegistry.instance().registerGuiHandler(this, GuiHandler);
 	}
 
-	@PostInit
+	@EventHandler
 	public void modloaded(FMLPostInitializationEvent event)
 	{
 		LanguageRegistry.instance().loadLocalization("/mods/nether_plus/lang/en_US.lang", "en_US", false);

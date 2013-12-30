@@ -109,4 +109,10 @@ public class InventoryGrimwoodLargeChest implements IInventory
     {
         return true;
     }
+
+	@Override
+	public boolean isItemValidForSlot(int i, ItemStack itemstack)
+	{
+		return false;
+	}
 }

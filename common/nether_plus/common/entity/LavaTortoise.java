@@ -1,9 +1,11 @@
 package nether_plus.common.entity;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -11,14 +13,18 @@ import nether_plus.common.item.NPItemList;
 
 public class LavaTortoise extends EntityCreature
 {
-
 	public LavaTortoise(World World)
 	{
 		super(World);
-		this.texture = "/mods/nether_plus/textures/Entity/LavaTortoise.png";
 		this.setSize(2.20F, 1.75F);//Hitbox
-        this.moveSpeed = 0.6F;
 		this.isImmuneToFire = true;
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(20D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(1.2D);
+	}
+	
+	protected void applyEntityAttributes()
+	{
+		super.applyEntityAttributes();
 	}
 	
 	public void onLivingUpdate()
@@ -41,12 +47,6 @@ public class LavaTortoise extends EntityCreature
         }
     }
 	
-	@Override
-	public int getMaxHealth()
-	{
-		return 10;
-	}
-	
 	private void setAngry(boolean b)
 	{
 		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
@@ -64,16 +64,6 @@ public class LavaTortoise extends EntityCreature
 	public boolean isAngry()
     {
         return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
-    }
-	
-	public void setAttackTarget(EntityLiving par1EntityLiving)
-    {
-        super.setAttackTarget(par1EntityLiving);
-
-        if (par1EntityLiving instanceof EntityPlayer)
-        {
-            this.setAngry(true);
-        }
     }
 	
 	public int getAttackStrength(Entity entity)
@@ -99,7 +89,11 @@ public class LavaTortoise extends EntityCreature
     public boolean attackEntityFrom(DamageSource damagesource, int i)
     {
         Entity entity = damagesource.getEntity();
-        this.setTarget(entity);
+
+        if (entity instanceof EntityPlayer)
+        {
+            List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(32.0D, 32.0D, 32.0D));
+        }
         return super.attackEntityFrom(damagesource, i);
     }
 

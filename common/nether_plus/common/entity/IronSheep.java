@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIEatGrass;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -42,7 +43,6 @@ public class IronSheep extends EntityAnimal implements IShearable
     public IronSheep(World par1World)
     {
         super(par1World);
-        this.texture = "/mods/nether_plus/textures/entity/ironsheep.png";
         this.setSize(0.9F, 1.3F);
         float f = 0.23F;
         this.getNavigator().setAvoidsWater(true);
@@ -57,8 +57,14 @@ public class IronSheep extends EntityAnimal implements IShearable
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.field_90016_e.setInventorySlotContents(0, new ItemStack(Item.dyePowder, 1, 0));
         this.field_90016_e.setInventorySlotContents(1, new ItemStack(Item.dyePowder, 1, 0));
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(16D);
     }
-
+    
+    protected void applyEntityAttributes()
+	{
+    	super.applyEntityAttributes();
+	}
+    
     protected boolean isAIEnabled()
     {
         return true;
@@ -78,11 +84,6 @@ public class IronSheep extends EntityAnimal implements IShearable
         }
 
         super.onLivingUpdate();
-    }
-
-    public int getMaxHealth()
-    {
-        return 8;
     }
 
     protected void entityInit()

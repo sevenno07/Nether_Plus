@@ -5,6 +5,7 @@ import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.model.ModelLargeChest;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import nether_plus.common.block.GrimwoodChest;
 
 import org.lwjgl.opengl.GL11;
@@ -14,6 +15,9 @@ import cpw.mods.fml.common.FMLLog;
 
 public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer
 {
+    private static final ResourceLocation SINGLE = new ResourceLocation("nether_plus", "textures/items/GrimwoodChest.png");
+    private static final ResourceLocation DOUBLE = new ResourceLocation("nether_plus", "textures/items/GrimwoodLargeChest.png");
+	
     private ModelChest chestModel = new ModelChest();
 
     private ModelChest largeChestModel = new ModelLargeChest();
@@ -22,7 +26,7 @@ public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer
     {
     int i;
 
-    if (!par1TileEntityGrimwoodChest.func_70309_m())
+    if (!par1TileEntityGrimwoodChest.hasWorldObj())
     {
         i = 0;
     }
@@ -55,12 +59,12 @@ public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer
         if (par1TileEntityGrimwoodChest.adjacentChestXPos == null && par1TileEntityGrimwoodChest.adjacentChestZPosition == null)
         {
             modelchest = this.chestModel;
-            this.bindTextureByName("/mods/nether_plus/textures/items/GrimwoodChest.png");
+            this.bindTexture(SINGLE);
         }
         else
         {
             modelchest = this.largeChestModel;
-            this.bindTextureByName("/mods/nether_plus/textures/items/GrimwoodLargeChest.png");
+            this.bindTexture(DOUBLE);
         }
 
         GL11.glPushMatrix();

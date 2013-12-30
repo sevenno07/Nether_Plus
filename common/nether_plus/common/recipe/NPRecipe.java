@@ -11,7 +11,7 @@ public class NPRecipe
 {
 	public static void loadRecipe()
 	{
-		GameRegistry.addRecipe(new ItemStack(NPBlockList.GlowstoneSand, 1), new Object[]{"XX", "XX", 'X', Item.lightStoneDust});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.GlowstoneSand, 1), new Object[]{"XX", "XX", 'X', Item.glowstone});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.SkeletonWhiteHelmet, 1), new Object[]{"XXX", "X X", 'X', Item.bone});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.SkeletonWhiteChestplate, 1), new Object[]{"X X", "XXX", "XXX", 'X', Item.bone});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.SkeletonWhiteLeggings, 1), new Object[]{"XXX", "X X", "X X", 'X', Item.bone});

@@ -1,24 +1,28 @@
 package nether_plus.common.entity;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
-
 
 public class Pordenfer extends EntityMob
 { 
     public Pordenfer(World world)
     {
         super(world);
-        this.texture = "/mods/nether_plus/textures/Entity/pordenfer.png";
         this.stepHeight = 0.0F;
 		this.setSize(1.25F, 0.75F);
         this.isImmuneToFire = true;
+        
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(20D);
     }
+    
+    protected void applyEntityAttributes()
+	{
+		super.applyEntityAttributes();
+	}
     
     public void onLivingUpdate()
 	{
@@ -40,12 +44,6 @@ public class Pordenfer extends EntityMob
         }
     }
 	
-	@Override
-	public int getMaxHealth()
-	{
-		return 10;
-	}
-	
 	private void setAngry(boolean b)
 	{
 		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
@@ -63,16 +61,6 @@ public class Pordenfer extends EntityMob
 	public boolean isAngry()
     {
         return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
-    }
-	
-	public void setAttackTarget(EntityLiving par1EntityLiving)
-    {
-        super.setAttackTarget(par1EntityLiving);
-
-        if (par1EntityLiving instanceof EntityPlayer)
-        {
-            this.setAngry(true);
-        }
     }
 	
 	public int getAttackStrength(Entity entity)
