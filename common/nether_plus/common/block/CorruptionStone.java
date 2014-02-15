@@ -2,31 +2,20 @@ package nether_plus.common.block;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.block.BlockStone;
+import net.minecraft.item.Item;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
-import nether_plus.common.item.NPItemList;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class CorruptionStone extends Block
+public class CorruptionStone extends BlockStone
 {
-	public CorruptionStone(int id, Material par2Material) 
+	public CorruptionStone() 
 	{
-		super(id, par2Material);
+		super();
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
-    public int idDropped(int par1, Random par2Random, int par3)
+	public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-      return NPBlockList.CorruptedCobblestone.blockID;
+		return Item.getItemFromBlock(NPBlockList.CorruptedCobblestone);
     }
-	
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
-	{
-        this.blockIcon = iconregister.registerIcon("nether_plus:CorruptionStone");
- 	}
 }
