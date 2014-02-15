@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -14,9 +14,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SoulGlass extends BlockBreakable
 {
-    protected SoulGlass(int id, Material par2Material, boolean par3)
+    protected SoulGlass(Material par2Material, boolean par3)
     {
-		super(id, "glass", par2Material, par3);
+		super("glass", par2Material, par3);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 
@@ -44,7 +44,7 @@ public class SoulGlass extends BlockBreakable
     }
 
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
 	{
         this.blockIcon = iconregister.registerIcon("nether_plus:SoulGlass");
  	}

@@ -2,7 +2,7 @@ package nether_plus.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
@@ -12,13 +12,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Netherraze extends Block
 {
-	public Netherraze(int id, Material par2Material) 
+	public Netherraze() 
 	{
-		super(id, par2Material);
+		super(Material.rock);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
-	
-	
 	
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
@@ -31,10 +29,8 @@ public class Netherraze extends Block
 		entity.setFire(15);
 	}
 	
-	
-	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
 	{
         this.blockIcon = iconregister.registerIcon("nether_plus:Netherraze");
  	}

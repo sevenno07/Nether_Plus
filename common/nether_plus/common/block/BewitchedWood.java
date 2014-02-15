@@ -4,20 +4,20 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.BlockLog;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
 public class BewitchedWood extends BlockLog
 	{
-	private Icon topIcon;
+	private IIcon topIcon;
 	
-	public BewitchedWood(int id)
+	public BewitchedWood()
 	{
-		super(id);
+		super();
 		this.setCreativeTab (NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 
@@ -26,7 +26,7 @@ public class BewitchedWood extends BlockLog
 		return this.blockID;
 	}
 
-	public void registerIcons(IconRegister iconregister)
+	public void registerIcons(IIconRegister iconregister)
 	{
 		blockIcon = iconregister.registerIcon("nether_plus:BewitchedWood-side");
 		topIcon = iconregister.registerIcon("nether_plus:BewitchedWood-top");
