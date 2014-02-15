@@ -8,26 +8,26 @@ import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.BlockStem;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.common.FakePlayerFactory;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event.Result;
+import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlackBoneMeal extends Item
 {
-
-	public BlackBoneMeal(int id)
+	public BlackBoneMeal()
 	{
-		super(id);
+		super();
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
@@ -53,10 +53,10 @@ public class BlackBoneMeal extends Item
             }
             else if (par1ItemStack.getItemDamage() == 3)
             {
-                int i1 = par3World.getBlockId(par4, par5, par6);
+                Block i1 = par3World.getBlock(par4, par5, par6);
                 int j1 = par3World.getBlockMetadata(par4, par5, par6);
 
-                if (i1 == Block.wood.blockID && BlockLog.limitToValidMetadata(j1) == 3)
+                if (i1 == Blocks.log && BlockLog.limitToValidMetadata(j1) == 3)
                 {
                     if (par7 == 0)
                     {
@@ -103,9 +103,9 @@ public class BlackBoneMeal extends Item
 
     public static boolean applyBonemeal(ItemStack par0ItemStack, World par1World, int par2, int par3, int par4, EntityPlayer player)
     {
-        int l = par1World.getBlockId(par2, par3, par4);
+        Block block = par1World.getBlock(par2, par3, par4);
 
-        BonemealEvent event = new BonemealEvent(player, par1World, l, par2, par3, par4);
+        BonemealEvent event = new BonemealEvent(player, par1World, block, par2, par3, par4);
         if (MinecraftForge.EVENT_BUS.post(event))
         {
             return false;
@@ -120,13 +120,13 @@ public class BlackBoneMeal extends Item
             return true;
         }
 
-        if (l == Block.sapling.blockID)
+        if (block == Blocks.sapling)
         {
             if (!par1World.isRemote)
             {
                 if ((double)par1World.rand.nextFloat() < 0.45D)
                 {
-                    ((BlockSapling)Block.sapling).markOrGrowMarked(par1World, par2, par3, par4, par1World.rand);
+                    ((BlockSapling)Blocks.sapling).markOrGrowMarked(par1World, par2, par3, par4, par1World.rand);
                 }
 
                 --par0ItemStack.stackSize;
@@ -134,11 +134,11 @@ public class BlackBoneMeal extends Item
 
             return true;
         }
-        else if (l != Block.mushroomBrown.blockID && l != Block.mushroomRed.blockID)
+        else if (block != Blocks.brown_mushroom && block != Blocks.red_mushroom)
         {
-            if (l != Block.melonStem.blockID && l != Block.pumpkinStem.blockID)
+            if (block != Blocks.melon_stem && block != Blocks.pumpkin_stem)
             {
-                if (l > 0 && Block.blocksList[l] instanceof BlockCrops)
+                if (block > 0 && Block.blocksList[block] instanceof BlockCrops)
                 {
                     if (par1World.getBlockMetadata(par2, par3, par4) == 7)
                     {
@@ -148,7 +148,7 @@ public class BlackBoneMeal extends Item
                     {
                         if (!par1World.isRemote)
                         {
-                            ((BlockCrops)Block.blocksList[l]).fertilize(par1World, par2, par3, par4);
+                            ((BlockCrops)Block.blocksList[block]).fertilize(par1World, par2, par3, par4);
                             --par0ItemStack.stackSize;
                         }
 
@@ -161,7 +161,7 @@ public class BlackBoneMeal extends Item
                     int j1;
                     int k1;
 
-                    if (l == Block.cocoaPlant.blockID)
+                    if (block == Blocks.cocoa)
                     {
                         i1 = par1World.getBlockMetadata(par2, par3, par4);
                         j1 = BlockDirectional.getDirection(i1);
@@ -183,7 +183,7 @@ public class BlackBoneMeal extends Item
                             return true;
                         }
                     }
-                    else if (l != Block.grass.blockID)
+                    else if (block != Blocks.grass)
                     {
                         return false;
                     }
@@ -206,19 +206,19 @@ public class BlackBoneMeal extends Item
                                     k1 += (itemRand.nextInt(3) - 1) * itemRand.nextInt(3) / 2;
                                     l1 += itemRand.nextInt(3) - 1;
 
-                                    if (par1World.getBlockId(j1, k1 - 1, l1) != Block.grass.blockID || par1World.isBlockNormalCube(j1, k1, l1))
+                                    if (par1World.getBlock(j1, k1 - 1, l1) != Blocks.grass || par1World.isBlockNormalCube(j1, k1, l1))
                                     {
                                         continue label102;
                                     }
                                 }
 
-                                if (par1World.getBlockId(j1, k1, l1) == 0)
+                                if (par1World.getBlock(j1, k1, l1) == 0)
                                 {
                                     if (itemRand.nextInt(10) != 0)
                                     {
-                                        if (Block.tallGrass.canBlockStay(par1World, j1, k1, l1))
+                                        if (Blocks.tallgrass.canBlockStay(par1World, j1, k1, l1))
                                         {
-                                            par1World.setBlock(j1, k1, l1, Block.tallGrass.blockID, 1, 3);
+                                            par1World.setBlock(j1, k1, l1, Blocks.tallgrass, 1, 3);
                                         }
                                     }
                                     else
@@ -241,7 +241,7 @@ public class BlackBoneMeal extends Item
             {
                 if (!par1World.isRemote)
                 {
-                    ((BlockStem)Block.blocksList[l]).fertilizeStem(par1World, par2, par3, par4);
+                    ((BlockStem)Block.blocksList[block]).fertilizeStem(par1World, par2, par3, par4);
                     --par0ItemStack.stackSize;
                 }
 
@@ -254,7 +254,7 @@ public class BlackBoneMeal extends Item
             {
                 if ((double)par1World.rand.nextFloat() < 0.4D)
                 {
-                    ((BlockMushroom)Block.blocksList[l]).fertilizeMushroom(par1World, par2, par3, par4, par1World.rand);
+                    ((BlockMushroom)Block.blocksList[block]).fertilizeMushroom(par1World, par2, par3, par4, par1World.rand);
                 }
 
                 --par0ItemStack.stackSize;
@@ -265,7 +265,7 @@ public class BlackBoneMeal extends Item
     }
 	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
 	{
         this.itemIcon = iconregister.registerIcon("nether_plus:BlackBoneMeal");
  	}

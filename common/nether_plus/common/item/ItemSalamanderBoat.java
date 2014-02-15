@@ -2,15 +2,14 @@ package nether_plus.common.item;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBoat;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
@@ -21,9 +20,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSalamanderBoat extends ItemBoat
 {
-    public ItemSalamanderBoat(int par1)
+    public ItemSalamanderBoat()
     {
-        super(par1);
+        super();
         this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabTransport);
     }
@@ -48,7 +47,7 @@ public class ItemSalamanderBoat extends ItemBoat
         float f8 = f3 * f5;
         double d3 = 5.0D;
         Vec3 vec31 = vec3.addVector((double)f7 * d3, (double)f6 * d3, (double)f8 * d3);
-        MovingObjectPosition movingobjectposition = par2World.clip(vec3, vec31, true);
+        MovingObjectPosition movingobjectposition = par2World.rayTraceBlocks(vec3, vec31, true);
 
         if (movingobjectposition == null)
         {
@@ -84,13 +83,13 @@ public class ItemSalamanderBoat extends ItemBoat
             }
             else
             {
-                if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
+                if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
                 {
                     i = movingobjectposition.blockX;
                     int j = movingobjectposition.blockY;
                     int k = movingobjectposition.blockZ;
 
-                    if (par2World.getBlockId(i, j, k) == Block.snow.blockID)
+                    if (par2World.getBlock(i, j, k) == Blocks.snow_layer)
                     {
                         --j;
                     }
@@ -120,7 +119,7 @@ public class ItemSalamanderBoat extends ItemBoat
     }
     
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
 	{
         this.itemIcon = iconregister.registerIcon("nether_plus:SalamanderBoat");
  	}

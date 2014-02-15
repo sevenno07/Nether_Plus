@@ -2,6 +2,7 @@ package nether_plus.common.item;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -86,15 +87,15 @@ public class NPItemList
 	{
 		try
 		{
-		CharoiteCrystal = new CharoiteCrystal(NPProperties.CharoiteCrystalID).setUnlocalizedName("CharoiteCrystal");
-		BlackIronIngot = new BlackIronIngot(NPProperties.BlackIronIngotID).setUnlocalizedName("BlackIronIngot");
-		BlackBone = new BlackBone(NPProperties.BlackBoneID).setUnlocalizedName("BlackBone");
-		BlackBoneMeal = new BlackBoneMeal(NPProperties.BlackBoneMealID).setUnlocalizedName("BlackBoneMeal");
-		Fireslimeball = new Fireslimeball(NPProperties.FireslimeballID).setUnlocalizedName("Fireslimeball");
-		GrimwoodStick = new GrimwoodStick(NPProperties.GrimwoodStickID).setUnlocalizedName("GrimwoodStick");
-		BloodGem = new BloodGem(NPProperties.BloodGemID).setUnlocalizedName("BloodGem");
-		InfernumIngot = new InfernumIngot(NPProperties.InfernumIngotID).setUnlocalizedName("InfernumIngot");
-		ItemGrimwoodDoor = new ItemGrimwoodDoor(NPProperties.ItemGrimwoodDoorID, Material.wood).setUnlocalizedName("ItemGrimwoodDoor");
+		CharoiteCrystal = new CharoiteCrystal().setUnlocalizedName("CharoiteCrystal");
+		BlackIronIngot = new BlackIronIngot().setUnlocalizedName("BlackIronIngot");
+		BlackBone = new BlackBone().setUnlocalizedName("BlackBone");
+		BlackBoneMeal = new BlackBoneMeal().setUnlocalizedName("BlackBoneMeal");
+		Fireslimeball = new Fireslimeball().setUnlocalizedName("Fireslimeball");
+		GrimwoodStick = new GrimwoodStick().setUnlocalizedName("GrimwoodStick");
+		BloodGem = new BloodGem().setUnlocalizedName("BloodGem");
+		InfernumIngot = new InfernumIngot().setUnlocalizedName("InfernumIngot");
+		ItemGrimwoodDoor = new ItemGrimwoodDoor(Material.wood).setUnlocalizedName("ItemGrimwoodDoor");
 		
 		SalamanderLeather = new SalamanderLeather().setUnlocalizedName("SalamanderLeather");
 		
@@ -116,19 +117,19 @@ public class NPItemList
 		
 		WhiteWheatSeeds = new WhiteWheatSeeds(NPProperties.WhiteWheatSeedsID, NPProperties.CropsID, NPProperties.Nether_FarmID).setUnlocalizedName("WhiteWheatSeeds");
 		WhiteWheat = new WhiteWheat(NPProperties.WhiteWheatID).setUnlocalizedName("WhiteWheat");
-		ChiliSeed = new ChiliSeed(NPProperties.ChiliSeedID, NPProperties.ChiliCID, NPProperties.Nether_FarmID).setUnlocalizedName("ChiliSeed");
-		Chili = new Chili(NPProperties.ChiliID, 10, 0.6F, false).setUnlocalizedName("Chili");
-		Rice = new Rice(NPProperties.RiceID, 0, 0, NPProperties.RiceCID, NPProperties.Nether_FarmID).setUnlocalizedName("Rice");
+		ChiliSeed = new ChiliSeed(NPBlockList.ChiliC, NPBlockList.Nether_Farm).setUnlocalizedName("ChiliSeed");
+		Chili = new Chili(10, 0.6F, false).setUnlocalizedName("Chili");
+		Rice = new Rice(0, 0, NPBlockList.RiceC, NPBlockList.Nether_Farm).setUnlocalizedName("Rice");
 		
-		DeadBread = new DeadBread(NPProperties.DeadBreadID, 5, 0.6F, false).setUnlocalizedName("DeadBread");
-		GoldBucket = new GoldBucket(NPProperties.GoldBucketID, 0).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
-		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Blocks.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
-	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Blocks.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
+		DeadBread = new DeadBread(5, 0.6F, false).setUnlocalizedName("DeadBread");
+		GoldBucket = new GoldBucket(Blocks.air).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
+		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Blocks.flowing_water).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
+	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Blocks.flowing_lava).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
 	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
-	    QuickSilverBucket = new QuickSilverBucket(NPProperties.QuickSilverBucketID, NPBlockList.QuicksilverMoving.blockID).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
-	    SoulplasmBucket = new SoulplasmBucket(NPProperties.SoulplasmBucketID, NPBlockList.SoulplasmMoving.blockID).setUnlocalizedName("SoulplasmBucket").setContainerItem(GoldBucket);
-	    AcidBucket1 = new AcidBucket1(NPProperties.AcidBucket1ID, NPBlockList.AcidMoving.blockID).setUnlocalizedName("AcidBucket1").setContainerItem(GoldBucket);
-	    AcidBucket2 = new AcidBucket2(NPProperties.AcidBucket2ID, NPBlockList.AcidMoving.blockID).setUnlocalizedName("AcidBucket2").setContainerItem(Item.bucketEmpty);
+	    QuickSilverBucket = new QuickSilverBucket(NPProperties.QuickSilverBucketID, NPBlockList.QuicksilverMoving).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
+	    SoulplasmBucket = new SoulplasmBucket(NPProperties.SoulplasmBucketID, NPBlockList.SoulplasmMoving).setUnlocalizedName("SoulplasmBucket").setContainerItem(GoldBucket);
+	    AcidBucket1 = new AcidBucket1(NPProperties.AcidBucket1ID, NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket1").setContainerItem(GoldBucket);
+	    AcidBucket2 = new AcidBucket2(NPProperties.AcidBucket2ID, NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucketEmpty);
 
 	    BlackIronHelmet = new BlackIronArmor(BlackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
 	    BlackIronChestplate = new BlackIronArmor(BlackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
@@ -146,7 +147,7 @@ public class NPItemList
 		SalamanderLeggings = new SalamanderArmor(SalamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings");
 		SalamanderBoot = new SalamanderArmor(SalamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot");
 	    
-	    SalamanderBoat = new ItemSalamanderBoat(NPProperties.SalamanderBoatID).setUnlocalizedName("SalamanderBoat");
+	    SalamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
 
 		}
 		catch(Exception ex)

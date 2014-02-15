@@ -2,45 +2,35 @@ package nether_plus.common.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class GoldBucket extends Item
 {
-	private int isFull;
+	private Block isFull;
 	
-	public GoldBucket(int id, int par2)
+	public GoldBucket(Block block)
 	{
-		super(id);
+		super();
 		this.maxStackSize = 1;
-		this.isFull = par2;
+		this.isFull = block;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
-/**	private ItemStack onItemUse() // Robin4002 doit m'aidé ici.
-	{
-		
-	}*/
-	
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-        float f = 1.0F;
-        double d0 = par3EntityPlayer.prevPosX + (par3EntityPlayer.posX - par3EntityPlayer.prevPosX) * (double)f;
-        double d1 = par3EntityPlayer.prevPosY + (par3EntityPlayer.posY - par3EntityPlayer.prevPosY) * (double)f + 1.62D - (double)par3EntityPlayer.yOffset;
-        double d2 = par3EntityPlayer.prevPosZ + (par3EntityPlayer.posZ - par3EntityPlayer.prevPosZ) * (double)f;
-        boolean flag = this.isFull == 0;
+        boolean flag = this.isFull == Blocks.air;
         MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(par2World, par3EntityPlayer, flag);
 
         if (movingobjectposition == null)
@@ -69,13 +59,13 @@ public class GoldBucket extends Item
 
                 if (!par3EntityPlayer.inventory.addItemStackToInventory(event.result))
                 {
-                    par3EntityPlayer.dropPlayerItem(event.result);
+                    par3EntityPlayer.dropPlayerItemWithRandomChoice(event.result, false);
                 }
 
                 return par1ItemStack;
             }
 
-            if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
+            if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
             {
                 int i = movingobjectposition.blockX;
                 int j = movingobjectposition.blockY;
@@ -86,82 +76,37 @@ public class GoldBucket extends Item
                     return par1ItemStack;
                 }
 
-                if (this.isFull == 0)
+                if (flag)
                 {
                     if (!par3EntityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, par1ItemStack))
                     {
                         return par1ItemStack;
                     }
+                    
+                    Material material = par2World.getBlock(i, j, k).getMaterial();
+                    int l = par2World.getBlockMetadata(i, j, k);
 
-                    if (par2World.getBlockMaterial(i, j, k) == Material.water && par2World.getBlockMetadata(i, j, k) == 0)
+                    if (material == Material.water && l == 0)
                     {
                         par2World.setBlockToAir(i, j, k);
-
-                        if (par3EntityPlayer.capabilities.isCreativeMode)
-                        {
-                            return par1ItemStack;
-                        }
-
-                        if (--par1ItemStack.stackSize <= 0)
-                        {
-                            return new ItemStack(NPItemList.WaterBucket);
-                        }
-
-                        if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(NPItemList.WaterBucket)))
-                        {
-                            par3EntityPlayer.dropPlayerItem(new ItemStack(NPItemList.WaterBucket.itemID, 1, 0));
-                        }
-
-                        return par1ItemStack;
+                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.WaterBucket);
                     }
 
-                    if (par2World.getBlockMaterial(i, j, k) == Material.lava && par2World.getBlockMetadata(i, j, k) == 0)
+                    if (material == Material.lava && l == 0)
                     {
                         par2World.setBlockToAir(i, j, k);
-
-                        if (par3EntityPlayer.capabilities.isCreativeMode)
-                        {
-                            return par1ItemStack;
-                        }
-
-                        if (--par1ItemStack.stackSize <= 0)
-                        {
-                            return new ItemStack(NPItemList.LavaBucket);
-                        }
-
-                        if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(NPItemList.LavaBucket)))
-                        {
-                            par3EntityPlayer.dropPlayerItem(new ItemStack(NPItemList.LavaBucket.itemID, 1, 0));
-                        }
-
-                        return par1ItemStack;
+                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.LavaBucket);
                     }
                     
-                    if (par2World.getBlockMaterial(i, j, k) == Material.water && par2World.getBlockMetadata(i, j, k) == 0)
+                    if (material == Material.water && l == 0)
                     {
                         par2World.setBlockToAir(i, j, k);
-
-                        if (par3EntityPlayer.capabilities.isCreativeMode)
-                        {
-                            return par1ItemStack;
-                        }
-
-                        if (--par1ItemStack.stackSize <= 0)
-                        {
-                            return new ItemStack(NPItemList.QuickSilverBucket);
-                        }
-
-                        if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(NPItemList.QuickSilverBucket)))
-                        {
-                            par3EntityPlayer.dropPlayerItem(new ItemStack(NPItemList.QuickSilverBucket.itemID, 1, 0));
-                        }
-
-                        return par1ItemStack;
+                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.QuickSilverBucket);
                     }
                 }
                 else
                 {
-                    if (this.isFull < 0)
+                    if (this.isFull == Blocks.air)
                     {
                         return new ItemStack(NPItemList.GoldBucket);
                     }
@@ -201,45 +146,70 @@ public class GoldBucket extends Item
                         return par1ItemStack;
                     }
 
-                    if (this.tryPlaceContainedLiquid(par2World, d0, d1, d2, i, j, k) && !par3EntityPlayer.capabilities.isCreativeMode)
+                    if (this.tryPlaceContainedLiquid(par2World, i, j, k) && !par3EntityPlayer.capabilities.isCreativeMode)
                     {
                         return new ItemStack(NPItemList.GoldBucket);
                     }
                 }
             }
-            else if (this.isFull == 0 && movingobjectposition.entityHit instanceof EntityCow)
-            {
-                return new ItemStack(NPItemList.MilkBucket);
-            }
-
             return par1ItemStack;
         }
     }
 	
-    public boolean tryPlaceContainedLiquid(World par1World, double par2, double par4, double par6, int par8, int par9, int par10)
+	private ItemStack func_150910_a(ItemStack itemStack, EntityPlayer player, Item item)
     {
-        if (this.isFull <= 0)
+        if (player.capabilities.isCreativeMode)
+        {
+            return itemStack;
+        }
+        else if (--itemStack.stackSize <= 0)
+        {
+            return new ItemStack(item);
+        }
+        else
+        {
+            if (!player.inventory.addItemStackToInventory(new ItemStack(item)))
+            {
+                player.dropPlayerItemWithRandomChoice(new ItemStack(item, 1, 0), false);
+            }
+
+            return itemStack;
+        }
+    }
+	
+    public boolean tryPlaceContainedLiquid(World world, int x, int y, int z)
+    {
+        if (this.isFull == Blocks.air)
         {
             return false;
         }
-        else if (!par1World.isAirBlock(par8, par9, par10) && par1World.getBlockMaterial(par8, par9, par10).isSolid())
+        
+        Material material = world.getBlock(x, y, z).getMaterial();
+        boolean flag = !material.isSolid();
+        
+        if (!world.isAirBlock(x, y, z) && flag)
         {
             return false;
         }
         else
         {
-            if (par1World.provider.isHellWorld && this.isFull == Block.waterMoving.blockID)
+            if (world.provider.isHellWorld && this.isFull == Blocks.flowing_water)
             {
-                par1World.playSoundEffect(par2 + 0.5D, par4 + 0.5D, par6 + 0.5D, "random.fizz", 0.5F, 2.6F + (par1World.rand.nextFloat() - par1World.rand.nextFloat()) * 0.8F);
+                world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 
                 for (int l = 0; l < 8; ++l)
                 {
-                    par1World.spawnParticle("largesmoke", (double)par8 + Math.random(), (double)par9 + Math.random(), (double)par10 + Math.random(), 0.0D, 0.0D, 0.0D);
+                    world.spawnParticle("largesmoke", (double)x + Math.random(), (double)y + Math.random(), (double)z + Math.random(), 0.0D, 0.0D, 0.0D);
                 }
             }
             else
             {
-                par1World.setBlock(par8, par9, par10, this.isFull, 0, 3);
+                if (!world.isRemote && flag && !material.isLiquid())
+                {
+                    world.func_147480_a(x, y, z, true);
+                }
+
+                world.setBlock(x, y, z, this.isFull, 0, 3);
             }
 
             return true;
@@ -247,7 +217,7 @@ public class GoldBucket extends Item
     }
     
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.itemIcon = par1IconRegister.registerIcon("nether_plus:GoldBucket");
     }

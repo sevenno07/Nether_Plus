@@ -1,31 +1,32 @@
 package nether_plus.common.item;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemGrimwoodDoor extends Item
 {
 	private Material doorMaterial;
 
-	public ItemGrimwoodDoor(int id, Material par2Material)
+	public ItemGrimwoodDoor(Material material)
 	{
-		super(id);
-        this.doorMaterial = par2Material;
+		super();
+        this.doorMaterial = material;
         this.maxStackSize = 1;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10)
     {
         if (par7 != 1)
         {
@@ -33,7 +34,7 @@ public class ItemGrimwoodDoor extends Item
         }
         else
         {
-            ++par5;
+            ++y;
             Block block;
 
             if (this.doorMaterial == Material.wood)
@@ -42,20 +43,20 @@ public class ItemGrimwoodDoor extends Item
             }
             else
             {
-                block = Block.doorIron;
+                block = Blocks.iron_door;
             }
 
-            if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
+            if (player.canPlayerEdit(x, y, z, par7, itemStack) && player.canPlayerEdit(x, y + 1, z, par7, itemStack))
             {
-                if (!block.canPlaceBlockAt(par3World, par4, par5, par6))
+                if (!block.canPlaceBlockAt(world, x, y, z))
                 {
                     return false;
                 }
                 else
                 {
-                    int i1 = MathHelper.floor_double((double)((par2EntityPlayer.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
-                    placeDoorBlock(par3World, par4, par5, par6, i1, block);
-                    --par1ItemStack.stackSize;
+                    int i1 = MathHelper.floor_double((double)((player.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
+                    placeDoorBlock(world, x, y, z, i1, block);
+                    --itemStack.stackSize;
                     return true;
                 }
             }
@@ -66,7 +67,7 @@ public class ItemGrimwoodDoor extends Item
         }
     }
 
-    public static void placeDoorBlock(World par0World, int par1, int par2, int par3, int par4, Block par5Block)
+    public static void placeDoorBlock(World world, int x, int y, int z, int par4, Block block)
     {
         byte b0 = 0;
         byte b1 = 0;
@@ -91,10 +92,10 @@ public class ItemGrimwoodDoor extends Item
             b0 = 1;
         }
 
-        int i1 = (par0World.isBlockNormalCube(par1 - b0, par2, par3 - b1) ? 1 : 0) + (par0World.isBlockNormalCube(par1 - b0, par2 + 1, par3 - b1) ? 1 : 0);
-        int j1 = (par0World.isBlockNormalCube(par1 + b0, par2, par3 + b1) ? 1 : 0) + (par0World.isBlockNormalCube(par1 + b0, par2 + 1, par3 + b1) ? 1 : 0);
-        boolean flag = par0World.getBlockId(par1 - b0, par2, par3 - b1) == par5Block.blockID || par0World.getBlockId(par1 - b0, par2 + 1, par3 - b1) == par5Block.blockID;
-        boolean flag1 = par0World.getBlockId(par1 + b0, par2, par3 + b1) == par5Block.blockID || par0World.getBlockId(par1 + b0, par2 + 1, par3 + b1) == par5Block.blockID;
+        int i1 = (world.getBlock(x - b0, y, z - b1).isNormalCube() ? 1 : 0) + (world.getBlock(x - b0, y + 1, z - b1).isNormalCube() ? 1 : 0);
+        int j1 = (world.getBlock(x + b0, y, z + b1).isNormalCube() ? 1 : 0) + (world.getBlock(x + b0, y + 1, z + b1).isNormalCube() ? 1 : 0);
+        boolean flag = world.getBlock(x - b0, y, z - b1) == block || world.getBlock(x - b0, y + 1, z - b1) == block;
+        boolean flag1 = world.getBlock(x + b0, y, z + b1) == block || world.getBlock(x + b0, y + 1, z + b1) == block;
         boolean flag2 = false;
 
         if (flag && !flag1)
@@ -106,14 +107,14 @@ public class ItemGrimwoodDoor extends Item
             flag2 = true;
         }
 
-        par0World.setBlock(par1, par2, par3, par5Block.blockID, par4, 2);
-        par0World.setBlock(par1, par2 + 1, par3, par5Block.blockID, 8 | (flag2 ? 1 : 0), 2);
-        par0World.notifyBlocksOfNeighborChange(par1, par2, par3, par5Block.blockID);
-        par0World.notifyBlocksOfNeighborChange(par1, par2 + 1, par3, par5Block.blockID);
+        world.setBlock(x, y, y, block, par4, 2);
+        world.setBlock(x, y + 1, y, block, 8 | (flag2 ? 1 : 0), 2);
+        world.notifyBlocksOfNeighborChange(x, y, y, block);
+        world.notifyBlocksOfNeighborChange(x, y + 1, y, block);
     }
     
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
 	{
         this.itemIcon = iconregister.registerIcon("nether_plus:ItemGrimwoodDoor");
  	}
