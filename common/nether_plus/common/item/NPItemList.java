@@ -1,12 +1,11 @@
 package nether_plus.common.item;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBucket;
-import net.minecraftforge.common.EnumHelper;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.config.NPProperties;
@@ -76,12 +75,12 @@ public class NPItemList
 	
 	public static Item SalamanderBoat;
 
-	public static EnumArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
-	public static EnumArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
-	public static EnumArmorMaterial BlackIronArmor = EnumHelper.addArmorMaterial("BlackIronArmor", 23, new int[]{3, 9, 8, 3}, 14);
-	public static EnumArmorMaterial SalamanderArmor = EnumHelper.addArmorMaterial("SalamanderArmor", 8, new int[]{2, 5, 3, 2}, 23);
-	public static EnumToolMaterial GrimwoodTool = EnumHelper.addToolMaterial("GrimwoodTool", 0, 89, 3.0F, 0, 23);
-	public static EnumToolMaterial BlackIronTool = EnumHelper.addToolMaterial("BlackIronTool", 3, 375, 9.0F, 3, 21);
+	public static ArmorMaterial SkeletonWhiteArmor = EnumHelper.addArmorMaterial("SkeletonWhiteArmor", 7, new int[]{2, 5, 3, 1}, 25);
+	public static ArmorMaterial SkeletonBlackArmor = EnumHelper.addArmorMaterial("SkeletonBlackArmor", 15, new int[]{2, 6, 5, 2}, 9);
+	public static ArmorMaterial BlackIronArmor = EnumHelper.addArmorMaterial("BlackIronArmor", 23, new int[]{3, 9, 8, 3}, 14);
+	public static ArmorMaterial SalamanderArmor = EnumHelper.addArmorMaterial("SalamanderArmor", 8, new int[]{2, 5, 3, 2}, 23);
+	public static ToolMaterial GrimwoodTool = EnumHelper.addToolMaterial("GrimwoodTool", 0, 89, 3.0F, 0, 23);
+	public static ToolMaterial BlackIronTool = EnumHelper.addToolMaterial("BlackIronTool", 3, 375, 9.0F, 3, 21);
 	
 	public static void loadItem()
 	{
@@ -97,23 +96,23 @@ public class NPItemList
 		InfernumIngot = new InfernumIngot(NPProperties.InfernumIngotID).setUnlocalizedName("InfernumIngot");
 		ItemGrimwoodDoor = new ItemGrimwoodDoor(NPProperties.ItemGrimwoodDoorID, Material.wood).setUnlocalizedName("ItemGrimwoodDoor");
 		
-		SalamanderLeather = new SalamanderLeather(NPProperties.SalamanderLeatherID).setUnlocalizedName("SalamanderLeather");
+		SalamanderLeather = new SalamanderLeather().setUnlocalizedName("SalamanderLeather");
 		
-		SkeletonWhiteHelmet = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteHelmetID, SkeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet");
-		SkeletonWhiteChestplate = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteChestplateID, SkeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate");
-		SkeletonWhiteLeggings = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteLeggingsID, SkeletonWhiteArmor, 0, 2).setUnlocalizedName("SkeletonWhiteLeggings");
-		SkeletonWhiteBoot = new SkeletonWhiteArmor(NPProperties.SkeletonWhiteBootID, SkeletonWhiteArmor, 0, 3).setUnlocalizedName("SkeletonWhiteBoot");
+		SkeletonWhiteHelmet = new SkeletonWhiteArmor(SkeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet");
+		SkeletonWhiteChestplate = new SkeletonWhiteArmor(SkeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate");
+		SkeletonWhiteLeggings = new SkeletonWhiteArmor(SkeletonWhiteArmor, 0, 2).setUnlocalizedName("SkeletonWhiteLeggings");
+		SkeletonWhiteBoot = new SkeletonWhiteArmor(SkeletonWhiteArmor, 0, 3).setUnlocalizedName("SkeletonWhiteBoot");
 
-		SkeletonBlackHelmet = new SkeletonBlackArmor(NPProperties.SkeletonBlackHelmetID, SkeletonBlackArmor, 0, 0).setUnlocalizedName("SkeletonBlackHelmet");
-		SkeletonBlackChestplate = new SkeletonBlackArmor(NPProperties.SkeletonBlackChestplateID, SkeletonBlackArmor, 0, 1).setUnlocalizedName("SkeletonBlackChestplate");
-		SkeletonBlackLeggings = new SkeletonBlackArmor(NPProperties.SkeletonBlackLeggingsID, SkeletonBlackArmor, 0, 2).setUnlocalizedName("SkeletonBlackLeggings");
-		SkeletonBlackBoot = new SkeletonBlackArmor(NPProperties.SkeletonBlackBootID, SkeletonBlackArmor, 0, 3).setUnlocalizedName("SkeletonBlackBoot");
+		SkeletonBlackHelmet = new SkeletonBlackArmor(SkeletonBlackArmor, 0, 0).setUnlocalizedName("SkeletonBlackHelmet");
+		SkeletonBlackChestplate = new SkeletonBlackArmor(SkeletonBlackArmor, 0, 1).setUnlocalizedName("SkeletonBlackChestplate");
+		SkeletonBlackLeggings = new SkeletonBlackArmor(SkeletonBlackArmor, 0, 2).setUnlocalizedName("SkeletonBlackLeggings");
+		SkeletonBlackBoot = new SkeletonBlackArmor(SkeletonBlackArmor, 0, 3).setUnlocalizedName("SkeletonBlackBoot");
 		
-		GrimwoodSword = new GrimwoodSword(NPProperties.GrimwoodSwordID, GrimwoodTool).setUnlocalizedName("GrimwoodSword");
-		GrimwoodPickaxe = new GrimwoodPickaxe(NPProperties.GrimwoodPickaxeID, GrimwoodTool).setUnlocalizedName("GrimwoodPickaxe");
-		GrimwoodAxe = new GrimwoodAxe(NPProperties.GrimwoodAxeID, GrimwoodTool).setUnlocalizedName("GrimwoodAxe");
-		GrimwoodShovel = new GrimwoodShovel(NPProperties.GrimwoodShovelID, GrimwoodTool).setUnlocalizedName("GrimwoodShovel");
-		GrimwoodHoe = new GrimwoodHoe(NPProperties.GrimwoodHoeID, GrimwoodTool).setUnlocalizedName("GrimwoodHoe");
+		GrimwoodSword = new GrimwoodSword(GrimwoodTool).setUnlocalizedName("GrimwoodSword");
+		GrimwoodPickaxe = new GrimwoodPickaxe(GrimwoodTool).setUnlocalizedName("GrimwoodPickaxe");
+		GrimwoodAxe = new GrimwoodAxe(GrimwoodTool).setUnlocalizedName("GrimwoodAxe");
+		GrimwoodShovel = new GrimwoodShovel(GrimwoodTool).setUnlocalizedName("GrimwoodShovel");
+		GrimwoodHoe = new GrimwoodHoe(GrimwoodTool).setUnlocalizedName("GrimwoodHoe");
 		
 		WhiteWheatSeeds = new WhiteWheatSeeds(NPProperties.WhiteWheatSeedsID, NPProperties.CropsID, NPProperties.Nether_FarmID).setUnlocalizedName("WhiteWheatSeeds");
 		WhiteWheat = new WhiteWheat(NPProperties.WhiteWheatID).setUnlocalizedName("WhiteWheat");
@@ -123,29 +122,29 @@ public class NPItemList
 		
 		DeadBread = new DeadBread(NPProperties.DeadBreadID, 5, 0.6F, false).setUnlocalizedName("DeadBread");
 		GoldBucket = new GoldBucket(NPProperties.GoldBucketID, 0).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
-		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Block.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
-	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Block.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
+		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Blocks.waterMoving.blockID).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
+	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Blocks.lavaMoving.blockID).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
 	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
 	    QuickSilverBucket = new QuickSilverBucket(NPProperties.QuickSilverBucketID, NPBlockList.QuicksilverMoving.blockID).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
 	    SoulplasmBucket = new SoulplasmBucket(NPProperties.SoulplasmBucketID, NPBlockList.SoulplasmMoving.blockID).setUnlocalizedName("SoulplasmBucket").setContainerItem(GoldBucket);
 	    AcidBucket1 = new AcidBucket1(NPProperties.AcidBucket1ID, NPBlockList.AcidMoving.blockID).setUnlocalizedName("AcidBucket1").setContainerItem(GoldBucket);
 	    AcidBucket2 = new AcidBucket2(NPProperties.AcidBucket2ID, NPBlockList.AcidMoving.blockID).setUnlocalizedName("AcidBucket2").setContainerItem(Item.bucketEmpty);
 
-	    BlackIronHelmet = new BlackIronArmor(NPProperties.BlackIronHelmetID, BlackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
-	    BlackIronChestplate = new BlackIronArmor(NPProperties.BlackIronChestplateID, BlackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
-		BlackIronLeggings = new BlackIronArmor(NPProperties.BlackIronLeggingsID, BlackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings");
-		BlackIronBoot = new BlackIronArmor(NPProperties.BlackIronBootID, BlackIronArmor, 0, 3).setUnlocalizedName("BlackIronBoot");
+	    BlackIronHelmet = new BlackIronArmor(BlackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
+	    BlackIronChestplate = new BlackIronArmor(BlackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
+		BlackIronLeggings = new BlackIronArmor(BlackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings");
+		BlackIronBoot = new BlackIronArmor(BlackIronArmor, 0, 3).setUnlocalizedName("BlackIronBoot");
 		
-		BlackIronSword = new BlackIronSword(NPProperties.BlackIronSwordID, BlackIronTool).setUnlocalizedName("BlackIronSword");
-		BlackIronPickaxe = new BlackIronPickaxe(NPProperties.BlackIronPickaxeID, BlackIronTool).setUnlocalizedName("BlackIronPickaxe");
-		BlackIronAxe = new BlackIronAxe(NPProperties.BlackIronAxeID, BlackIronTool).setUnlocalizedName("BlackIronAxe");
-		BlackIronShovel = new BlackIronShovel(NPProperties.BlackIronShovelID, BlackIronTool).setUnlocalizedName("BlackIronShovel");
-		BlackIronHoe = new BlackIronHoe(NPProperties.BlackIronHoeID, BlackIronTool).setUnlocalizedName("BlackIronHoe");
+		BlackIronSword = new BlackIronSword(BlackIronTool).setUnlocalizedName("BlackIronSword");
+		BlackIronPickaxe = new BlackIronPickaxe(BlackIronTool).setUnlocalizedName("BlackIronPickaxe");
+		BlackIronAxe = new BlackIronAxe(BlackIronTool).setUnlocalizedName("BlackIronAxe");
+		BlackIronShovel = new BlackIronShovel(BlackIronTool).setUnlocalizedName("BlackIronShovel");
+		BlackIronHoe = new BlackIronHoe(BlackIronTool).setUnlocalizedName("BlackIronHoe");
 		
-		SalamanderHelmet = new SalamanderArmor(NPProperties.SalamanderHelmetID, SalamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet");
-	    SalamanderChestplate = new SalamanderArmor(NPProperties.SalamanderChestplateID, SalamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate");
-		SalamanderLeggings = new SalamanderArmor(NPProperties.SalamanderLeggingsID, SalamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings");
-		SalamanderBoot = new SalamanderArmor(NPProperties.SalamanderBootID, SalamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot");
+		SalamanderHelmet = new SalamanderArmor(SalamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet");
+	    SalamanderChestplate = new SalamanderArmor(SalamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate");
+		SalamanderLeggings = new SalamanderArmor(SalamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings");
+		SalamanderBoot = new SalamanderArmor(SalamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot");
 	    
 	    SalamanderBoat = new ItemSalamanderBoat(NPProperties.SalamanderBoatID).setUnlocalizedName("SalamanderBoat");
 

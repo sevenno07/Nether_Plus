@@ -1,8 +1,7 @@
 package nether_plus.common.item;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
@@ -12,9 +11,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class SkeletonWhiteArmor extends ItemArmor
 {
 
-	public SkeletonWhiteArmor(int id, EnumArmorMaterial armorMaterial, int type, int layer)
+	public SkeletonWhiteArmor(ArmorMaterial armorMaterial, int type, int layer)
 	{
-		super(id, armorMaterial, type, layer);
+		super(armorMaterial, type, layer);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsArmor);
 	}
 	
@@ -32,7 +31,7 @@ public class SkeletonWhiteArmor extends ItemArmor
 	}
 
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
     {
         itemIcon = iconregister.registerIcon("nether_plus:"+getUnlocalizedName().substring(5));
     }
