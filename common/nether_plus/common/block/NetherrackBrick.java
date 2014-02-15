@@ -1,23 +1,13 @@
 package nether_plus.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.BlockStone;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class NetherrackBrick extends Block
+public class NetherrackBrick extends BlockStone
 {
-	public NetherrackBrick(int id, Material par2Material) 
+	public NetherrackBrick() 
 	{
-		super(id, par2Material);
+		super();
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
-	
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
-	{
-        this.blockIcon = iconregister.registerIcon("nether_plus:NetherrackBrick");
- 	}
 }

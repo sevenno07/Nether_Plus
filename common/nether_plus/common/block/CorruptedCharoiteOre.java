@@ -2,26 +2,21 @@ package nether_plus.common.block;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.BlockStone;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.item.NPItemList;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class CorruptedCharoiteOre extends Block
+public class CorruptedCharoiteOre extends BlockStone
 {
-	public CorruptedCharoiteOre(int id, Material par2Material) 
+	public CorruptedCharoiteOre() 
 	{
-		super(id, par2Material);
+		super();
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
-
     public int quantityDroppedWithBonus(int par1, Random par2Random)
     {
         if (par1 > 0 && this.blockID != this.idDropped(0, par2Random, par1))
@@ -68,10 +63,4 @@ public class CorruptedCharoiteOre extends Block
             }
         }
     }
-    
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
-	{
-        this.blockIcon = iconregister.registerIcon("nether_plus:CorruptedCharoiteOre");
- 	}
 }
