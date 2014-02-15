@@ -1,47 +1,45 @@
 package nether_plus.common.item;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import nether_plus.common.block.NPBlockList;
+import net.minecraftforge.common.util.ForgeDirection;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class WhiteWheatSeeds extends Item implements IPlantable
 {
-	private int Blocktype;
+	private Block Blocktype;
 	
-	private int soilBlockID;
+	private Block soilBlockID;
 	
-	public WhiteWheatSeeds(int id, int par2, int par3)
+	public WhiteWheatSeeds(Block block, Block block1)
 	{
-		super(id);
-		this.Blocktype = par2;
-		this.soilBlockID = par3;
+		super();
+		this.Blocktype = block;
+		this.soilBlockID = block1;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10)
     {
         if (par7 != 1)
         {
             return false;
         }
-        else if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
+        else if (player.canPlayerEdit(x, y, z, par7, itemStack) && player.canPlayerEdit(x, y + 1, z, par7, itemStack))
         {
-            int i1 = par3World.getBlockId(par4, par5, par6);
-            Block soil = Block.blocksList[i1];
-
-            if (soil != null && soil.blockID == NPBlockList.Nether_Farm.blockID && par3World.isAirBlock(par4, par5 + 1, par6))
+            if (world.getBlock(x, y, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z))
             {
-                par3World.setBlock(par4, par5 + 1, par6, this.Blocktype);
-                --par1ItemStack.stackSize;
+                world.setBlock(x, y + 1, z, this.soilBlockID);
+                --itemStack.stackSize;
                 return true;
             }
             else
@@ -55,27 +53,27 @@ public class WhiteWheatSeeds extends Item implements IPlantable
         }
     }
 	
+	@SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister iconregister)
+	{
+        this.itemIcon = iconregister.registerIcon("nether_plus:WhiteWheatSeeds");
+ 	}
+
 	@Override
-	public EnumPlantType getPlantType(World world, int x, int y, int z)
+	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
 	{
 		return null;
 	}
 
 	@Override
-	public int getPlantID(World world, int x, int y, int z)
+	public Block getPlant(IBlockAccess world, int x, int y, int z)
 	{
 		return Blocktype;
 	}
 
 	@Override
-	public int getPlantMetadata(World world, int x, int y, int z)
+	public int getPlantMetadata(IBlockAccess world, int x, int y, int z)
 	{
 		return 0;
 	}
-	
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
-	{
-        this.itemIcon = iconregister.registerIcon("nether_plus:WhiteWheatSeeds");
- 	}
 }

@@ -1,18 +1,20 @@
 package nether_plus.common.item;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class WaterBucket extends GoldBucket{
+public class WaterBucket extends GoldBucket
+{
 
-	public WaterBucket(int id, int par2)
+	public WaterBucket(Block block)
 	{
-		super(id, par2);
+		super(block);
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.itemIcon = par1IconRegister.registerIcon("nether_plus:WaterBucket");
     }

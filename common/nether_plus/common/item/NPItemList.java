@@ -115,21 +115,21 @@ public class NPItemList
 		GrimwoodShovel = new GrimwoodShovel(GrimwoodTool).setUnlocalizedName("GrimwoodShovel");
 		GrimwoodHoe = new GrimwoodHoe(GrimwoodTool).setUnlocalizedName("GrimwoodHoe");
 		
-		WhiteWheatSeeds = new WhiteWheatSeeds(NPProperties.WhiteWheatSeedsID, NPProperties.CropsID, NPProperties.Nether_FarmID).setUnlocalizedName("WhiteWheatSeeds");
-		WhiteWheat = new WhiteWheat(NPProperties.WhiteWheatID).setUnlocalizedName("WhiteWheat");
+		WhiteWheatSeeds = new WhiteWheatSeeds(NPBlockList.Crops, NPBlockList.Nether_Farm).setUnlocalizedName("WhiteWheatSeeds");
+		WhiteWheat = new WhiteWheat().setUnlocalizedName("WhiteWheat");
 		ChiliSeed = new ChiliSeed(NPBlockList.ChiliC, NPBlockList.Nether_Farm).setUnlocalizedName("ChiliSeed");
 		Chili = new Chili(10, 0.6F, false).setUnlocalizedName("Chili");
 		Rice = new Rice(0, 0, NPBlockList.RiceC, NPBlockList.Nether_Farm).setUnlocalizedName("Rice");
 		
 		DeadBread = new DeadBread(5, 0.6F, false).setUnlocalizedName("DeadBread");
 		GoldBucket = new GoldBucket(Blocks.air).setUnlocalizedName("GoldBucket").setMaxStackSize(16);
-		WaterBucket = new WaterBucket(NPProperties.WaterBucketID, Blocks.flowing_water).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
-	    LavaBucket = new LavaBucket(NPProperties.LavaBucketID, Blocks.flowing_lava).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
-	    MilkBucket = new MilkBucket(NPProperties.MilkBucketID).setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
-	    QuickSilverBucket = new QuickSilverBucket(NPProperties.QuickSilverBucketID, NPBlockList.QuicksilverMoving).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
-	    SoulplasmBucket = new SoulplasmBucket(NPProperties.SoulplasmBucketID, NPBlockList.SoulplasmMoving).setUnlocalizedName("SoulplasmBucket").setContainerItem(GoldBucket);
-	    AcidBucket1 = new AcidBucket1(NPProperties.AcidBucket1ID, NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket1").setContainerItem(GoldBucket);
-	    AcidBucket2 = new AcidBucket2(NPProperties.AcidBucket2ID, NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucketEmpty);
+		WaterBucket = new WaterBucket(Blocks.flowing_water).setUnlocalizedName("WaterBucket").setContainerItem(GoldBucket);
+	    LavaBucket = new LavaBucket(Blocks.flowing_lava).setUnlocalizedName("LavaBucket").setContainerItem(GoldBucket);
+	    MilkBucket = new MilkBucket().setUnlocalizedName("MilkBucket").setContainerItem(GoldBucket);
+	    QuickSilverBucket = new QuickSilverBucket(NPBlockList.QuicksilverMoving).setUnlocalizedName("QuickSilverBucket").setContainerItem(GoldBucket);
+	    SoulplasmBucket = new SoulplasmBucket(NPBlockList.SoulplasmMoving).setUnlocalizedName("SoulplasmBucket").setContainerItem(GoldBucket);
+	    AcidBucket1 = new AcidBucket1(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket1").setContainerItem(GoldBucket);
+	    AcidBucket2 = new AcidBucket2(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
 
 	    BlackIronHelmet = new BlackIronArmor(BlackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
 	    BlackIronChestplate = new BlackIronArmor(BlackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
