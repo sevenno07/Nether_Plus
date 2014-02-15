@@ -9,7 +9,6 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.block.NPBlockList;
-import nether_plus.common.config.NPProperties;
 
 public class NPItemList
 {
