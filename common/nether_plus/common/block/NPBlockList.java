@@ -93,23 +93,23 @@ public class NPBlockList
 		Netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
 		BewitchedWood = new BewitchedWood().setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockName("BewitchedWood");
 		CorruptionStone = new CorruptionStone().setStepSound(Block.soundTypeStone).setHardness(1.0F).setBlockName("CorruptionStone").setBlockTextureName("nether_plus:CorruptionStone");
-		CorruptedCobblestone = new CorruptedCobblestone(NPProperties.CorruptedCobblestoneID).setStepSound(Block.soundTypeStone).setHardness(1.5F).setBlockName("CorruptedCobblestone");
+		CorruptedCobblestone = new CorruptedCobblestone().setStepSound(Block.soundTypeStone).setHardness(1.5F).setBlockName("CorruptedCobblestone");
 		
 		GrimwoodLog = new GrimwoodLog(NPProperties.GrimwoodLogID).setHardness(1.0F).setResistance(5F).setStepSound(Block.soundTypeWood).setBlockName("GrimwoodLog");
 		GrimwoodLeaves = new GrimwoodLeaves(NPProperties.GrimwoodLeavesID).setHardness(0.5F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodLeaves");
 		GrimwoodSapling = new GrimwoodSapling(NPProperties.GrimwoodSaplingID).setHardness(0.0F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodSapling");
 		
-		CorruptedGoldOre = new CorruptedGoldOre(NPProperties.CorruptedGoldOreID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedGoldOre");
-		CorruptedCharoiteOre = new CorruptedCharoiteOre(NPProperties.CorruptedCharoiteOreID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedCharoiteOre");
-		CorruptedBlackIronOre = new CorruptedBlackIronOre(NPProperties.CorruptedBlackIronOreID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedBlackIronOre");
-		InfernumOre = new InfernumOre(NPProperties.InfernumOreID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumOre");
-		InfernumBlock = new InfernumBlock(NPProperties.InfernumBlockID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumBlock");
-		BlackIronBlock = new BlackIronBlock(NPProperties.BlackIronBlockID, Material.iron).setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("BlackIronBlock");
-		CharoiteBlock = new CharoiteBlock(NPProperties.CharoiteBlockID, Material.iron).setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("CharoiteBlock");
+		CorruptedGoldOre = new CorruptedGoldOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedGoldOre").setBlockTextureName("nether_plus:CorruptedGoldOre");
+		CorruptedCharoiteOre = new CorruptedCharoiteOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedCharoiteOre").setBlockTextureName("nether_plus:CorruptedCharoiteOre");
+		CorruptedBlackIronOre = new CorruptedBlackIronOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedBlackIronOre").setBlockTextureName("nether_plus:CorruptedBlackIronOre");
+		InfernumOre = new InfernumOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumOre").setBlockTextureName("nether_plus:InfernumOre");
+		InfernumBlock = new InfernumBlock().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumBlock").setBlockTextureName("nether_plus:InfernumBlock");
+		BlackIronBlock = new BlackIronBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("BlackIronBlock").setBlockTextureName("nether_plus:BlackIronBlock");
+		CharoiteBlock = new CharoiteBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("CharoiteBlock").setBlockTextureName("nether_plus:CharoiteBlock");
 		
-		GrimwoodPlanks = new GrimwoodPlanks(NPProperties.GrimwoodPlanksID, Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodPlanks");
-		CorruptedBrick = new CorruptedBrick(NPProperties.CorruptedBrickID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedBrick");
-		NetherrackBrick = new NetherrackBrick(NPProperties.NetherrackBrickID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("NetherrackBrick");
+		GrimwoodPlanks = new GrimwoodPlanks().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodPlanks").setBlockTextureName("nether_plus:GrimwoodPlanks");
+		CorruptedBrick = new CorruptedBrick(NPProperties.CorruptedBrickID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedBrick").setBlockTextureName("nether_plus:CorruptedBrick");
+		NetherrackBrick = new NetherrackBrick(NPProperties.NetherrackBrickID, Material.rock).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("NetherrackBrick").setBlockTextureName("nether_plus:NetherrackBrick");
 		GrimwoodWorkbench  = new GrimwoodWorkbench(NPProperties.GrimwoodWorkbenchID).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("GrimwoodWorkbench");
 		GrimwoodChest = new GrimwoodChest(NPProperties.GrimwoodChestID).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodChest");
 		fourOn = new BlockFour(NPProperties.fourOnID, true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace");

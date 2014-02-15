@@ -4,13 +4,13 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
@@ -19,13 +19,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CorruptedCobblestone extends Block
 {
     @SideOnly(Side.CLIENT)
-    private Icon field_94441_a;
+    private IIcon field_94441_a;
     @SideOnly(Side.CLIENT)
-    private Icon field_94440_b;
+    private IIcon field_94440_b;
 
-    protected CorruptedCobblestone(int par1)
+    protected CorruptedCobblestone()
     {
-        super(par1, Material.rock);
+        super(Material.rock);
         this.setTickRandomly(true);
         this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
     }
@@ -46,7 +46,7 @@ public class CorruptedCobblestone extends Block
     }
 
     @SideOnly(Side.CLIENT)
-    public Icon getIcon(int par1, int par2)
+    public IIcon getIcon(int par1, int par2)
     {
         return par1 == 0 || par1 == 1 || par1 == 2 || par1 == 3 || par1 == 4 || par1 == 5 ? (par2 > 0 ? this.field_94441_a : this.field_94440_b) : this.blockIcon;
     }
@@ -87,19 +87,13 @@ public class CorruptedCobblestone extends Block
         return false;
     }
 
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-        return NPBlockList.CorruptedCobblestone.idDropped(0, par2Random, par3);
+        return NPBlockList.CorruptedCobblestone.getItemDropped(0, par2Random, par3);
     }
 
     @SideOnly(Side.CLIENT)
-    public int idPicked(World par1World, int par2, int par3, int par4)
-    {
-        return NPBlockList.CorruptedCobblestone.blockID;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.field_94441_a = par1IconRegister.registerIcon("nether_plus:CorruptedCobblestone2");
         this.field_94440_b = par1IconRegister.registerIcon("nether_plus:CorruptedCobblestone1");
