@@ -27,5 +27,4 @@ public class NetherPlusCreativeTabs
 		}
 		Nether_plus.NPlog.info("Initialisation des CreativeTabs terminées!");
 	}
-
 }

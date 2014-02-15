@@ -1,7 +1,7 @@
 package nether_plus.common.creativetabs;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
 import nether_plus.common.item.NPItemList;
 
 public class NPCreativeTabsFood extends CreativeTabs
@@ -10,10 +10,10 @@ public class NPCreativeTabsFood extends CreativeTabs
 	{
 		super(name);
 	}
-	
+
 	@Override
-	public ItemStack getIconItemStack()
+	public Item getTabIconItem()
 	{
-		return new ItemStack(NPItemList.DeadBread);
+		return NPItemList.DeadBread;
 	}
 }
