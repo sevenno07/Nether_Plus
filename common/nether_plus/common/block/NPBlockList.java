@@ -137,8 +137,8 @@ public class NPBlockList
 		
 		Nether_Farm = new Nether_Farm(NPProperties.Nether_FarmID).setStepSound(Block.soundTypeSand).setHardness(0.5F).setBlockName("Nether_Farm");
 		Crops = new Crops(NPProperties.CropsID).setBlockName("Crops");
-		ChiliC = new ChiliC(NPProperties.ChiliCID, ChiliB).setBlockName("ChiliC");
-		ChiliB = new ChiliB(NPProperties.ChiliBID).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
+		ChiliC = new ChiliC().setBlockName("ChiliC");
+		ChiliB = new ChiliB().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
 		RiceC = new RiceC(NPProperties.RiceCID).setBlockName("RiceC");
 		
 		Ladder = new Ladder(NPProperties.LadderID).setStepSound(Block.soundTypeLadder).setHardness(0.4F).setResistance(5.0F).setBlockName("Ladder");

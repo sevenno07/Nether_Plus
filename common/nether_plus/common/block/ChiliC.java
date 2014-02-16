@@ -3,14 +3,14 @@ package nether_plus.common.block;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.Icon;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
+import net.minecraft.block.IGrowable;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -19,147 +19,91 @@ import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ChiliC extends BlockFlower
+public class ChiliC extends BlockBush implements IGrowable
 {
-    private final Block fruitType;
     @SideOnly(Side.CLIENT)
     private IIcon theIcon;
 
-    protected ChiliC(int par1, Block par2Block)
+    protected ChiliC()
     {
-        super(par1);
-        this.fruitType = par2Block;
+        super();
         this.setTickRandomly(true);
         float f = 0.125F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
         this.setCreativeTab((CreativeTabs)null);
     }
 
-    protected boolean canThisPlantGrowOnThisBlockID(int par1)
+    protected boolean canThisPlantGrowOnThisBlockID(Block block)
     {
-        return par1 == NPBlockList.Nether_Farm.blockID;
+        return block == NPBlockList.Nether_Farm;
     }
 
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+    public void updateTick(World world, int x, int y, int z, Random rand)
     {
-        super.updateTick(par1World, par2, par3, par4, par5Random);
+    	super.updateTick(world, x, y, z, rand);
 
-        if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9)
+        if (world.getBlockLightValue(x, y + 1, z) >= 9)
         {
-            float f = this.getGrowthModifier(par1World, par2, par3, par4);
+            int l = world.getBlockMetadata(x, y, z);
 
-            if (par5Random.nextInt((int)(25.0F / f) + 1) == 0)
+            if (l < 7)
             {
-                int l = par1World.getBlockMetadata(par2, par3, par4);
+                float f = this.getGrowthModifier(world, x, y, z);
 
-                if (l < 7)
+                if (rand.nextInt((int)(25.0F / f) + 1) == 0)
                 {
                     ++l;
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-                }
-                else
-                {
-                    if (par1World.getBlockId(par2 - 1, par3, par4) == this.fruitType.blockID)
-                    {
-                        return;
-                    }
-
-                    if (par1World.getBlockId(par2 + 1, par3, par4) == this.fruitType.blockID)
-                    {
-                        return;
-                    }
-
-                    if (par1World.getBlockId(par2, par3, par4 - 1) == this.fruitType.blockID)
-                    {
-                        return;
-                    }
-
-                    if (par1World.getBlockId(par2, par3, par4 + 1) == this.fruitType.blockID)
-                    {
-                        return;
-                    }
-
-                    int i1 = par5Random.nextInt(4);
-                    int j1 = par2;
-                    int k1 = par4;
-
-                    if (i1 == 0)
-                    {
-                        j1 = par2 - 1;
-                    }
-
-                    if (i1 == 1)
-                    {
-                        ++j1;
-                    }
-
-                    if (i1 == 2)
-                    {
-                        k1 = par4 - 1;
-                    }
-
-                    if (i1 == 3)
-                    {
-                        ++k1;
-                    }
-
-                    int l1 = par1World.getBlockId(j1, par3 - 1, k1);
-
-                    boolean isSoil = (blocksList[l1] != null && blocksList[l1].canSustainPlant(par1World, j1, par3 - 1, k1, ForgeDirection.UP, this));
-                    if (par1World.getBlockId(j1, par3, k1) == 0 && (isSoil || l1 == Block.slowSand.blockID || l1 == Block.netherrack.blockID))
-                    {
-                        par1World.setBlock(j1, par3, k1, this.fruitType.blockID);
-                    }
+                    world.setBlockMetadataWithNotify(x, y, z, l, 2);
                 }
             }
         }
     }
 
-    public void fertilizeStem(World par1World, int par2, int par3, int par4)
+    public void fertilizeStem(World world, int x, int y, int z)
     {
-        int l = par1World.getBlockMetadata(par2, par3, par4) + MathHelper.getRandomIntegerInRange(par1World.rand, 2, 5);
+        int l = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(world.rand, 2, 5);
 
         if (l > 7)
         {
             l = 7;
         }
 
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+        world.setBlockMetadataWithNotify(x, y, z, l, 2);
     }
 
-    private float getGrowthModifier(World par1World, int par2, int par3, int par4)
+    private float getGrowthModifier(World world, int x, int y, int z)
     {
         float f = 1.0F;
-        int l = par1World.getBlockId(par2, par3, par4 - 1);
-        int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-        int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-        int k1 = par1World.getBlockId(par2 + 1, par3, par4);
-        int l1 = par1World.getBlockId(par2 - 1, par3, par4 - 1);
-        int i2 = par1World.getBlockId(par2 + 1, par3, par4 - 1);
-        int j2 = par1World.getBlockId(par2 + 1, par3, par4 + 1);
-        int k2 = par1World.getBlockId(par2 - 1, par3, par4 + 1);
-        boolean flag = j1 == this.blockID || k1 == this.blockID;
-        boolean flag1 = l == this.blockID || i1 == this.blockID;
-        boolean flag2 = l1 == this.blockID || i2 == this.blockID || j2 == this.blockID || k2 == this.blockID;
+        Block l = world.getBlock(x, y, z - 1);
+        Block i1 = world.getBlock(x, y, z + 1);
+        Block j1 = world.getBlock(x - 1, y, z);
+        Block k1 = world.getBlock(x + 1, y, z);
+        Block l1 = world.getBlock(x - 1, y, z - 1);
+        Block i2 = world.getBlock(x + 1, y, z - 1);
+        Block j2 = world.getBlock(x + 1, y, z + 1);
+        Block k2 = world.getBlock(x - 1, y, z + 1);
+        boolean flag = j1 == this || k1 == this;
+        boolean flag1 = l == this || i1 == this;
+        boolean flag2 = l1 == this || i2 == this || j2 == this || k2 == this;
 
-        for (int l2 = par2 - 1; l2 <= par2 + 1; ++l2)
+        for (int l2 = x - 1; l2 <= x + 1; ++l2)
         {
-            for (int i3 = par4 - 1; i3 <= par4 + 1; ++i3)
+            for (int i3 = z - 1; i3 <= z + 1; ++i3)
             {
-                int j3 = par1World.getBlockId(l2, par3 - 1, i3);
+                Block j3 = world.getBlock(l2, y - 1, i3);
                 float f1 = 0.0F;
 
-                if (blocksList[j3] != null && blocksList[j3].canSustainPlant(par1World, l2, par3 - 1, i3, ForgeDirection.UP, this))
+                if (j3 != null && j3.canSustainPlant(world, l2, y - 1, i3, ForgeDirection.UP, this))
                 {
                     f1 = 1.0F;
 
-                    if (blocksList[j3].isFertile(par1World, l2, par3 - 1, i3))
+                    if (j3.isFertile(world, l2, y - 1, i3))
                     {
                         f1 = 3.0F;
                     }
                 }
 
-                if (l2 != par2 || i3 != par4)
+                if (l2 != x || i3 != z)
                 {
                     f1 /= 4.0F;
                 }
@@ -210,10 +154,9 @@ public class ChiliC extends BlockFlower
     }
 
     @SideOnly(Side.CLIENT)
-    public int getState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+    public Item getItem(World world, int x, int y, int z)
     {
-        int l = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
-        return l < 7 ? -1 : (par1IBlockAccess.getBlockId(par2 - 1, par3, par4) == this.fruitType.blockID ? 0 : (par1IBlockAccess.getBlockId(par2 + 1, par3, par4) == this.fruitType.blockID ? 1 : (par1IBlockAccess.getBlockId(par2, par3, par4 - 1) == this.fruitType.blockID ? 2 : (par1IBlockAccess.getBlockId(par2, par3, par4 + 1) == this.fruitType.blockID ? 3 : -1))));
+    	return this.getSeedItem();
     }
 
     public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
@@ -222,7 +165,7 @@ public class ChiliC extends BlockFlower
     }
 
     @Override 
-    public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
@@ -230,16 +173,16 @@ public class ChiliC extends BlockFlower
         {
             if (world.rand.nextInt(15) <= metadata)
             {
-                ret.add(new ItemStack(fruitType == NPBlockList.ChiliB ? NPItemList.ChiliSeed : null));
+                ret.add(new ItemStack(this.getSeedItem(), 1, 0));
             }
         }
 
         return ret;
     }
 
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item idDropped(int par1, Random par2Random, int par3)
     {
-        return NPItemList.ChiliSeed.itemID;
+        return NPItemList.ChiliSeed;
     }
 
     public int quantityDropped(Random par1Random)
@@ -247,13 +190,13 @@ public class ChiliC extends BlockFlower
         return 1;
     }
 
-    protected int getSeedItem()
+    protected Item getSeedItem()
     {
-        return NPItemList.ChiliSeed.itemID;
+        return NPItemList.ChiliSeed;
     }
     
     @SideOnly(Side.CLIENT)
-    public int idPicked(World par1World, int par2, int par3, int par4)
+    public Item idPicked(World par1World, int par2, int par3, int par4)
     {
         return this.getSeedItem();
     }
@@ -266,8 +209,26 @@ public class ChiliC extends BlockFlower
     }
 
     @SideOnly(Side.CLIENT)
-    public Icon func_94368_p()
+    public IIcon func_94368_p()
     {
         return this.theIcon;
     }
+
+	@Override
+	public boolean func_149851_a(World var1, int var2, int var3, int var4, boolean var5)
+	{
+		return false;
+	}
+
+	@Override
+	public boolean func_149852_a(World var1, Random var2, int var3, int var4, int var5)
+	{
+		return false;
+	}
+
+	@Override
+	public void func_149853_b(World world, Random rand, int x, int y, int z)
+	{
+		return;
+	}
 }

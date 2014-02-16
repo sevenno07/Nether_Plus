@@ -17,7 +17,7 @@ public class ChiliB extends Block
     @SideOnly(Side.CLIENT)
     private IIcon theIcon;
 
-    protected ChiliB(int par1)
+    protected ChiliB()
     {
         super(Material.gourd);
         this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
@@ -29,9 +29,9 @@ public class ChiliB extends Block
         return par1 != 1 && par1 != 0 ? this.blockIcon : this.theIcon;
     }
 
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item idDropped(int par1, Random par2Random, int par3)
     {
-        return NPItemList.Chili.itemID;
+        return NPItemList.Chili;
     }
 
     public int quantityDropped(Random par1Random)
