@@ -3,7 +3,6 @@ package nether_plus.common.entity;
 import java.util.ArrayList;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIEatGrass;
@@ -17,12 +16,15 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import nether_plus.common.block.NPBlockList;
@@ -49,15 +51,15 @@ public class IronSheep extends EntityAnimal implements IShearable
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIPanic(this, 0.38F));
         this.tasks.addTask(2, new EntityAIMate(this, f));
-        this.tasks.addTask(3, new EntityAITempt(this, 0.25F, NPItemList.WhiteWheat.itemID, false));
+        this.tasks.addTask(3, new EntityAITempt(this, 0.25F, NPItemList.WhiteWheat, false));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 0.25F));
         this.tasks.addTask(5, this.aiEatGrass);
         this.tasks.addTask(6, new EntityAIWander(this, f));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.field_90016_e.setInventorySlotContents(0, new ItemStack(Item.dyePowder, 1, 0));
-        this.field_90016_e.setInventorySlotContents(1, new ItemStack(Item.dyePowder, 1, 0));
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(16D);
+        this.field_90016_e.setInventorySlotContents(0, new ItemStack(Items.dye, 1, 0));
+        this.field_90016_e.setInventorySlotContents(1, new ItemStack(Items.dye, 1, 0));
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(16D);
     }
     
     protected void applyEntityAttributes()
@@ -96,13 +98,13 @@ public class IronSheep extends EntityAnimal implements IShearable
     {
         if (!this.getSheared())
         {
-            this.entityDropItem(new ItemStack(Block.cloth.blockID, 1, this.getFleeceColor()), 0.0F);
+            this.entityDropItem(new ItemStack(Blocks.wool, 1, this.getFleeceColor()), 0.0F);
         }
     }
 
-    protected int getDropItemId()
+    protected Item getDropItemId()
     {
-        return Block.cloth.blockID;
+        return Item.getItemFromBlock(Blocks.wool);
     }
 
     @SideOnly(Side.CLIENT)
@@ -253,7 +255,7 @@ public class IronSheep extends EntityAnimal implements IShearable
         ItemStack itemstack = CraftingManager.getInstance().findMatchingRecipe(this.field_90016_e, ((IronSheep)par1EntityAnimal).worldObj);
         int k;
 
-        if (itemstack != null && itemstack.getItem().itemID == Item.dyePowder.itemID)
+        if (itemstack != null && itemstack.getItem().equals(Items.dye))
         {
             k = itemstack.getItemDamage();
         }
@@ -275,23 +277,22 @@ public class IronSheep extends EntityAnimal implements IShearable
         return this.func_90015_b(par1EntityAgeable);
     }
 
-    @Override
-    public boolean isShearable(ItemStack item, World world, int X, int Y, int Z)
-    {
+	@Override
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
+	{
         return !getSheared() && !isChild();
-    }
+	}
 
-    @Override
-    public ArrayList<ItemStack> onSheared(ItemStack item, World world, int X, int Y, int Z, int fortune)
-    {
+	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune)
+	{
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         setSheared(true);
         int i = 1 + rand.nextInt(3);
         for (int j = 0; j < i; j++)
         {
-            ret.add(new ItemStack(NPBlockList.SteelWool.blockID, 0, getFleeceColor()));
+            ret.add(new ItemStack(NPBlockList.SteelWool, 0, getFleeceColor()));
         }
         this.worldObj.playSoundAtEntity(this, "mob.sheep.shear", 1.0F, 1.0F);
-        return ret;
-    }
+        return ret;	}
 }

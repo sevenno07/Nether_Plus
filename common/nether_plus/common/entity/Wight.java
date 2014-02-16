@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -18,8 +19,8 @@ public class Wight extends EntityZombie
     {
         super(par1World);
         this.isImmuneToFire = true;
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(20D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(1.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.0D);
     }
     
     protected void applyEntityAttributes()
@@ -34,7 +35,7 @@ public class Wight extends EntityZombie
 
     public boolean getCanSpawnHere()
     {
-        return this.worldObj.difficultySetting > 0 && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        return this.worldObj.difficultySetting.getDifficultyId() > 0 && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
     }
 
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
@@ -81,13 +82,13 @@ public class Wight extends EntityZombie
         return false;
     }
 
-    protected int getDropItemId()
+    protected Item getDropItemId()
     {
-        return NPItemList.BlackBone.itemID;
+        return NPItemList.BlackBone;
     }
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem.itemID, 1);
+        this.dropItem(NPItemList.BloodGem, 1);
     }
 }

@@ -9,200 +9,202 @@ import nether_plus.common.config.NPProperties;
 
 public class GrimGenTree extends WorldGenerator
 {
-private final int field_48202_a;
-private final boolean field_48200_b;
-private final int field_48201_c;
-private final int field_48199_d;
+	private final int field_48202_a;
+	private final boolean field_48200_b;
+	private final int field_48201_c;
+	private final int field_48199_d;
 
-public GrimGenTree(boolean flag)
-{
-this(flag, 4, 0, 0, false);
-}
+	public GrimGenTree(boolean flag)
+	{
+		this(flag, 4, 0, 0, false);
+	}
 
-public GrimGenTree(boolean flag, int i, int j, int k, boolean flag1)
-{
-super(flag);
-field_48202_a = i;
-field_48201_c = j;
-field_48199_d = k;
-field_48200_b = flag1;
-}
+	public GrimGenTree(boolean flag, int i, int j, int k, boolean flag1)
+	{
+		super(flag);
+		field_48202_a = i;
+		field_48201_c = j;
+		field_48199_d = k;
+		field_48200_b = flag1;
+	}
 
-public boolean generate(World world, Random random, int i, int j, int k)
-{
-int l = random.nextInt(3) + field_48202_a;
-boolean flag = true;
+	public boolean generate(World world, Random random, int i, int j, int k)
+	{
+		int l = random.nextInt(3) + field_48202_a;
+		boolean flag = true;
 
-if(j < 1 || j + l + 1 > 256)
-{
-return false;
-}
+		if (j < 1 || j + l + 1 > 256)
+		{
+			return false;
+		}
 
-for(int i1 = j; i1 <= j + 1 + l; i1++)
-{
-byte byte0 = 1;
+		for (int i1 = j; i1 <= j + 1 + l; i1++)
+		{
+			byte byte0 = 1;
 
-if(i1 == j)
-{
-byte0 = 0;
-}
+			if (i1 == j)
+			{
+				byte0 = 0;
+			}
 
-if(i1 >= (j + 1 + l) - 2)
-{
-byte0 = 2;
-}
+			if (i1 >= (j + 1 + l) - 2)
+			{
+				byte0 = 2;
+			}
 
-for(int k1 = i - byte0; k1 <= i + byte0 && flag; k1++)
-{
-for(int i2 = k - byte0; i2 <= k + byte0 && flag; i2++)
-{
-if(i1 >= 0 && i1 < 256)
-{
-int i3 = world.getBlockId(k1, i1, i2);
-if(i3 != 0 && i3 != NPProperties.GrimwoodLeavesID && i3 != Block.grass.blockID && i3 != NPProperties.GrimwoodLogID && i3 != Block.dirt.blockID && i3 != NPProperties.CorruptionStoneID)
-{
-flag = false;
-}
-}
-else
-{
-flag = false;
-}
-}
-}
-}
+			for (int k1 = i - byte0; k1 <= i + byte0 && flag; k1++)
+			{
+				for (int i2 = k - byte0; i2 <= k + byte0 && flag; i2++)
+				{
+					if (i1 >= 0 && i1 < 256)
+					{
+						int i3 = world.getBlockId(k1, i1, i2);
+						if (i3 != 0 && i3 != NPProperties.GrimwoodLeavesID && i3 != Block.grass.blockID && i3 != NPProperties.GrimwoodLogID && i3 != Block.dirt.blockID && i3 != NPProperties.CorruptionStoneID)
+						{
+							flag = false;
+						}
+					}
+					else
+					{
+						flag = false;
+					}
+				}
+			}
+		}
 
-if(!flag)
-{
-return false;
-}
+		if (!flag)
+		{
+			return false;
+		}
 
-int j1 = world.getBlockId(i, j - 1, k);
+		int j1 = world.getBlockId(i, j - 1, k);
 
-if(j1 != Block.dirt.blockID && j1 != Block.grass.blockID && j1 != NPProperties.CorruptionStoneID || j >= 256 - l - 1)
-{
-return false;
-}
+		if (j1 != Block.dirt.blockID && j1 != Block.grass.blockID && j1 != NPProperties.CorruptionStoneID || j >= 256 - l - 1)
+		{
+			return false;
+		}
 
-func_50073_a(world, i, j - 1, k, NPProperties.GrimwoodLogID);
-byte byte1 = 3;
-int l1 = 0;
+		func_50073_a(world, i, j - 1, k, NPProperties.GrimwoodLogID);
+		byte byte1 = 3;
+		int l1 = 0;
 
-for(int j2 = (j - byte1) + l; j2 <= j + l; j2++)
-{
-int j3 = j2 - (j + l);
-int i4 = (l1 + 1) - j3 / 2;
+		for (int j2 = (j - byte1) + l; j2 <= j + l; j2++)
+		{
+			int j3 = j2 - (j + l);
+			int i4 = (l1 + 1) - j3 / 2;
 
-for(int k4 = i - i4; k4 <= i + i4; k4++)
-{
-int i5 = k4 - i;
+			for (int k4 = i - i4; k4 <= i + i4; k4++)
+			{
+				int i5 = k4 - i;
 
-for(int k5 = k - i4; k5 <= k + i4; k5++)
-{
-int l5 = k5 - k;
+				for (int k5 = k - i4; k5 <= k + i4; k5++)
+				{
+					int l5 = k5 - k;
 
-if((Math.abs(i5) != i4 || Math.abs(l5) != i4 || random.nextInt(2) != 0 && j3 != 0) && !Block.opaqueCubeLookup[world.getBlockId(k4, j2, k5)])
-{
-setBlockAndMetadata(world, k4, j2, k5, NPProperties.GrimwoodLeavesID, field_48199_d);
-}
-}
-}
-}
+					if ((Math.abs(i5) != i4 || Math.abs(l5) != i4 || random.nextInt(2) != 0 && j3 != 0) && !Block.opaqueCubeLookup[world.getBlockId(k4, j2, k5)])
+					{
+						setBlockAndMetadata(world, k4, j2, k5, NPProperties.GrimwoodLeavesID, field_48199_d);
+					}
+				}
+			}
+		}
 
-for(int k2 = 0; k2 < l; k2++)
-{
-int k3 = world.getBlockId(i, j + k2, k);
+		for (int k2 = 0; k2 < l; k2++)
+		{
+			int k3 = world.getBlockId(i, j + k2, k);
 
-if(k3 != 0 && k3 != NPProperties.GrimwoodLeavesID)
-{
-continue;
-}
+			if (k3 != 0 && k3 != NPProperties.GrimwoodLeavesID)
+			{
+				continue;
+			}
 
-setBlockAndMetadata(world, i, j + k2, k, NPProperties.GrimwoodLogID, field_48201_c);
+			setBlockAndMetadata(world, i, j + k2, k, NPProperties.GrimwoodLogID, field_48201_c);
 
-if(!field_48200_b || k2 <= 0)
-{
-continue;
-}
+			if (!field_48200_b || k2 <= 0)
+			{
+				continue;
+			}
 
-if(random.nextInt(3) > 0 && world.isAirBlock(i - 1, j + k2, k))
-{
-setBlockAndMetadata(world, i - 1, j + k2, k, Block.dirt.blockID, 8);
-}
+			if (random.nextInt(3) > 0 && world.isAirBlock(i - 1, j + k2, k))
+			{
+				setBlockAndMetadata(world, i - 1, j + k2, k, Block.dirt.blockID, 8);
+			}
 
-if(random.nextInt(3) > 0 && world.isAirBlock(i + 1, j + k2, k))
-{
-setBlockAndMetadata(world, i + 1, j + k2, k, Block.dirt.blockID, 2);
-}
+			if (random.nextInt(3) > 0 && world.isAirBlock(i + 1, j + k2, k))
+			{
+				setBlockAndMetadata(world, i + 1, j + k2, k, Block.dirt.blockID, 2);
+			}
 
-if(random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k - 1))
-{
-setBlockAndMetadata(world, i, j + k2, k - 1, Block.dirt.blockID, 1);
-}
+			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k - 1))
+			{
+				setBlockAndMetadata(world, i, j + k2, k - 1, Block.dirt.blockID, 1);
+			}
 
-if(random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k + 1))
-{
-setBlockAndMetadata(world, i, j + k2, k + 1, Block.dirt.blockID, 4);
-}
-}
+			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k + 1))
+			{
+				setBlockAndMetadata(world, i, j + k2, k + 1, Block.dirt.blockID, 4);
+			}
+		}
 
-if(field_48200_b)
-{
-for(int l2 = (j - 3) + l; l2 <= j + l; l2++)
-{
-int l3 = l2 - (j + l);
-int j4 = 2 - l3 / 2;
+		if (field_48200_b)
+		{
+			for (int l2 = (j - 3) + l; l2 <= j + l; l2++)
+			{
+				int l3 = l2 - (j + l);
+				int j4 = 2 - l3 / 2;
 
-for(int l4 = i - j4; l4 <= i + j4; l4++)
-{
-for(int j5 = k - j4; j5 <= k + j4; j5++)
-{
-if(world.getBlockId(l4, l2, j5) != NPProperties.GrimwoodLogID)
-{
-continue;
-}
+				for (int l4 = i - j4; l4 <= i + j4; l4++)
+				{
+					for (int j5 = k - j4; j5 <= k + j4; j5++)
+					{
+						if (world.getBlockId(l4, l2, j5) != NPProperties.GrimwoodLogID)
+						{
+							continue;
+						}
 
-if(random.nextInt(4) == 0 && world.getBlockId(l4 - 1, l2, j5) == 0)
-{
-func_48198_a(world, l4 - 1, l2, j5, 8);
-}
+						if (random.nextInt(4) == 0 && world.getBlockId(l4 - 1, l2, j5) == 0)
+						{
+							func_48198_a(world, l4 - 1, l2, j5, 8);
+						}
 
-if(random.nextInt(4) == 0 && world.getBlockId(l4 + 1, l2, j5) == 0)
-{
-func_48198_a(world, l4 + 1, l2, j5, 2);
-}
+						if (random.nextInt(4) == 0 && world.getBlockId(l4 + 1, l2, j5) == 0)
+						{
+							func_48198_a(world, l4 + 1, l2, j5, 2);
+						}
 
-if(random.nextInt(4) == 0 && world.getBlockId(l4, l2, j5 - 1) == 0)
-{
-func_48198_a(world, l4, l2, j5 - 1, 1);
-}
+						if (random.nextInt(4) == 0 && world.getBlockId(l4, l2, j5 - 1) == 0)
+						{
+							func_48198_a(world, l4, l2, j5 - 1, 1);
+						}
 
-if(random.nextInt(4) == 0 && world.getBlockId(l4, l2, j5 + 1) == 0)
-{
-func_48198_a(world, l4, l2, j5 + 1, 4);
-}
-}
-}
-}
-}
+						if (random.nextInt(4) == 0 && world.getBlockId(l4, l2, j5 + 1) == 0)
+						{
+							func_48198_a(world, l4, l2, j5 + 1, 4);
+						}
+					}
+				}
+			}
+		}
 
-return true;
-}
+		return true;
+	}
 
-private void func_50073_a(World world, int i, int j, int k, int blockID)
-{}
+	private void func_50073_a(World world, int i, int j, int k, int blockID)
+	{
+	}
 
-private void func_48198_a(World world, int i, int j, int k, int l)
-{
-setBlockAndMetadata(world, i, j, k, Block.dirt.blockID, l);
+	private void func_48198_a(World world, int i, int j, int k, int l)
+	{
+		setBlockAndMetadata(world, i, j, k, Block.dirt.blockID, l);
 
-for(int i1 = 4; world.getBlockId(i, --j, k) == 0 && i1 > 0; i1--)
-{
-setBlockAndMetadata(world, i, j, k, Block.dirt.blockID, l);
-}
-}
+		for (int i1 = 4; world.getBlockId(i, --j, k) == 0 && i1 > 0; i1--)
+		{
+			setBlockAndMetadata(world, i, j, k, Block.dirt.blockID, l);
+		}
+	}
 
-public void fertilize(World world, int x, int y, int z)
-{}
-
+	public void fertilize(World world, int x, int y, int z)
+	{
+		
+	}
 }

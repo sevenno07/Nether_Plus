@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -11,15 +12,14 @@ import nether_plus.common.item.NPItemList;
 
 public class Salamander extends EntityAnimal
 {
-
 	public Salamander(World par1World)
 	{
 		super(par1World);
 		this.setSize(1.25F, 0.75F);
 		this.stepHeight = 0.0F;
 		this.isImmuneToFire = true;
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(40D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(1.6D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.6D);
 	}
 	
 	protected void applyEntityAttributes()
@@ -59,9 +59,9 @@ public class Salamander extends EntityAnimal
     	return super.attackEntityFrom(damagesource, i);
     }
     
-    protected int getDropItemId()
+    protected Item getDropItemId()
     {
-    	return NPItemList.BlackBone.itemID;
+    	return NPItemList.BlackBone;
     }
     
     protected void dropFewItems(boolean par1, int par2)
@@ -70,13 +70,13 @@ public class Salamander extends EntityAnimal
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.dropItem(NPItemList.SalamanderLeather.itemID, 1);
+            this.dropItem(NPItemList.SalamanderLeather, 1);
         }
     }
     
     public boolean isBreedingItem(ItemStack par1ItemStack)
     {
-        return par1ItemStack != null && par1ItemStack.itemID == NPItemList.BlackBone.itemID;
+        return par1ItemStack != null && par1ItemStack.getItem().equals(NPItemList.BlackBone);
     }
     
     public Salamander spawnBabyAnimal(EntityAgeable par1EntityAgeable)
@@ -92,6 +92,6 @@ public class Salamander extends EntityAnimal
 	
 	protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem.itemID, 1);
+        this.dropItem(NPItemList.BloodGem, 1);
     }
 }

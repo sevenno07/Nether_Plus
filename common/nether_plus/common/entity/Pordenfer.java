@@ -3,6 +3,7 @@ package nether_plus.common.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
@@ -16,7 +17,7 @@ public class Pordenfer extends EntityMob
 		this.setSize(1.25F, 0.75F);
         this.isImmuneToFire = true;
         
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(20D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20D);
     }
     
     protected void applyEntityAttributes()
@@ -92,11 +93,11 @@ public class Pordenfer extends EntityMob
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem.itemID, 1);
+        this.dropItem(NPItemList.BloodGem, 1);
     }
     
-    protected int getDropItemId()
+    protected Item getDropItemId()
     {
-        return NPItemList.BlackBone.itemID;
+        return NPItemList.BlackBone;
     }
 }

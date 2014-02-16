@@ -15,7 +15,7 @@ public class ContainerGrimwoodChest extends Container
     {
         this.lowerChestInventory = par2IInventory;
         this.numRows = par2IInventory.getSizeInventory() / 9;
-        par2IInventory.openChest();
+        par2IInventory.openInventory();
         int i = (this.numRows - 4) * 18;
         int j;
         int k;
@@ -85,7 +85,7 @@ public class ContainerGrimwoodChest extends Container
     public void onContainerClosed(EntityPlayer par1EntityPlayer)
     {
         super.onContainerClosed(par1EntityPlayer);
-        this.lowerChestInventory.closeChest();
+        this.lowerChestInventory.closeInventory();
     }
 
     public IInventory getLowerChestInventory()

@@ -3,6 +3,7 @@ package nether_plus.common.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -17,8 +18,8 @@ public class BlackSalamander extends EntityMob
 		this.stepHeight = 0.0F;
 		this.isImmuneToFire = true;
 		
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(40D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(1.6D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.6D);
 	}
 	
 	protected void applyEntityAttributes()
@@ -60,16 +61,16 @@ public class BlackSalamander extends EntityMob
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem.itemID, 1);
+        this.dropItem(NPItemList.BloodGem, 1);
     }
     
-    protected int getDropItemId()
+    protected Item getDropItemId()
     {
-    	return NPItemList.BlackBone.itemID;
+    	return NPItemList.BlackBone;
     }
     
     public boolean isBreedingItem(ItemStack par1ItemStack)
     {
-        return par1ItemStack != null && par1ItemStack.itemID == NPItemList.BlackBone.itemID;
+        return par1ItemStack != null && par1ItemStack.getItem().equals(NPItemList.BlackBone);
     }
 }

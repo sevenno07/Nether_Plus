@@ -16,7 +16,6 @@ import nether_plus.common.block.container.InventoryGrimwoodLargeChest;
 
 public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 {
-
 	private ItemStack[] chestContents = new ItemStack[36];
 	
 	public boolean adjacentChestChecked = false;
@@ -62,7 +61,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             {
                 itemstack = this.chestContents[i];
                 this.chestContents[i] = null;
-                this.onInventoryChanged();
+                this.markDirty();
                 return itemstack;
             }
             else
@@ -74,7 +73,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
                     this.chestContents[i] = null;
                 }
 
-                this.onInventoryChanged();
+                this.markDirty();
                 return itemstack;
             }
         }
@@ -110,19 +109,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             itemstack.stackSize = this.getInventoryStackLimit();
         }
 
-        this.onInventoryChanged();
-	}
-
-	@Override
-	public String getInvName()
-	{
-		return this.isInvNameLocalized() ? this.field_94045_s : "container.grimwoodchest";
-	}
-
-	@Override
-	public boolean isInvNameLocalized()
-	{
-		return this.field_94045_s != null && this.field_94045_s.length() > 0;
+        this.markDirty();
 	}
 	
 	public void func_94043_a(String par1Str)
@@ -143,7 +130,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i)
         {
-            NBTTagCompound nbttagcompound1 = (NBTTagCompound)nbttaglist.tagAt(i);
+            NBTTagCompound nbttagcompound1 = (NBTTagCompound)nbttaglist.getCompoundTagAt(i);
             int j = nbttagcompound1.getByte("Slot") & 255;
 
             if (j >= 0 && j < this.chestContents.length)
@@ -171,7 +158,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 
         par1NBTTagCompound.setTag("Items", nbttaglist);
 
-        if (this.isInvNameLocalized())
+        if (this.hasCustomInventoryName())
         {
             par1NBTTagCompound.setString("CustomName", this.field_94045_s);
         }
@@ -186,7 +173,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer)
 	{
-        return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityplayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityplayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
 	}
 	
 	public void updateContainingBlockInfo()
@@ -376,32 +363,6 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             return super.receiveClientEvent(par1, par2);
         }
     }
-    
-	@Override
-	public void openChest()
-	{
-		if (this.numUsingPlayers < 0)
-        {
-            this.numUsingPlayers = 0;
-        }
-
-        ++this.numUsingPlayers;
-        this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID, 1, this.numUsingPlayers);
-        this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID);
-        this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType().blockID);
-	}
-
-	@Override
-	public void closeChest()
-	{
-		  if (this.getBlockType() != null && this.getBlockType() instanceof GrimwoodChest)
-	        {
-	            --this.numUsingPlayers;
-	            this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID, 1, this.numUsingPlayers);
-	            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType().blockID);
-	            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType().blockID);
-	        }
-	}
 
 	public boolean isStackValidForSlot(int i, ItemStack itemstack) 
 	{
@@ -419,5 +380,43 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 	public boolean isItemValidForSlot(int i, ItemStack itemstack)
 	{
 		return false;
+	}
+
+	@Override
+	public String getInventoryName()
+	{
+		return this.hasCustomInventoryName() ? this.field_94045_s : "container.grimwoodchest";
+	}
+
+	@Override
+	public boolean hasCustomInventoryName()
+	{
+		return this.field_94045_s != null && this.field_94045_s.length() > 0;
+	}
+
+	@Override
+	public void openInventory()
+	{
+		if (this.numUsingPlayers < 0)
+        {
+            this.numUsingPlayers = 0;
+        }
+
+        ++this.numUsingPlayers;
+        this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType(), 1, this.numUsingPlayers);
+        this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType());
+        this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType());
+	}
+
+	@Override
+	public void closeInventory()
+	{
+		if (this.getBlockType() != null && this.getBlockType() instanceof GrimwoodChest)
+	    {
+			--this.numUsingPlayers;
+			this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType(), 1, this.numUsingPlayers);
+			this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType());
+			this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType());
+	    }
 	}
 }

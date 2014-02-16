@@ -39,7 +39,7 @@ public class FireSlime extends EntityLiving implements IMob
         this.dataWatcher.updateObject(16, new Byte((byte)par1));
         this.setSize(0.6F * (float)par1, 0.6F * (float)par1);
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute((double)(par1 * par1));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)(par1 * par1));
         this.setHealth(this.getMaxHealth());
         this.experienceValue = par1;
     }
@@ -73,7 +73,7 @@ public class FireSlime extends EntityLiving implements IMob
 
     public void onUpdate()
     {
-        if (!this.worldObj.isRemote && this.worldObj.difficultySetting == 0 && this.getFireSlimeSize() > 0)
+        if (!this.worldObj.isRemote && this.worldObj.difficultySetting.getDifficultyId() == 0 && this.getFireSlimeSize() > 0)
         {
             this.isDead = true;
         }
@@ -230,7 +230,7 @@ public class FireSlime extends EntityLiving implements IMob
 
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem.itemID, 1);
+        this.dropItem(NPItemList.BloodGem, 1);
     }
     
     protected int getDropItemId()

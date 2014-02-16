@@ -1,15 +1,15 @@
 package nether_plus.common.block.slot;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.MathHelper;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class SlotFour extends Slot
 {
@@ -56,7 +56,7 @@ public class SlotFour extends Slot
 		 if (!this.thePlayer.worldObj.isRemote)
 		 {
 			 int i = this.field_75228_b;
-			 float f = FurnaceRecipes.smelting().getExperience(par1ItemStack);
+			 float f = FurnaceRecipes.smelting().func_151398_b(par1ItemStack);
 			 int j;
 
 			 if (f == 0.0F)
@@ -85,14 +85,14 @@ public class SlotFour extends Slot
 
 		 this.field_75228_b = 0;
 
-		 GameRegistry.onItemSmelted(thePlayer, par1ItemStack);
+		 FMLCommonHandler.instance().firePlayerSmeltedEvent(thePlayer, par1ItemStack);
 
-		 if (par1ItemStack.itemID == Item.ingotIron.itemID)
+		 if (par1ItemStack.getItem() == Items.iron_ingot)
 		 {
 			 this.thePlayer.addStat(AchievementList.acquireIron, 1);
 		 }
 
-		 if (par1ItemStack.itemID == Item.fishCooked.itemID)
+		 if (par1ItemStack.getItem() == Items.cooked_fished)
 		 {
 			 this.thePlayer.addStat(AchievementList.cookFish, 1);
 		 }

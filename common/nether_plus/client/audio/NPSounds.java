@@ -1,12 +1,12 @@
 package nether_plus.client.audio;
 
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
-import net.minecraftforge.event.ForgeSubscribe;
 import nether_plus.common.Nether_plus;
+import cpw.mods.fml.common.Mod.EventHandler;
 
 public class NPSounds
 {
-	@ForgeSubscribe
+	@EventHandler
 	public void onSoundsLoad(SoundLoadEvent event)
 	{
 		try

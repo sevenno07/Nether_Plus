@@ -7,6 +7,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -132,12 +134,10 @@ public class SalamanderBoat extends EntityBoat
 
                 if (!flag)
                 {
-                    this.dropItemWithOffset(NPItemList.SalamanderBoat.itemID, 1, 0.0F);
+                    this.dropItem(NPItemList.SalamanderBoat, 1);
                 }
-
                 this.setDead();
             }
-
             return true;
         }
         else
@@ -387,12 +387,12 @@ public class SalamanderBoat extends EntityBoat
 
                     for (k = 0; k < 3; ++k)
                     {
-                        this.dropItemWithOffset(NPBlockList.GrimwoodPlanks.blockID, 1, 0.0F);
+                        this.dropItem(Item.getItemFromBlock(NPBlockList.GrimwoodPlanks), 1);
                     }
 
                     for (k = 0; k < 2; ++k)
                     {
-                        this.dropItemWithOffset(NPItemList.GrimwoodStick.itemID, 1, 0.0F);
+                        this.dropItem(NPItemList.GrimwoodStick, 1);
                     }
                 }
             }
@@ -454,13 +454,13 @@ public class SalamanderBoat extends EntityBoat
                     for (int k1 = 0; k1 < 2; ++k1)
                     {
                         int l1 = MathHelper.floor_double(this.posY) + k1;
-                        int i2 = this.worldObj.getBlockId(i1, l1, j1);
+                        Block block = this.worldObj.getBlock(i1, l1, j1);
 
-                        if (i2 == Block.snow.blockID)
+                        if (block == Blocks.snow_layer)
                         {
                             this.worldObj.setBlockToAir(i1, l1, j1);
                         }
-                        else if (i2 == Block.waterlily.blockID)
+                        else if (block == Blocks.waterlily)
                         {
                             this.worldObj.destroyBlock(i1, l1, j1, true);
                         }

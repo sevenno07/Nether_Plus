@@ -63,31 +63,11 @@ public class TileEntityGrimwoodWorkbench extends TileEntity implements IInventor
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack)
 	{
-
 		inventory[slot] = stack;
- 
-		
- 
 		if(stack != null && stack.stackSize > getInventoryStackLimit())
- 
 		{
- 
 			stack.stackSize = getInventoryStackLimit();
- 
 		}
- 
-	}
-
-	@Override
-	public String getInvName()
-	{
-		return this.isInvNameLocalized() ? this.field_94130_e : "container.workbench";
-	}
-
-	@Override
-	public boolean isInvNameLocalized()
-	{
-		return this.field_94130_e != null && this.field_94130_e.length() > 0;
 	}
 	
 	public void setGuiDisplayName(String par1Str)
@@ -104,7 +84,7 @@ public class TileEntityGrimwoodWorkbench extends TileEntity implements IInventor
  
 		for(int i = 0; i < tagList.tagCount(); i++)
 		{
-			NBTTagCompound tag = (NBTTagCompound) tagList.tagAt(i);
+			NBTTagCompound tag = (NBTTagCompound) tagList.getCompoundTagAt(i);
 			byte slot = tag.getByte("Slot");
  
 			if(slot >= 0 && slot < inventory.length)
@@ -145,14 +125,8 @@ public class TileEntityGrimwoodWorkbench extends TileEntity implements IInventor
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer)
 	{
-		return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityplayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityplayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
 	}
-
-	@Override
-	public void openChest(){}
-
-	@Override
-	public void closeChest(){}
 
 	public boolean isStackValidForSlot(int i, ItemStack itemstack)
 	{
@@ -164,4 +138,22 @@ public class TileEntityGrimwoodWorkbench extends TileEntity implements IInventor
 	{
 		return false;
 	}
+
+	@Override
+	public String getInventoryName()
+	{
+		return this.hasCustomInventoryName() ? this.field_94130_e : "container.workbench";
+	}
+
+	@Override
+	public boolean hasCustomInventoryName()
+	{
+		return this.field_94130_e != null && this.field_94130_e.length() > 0;
+	}
+
+	@Override
+	public void openInventory(){}
+
+	@Override
+	public void closeInventory(){}
 }

@@ -4,16 +4,14 @@ import java.io.File;
 import java.util.List;
 import java.util.logging.Logger;
 
-import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
-import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
 import nether_plus.common.block.NPBlockList;
-import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.event.FarmingNether;
@@ -25,8 +23,6 @@ import nether_plus.common.item.NPItemList;
 import nether_plus.common.recipe.NPRecipe;
 import nether_plus.common.tileentity.NPTEntityList;
 import nether_plus.proxy.NPCommonProxy;
-import nether_plus.proxy.network.ClientPacketHandler;
-import nether_plus.proxy.network.ServerPacketHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -35,15 +31,12 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "nether_plus", name = "Nether plus", version = "1.0.0")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false,
-clientPacketHandlerSpec = @SidedPacketHandler(channels = {"Nether_Plus"}, packetHandler = ClientPacketHandler.class),
-serverPacketHandlerSpec = @SidedPacketHandler(channels = {"Nether_Plus"}, packetHandler = ServerPacketHandler.class))
+//@NetworkMod(clientSideRequired = true, serverSideRequired = false,
+//clientPacketHandlerSpec = @SidedPacketHandler(channels = {"Nether_Plus"}, packetHandler = ClientPacketHandler.class),
+//serverPacketHandlerSpec = @SidedPacketHandler(channels = {"Nether_Plus"}, packetHandler = ServerPacketHandler.class))
 public class Nether_plus
 {
 	@SidedProxy(clientSide = "nether_plus.proxy.NPClientProxy", serverSide = "nether_plus.proxy.NPCommonProxy")
@@ -60,9 +53,9 @@ public class Nether_plus
 	@EventHandler
 	public void preload(FMLPreInitializationEvent event)
 	{
-		NPlog.setParent(FMLLog.getLogger());
+		NPlog.setParent((Logger) FMLLog.getLogger());
 		
-		ConfigFile = new File(event.getModConfigurationDirectory(), "Nether_Plus.cfg");
+		/*ConfigFile = new File(event.getModConfigurationDirectory(), "Nether_Plus.cfg");
 		Configuration cfg = new Configuration(ConfigFile);
 		try
 		{
@@ -205,7 +198,7 @@ public class Nether_plus
 			}
 			
 			NPlog.info("Initialisation des ID's terminé!");
-		}
+		}*/
 		
 		NetherPlusCreativeTabs.loadCreativeTab();//CreativeTab
 		NPBlockList.loadBlock();//Block
@@ -218,7 +211,7 @@ public class Nether_plus
 	public void load(FMLInitializationEvent event)
 	{
 		NPEntityList.loadEntity();//Entity	
-		this.removeRecipe(new ItemStack(Block.glowStone));
+		this.removeRecipe(new ItemStack(Blocks.glowstone));
 		
 		proxy.registerRender();
 		proxy.registerRenderEntity();
@@ -235,19 +228,15 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(ModBucket.INSTANCE);
 		//*1
 		
-		
 		NPTEntityList.loadTileEntity();
-		NetworkRegistry.instance().registerGuiHandler(this, GuiHandler);
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler);
 	}
 
 	@EventHandler
 	public void modloaded(FMLPostInitializationEvent event)
 	{
-		LanguageRegistry.instance().loadLocalization("/mods/nether_plus/lang/en_US.lang", "en_US", false);
-		LanguageRegistry.instance().loadLocalization("/mods/nether_plus/lang/fr_FR.lang", "fr_FR", false);
 		NPRecipe.loadRecipe();//Recipe
 		NPRecipe.loadSmelting();//Smelting
-		
 	}
 	
 	public static void removeRecipe(ItemStack par1)

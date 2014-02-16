@@ -1,11 +1,10 @@
 package nether_plus.common.tileentity;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -18,6 +17,9 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import nether_plus.common.block.BlockFour;
 import nether_plus.common.recipe.RecipesFour;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class TileEntityFour extends TileEntity implements ISidedInventory
 {
@@ -119,7 +121,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i)
 		{
-			NBTTagCompound nbttagcompound1 = (NBTTagCompound)nbttaglist.tagAt(i);
+			NBTTagCompound nbttagcompound1 = (NBTTagCompound)nbttaglist.getCompoundTagAt(i);
 			byte b0 = nbttagcompound1.getByte("Slot");
 
 			if (b0 >= 0 && b0 < this.furnaceItemStacks.length)
@@ -217,7 +219,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 						if (this.furnaceItemStacks[1].stackSize == 0)
 						{
-							this.furnaceItemStacks[1] = this.furnaceItemStacks[1].getItem().getContainerItemStack(furnaceItemStacks[1]);
+							this.furnaceItemStacks[1] = this.furnaceItemStacks[1].getItem().getContainerItem(furnaceItemStacks[1]);
 						}
 					}
 				}
@@ -248,7 +250,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 		if (flag1)
 		{
-			this.onInventoryChanged();
+			this.markDirty();
 		}
 	}
 	
@@ -301,19 +303,19 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 		}
 		else
 		{
-			int i = par0ItemStack.getItem().itemID;
+			Item i = par0ItemStack.getItem();
 			Item item = par0ItemStack.getItem();
 
 			if (par0ItemStack.getItem() instanceof ItemBlock && Block.blocksList[i] != null)
 			{
 				Block block = Block.blocksList[i];
 
-				if (block == Block.woodSingleSlab)
+				if (block == Blocks.wooden_slab)
 				{
 					return 75;
 				}
 
-				if (block.blockMaterial == Material.wood)
+				if (block.getMaterial() == Material.wood)
 				{
 					return 150;
 				}
@@ -321,12 +323,12 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 100;
 			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 100;
-			if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD")) return 100;
-			if (i == Item.stick.itemID) return 50;
-			if (i == Item.coal.itemID) return 800;
-			if (i == Item.bucketLava.itemID) return 10000;
-			if (i == Block.sapling.blockID) return 50;
-			if (i == Item.blazeRod.itemID) return 1200;
+			if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD")) return 100;
+			if (i == Items.stick) return 50;
+			if (i == Items.coal) return 800;
+			if (i == Items.lava_bucket) return 10000;
+			if (i == Item.getItemFromBlock(Blocks.sapling)) return 50;
+			if (i == Items.blaze_rod) return 1200;
 			return GameRegistry.getFuelValue(par0ItemStack);
 		}
 	}
@@ -338,12 +340,8 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 	
 	public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
 	{
-		return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
 	}
-	
-	public void openChest() {}
-
-	public void closeChest() {}
 
 	public boolean isItemValidForSlot(int par1, ItemStack par2ItemStack)
 	{
@@ -362,11 +360,29 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 	public boolean canExtractItem(int par1, ItemStack par2ItemStack, int par3)
 	{
-		return par3 != 0 || par1 != 1 || par2ItemStack.itemID == Item.bucketEmpty.itemID;
+		return par3 != 0 || par1 != 1 || par2ItemStack.getItem().equals(Items.bucket);
 	}
 
 	public boolean isStackValidForSlot(int i, ItemStack itemstack)
 	{
         return i == 2 ? false : (i == 1 ? isItemFuel(itemstack) : true);
 	}
+
+	@Override
+	public String getInventoryName()
+	{
+		return null;
+	}
+
+	@Override
+	public boolean hasCustomInventoryName()
+	{
+		return false;
+	}
+
+	@Override
+	public void openInventory(){}
+
+	@Override
+	public void closeInventory(){}
 }

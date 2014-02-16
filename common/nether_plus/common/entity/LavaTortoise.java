@@ -2,11 +2,12 @@ package nether_plus.common.entity;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
@@ -18,8 +19,8 @@ public class LavaTortoise extends EntityCreature
 		super(World);
 		this.setSize(2.20F, 1.75F);//Hitbox
 		this.isImmuneToFire = true;
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(20D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(1.2D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.2D);
 	}
 	
 	protected void applyEntityAttributes()
@@ -97,9 +98,9 @@ public class LavaTortoise extends EntityCreature
         return super.attackEntityFrom(damagesource, i);
     }
 
-    protected int getDropItemId()
+    protected Item getDropItemId()
     {
-        return NPItemList.BlackBone.itemID;
+        return NPItemList.BlackBone;
     }
     
     protected void dropFewItems(boolean par1, int par2)
@@ -109,19 +110,19 @@ public class LavaTortoise extends EntityCreature
 
         for (k = 0; k < j; ++k)
         {
-            this.dropItem(NPItemList.BlackBone.itemID, 1);
+            this.dropItem(NPItemList.BlackBone, 1);
         }
 
         j = this.rand.nextInt(2 + par2);
 
         for (k = 0; k < j; ++k)
         {
-            this.dropItem(Block.obsidian.blockID, 1);
+            this.dropItem(Item.getItemFromBlock(Blocks.obsidian), 1);
         }
     }
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem.itemID, 1);
+        this.dropItem(NPItemList.BloodGem, 1);
     }
 }

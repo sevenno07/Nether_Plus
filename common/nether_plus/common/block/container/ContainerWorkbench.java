@@ -11,7 +11,6 @@ import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
-import nether_plus.common.recipe.RecipesWorkbench;
 import nether_plus.common.tileentity.TileEntityGrimwoodWorkbench;
 
 public class ContainerWorkbench extends Container
@@ -79,7 +78,7 @@ public class ContainerWorkbench extends Container
 
                 if (itemstack != null)
                 {
-                    par1EntityPlayer.dropPlayerItem(itemstack);
+                    par1EntityPlayer.dropPlayerItemWithRandomChoice(itemstack, false);
                 }
             }
         }
