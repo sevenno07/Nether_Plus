@@ -2,10 +2,14 @@ package nether_plus.common.recipe;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import nether_plus.common.block.NPBlockList;
@@ -27,98 +31,99 @@ public class RecipesFour
 
 	private RecipesFour()
 	{
-		this.addSmelting(Block.oreIron.blockID, new ItemStack(Item.ingotIron), 0.7F);
-		this.addSmelting(Block.oreGold.blockID, new ItemStack(Item.ingotGold), 1.0F);
-		this.addSmelting(Block.oreDiamond.blockID, new ItemStack(Item.diamond), 1.0F);
-		this.addSmelting(Block.sand.blockID, new ItemStack(Block.glass), 0.1F);
-		this.addSmelting(Item.porkRaw.itemID, new ItemStack(Item.porkCooked), 0.35F);
-		this.addSmelting(Item.beefRaw.itemID, new ItemStack(Item.beefCooked), 0.35F);
-		this.addSmelting(Item.chickenRaw.itemID, new ItemStack(Item.chickenCooked), 0.35F);
-		this.addSmelting(Item.fishRaw.itemID, new ItemStack(Item.fishCooked), 0.35F);
-		this.addSmelting(Block.cobblestone.blockID, new ItemStack(Block.stone), 0.1F);
-		this.addSmelting(Item.clay.itemID, new ItemStack(Item.brick), 0.3F);
-		this.addSmelting(Block.cactus.blockID, new ItemStack(Item.dyePowder, 1, 2), 0.2F);
-		this.addSmelting(Block.wood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-		this.addSmelting(Block.oreEmerald.blockID, new ItemStack(Item.emerald), 1.0F);
-		this.addSmelting(Item.potato.itemID, new ItemStack(Item.bakedPotato), 0.35F);
-		this.addSmelting(Block.netherrack.blockID, new ItemStack(Item.netherrackBrick), 0.1F);
-		this.addSmelting(Block.oreCoal.blockID, new ItemStack(Item.coal), 0.1F);
-		this.addSmelting(Block.oreRedstone.blockID, new ItemStack(Item.redstone), 0.7F);
-		this.addSmelting(Block.oreLapis.blockID, new ItemStack(Item.dyePowder, 1, 4), 0.2F);
-		this.addSmelting(Block.oreNetherQuartz.blockID, new ItemStack(Item.netherQuartz), 0.2F);
-		this.addSmelting(Block.slowSand.blockID, new ItemStack(NPBlockList.SoulGlass), 2.0F);
-		this.addSmelting(NPBlockList.GlowstoneSand.blockID, new ItemStack(Block.glowStone), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedGoldOre.blockID, new ItemStack(Item.ingotGold), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedBlackIronOre.blockID, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedCharoiteOre.blockID, new ItemStack(NPItemList.CharoiteCrystal), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedCobblestone.blockID, new ItemStack(NPBlockList.CorruptionStone), 2.0F);
-		this.addSmelting(NPBlockList.InfernumOre.blockID, new ItemStack(NPItemList.InfernumIngot), 2.0F);
+		this.addSmelting(Blocks.iron_ore, new ItemStack(Items.iron_ingot), 0.7F);
+		this.addSmelting(Blocks.gold_ore, new ItemStack(Items.gold_ingot), 1.0F);
+		this.addSmelting(Blocks.diamond_ore, new ItemStack(Items.diamond), 1.0F);
+		this.addSmelting(Blocks.sand, new ItemStack(Blocks.glass), 0.1F);
+		this.addSmelting(Items.porkchop, new ItemStack(Items.cooked_porkchop), 0.35F);
+		this.addSmelting(Items.beef, new ItemStack(Items.cooked_beef), 0.35F);
+		this.addSmelting(Items.chicken, new ItemStack(Items.cooked_chicken), 0.35F);
+		this.addSmelting(Items.fish, new ItemStack(Items.cooked_fished), 0.35F);
+		this.addSmelting(Blocks.cobblestone, new ItemStack(Blocks.stone), 0.1F);
+		this.addSmelting(Items.clay_ball, new ItemStack(Items.brick), 0.3F);
+		this.addSmelting(Blocks.cactus, new ItemStack(Items.dye, 1, 2), 0.2F);
+		this.addSmelting(Blocks.log, new ItemStack(Items.coal, 1, 1), 0.15F);
+		this.addSmelting(Blocks.emerald_ore, new ItemStack(Items.emerald), 1.0F);
+		this.addSmelting(Items.potato, new ItemStack(Items.baked_potato), 0.35F);
+		this.addSmelting(Blocks.netherrack, new ItemStack(Items.netherbrick), 0.1F);
+		this.addSmelting(Blocks.coal_ore, new ItemStack(Items.coal), 0.1F);
+		this.addSmelting(Blocks.redstone_ore, new ItemStack(Items.redstone), 0.7F);
+		this.addSmelting(Blocks.lapis_ore, new ItemStack(Items.dye, 1, 4), 0.2F);
+		this.addSmelting(Blocks.quartz_ore, new ItemStack(Items.quartz), 0.2F);
+		this.addSmelting(Blocks.soul_sand, new ItemStack(NPBlockList.SoulGlass), 2.0F);
+		this.addSmelting(NPBlockList.GlowstoneSand, new ItemStack(Blocks.glowstone), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedGoldOre, new ItemStack(Items.gold_ingot), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedBlackIronOre, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedCharoiteOre, new ItemStack(NPItemList.CharoiteCrystal), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedCobblestone, new ItemStack(NPBlockList.CorruptionStone), 2.0F);
+		this.addSmelting(NPBlockList.InfernumOre, new ItemStack(NPItemList.InfernumIngot), 2.0F);
 
 	}
 
-	public void addSmelting(int par1, ItemStack par2ItemStack, float par3)
+	public void addSmelting(Block block, ItemStack par2ItemStack, float par3)
 	{
-		this.smeltingList.put(Integer.valueOf(par1), par2ItemStack);
-		this.experienceList.put(Integer.valueOf(par2ItemStack.itemID), Float.valueOf(par3));
+        this.addSmelting(Item.getItemFromBlock(block), par2ItemStack, par3);
 	}
 
-	@Deprecated
-	public ItemStack getSmeltingResult(int par1)
+	private void addSmelting(Item itemFromBlock, ItemStack par2ItemStack, float par3)
 	{
-		return (ItemStack)this.smeltingList.get(Integer.valueOf(par1));
+        this.func_151394_a(new ItemStack(itemFromBlock, 1, 32767), par2ItemStack, par3);
 	}
 
-	public Map getSmeltingList()
+	private void func_151394_a(ItemStack itemStack, ItemStack par2ItemStack, float par3)
 	{
-		return this.smeltingList;
+        this.smeltingList.put(itemStack, par2ItemStack);
+        this.experienceList.put(par2ItemStack, Float.valueOf(par3));
 	}
 
-	@Deprecated
-	public float getExperience(int par1)
-	{
-		return this.experienceList.containsKey(Integer.valueOf(par1)) ? ((Float)this.experienceList.get(Integer.valueOf(par1))).floatValue() : 0.0F;
-	}
+	public ItemStack getSmeltingResult(ItemStack p_151395_1_)
+    {
+        Iterator iterator = this.smeltingList.entrySet().iterator();
+        Entry entry;
 
-	public void addSmelting(int itemID, int metadata, ItemStack itemstack, float experience)
-	{
-		metaSmeltingList.put(Arrays.asList(itemID, metadata), itemstack);
-		metaExperience.put(Arrays.asList(itemstack.itemID, itemstack.getItemDamage()), experience);
-	}
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                return null;
+            }
 
-	public ItemStack getSmeltingResult(ItemStack item)
-	{
-		if (item == null)
-		{
-			return null;
-		}
-		ItemStack ret = (ItemStack)metaSmeltingList.get(Arrays.asList(item.itemID, item.getItemDamage()));
-		if (ret != null)
-		{
-			return ret;
-		}
-		return (ItemStack)smeltingList.get(Integer.valueOf(item.itemID));
-	}
+            entry = (Entry)iterator.next();
+        }
+        while (!this.func_151397_a(p_151395_1_, (ItemStack)entry.getKey()));
 
-	public float getExperience(ItemStack item)
-	{
-		if (item == null || item.getItem() == null)
-		{
-			return 0;
-		}
-		float ret = item.getItem().getSmeltingExperience(item);
-		if (ret < 0 && metaExperience.containsKey(Arrays.asList(item.itemID, item.getItemDamage())))
-		{
-			ret = metaExperience.get(Arrays.asList(item.itemID, item.getItemDamage()));
-		}
-		if (ret < 0 && experienceList.containsKey(item.itemID))
-		{
-			ret = ((Float)experienceList.get(item.itemID)).floatValue();
-		}
-		return (ret < 0 ? 0 : ret);
-	}
+        return (ItemStack)entry.getValue();
+    }
 
-	public Map<List<Integer>, ItemStack> getMetaSmeltingList()
-	{
-		return metaSmeltingList;
-	}
+    private boolean func_151397_a(ItemStack p_151397_1_, ItemStack p_151397_2_)
+    {
+        return p_151397_2_.getItem() == p_151397_1_.getItem() && (p_151397_2_.getItemDamage() == 32767 || p_151397_2_.getItemDamage() == p_151397_1_.getItemDamage());
+    }
+
+    public Map getSmeltingList()
+    {
+        return this.smeltingList;
+    }
+
+    public float func_151398_b(ItemStack p_151398_1_)
+    {
+        float ret = p_151398_1_.getItem().getSmeltingExperience(p_151398_1_);
+        if (ret != -1) return ret;
+
+        Iterator iterator = this.experienceList.entrySet().iterator();
+        Entry entry;
+
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                return 0.0F;
+            }
+
+            entry = (Entry)iterator.next();
+        }
+        while (!this.func_151397_a(p_151398_1_, (ItemStack)entry.getKey()));
+
+        return ((Float)entry.getValue()).floatValue();
+    }
 }
