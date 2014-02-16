@@ -1,17 +1,15 @@
 package nether_plus.common.block;
 
-import static net.minecraftforge.common.ForgeDirection.EAST;
-import static net.minecraftforge.common.ForgeDirection.NORTH;
-import static net.minecraftforge.common.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.ForgeDirection.WEST;
+import static net.minecraftforge.common.util.ForgeDirection.EAST;
+import static net.minecraftforge.common.util.ForgeDirection.NORTH;
+import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
+import static net.minecraftforge.common.util.ForgeDirection.WEST;
 
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.block.BlockLadder;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -19,52 +17,52 @@ import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Ladder extends Block
+public class Ladder extends BlockLadder
 {
-    protected Ladder(int par1)
+    protected Ladder()
     {
-        super(par1, Material.circuits);
-		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+        super();
+        this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
     }
 
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {
-        this.setBlockBoundsBasedOnState(par1World, par2, par3, par4);
-        return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, par4);
+        this.setBlockBoundsBasedOnState(p_149668_1_, p_149668_2_, p_149668_3_, p_149668_4_);
+        return super.getCollisionBoundingBoxFromPool(p_149668_1_, p_149668_2_, p_149668_3_, p_149668_4_);
+    }
+
+    public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_)
+    {
+        this.func_149797_b(p_149719_1_.getBlockMetadata(p_149719_2_, p_149719_3_, p_149719_4_));
     }
 
     @SideOnly(Side.CLIENT)
-    public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World p_149633_1_, int p_149633_2_, int p_149633_3_, int p_149633_4_)
     {
-        this.setBlockBoundsBasedOnState(par1World, par2, par3, par4);
-        return super.getSelectedBoundingBoxFromPool(par1World, par2, par3, par4);
+        this.setBlockBoundsBasedOnState(p_149633_1_, p_149633_2_, p_149633_3_, p_149633_4_);
+        return super.getSelectedBoundingBoxFromPool(p_149633_1_, p_149633_2_, p_149633_3_, p_149633_4_);
     }
 
-    public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
-    {
-        this.updateLadderBounds(par1IBlockAccess.getBlockMetadata(par2, par3, par4));
-    }
-
-    public void updateLadderBounds(int par1)
+    public void func_149797_b(int p_149797_1_)
     {
         float f = 0.125F;
 
-        if (par1 == 2)
+        if (p_149797_1_ == 2)
         {
             this.setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
         }
 
-        if (par1 == 3)
+        if (p_149797_1_ == 3)
         {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, f);
         }
 
-        if (par1 == 4)
+        if (p_149797_1_ == 4)
         {
             this.setBlockBounds(1.0F - f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         }
 
-        if (par1 == 5)
+        if (p_149797_1_ == 5)
         {
             this.setBlockBounds(0.0F, 0.0F, 0.0F, f, 1.0F, 1.0F);
         }
@@ -85,34 +83,34 @@ public class Ladder extends Block
         return 8;
     }
 
-    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+    public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
-        return par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST ) ||
-               par1World.isBlockSolidOnSide(par2 + 1, par3, par4, WEST ) ||
-               par1World.isBlockSolidOnSide(par2, par3, par4 - 1, SOUTH) ||
-               par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH);
+        return p_149742_1_.isSideSolid(p_149742_2_ - 1, p_149742_3_, p_149742_4_, EAST ) ||
+               p_149742_1_.isSideSolid(p_149742_2_ + 1, p_149742_3_, p_149742_4_, WEST ) ||
+               p_149742_1_.isSideSolid(p_149742_2_, p_149742_3_, p_149742_4_ - 1, SOUTH) ||
+               p_149742_1_.isSideSolid(p_149742_2_, p_149742_3_, p_149742_4_ + 1, NORTH);
     }
 
-    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    public int onBlockPlaced(World p_149660_1_, int p_149660_2_, int p_149660_3_, int p_149660_4_, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
     {
-        int j1 = par9;
+        int j1 = p_149660_9_;
 
-        if ((j1 == 0 || par5 == 2) && par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH))
+        if ((p_149660_9_ == 0 || p_149660_5_ == 2) && p_149660_1_.isSideSolid(p_149660_2_, p_149660_3_, p_149660_4_ + 1, NORTH))
         {
             j1 = 2;
         }
 
-        if ((j1 == 0 || par5 == 3) && par1World.isBlockSolidOnSide(par2, par3, par4 - 1, SOUTH))
+        if ((j1 == 0 || p_149660_5_ == 3) && p_149660_1_.isSideSolid(p_149660_2_, p_149660_3_, p_149660_4_ - 1, SOUTH))
         {
             j1 = 3;
         }
 
-        if ((j1 == 0 || par5 == 4) && par1World.isBlockSolidOnSide(par2 + 1, par3, par4, WEST))
+        if ((j1 == 0 || p_149660_5_ == 4) && p_149660_1_.isSideSolid(p_149660_2_ + 1, p_149660_3_, p_149660_4_, WEST))
         {
             j1 = 4;
         }
 
-        if ((j1 == 0 || par5 == 5) && par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST))
+        if ((j1 == 0 || p_149660_5_ == 5) && p_149660_1_.isSideSolid(p_149660_2_ - 1, p_149660_3_, p_149660_4_, EAST))
         {
             j1 = 5;
         }
@@ -120,53 +118,48 @@ public class Ladder extends Block
         return j1;
     }
 
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+    public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
     {
-        int i1 = par1World.getBlockMetadata(par2, par3, par4);
+        int l = p_149695_1_.getBlockMetadata(p_149695_2_, p_149695_3_, p_149695_4_);
         boolean flag = false;
 
-        if (i1 == 2 && par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH))
+        if (l == 2 && p_149695_1_.isSideSolid(p_149695_2_, p_149695_3_, p_149695_4_ + 1, NORTH))
         {
             flag = true;
         }
 
-        if (i1 == 3 && par1World.isBlockSolidOnSide(par2, par3, par4 - 1, SOUTH))
+        if (l == 3 && p_149695_1_.isSideSolid(p_149695_2_, p_149695_3_, p_149695_4_ - 1, SOUTH))
         {
             flag = true;
         }
 
-        if (i1 == 4 && par1World.isBlockSolidOnSide(par2 + 1, par3, par4, WEST))
+        if (l == 4 && p_149695_1_.isSideSolid(p_149695_2_ + 1, p_149695_3_, p_149695_4_, WEST))
         {
             flag = true;
         }
 
-        if (i1 == 5 && par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST))
+        if (l == 5 && p_149695_1_.isSideSolid(p_149695_2_ - 1, p_149695_3_, p_149695_4_, EAST))
         {
             flag = true;
         }
 
         if (!flag)
         {
-            this.dropBlockAsItem(par1World, par2, par3, par4, i1, 0);
-            par1World.setBlockToAir(par2, par3, par4);
+            this.dropBlockAsItem(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, l, 0);
+            p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_);
         }
 
-        super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+        super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
     }
 
-    public int quantityDropped(Random par1Random)
+    public int quantityDropped(Random p_149745_1_)
     {
         return 1;
     }
 
-    public boolean isLadder(World world, int x, int y, int z, EntityLiving entity)
+    @Override
+    public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity)
     {
         return true;
     }
-    
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
-	{
-        this.blockIcon = iconregister.registerIcon("nether_plus:Ladder");
- 	}
 }
