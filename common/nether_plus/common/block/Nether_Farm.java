@@ -116,7 +116,7 @@ public class Nether_Farm extends Block
             {
                 for (int j1 = z - 4; j1 <= z + 4; ++j1)
                 {
-                    if (world.getBlock(l, i1, j1) == Material.lava)
+                    if (world.getBlock(l, i1, j1).getMaterial() == Material.lava)
                     {
                         return true;
                     }
@@ -130,7 +130,7 @@ public class Nether_Farm extends Block
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
     {
         super.onNeighborBlockChange(world, x, y, z, block);
-        Material material = world.getBlock(x, y + 1, z);
+        Material material = world.getBlock(x, y + 1, z).getMaterial();
 
         if (material.isSolid())
         {

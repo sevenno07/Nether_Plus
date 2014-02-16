@@ -73,7 +73,7 @@ public class CorruptedCobblestone extends Block
             {
                 for (int j1 = par4 - 5; j1 <= par4 + 5; ++j1)
                 {
-                    if (par1World.getBlockMaterial(l, i1, j1) == Material.lava)
+                    if (par1World.getBlock(l, i1, j1).getMaterial() == Material.lava)
                     {
                         return true;
                     }
