@@ -3,75 +3,57 @@ package nether_plus.common.block;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import net.minecraft.world.World;
-import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ModStoneSlab extends BlockHalfSlab
+public class ModStoneSlab extends BlockSlab
 {
-public static final String[] StepTypes = new String[] {"CorruptedCobblestone", "CorruptedBrick", "NetherrackBrick"};
+	public static final String[] StepTypes = new String[] {"CorruptedCobblestone", "CorruptedBrick", "NetherrackBrick"};
 
-	public ModStoneSlab(int id, boolean isdouble)
+	public ModStoneSlab(boolean isDouble)
 	{
-		super(id, isdouble, Material.rock);
-		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		if(!this.isDoubleSlab)
-		{
-			this.setLightOpacity(0);
-		}
+		super(isDouble, Material.rock);
 	}
-	
-	@SideOnly(Side.CLIENT)
-	private static boolean isBlockSingleSlab(int id)
+
+	public Item idDropped(int id, Random rand, int fortune)
 	{
-		return id == NPBlockList.ModStoneSlab.blockID;
+		return Item.getItemFromBlock(NPBlockList.ModStoneSlab);
 	}
-	
-	@SideOnly(Side.CLIENT)
-	public int idPicked(World world, int x, int y, int z)
-	{
-		return isBlockSingleSlab(this.blockID) ? this.blockID : NPBlockList.ModStoneDoubleSlab.blockID;
-	}
-	
-	public int idDropped(int metadata, Random rand, int fortune)
-	{
-		return NPBlockList.ModStoneSlab.blockID;
-	}
-	
+
 	protected ItemStack createStackedBlock(int metadata)
 	{
-		return new ItemStack(NPBlockList.ModStoneSlab.blockID, 2, metadata & 7);
+		return new ItemStack(Item.getItemFromBlock(NPBlockList.ModStoneSlab), 2, metadata & 7);
 	}
-	
-	public String getFullSlabName(int metadata)
+
+	public String func_150002_b(int metadata)
 	{
-		if(metadata < 0 || metadata >= StepTypes.length)
+		if (metadata < 0 || metadata >= StepTypes.length)
 		{
 			metadata = 0;
 		}
 		return super.getUnlocalizedName() + "." + StepTypes[metadata];
 	}
-	
+
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(int id, CreativeTabs creativeTabs, List list)
+	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
 	{
-		if(id != NPBlockList.ModStoneDoubleSlab.blockID)
+		if (item != Item.getItemFromBlock(NPBlockList.ModStoneDoubleSlab))
 		{
-			for(int i = 0; i < StepTypes.length; i++)
+			for (int i = 0; i < StepTypes.length; i++)
 			{
-				list.add(new ItemStack(id, 1, i));
+				list.add(new ItemStack(item, 1, i));
 			}
 		}
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int metadata)
+	public IIcon getIcon(int side, int metadata)
 	{
 		int k = metadata & 7;
 		return k == 0 ? NPBlockList.CorruptedCobblestone.getBlockTextureFromSide(side) : k == 1 ? NPBlockList.CorruptedBrick.getBlockTextureFromSide(side) : k == 2 ? NPBlockList.NetherrackBrick.getBlockTextureFromSide(side) : NPBlockList.CorruptedCobblestone.getBlockTextureFromSide(side);

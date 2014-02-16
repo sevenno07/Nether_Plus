@@ -32,7 +32,7 @@ public class NPBlockList
 	public static Block BlackIronBlock;
 	public static Block CharoiteBlock;
 	
-	public static Block GrimwoodPlanks;
+	public static Block NetherPlanks;
 	public static Block CorruptedBrick;
 	public static Block NetherrackBrick;
 	
@@ -87,7 +87,6 @@ public class NPBlockList
 	
 	public static void loadBlock()
 	{
-		//GlowstoneSand = new GlowstoneSand().setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand");
 		GlowstoneSand = new GlowstoneSand().setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand").setBlockTextureName("nether_plus:GlowstoneSand");
 		SoulGlass = new SoulGlass(null, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
 		Netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
@@ -107,7 +106,7 @@ public class NPBlockList
 		BlackIronBlock = new BlackIronBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("BlackIronBlock").setBlockTextureName("nether_plus:BlackIronBlock");
 		CharoiteBlock = new CharoiteBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("CharoiteBlock").setBlockTextureName("nether_plus:CharoiteBlock");
 		
-		GrimwoodPlanks = new GrimwoodPlanks().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodPlanks").setBlockTextureName("nether_plus:GrimwoodPlanks");
+		NetherPlanks = new Nether_Planks().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodPlanks").setBlockTextureName("nether_plus:GrimwoodPlanks");
 		CorruptedBrick = new CorruptedBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedBrick").setBlockTextureName("nether_plus:CorruptedBrick");
 		NetherrackBrick = new NetherrackBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("NetherrackBrick").setBlockTextureName("nether_plus:NetherrackBrick");
 		GrimwoodWorkbench  = new GrimwoodWorkbench(NPProperties.GrimwoodWorkbenchID).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("GrimwoodWorkbench");
@@ -118,15 +117,15 @@ public class NPBlockList
 		WhiteSkull = new WhiteSkull(NPProperties.WhiteSkullID).setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("WhiteSkull");
 		BlackSkull = new BlackSkull(NPProperties.BlackSkullID).setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("BlackSkull");
 		
-		GrimwoodStairs = new ModStairs(NPProperties.GrimwoodStairsID, GrimwoodPlanks, 0).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodStairs").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		CorruptedCobblestoneStairs = new ModStairs(NPProperties.CorruptedCobblestoneStairsID, CorruptedCobblestone, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedCobblestoneStairs").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		CorruptedBrickStairs = new ModStairs(NPProperties.CorruptedBrickStairsID, CorruptedBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherrackBrickStairs = new ModStairs(NPProperties.NetherrackBrickStairsID, NetherrackBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("NetherrackBrickStairs").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		GrimwoodStairs = new ModStairs(NetherPlanks, 0).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodStairs");
+		CorruptedCobblestoneStairs = new ModStairs(CorruptedCobblestone, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedCobblestoneStairs");
+		CorruptedBrickStairs = new ModStairs(CorruptedBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedBrickStairs");
+		NetherrackBrickStairs = new ModStairs(NetherrackBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("NetherrackBrickStairs");
 		
-		ModWoodDoubleSlab = new ModWoodSlab(NPProperties.ModWoodDoubleSlabID, true).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab");
-		ModWoodSlab = new ModWoodSlab(NPProperties.ModWoodSlabID, false).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab");
-		ModStoneDoubleSlab = new ModStoneSlab(NPProperties.ModStoneDoubleSlabID, true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab");
-		ModStoneSlab = new ModStoneSlab(NPProperties.ModStoneSlabID, false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab");
+		ModWoodSlab = new ModWoodSlab(false).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		ModWoodDoubleSlab = new ModWoodSlab(true).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab");
+		ModStoneSlab = new ModStoneSlab(false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		ModStoneDoubleSlab = new ModStoneSlab(true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab");
 		
 		ModFence = new ModFence(626, "nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ModFence");
 		CorruptedCobblestoneWall = new CorruptedCobblestoneWall(627, CorruptedCobblestone).setBlockName("CorruptedCobblestoneWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
@@ -149,7 +148,7 @@ public class NPBlockList
 		GrimwoodTorch = new GrimwoodTorch(NPProperties.GrimwoodTorchID).setStepSound(Block.soundTypeWood).setLightLevel(0.9375F).setHardness(0.0F).setResistance(5.0F).setBlockName("GrimwoodTorch");
 		NetherDonjonSpawner = new NetherDonjonSpawner(NPProperties.NetherDonjonSpawnerID).setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(5.0F).setBlockName("NetherDonjonSpawner");
 		
-		SteelWool = new SteelWool(NPProperties.SteelWoolID, Material.cloth).setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
+		SteelWool = new SteelWool().setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
 		
 		//liquides
 		QuicksilverMoving = new QuicksilverFluid(NPProperties.QuicksilverMovingID).setUnlocalizedName("QuicksilverMoving");
