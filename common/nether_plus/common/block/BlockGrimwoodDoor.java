@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.IconFlipped;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
@@ -26,7 +27,7 @@ public class BlockGrimwoodDoor extends Block
 	@SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 	
-	public BlockGrimwoodDoor(int id, Material material)
+	public BlockGrimwoodDoor(Material material)
 	{
 		super(material);
 		if (material == Material.iron)
@@ -311,76 +312,76 @@ public class BlockGrimwoodDoor extends Block
         }
     }
 
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
     {
-        int i1 = par1World.getBlockMetadata(par2, par3, par4);
+        int i1 = world.getBlockMetadata(x, y, z);
 
         if ((i1 & 8) == 0)
         {
             boolean flag = false;
 
-            if (par1World.getBlockId(par2, par3 + 1, par4) != this.blockID)
+            if (world.getBlock(x, y + 1, z) != this)
             {
-                par1World.setBlockToAir(par2, par3, par4);
+                world.setBlockToAir(x, y, z);
                 flag = true;
             }
 
-            if (!par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4))
+            if (!world.doesBlockHaveSolidTopSurface(world, x, y - 1, z))
             {
-                par1World.setBlockToAir(par2, par3, par4);
+                world.setBlockToAir(x, y, z);
                 flag = true;
 
-                if (par1World.getBlockId(par2, par3 + 1, par4) == this.blockID)
+                if (world.getBlock(x, y + 1, z) == this)
                 {
-                    par1World.setBlockToAir(par2, par3 + 1, par4);
+                    world.setBlockToAir(x, y + 1, z);
                 }
             }
 
             if (flag)
             {
-                if (!par1World.isRemote)
+                if (!world.isRemote)
                 {
-                    this.dropBlockAsItem(par1World, par2, par3, par4, i1, 0);
+                    this.dropBlockAsItem(world, x, y, z, i1, 0);
                 }
             }
             else
             {
-                boolean flag1 = par1World.isBlockIndirectlyGettingPowered(par2, par3, par4) || par1World.isBlockIndirectlyGettingPowered(par2, par3 + 1, par4);
+                boolean flag1 = world.isBlockIndirectlyGettingPowered(x, y, z) || world.isBlockIndirectlyGettingPowered(x, y + 1, z);
 
-                if ((flag1 || par5 > 0 && Block.blocksList[par5].canProvidePower()) && par5 != this.blockID)
+                if ((flag1 || block.canProvidePower()) && block != this)
                 {
-                    this.onPoweredBlockChange(par1World, par2, par3, par4, flag1);
+                    this.onPoweredBlockChange(world, x, y, z, flag1);
                 }
             }
         }
         else
         {
-            if (par1World.getBlockId(par2, par3 - 1, par4) != this.blockID)
+            if (world.getBlock(x, y - 1, z) != this)
             {
-                par1World.setBlockToAir(par2, par3, par4);
+                world.setBlockToAir(x, y, z);
             }
 
-            if (par5 > 0 && par5 != this.blockID)
+            if (block != this)
             {
-                this.onNeighborBlockChange(par1World, par2, par3 - 1, par4, par5);
+                this.onNeighborBlockChange(world, x, y - 1, z, block);
             }
         }
     }
     
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item idDropped(int par1, Random par2Random, int par3)
     {
-        return NPBlockList.BlockGrimwoodDoor.blockID;
+        return Item.getItemFromBlock(NPBlockList.BlockGrimwoodDoor);
     }
     
-    public MovingObjectPosition collisionRayTrace(World par1World, int par2, int par3, int par4, Vec3 par5Vec3, Vec3 par6Vec3)
+    public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 vec3, Vec3 vec32)
     {
-        this.setBlockBoundsBasedOnState(par1World, par2, par3, par4);
-        return super.collisionRayTrace(par1World, par2, par3, par4, par5Vec3, par6Vec3);
+        this.setBlockBoundsBasedOnState(world, x, y, z);
+        return super.collisionRayTrace(world, x, y, z, vec3, vec32);
     }
     
-    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+    public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
-        return par3 >= 255 ? false : par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4) && super.canPlaceBlockAt(par1World, par2, par3, par4) && super.canPlaceBlockAt(par1World, par2, par3 + 1, par4);
+        return y >= 255 ? false : world.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && super.canPlaceBlockAt(world, x, y, z) && super.canPlaceBlockAt(world, x, y + 1, z);
     }
 
     public int getMobilityFlag()
@@ -388,22 +389,22 @@ public class BlockGrimwoodDoor extends Block
         return 1;
     }
     
-    public int getFullMetadata(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+    public int getFullMetadata(IBlockAccess world, int x, int y, int z)
     {
-        int l = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+        int l = world.getBlockMetadata(x, y, z);
         boolean flag = (l & 8) != 0;
         int i1;
         int j1;
 
         if (flag)
         {
-            i1 = par1IBlockAccess.getBlockMetadata(par2, par3 - 1, par4);
+            i1 = world.getBlockMetadata(x, y - 1, z);
             j1 = l;
         }
         else
         {
             i1 = l;
-            j1 = par1IBlockAccess.getBlockMetadata(par2, par3 + 1, par4);
+            j1 = world.getBlockMetadata(x, y + 1, z);
         }
 
         boolean flag1 = (j1 & 1) != 0;
@@ -411,16 +412,16 @@ public class BlockGrimwoodDoor extends Block
     }
 
     @SideOnly(Side.CLIENT)
-    public int idPicked(World par1World, int par2, int par3, int par4)
+    public Item idPicked(World par1World, int par2, int par3, int par4)
     {
-    	return NPItemList.ItemGrimwoodDoor.itemID;
+    	return NPItemList.ItemGrimwoodDoor;
     }
     
-    public void onBlockHarvested(World par1World, int par2, int par3, int par4, int par5, EntityPlayer par6EntityPlayer)
+    public void onBlockHarvested(World world, int x, int y, int z, int par5, EntityPlayer par6EntityPlayer)
     {
-        if (par6EntityPlayer.capabilities.isCreativeMode && (par5 & 8) != 0 && par1World.getBlockId(par2, par3 - 1, par4) == this.blockID)
+        if (par6EntityPlayer.capabilities.isCreativeMode && (par5 & 8) != 0 && world.getBlock(x, y - 1, z) == this)
         {
-            par1World.setBlockToAir(par2, par3 - 1, par4);
+            world.setBlockToAir(x, y - 1, z);
         }
     }
 }
