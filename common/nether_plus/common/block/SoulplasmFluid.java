@@ -1,6 +1,6 @@
 package nether_plus.common.block;
 
-import net.minecraft.block.BlockLiquid;
+import net.minecraft.block.BlockDynamicLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class SoulplasmFluid extends BlockLiquid
+public class SoulplasmFluid extends BlockDynamicLiquid
 {
     private IIcon[] field_149806_a;
     

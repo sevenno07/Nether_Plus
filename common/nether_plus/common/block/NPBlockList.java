@@ -1,13 +1,12 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLiquid;
 //import net.minecraft.block.BlockFlowing;
 //import net.minecraft.block.BlockFluid;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.common.EnumPlantType;
 //import net.minecraftforge.common.MinecraftForge;
 import nether_plus.common.Nether_plus;
-import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -76,11 +75,11 @@ public class NPBlockList
 	public static Block GrimwoodTorch;
 	public static Block NetherDonjonSpawner;
 	
-	public static Block QuicksilverMoving;
+	public static BlockLiquid QuicksilverMoving;
 	public static Block QuicksilverStill;
-	public static Block SoulplasmMoving;
+	public static BlockLiquid SoulplasmMoving;
 	public static Block SoulplasmStill;
-	public static Block AcidMoving;
+	public static BlockLiquid AcidMoving;
 	public static Block AcidStill;
 	
 	public static Block SteelWool;
@@ -151,12 +150,12 @@ public class NPBlockList
 		SteelWool = new SteelWool().setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
 		
 		//liquides
-		QuicksilverMoving = new QuicksilverFluid().setUnlocalizedName("QuicksilverMoving");
-		QuicksilverStill = new QuicksilverStationary().setUnlocalizedName("QuicksilverStill");
-		SoulplasmMoving = new SoulplasmFluid().setLightValue(1.0F).setUnlocalizedName("SoulplasmMoving");
-		SoulplasmStill = new SoulplasmStationary().setLightValue(1.0F).setUnlocalizedName("SoulplasmStill");
-		AcidMoving = new AcidFluid().setUnlocalizedName("AcidMoving");
-		AcidStill = new AcidStationary().setUnlocalizedName("AcidStill");
+		QuicksilverMoving = (BlockLiquid) new QuicksilverFluid().setBlockName("QuicksilverMoving");
+		QuicksilverStill = new QuicksilverStationary().setBlockName("QuicksilverStill");
+		SoulplasmMoving = (BlockLiquid) new SoulplasmFluid().setLightLevel(1.0F).setBlockName("SoulplasmMoving");
+		SoulplasmStill = new SoulplasmStationary().setLightLevel(1.0F).setBlockName("SoulplasmStill");
+		AcidMoving = (BlockLiquid) new AcidFluid().setBlockName("AcidMoving");
+		AcidStill = new AcidStationary().setBlockName("AcidStill");
 		
 		try
 		{
