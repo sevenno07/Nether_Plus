@@ -15,7 +15,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SkeletonBlackArmor extends ItemArmor
 {
-
 	public SkeletonBlackArmor(ArmorMaterial armorMaterial, int type, int layer)
 	{
 		super(armorMaterial, type, layer);
@@ -24,7 +23,7 @@ public class SkeletonBlackArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.itemID == NPItemList.SkeletonBlackLeggings.itemID)
+		if(stack.getItem().equals(NPItemList.SkeletonBlackLeggings))
 		{
 			return "/mods/nether_plus/textures/armors/BlackSkeleton_2.png"; //armure BlackSkeleton, jambières
 		}

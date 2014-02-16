@@ -21,7 +21,7 @@ public class BlackIronArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.itemID == NPItemList.BlackIronLeggings.itemID)
+		if(stack.getItem().equals(NPItemList.BlackIronLeggings))
 		{
 			return "/mods/nether_plus/textures/armors/BlackIron_2.png"; //armure BlackIron, jambières
 		}

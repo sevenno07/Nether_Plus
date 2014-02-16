@@ -10,7 +10,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SkeletonWhiteArmor extends ItemArmor
 {
-
 	public SkeletonWhiteArmor(ArmorMaterial armorMaterial, int type, int layer)
 	{
 		super(armorMaterial, type, layer);
@@ -19,7 +18,7 @@ public class SkeletonWhiteArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.itemID == NPItemList.SkeletonWhiteLeggings.itemID)
+		if(stack.getItem().equals(NPItemList.SkeletonWhiteLeggings))
 		{
 			return "/mods/nether_plus/textures/armors/WhiteSkeleton_2.png"; //armure WhiteSkeleton, jambières
 		}

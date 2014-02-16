@@ -15,7 +15,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SalamanderArmor extends ItemArmor
 {
-
 	public SalamanderArmor(ArmorMaterial armorMaterial, int type, int layer)
 	{
 		super(armorMaterial, type, layer);
@@ -24,7 +23,7 @@ public class SalamanderArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.itemID == NPItemList.SalamanderLeggings.itemID)
+		if(stack.getItem().equals(NPItemList.SalamanderLeggings))
 		{
 			return "/mods/nether_plus/textures/armors/Salamander_2.png"; //armure Salamander, jambières
 		}
