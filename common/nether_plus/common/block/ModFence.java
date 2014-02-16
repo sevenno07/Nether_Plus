@@ -2,10 +2,9 @@ package nether_plus.common.block;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
@@ -18,9 +17,9 @@ public class ModFence extends BlockFence
 {	
 	private String field_94464_a;
 
-	public ModFence(int id, String Str, Material material)
+	public ModFence(String Str, Material material)
 	{
-		super(id, Str, material);
+		super(Str, material);
 		this.field_94464_a = Str;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
@@ -137,26 +136,6 @@ public class ModFence extends BlockFence
     {
         return 11;
     }
-    
-    public boolean canConnectFenceTo(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
-    {
-        int l = par1IBlockAccess.getBlockId(par2, par3, par4);
-
-        if (l != this.blockID && l != Block.fenceGate.blockID)
-        {
-            Block block = Block.blocksList[l];
-            return block != null && block.blockMaterial.isOpaque() && block.renderAsNormalBlock() ? block.blockMaterial != Material.pumpkin : false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
-    public static boolean isIdAFence(int par0)
-    {
-        return par0 == NPBlockList.ModFence.blockID;
-    }
 
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
@@ -165,7 +144,7 @@ public class ModFence extends BlockFence
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon(this.field_94464_a);
     }
