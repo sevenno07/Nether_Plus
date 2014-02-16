@@ -116,7 +116,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
 	{
 		super.readFromNBT(par1NBTTagCompound);
-		NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items");
+		NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 10);
 		this.furnaceItemStacks = new ItemStack[this.getSizeInventory()];
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i)
@@ -306,9 +306,9 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 			Item i = par0ItemStack.getItem();
 			Item item = par0ItemStack.getItem();
 
-			if (par0ItemStack.getItem() instanceof ItemBlock && Block.blocksList[i] != null)
+			if (par0ItemStack.getItem() instanceof ItemBlock && Block.getBlockFromItem(i) != null)
 			{
-				Block block = Block.blocksList[i];
+				Block block = Block.getBlockFromItem(i);
 
 				if (block == Blocks.wooden_slab)
 				{

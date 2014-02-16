@@ -80,7 +80,7 @@ public class TileEntityGrimwoodWorkbench extends TileEntity implements IInventor
 	{
 		super.readFromNBT(tagCompound);
  
-		NBTTagList tagList = tagCompound.getTagList("Inventory");
+		NBTTagList tagList = tagCompound.getTagList("Inventory", 10);
  
 		for(int i = 0; i < tagList.tagCount(); i++)
 		{
