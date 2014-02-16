@@ -15,9 +15,9 @@ public class ItemBlockModStoneSlab extends ItemBlock
 	private final Block theHalfSlab;
 	private final Block doubleSlab;
 
-	public ItemBlockModStoneSlab(int id)
+	public ItemBlockModStoneSlab()
 	{
-		super(id);
+		super();
 		this.theHalfSlab = NPBlockList.ModStoneSlab;
 		this.doubleSlab = NPBlockList.ModStoneDoubleSlab;
 		if(id - 256 == NPBlockList.ModStoneDoubleSlab.blockID)

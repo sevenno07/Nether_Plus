@@ -15,9 +15,9 @@ public class ItemBlockModWoodSlab extends ItemBlock
 	private final Block theHalfSlab;
 	private final Block doubleSlab;
 
-	public ItemBlockModWoodSlab(int id)
+	public ItemBlockModWoodSlab()
 	{
-		super(id);
+		super();
 		this.theHalfSlab = NPBlockList.ModWoodSlab;
 		this.doubleSlab = NPBlockList.ModWoodDoubleSlab;
 		if(id - 256 == NPBlockList.ModWoodDoubleSlab.blockID)
