@@ -15,7 +15,7 @@ public class NetherPoweredRail extends BlockRailPowered
     @SideOnly(Side.CLIENT)
     private IIcon theIcon;
 
-    protected NetherPoweredRail(int par1)
+    protected NetherPoweredRail()
     {
         super();
     }
