@@ -2,6 +2,7 @@ package nether_plus.common.block;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,6 +11,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -23,81 +25,80 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockFour extends BlockContainer
 {
-@SideOnly(Side.CLIENT)
-private Icon furnaceIconTop;
-@SideOnly(Side.CLIENT)
-private Icon furnaceIconFront;
-private static boolean keepFurnaceInventory = false;
-private final Random furnaceRand = new Random();
+	@SideOnly(Side.CLIENT)
+	private IIcon furnaceIconTop;
+	@SideOnly(Side.CLIENT)
+	private IIcon furnaceIconFront;
+	private static boolean keepFurnaceInventory = false;
+	private final Random furnaceRand = new Random();
 	
 	private final boolean isActive;
 
-	public BlockFour(int par1, boolean par2)
+	public BlockFour(boolean par2)
 	{
-		super(par1, Material.rock);
+		super(Material.rock);
 		this.isActive = par2;
 	}
 	
-	public int idDropped(int par1, Random par2Random, int par3)
+	public Item idDropped(int par1, Random par2Random, int par3)
 	{
-		return NPBlockList.fourOff.blockID;
+		return Item.getItemFromBlock(NPBlockList.fourOff);
 	}
 	
 	 @SideOnly(Side.CLIENT)
-	 public Icon getIcon(int side, int metadata)
+	 public IIcon getIcon(int side, int metadata)
 	 {
 		 return side == 1 ? this.furnaceIconTop : (side == 0 ? this.furnaceIconTop : (metadata == 2 && side == 2 ? this.furnaceIconFront : (metadata == 3 && side == 5 ? this.furnaceIconFront : (metadata == 0 && side == 3 ? this.furnaceIconFront : (metadata == 1 && side == 4 ? this.furnaceIconFront : this.blockIcon)))));
 	 }
 	 
 	 @SideOnly(Side.CLIENT)
-	 public void registerIcons(IconRegister par1IconRegister)
+	 public void registerIcons(IIconRegister par1IconRegister)
 	 {
 		 this.blockIcon = par1IconRegister.registerIcon("Nether_Plus:CorruptedFurnace_side");
 		 this.furnaceIconFront = par1IconRegister.registerIcon(this.isActive ? "Nether_Plus:CorruptedFurnace_on" : "Nether_Plus:CorruptedFurnace_off");
 		 this.furnaceIconTop = par1IconRegister.registerIcon("Nether_Plus:CorruptedFurnace_top");
 	 }
 	 
-	 public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+	 public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	 {
-		 if (par1World.isRemote)
-	 {
-	 return true;
-	 }
+		 if (world.isRemote)
+		 {
+			 return true;
+		 }
 		 else
-	 {
-	 TileEntityFour tileentityfour = (TileEntityFour)par1World.getBlockTileEntity(par2, par3, par4);
+		 {
+			 TileEntityFour tileentityfour = (TileEntityFour)world.getTileEntity(x, y, z);
 
-	 if (tileentityfour != null)
-	 	{
-		 par5EntityPlayer.openGui(Nether_plus.instance, 1, par1World, par2, par3, par4);
-	 	}
-
-	 	return true;
+			 if (tileentityfour != null)
+			 {
+				 player.openGui(Nether_plus.instance, 1, world, x, y, z);
+			 }
+			 return true;
 	 	}
 	 }
 	 
-	 public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4)
+	 public static void updateFurnaceBlockState(boolean par0, World world, int x, int y, int z)
 	 {
-		 int l = par1World.getBlockMetadata(par2, par3, par4);
-		 TileEntity tileentity = par1World.getBlockTileEntity(par2, par3, par4);
+		 int l = world.getBlockMetadata(x, y, z);
+		 TileEntity tileentity = world.getTileEntity(x, y, z);
 		 keepFurnaceInventory = true;
 
 		 if (par0)
 		 {
-			 par1World.setBlock(par2, par3, par4, NPBlockList.fourOn.blockID);
+			 world.setBlock(x, y, z, NPBlockList.fourOn);
 		 }
 		 else
 		 {
-			 par1World.setBlock(par2, par3, par4, NPBlockList.fourOff.blockID);
+			 world.setBlock(x, y, z, NPBlockList.fourOff);
 		 }
 
 		 keepFurnaceInventory = false;
-		 par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+		 world.setBlockMetadataWithNotify(x, y, z, l, 2);
 
 		 if (tileentity != null)
 		 {
 			 tileentity.validate();
-			 par1World.setBlockTileEntity(par2, par3, par4, tileentity);
+			 world.setTileEntity(x, y, z, tileentity);
 		 }
 	 }
 	 
@@ -137,7 +138,7 @@ private final Random furnaceRand = new Random();
 		 }
 	 }
 
-	 public TileEntity createNewTileEntity(World par1World)
+	 public TileEntity createNewTileEntity(World world, int i)
 	 {
 		 return new TileEntityFour();
 	 }
@@ -148,11 +149,11 @@ private final Random furnaceRand = new Random();
 		 world.setBlockMetadataWithNotify(x, y, z, direction, 2);
 	 }
 	 
-	 public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
+	 public void breakBlock(World world, int x, int y, int z, Block block, int par6)
 	 {
 		 if (!keepFurnaceInventory)
 		 {
-			 TileEntityFour tileentityfurnace = (TileEntityFour)par1World.getBlockTileEntity(par2, par3, par4);
+			 TileEntityFour tileentityfurnace = (TileEntityFour)world.getTileEntity(x, y, z);
 
 			 if (tileentityfurnace != null)
 			 {
@@ -176,7 +177,7 @@ private final Random furnaceRand = new Random();
 							 }
 
 							 itemstack.stackSize -= k1;
-							 EntityItem entityitem = new EntityItem(par1World, (double)((float)par2 + f), (double)((float)par3 + f1), (double)((float)par4 + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
+							 EntityItem entityitem = new EntityItem(world, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
 
 							 if (itemstack.hasTagCompound())
 							 {
@@ -187,31 +188,31 @@ private final Random furnaceRand = new Random();
 							 entityitem.motionX = (double)((float)this.furnaceRand.nextGaussian() * f3);
 							 entityitem.motionY = (double)((float)this.furnaceRand.nextGaussian() * f3 + 0.2F);
 							 entityitem.motionZ = (double)((float)this.furnaceRand.nextGaussian() * f3);
-							 par1World.spawnEntityInWorld(entityitem);
+							 world.spawnEntityInWorld(entityitem);
 						 }
 					 }
 				 }
 
-				 par1World.func_96440_m(par2, par3, par4, par5);
+				 world.func_147453_f(x, y, z, block);
 			 }
 		 }
 
-		 super.breakBlock(par1World, par2, par3, par4, par5, par6);
+		 super.breakBlock(world, x, y, z, block, par6);
 	 }
 	 
 	 public boolean hasComparatorInputOverride()
 	 {
-	 return true;
+		 return true;
 	 }
 
-	 public int getComparatorInputOverride(World par1World, int par2, int par3, int par4, int par5)
+	 public int getComparatorInputOverride(World world, int x, int y, int z, int par5)
 	 {
-	 return Container.calcRedstoneFromInventory((IInventory)par1World.getBlockTileEntity(par2, par3, par4));
+		 return Container.calcRedstoneFromInventory((IInventory)world.getTileEntity(x, y, z));
 	 }
 
 	 @SideOnly(Side.CLIENT)
-	 public int idPicked(World par1World, int par2, int par3, int par4)
+	 public Item idPicked(World world, int x, int y, int z)
 	 {
-	 return NPBlockList.fourOff.blockID;
+		 return Item.getItemFromBlock(NPBlockList.fourOff);
 	 }
 }

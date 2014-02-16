@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 //import net.minecraft.block.BlockFluid;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.MinecraftForge;
+//import net.minecraftforge.common.MinecraftForge;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
@@ -111,8 +111,8 @@ public class NPBlockList
 		NetherrackBrick = new NetherrackBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("NetherrackBrick").setBlockTextureName("nether_plus:NetherrackBrick");
 		GrimwoodWorkbench  = new GrimwoodWorkbench(NPProperties.GrimwoodWorkbenchID).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("GrimwoodWorkbench");
 		GrimwoodChest = new GrimwoodChest(NPProperties.GrimwoodChestID).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodChest");
-		fourOn = new BlockFour(NPProperties.fourOnID, true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace");
-		fourOff = new BlockFour(NPProperties.fourOffID, false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		fourOn = new BlockFour(true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace");
+		fourOff = new BlockFour(false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
 		WhiteSkull = new WhiteSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("WhiteSkull");
 		BlackSkull = new BlackSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("BlackSkull");
@@ -229,9 +229,9 @@ public class NPBlockList
 		GameRegistry.registerBlock(AcidStill, "Acid_Still");
 		GameRegistry.registerBlock(SteelWool, "Iron_Wool");
 
-		MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(CorruptedBlackIronOre, "pickaxe", 2);
+		//MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
+		//MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
+		//MinecraftForge.setBlockHarvestLevel(CorruptedBlackIronOre, "pickaxe", 2);
 		}
 		catch(Exception ex)
 		{
