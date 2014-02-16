@@ -1,27 +1,27 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBaseRailLogic;
 import net.minecraft.block.BlockRailBase;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.BlockRailPowered;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class NetherPoweredRail extends BlockRailBase
+public class NetherPoweredRail extends BlockRailPowered
 {
     @SideOnly(Side.CLIENT)
-    private Icon theIcon;
+    private IIcon theIcon;
 
     protected NetherPoweredRail(int par1)
     {
-        super(par1, false);
+        super();
     }
 
     @SideOnly(Side.CLIENT)
-    public Icon getIcon(int par1, int par2)
+    public IIcon getIcon(int par1, int par2)
     {
         return par2 >= 6 ? this.theIcon : this.blockIcon;
     }
@@ -33,9 +33,9 @@ public class NetherPoweredRail extends BlockRailBase
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
-        super.registerIcons(par1IconRegister);
+        super.registerBlockIcons(par1IconRegister);
         this.theIcon = par1IconRegister.registerIcon("nether_plus:NetherPoweredRail_Turn");
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:NetherPoweredRail");
     }
