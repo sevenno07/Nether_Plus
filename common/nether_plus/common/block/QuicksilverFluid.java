@@ -1,23 +1,24 @@
 package nether_plus.common.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockFlowing;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class QuicksilverFluid extends BlockFlowing
+public class QuicksilverFluid extends BlockLiquid
 {
-       
-	public QuicksilverFluid(int par1)
+    private IIcon[] field_149806_a;
+    
+	public QuicksilverFluid()
 	{
-		super(par1, Material.water);            
+		super(Material.water);            
 		this.blockHardness = 100.0F;
 		this.setLightOpacity(3);
 	}
@@ -31,14 +32,9 @@ public class QuicksilverFluid extends BlockFlowing
 		}
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.theIcon = new Icon[]
-				{
-				iconRegister.registerIcon("nether_plus:Quicksilver"),
-				iconRegister.registerIcon("nether_plus:Quicksilver_flow")
-				};
+		this.field_149806_a = new IIcon[] { iconRegister.registerIcon("nether_plus:Quicksilver"), iconRegister.registerIcon("nether_plus:Quicksilver_flow") };
 	}
 }

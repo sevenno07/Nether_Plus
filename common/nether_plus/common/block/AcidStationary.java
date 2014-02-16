@@ -1,24 +1,27 @@
 package nether_plus.common.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStationary;
+import net.minecraft.block.BlockStaticLiquid;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityTNTPrimed;
+import net.minecraft.init.Blocks;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class AcidStationary extends BlockStationary
+public class AcidStationary extends BlockStaticLiquid
 {
-	public AcidStationary(int par1)
+    private IIcon[] field_149806_a;
+	
+	public AcidStationary()
 	{
-		super(par1, Material.water);
+		super(Material.water);
 		this.blockHardness = 100.0F;
 		this.setLightOpacity(3);
 		this.disableStats();
@@ -34,7 +37,7 @@ public class AcidStationary extends BlockStationary
 		}
 	}
 	
-	public void onNeighborBlockChange(World world, int x, int y, int z, int blockid)
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block blockid)
 	{
 		super.onNeighborBlockChange(world, x, y, z, blockid);
 		this.checkdoexplode(world, x, y, z);
@@ -42,10 +45,10 @@ public class AcidStationary extends BlockStationary
 	
 	public void checkdoexplode(World world, int x, int y, int z)
 	{
-		if(world.getBlockId(x, y - 1, z) == Block.waterStill.blockID || world.getBlockId(x, y + 1, z) == Block.waterStill.blockID || world.getBlockId(x - 1, y, z) == Block.waterStill.blockID || world.getBlockId(x + 1, y, z) == Block.waterStill.blockID || world.getBlockId(x, y, z - 1) == Block.waterStill.blockID || world.getBlockId(x, y, z + 1) == Block.waterStill.blockID || world.getBlockId(x, y - 1, z) == Block.waterMoving.blockID || world.getBlockId(x, y + 1, z) == Block.waterMoving.blockID || world.getBlockId(x - 1, y, z) == Block.waterMoving.blockID || world.getBlockId(x + 1, y, z) == Block.waterMoving.blockID || world.getBlockId(x, y, z - 1) == Block.waterMoving.blockID || world.getBlockId(x, y, z + 1) == Block.waterMoving.blockID ||
-		  (world.getBlockId(x, y - 1, z) == Block.lavaStill.blockID || world.getBlockId(x, y + 1, z) == Block.lavaStill.blockID || world.getBlockId(x - 1, y, z) == Block.lavaStill.blockID || world.getBlockId(x + 1, y, z) == Block.lavaStill.blockID || world.getBlockId(x, y, z - 1) == Block.lavaStill.blockID || world.getBlockId(x, y, z + 1) == Block.lavaStill.blockID || world.getBlockId(x, y - 1, z) == Block.lavaMoving.blockID || world.getBlockId(x, y + 1, z) == Block.lavaMoving.blockID || world.getBlockId(x - 1, y, z) == Block.lavaMoving.blockID || world.getBlockId(x + 1, y, z) == Block.lavaMoving.blockID || world.getBlockId(x, y, z - 1) == Block.lavaMoving.blockID || world.getBlockId(x, y, z + 1) == Block.lavaMoving.blockID) ||
-		  (world.getBlockId(x, y - 1, z) == NPBlockList.QuicksilverStill.blockID || world.getBlockId(x, y + 1, z) == NPBlockList.QuicksilverStill.blockID || world.getBlockId(x - 1, y, z) == NPBlockList.QuicksilverStill.blockID || world.getBlockId(x + 1, y, z) == NPBlockList.QuicksilverStill.blockID || world.getBlockId(x, y, z - 1) == NPBlockList.QuicksilverStill.blockID || world.getBlockId(x, y, z + 1) == NPBlockList.QuicksilverStill.blockID || world.getBlockId(x, y - 1, z) == NPBlockList.QuicksilverMoving.blockID || world.getBlockId(x, y + 1, z) == NPBlockList.QuicksilverMoving.blockID || world.getBlockId(x - 1, y, z) == NPBlockList.QuicksilverMoving.blockID || world.getBlockId(x + 1, y, z) == NPBlockList.QuicksilverMoving.blockID || world.getBlockId(x, y, z - 1) == NPBlockList.QuicksilverMoving.blockID || world.getBlockId(x, y, z + 1) == NPBlockList.QuicksilverMoving.blockID) ||
-		  (world.getBlockId(x, y - 1, z) == NPBlockList.SoulplasmStill.blockID || world.getBlockId(x, y + 1, z) == NPBlockList.SoulplasmStill.blockID || world.getBlockId(x - 1, y, z) == NPBlockList.SoulplasmStill.blockID || world.getBlockId(x + 1, y, z) == NPBlockList.SoulplasmStill.blockID || world.getBlockId(x, y, z - 1) == NPBlockList.SoulplasmStill.blockID || world.getBlockId(x, y, z + 1) == NPBlockList.SoulplasmStill.blockID || world.getBlockId(x, y - 1, z) == NPBlockList.SoulplasmMoving.blockID || world.getBlockId(x, y + 1, z) == NPBlockList.SoulplasmMoving.blockID || world.getBlockId(x - 1, y, z) == NPBlockList.SoulplasmMoving.blockID || world.getBlockId(x + 1, y, z) == NPBlockList.SoulplasmMoving.blockID || world.getBlockId(x, y, z - 1) == NPBlockList.SoulplasmMoving.blockID || world.getBlockId(x, y, z + 1) == NPBlockList.SoulplasmMoving.blockID))
+		if(world.getBlock(x, y - 1, z) == Blocks.water || world.getBlock(x, y + 1, z) == Blocks.water || world.getBlock(x - 1, y, z) == Blocks.water || world.getBlock(x + 1, y, z) == Blocks.water || world.getBlock(x, y, z - 1) == Blocks.water || world.getBlock(x, y, z + 1) == Blocks.water || world.getBlock(x, y - 1, z) == Blocks.flowing_water || world.getBlock(x, y + 1, z) == Blocks.flowing_water || world.getBlock(x - 1, y, z) == Blocks.flowing_water || world.getBlock(x + 1, y, z) == Blocks.flowing_water || world.getBlock(x, y, z - 1) == Blocks.flowing_water || world.getBlock(x, y, z + 1) == Blocks.flowing_water ||
+		  (world.getBlock(x, y - 1, z) == Blocks.lava || world.getBlock(x, y + 1, z) == Blocks.lava || world.getBlock(x - 1, y, z) == Blocks.lava || world.getBlock(x + 1, y, z) == Blocks.lava || world.getBlock(x, y, z - 1) == Blocks.lava || world.getBlock(x, y, z + 1) == Blocks.lava || world.getBlock(x, y - 1, z) == Blocks.flowing_lava || world.getBlock(x, y + 1, z) == Blocks.flowing_lava || world.getBlock(x - 1, y, z) == Blocks.flowing_lava || world.getBlock(x + 1, y, z) == Blocks.flowing_lava || world.getBlock(x, y, z - 1) == Blocks.flowing_lava || world.getBlock(x, y, z + 1) == Blocks.flowing_lava) ||
+		  (world.getBlock(x, y - 1, z) == NPBlockList.QuicksilverStill || world.getBlock(x, y + 1, z) == NPBlockList.QuicksilverStill || world.getBlock(x - 1, y, z) == NPBlockList.QuicksilverStill || world.getBlock(x + 1, y, z) == NPBlockList.QuicksilverStill || world.getBlock(x, y, z - 1) == NPBlockList.QuicksilverStill || world.getBlock(x, y, z + 1) == NPBlockList.QuicksilverStill || world.getBlock(x, y - 1, z) == NPBlockList.QuicksilverMoving || world.getBlock(x, y + 1, z) == NPBlockList.QuicksilverMoving || world.getBlock(x - 1, y, z) == NPBlockList.QuicksilverMoving || world.getBlock(x + 1, y, z) == NPBlockList.QuicksilverMoving || world.getBlock(x, y, z - 1) == NPBlockList.QuicksilverMoving || world.getBlock(x, y, z + 1) == NPBlockList.QuicksilverMoving) ||
+		  (world.getBlock(x, y - 1, z) == NPBlockList.SoulplasmStill || world.getBlock(x, y + 1, z) == NPBlockList.SoulplasmStill || world.getBlock(x - 1, y, z) == NPBlockList.SoulplasmStill || world.getBlock(x + 1, y, z) == NPBlockList.SoulplasmStill || world.getBlock(x, y, z - 1) == NPBlockList.SoulplasmStill || world.getBlock(x, y, z + 1) == NPBlockList.SoulplasmStill || world.getBlock(x, y - 1, z) == NPBlockList.SoulplasmMoving || world.getBlock(x, y + 1, z) == NPBlockList.SoulplasmMoving || world.getBlock(x - 1, y, z) == NPBlockList.SoulplasmMoving || world.getBlock(x + 1, y, z) == NPBlockList.SoulplasmMoving || world.getBlock(x, y, z - 1) == NPBlockList.SoulplasmMoving || world.getBlock(x, y, z + 1) == NPBlockList.SoulplasmMoving))
 		{
 			if(!world.isRemote)
 			{
@@ -57,19 +60,14 @@ public class AcidStationary extends BlockStationary
 				}
 				EntityTNTPrimed tnt = new EntityTNTPrimed(world);
 				world.newExplosion(tnt, x, y, z, power, true, true);
-				world.notifyBlockChange(x, y, z, 0);
+				world.notifyBlockChange(x, y, z, this);
 			}
 		}
 	}
 	
-	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.theIcon = new Icon[]
-				{
-				iconRegister.registerIcon("nether_plus:Acid"),
-				iconRegister.registerIcon("nether_plus:Acid_flow")
-				};
+		this.field_149806_a = new IIcon[] { iconRegister.registerIcon("nether_plus:Acid"), iconRegister.registerIcon("nether_plus:Acid_flow") };
 	}
 }

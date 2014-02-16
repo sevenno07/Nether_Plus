@@ -151,12 +151,12 @@ public class NPBlockList
 		SteelWool = new SteelWool().setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
 		
 		//liquides
-		QuicksilverMoving = new QuicksilverFluid(NPProperties.QuicksilverMovingID).setUnlocalizedName("QuicksilverMoving");
-		QuicksilverStill = new QuicksilverStationary(NPProperties.QuicksilverStillID).setUnlocalizedName("QuicksilverStill");
-		SoulplasmMoving = new SoulplasmFluid(NPProperties.SoulplasmMovingID).setLightValue(1.0F).setUnlocalizedName("SoulplasmMoving");
-		SoulplasmStill = new SoulplasmStationary(NPProperties.SoulplasmStillID).setLightValue(1.0F).setUnlocalizedName("SoulplasmStill");
-		AcidMoving = new AcidFluid(NPProperties.AcidMovingID).setUnlocalizedName("AcidMoving");
-		AcidStill = new AcidStationary(NPProperties.AcidStillID).setUnlocalizedName("AcidStill");
+		QuicksilverMoving = new QuicksilverFluid().setUnlocalizedName("QuicksilverMoving");
+		QuicksilverStill = new QuicksilverStationary().setUnlocalizedName("QuicksilverStill");
+		SoulplasmMoving = new SoulplasmFluid().setLightValue(1.0F).setUnlocalizedName("SoulplasmMoving");
+		SoulplasmStill = new SoulplasmStationary().setLightValue(1.0F).setUnlocalizedName("SoulplasmStill");
+		AcidMoving = new AcidFluid().setUnlocalizedName("AcidMoving");
+		AcidStill = new AcidStationary().setUnlocalizedName("AcidStill");
 		
 		try
 		{
