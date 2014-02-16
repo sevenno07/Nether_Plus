@@ -6,13 +6,13 @@ import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import nether_plus.common.item.NPItemList;
+import cpw.mods.fml.common.Mod.EventHandler;
 
 public class LivingEvent
 {
-	@ForgeSubscribe
+	@EventHandler
     public void onLivingDrops(LivingDropsEvent event)
     {
 		if(event.entity instanceof EntityPigZombie)
