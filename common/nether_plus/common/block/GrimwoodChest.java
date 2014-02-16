@@ -1,13 +1,11 @@
 package nether_plus.common.block;
 
-import static net.minecraftforge.common.ForgeDirection.DOWN;
-
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,6 +16,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.block.container.InventoryGrimwoodLargeChest;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
@@ -27,12 +26,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GrimwoodChest extends BlockContainer
 {
-
 	private final Random random = new Random();
 	
-	protected GrimwoodChest(int id)
+	protected GrimwoodChest()
 	{
-		super(id, Material.wood);
+		super(Material.wood);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
@@ -52,21 +50,21 @@ public class GrimwoodChest extends BlockContainer
         return 22;
     }
     
-    public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
     {
-        if (par1IBlockAccess.getBlockId(par2, par3, par4 - 1) == this.blockID)
+        if (world.getBlock(x, y, z - 1) == this)
         {
             this.setBlockBounds(0.0625F, 0.0F, 0.0F, 0.9375F, 0.875F, 0.9375F);
         }
-        else if (par1IBlockAccess.getBlockId(par2, par3, par4 + 1) == this.blockID)
+        else if (world.getBlock(x, y, z + 1) == this)
         {
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 1.0F);
         }
-        else if (par1IBlockAccess.getBlockId(par2 - 1, par3, par4) == this.blockID)
+        else if (world.getBlock(x - 1, y, z) == this)
         {
             this.setBlockBounds(0.0F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         }
-        else if (par1IBlockAccess.getBlockId(par2 + 1, par3, par4) == this.blockID)
+        else if (world.getBlock(x + 1, y, z) == this)
         {
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 1.0F, 0.875F, 0.9375F);
         }
@@ -76,44 +74,44 @@ public class GrimwoodChest extends BlockContainer
         }
     }
 
-    public void onBlockAdded(World par1World, int par2, int par3, int par4)
+    public void onBlockAdded(World world, int x, int y, int z)
     {
-        super.onBlockAdded(par1World, par2, par3, par4);
-        this.unifyAdjacentChests(par1World, par2, par3, par4);
-        int l = par1World.getBlockId(par2, par3, par4 - 1);
-        int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-        int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-        int k1 = par1World.getBlockId(par2 + 1, par3, par4);
+        super.onBlockAdded(world, x, y, z);
+        this.unifyAdjacentChests(world, x, y, z);
+        Block l = world.getBlock(x, y, z - 1);
+        Block i1 = world.getBlock(x, y, z + 1);
+        Block j1 = world.getBlock(x - 1, y, z);
+        Block k1 = world.getBlock(x + 1, y, z);
 
-        if (l == this.blockID)
+        if (l == this)
         {
-            this.unifyAdjacentChests(par1World, par2, par3, par4 - 1);
+            this.unifyAdjacentChests(world, x, y, z - 1);
         }
 
-        if (i1 == this.blockID)
+        if (i1 == this)
         {
-            this.unifyAdjacentChests(par1World, par2, par3, par4 + 1);
+            this.unifyAdjacentChests(world, x, y, z + 1);
         }
 
-        if (j1 == this.blockID)
+        if (j1 == this)
         {
-            this.unifyAdjacentChests(par1World, par2 - 1, par3, par4);
+            this.unifyAdjacentChests(world, x - 1, y, z);
         }
 
-        if (k1 == this.blockID)
+        if (k1 == this)
         {
-            this.unifyAdjacentChests(par1World, par2 + 1, par3, par4);
+            this.unifyAdjacentChests(world, x + 1, y, z);
         }
     }
     
-    public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving living, ItemStack itemStack)
     {
-        int l = par1World.getBlockId(par2, par3, par4 - 1);
-        int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-        int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-        int k1 = par1World.getBlockId(par2 + 1, par3, par4);
+        Block l = world.getBlock(x, y, z - 1);
+        Block i1 = world.getBlock(x, y, z + 1);
+        Block j1 = world.getBlock(x - 1, y, z);
+        Block k1 = world.getBlock(x + 1, y, z);
         byte b0 = 0;
-        int l1 = MathHelper.floor_double((double)(par5EntityLiving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        int l1 = MathHelper.floor_double((double)(living.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
         if (l1 == 0)
         {
@@ -135,102 +133,102 @@ public class GrimwoodChest extends BlockContainer
             b0 = 4;
         }
 
-        if (l != this.blockID && i1 != this.blockID && j1 != this.blockID && k1 != this.blockID)
+        if (l != this && i1 != this && j1 != this && k1 != this)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 3);
+            world.setBlockMetadataWithNotify(x, y, z, b0, 3);
         }
         else
         {
-            if ((l == this.blockID || i1 == this.blockID) && (b0 == 4 || b0 == 5))
+            if ((l == this || i1 == this) && (b0 == 4 || b0 == 5))
             {
-                if (l == this.blockID)
+                if (l == this)
                 {
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4 - 1, b0, 3);
+                    world.setBlockMetadataWithNotify(x, y, z - 1, b0, 3);
                 }
                 else
                 {
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4 + 1, b0, 3);
+                    world.setBlockMetadataWithNotify(x, y, z + 1, b0, 3);
                 }
 
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 3);
+                world.setBlockMetadataWithNotify(x, y, z, b0, 3);
             }
 
-            if ((j1 == this.blockID || k1 == this.blockID) && (b0 == 2 || b0 == 3))
+            if ((j1 == this || k1 == this) && (b0 == 2 || b0 == 3))
             {
-                if (j1 == this.blockID)
+                if (j1 == this)
                 {
-                    par1World.setBlockMetadataWithNotify(par2 - 1, par3, par4, b0, 3);
+                    world.setBlockMetadataWithNotify(x - 1, y, z, b0, 3);
                 }
                 else
                 {
-                    par1World.setBlockMetadataWithNotify(par2 + 1, par3, par4, b0, 3);
+                    world.setBlockMetadataWithNotify(x + 1, y, z, b0, 3);
                 }
 
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 3);
+                world.setBlockMetadataWithNotify(x, y, z, b0, 3);
             }
         }
 
-        if (par6ItemStack.hasDisplayName())
+        if (itemStack.hasDisplayName())
         {
-            ((TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4)).func_94043_a(par6ItemStack.getDisplayName());
+            ((TileEntityGrimwoodChest)world.getTileEntity(x, y, z)).func_94043_a(itemStack.getDisplayName());
         }
     }
 
-    public void unifyAdjacentChests(World par1World, int par2, int par3, int par4)
+    public void unifyAdjacentChests(World world, int x, int y, int z)
     {
-        if (!par1World.isRemote)
+        if (!world.isRemote)
         {
-            int l = par1World.getBlockId(par2, par3, par4 - 1);
-            int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-            int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-            int k1 = par1World.getBlockId(par2 + 1, par3, par4);
+            Block l = world.getBlock(x, y, z - 1);
+            Block i1 = world.getBlock(x, y, z + 1);
+            Block j1 = world.getBlock(x - 1, y, z);
+            Block k1 = world.getBlock(x + 1, y, z);
             boolean flag = true;
-            int l1;
-            int i2;
+            Block l1;
+            Block i2;
             boolean flag1;
             byte b0;
             int j2;
 
-            if (l != this.blockID && i1 != this.blockID)
+            if (l != this && i1 != this)
             {
-                if (j1 != this.blockID && k1 != this.blockID)
+                if (j1 != this && k1 != this)
                 {
                     b0 = 3;
 
-                    if (Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[i1])
+                    if (l.func_149730_j() && !i1.func_149730_j())
                     {
                         b0 = 3;
                     }
 
-                    if (Block.opaqueCubeLookup[i1] && !Block.opaqueCubeLookup[l])
+                    if (i1.func_149730_j() && !l.func_149730_j())
                     {
                         b0 = 2;
                     }
 
-                    if (Block.opaqueCubeLookup[j1] && !Block.opaqueCubeLookup[k1])
+                    if (j1.func_149730_j() && !k1.func_149730_j())
                     {
                         b0 = 5;
                     }
 
-                    if (Block.opaqueCubeLookup[k1] && !Block.opaqueCubeLookup[j1])
+                    if (k1.func_149730_j() && !j1.func_149730_j())
                     {
                         b0 = 4;
                     }
                 }
                 else
                 {
-                    l1 = par1World.getBlockId(j1 == this.blockID ? par2 - 1 : par2 + 1, par3, par4 - 1);
-                    i2 = par1World.getBlockId(j1 == this.blockID ? par2 - 1 : par2 + 1, par3, par4 + 1);
+                    l1 = world.getBlock(j1 == this ? x - 1 : x + 1, y, z - 1);
+                    i2 = world.getBlock(j1 == this ? x - 1 : x + 1, y, z + 1);
                     b0 = 3;
                     flag1 = true;
 
-                    if (j1 == this.blockID)
+                    if (j1 == this)
                     {
-                        j2 = par1World.getBlockMetadata(par2 - 1, par3, par4);
+                        j2 = world.getBlockMetadata(x - 1, y, z);
                     }
                     else
                     {
-                        j2 = par1World.getBlockMetadata(par2 + 1, par3, par4);
+                        j2 = world.getBlockMetadata(x + 1, y, z);
                     }
 
                     if (j2 == 2)
@@ -238,12 +236,12 @@ public class GrimwoodChest extends BlockContainer
                         b0 = 2;
                     }
 
-                    if ((Block.opaqueCubeLookup[l] || Block.opaqueCubeLookup[l1]) && !Block.opaqueCubeLookup[i1] && !Block.opaqueCubeLookup[i2])
+                    if ((l.func_149730_j() || l1.func_149730_j()) && !i1.func_149730_j() && !i2.func_149730_j())
                     {
                         b0 = 3;
                     }
 
-                    if ((Block.opaqueCubeLookup[i1] || Block.opaqueCubeLookup[i2]) && !Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[l1])
+                    if ((i1.func_149730_j() || i2.func_149730_j()) && !l.func_149730_j() && !l1.func_149730_j())
                     {
                         b0 = 2;
                     }
@@ -251,18 +249,18 @@ public class GrimwoodChest extends BlockContainer
             }
             else
             {
-                l1 = par1World.getBlockId(par2 - 1, par3, l == this.blockID ? par4 - 1 : par4 + 1);
-                i2 = par1World.getBlockId(par2 + 1, par3, l == this.blockID ? par4 - 1 : par4 + 1);
+                l1 = world.getBlock(x - 1, y, l == this ? z - 1 : z + 1);
+                i2 = world.getBlock(x + 1, y, l == this ? z - 1 : z + 1);
                 b0 = 5;
                 flag1 = true;
 
-                if (l == this.blockID)
+                if (l == this)
                 {
-                    j2 = par1World.getBlockMetadata(par2, par3, par4 - 1);
+                    j2 = world.getBlockMetadata(x, y, z - 1);
                 }
                 else
                 {
-                    j2 = par1World.getBlockMetadata(par2, par3, par4 + 1);
+                    j2 = world.getBlockMetadata(x, y, z + 1);
                 }
 
                 if (j2 == 4)
@@ -270,57 +268,57 @@ public class GrimwoodChest extends BlockContainer
                     b0 = 4;
                 }
 
-                if ((Block.opaqueCubeLookup[j1] || Block.opaqueCubeLookup[l1]) && !Block.opaqueCubeLookup[k1] && !Block.opaqueCubeLookup[i2])
+                if ((j1.func_149730_j() || l1.func_149730_j()) && !k1.func_149730_j() && !i2.func_149730_j())
                 {
                     b0 = 5;
                 }
 
-                if ((Block.opaqueCubeLookup[k1] || Block.opaqueCubeLookup[i2]) && !Block.opaqueCubeLookup[j1] && !Block.opaqueCubeLookup[l1])
+                if ((k1.func_149730_j() || i2.func_149730_j()) && !j1.func_149730_j() && !l1.func_149730_j())
                 {
                     b0 = 4;
                 }
             }
 
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 3);
+            world.setBlockMetadataWithNotify(x, y, z, b0, 3);
         }
     }
     
-    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+    public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
         int l = 0;
 
-        if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID)
+        if (world.getBlock(x - 1, y, z) == this)
         {
             ++l;
         }
 
-        if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
+        if (world.getBlock(x + 1, y, z) == this)
         {
             ++l;
         }
 
-        if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID)
+        if (world.getBlock(x, y, z - 1) == this)
         {
             ++l;
         }
 
-        if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)
+        if (world.getBlock(x, y, z + 1) == this)
         {
             ++l;
         }
 
-        return l > 1 ? false : (this.isThereANeighborChest(par1World, par2 - 1, par3, par4) ? false : (this.isThereANeighborChest(par1World, par2 + 1, par3, par4) ? false : (this.isThereANeighborChest(par1World, par2, par3, par4 - 1) ? false : !this.isThereANeighborChest(par1World, par2, par3, par4 + 1))));
+        return l > 1 ? false : (this.isThereANeighborChest(world, x - 1, y, z) ? false : (this.isThereANeighborChest(world, x + 1, y, z) ? false : (this.isThereANeighborChest(world, x, y, z - 1) ? false : !this.isThereANeighborChest(world, x, y, z + 1))));
     }
 
-    private boolean isThereANeighborChest(World par1World, int par2, int par3, int par4)
+    private boolean isThereANeighborChest(World world, int x, int y, int z)
     {
-        return par1World.getBlockId(par2, par3, par4) != this.blockID ? false : (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID ? true : (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID ? true : (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID ? true : par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)));
+        return world.getBlock(x, y, z) != this ? false : (world.getBlock(x - 1, y, z) == this ? true : (world.getBlock(x + 1, y, z) == this ? true : (world.getBlock(x, y, z - 1) == this ? true : world.getBlock(x, y, z + 1) == this)));
     }
 
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
     {
-        super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
-        TileEntityGrimwoodChest tileentitygrimwoodchest = (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4);
+        super.onNeighborBlockChange(world, x, y, z, block);
+        TileEntityGrimwoodChest tileentitygrimwoodchest = (TileEntityGrimwoodChest)world.getTileEntity(x, y, z);
 
         if (tileentitygrimwoodchest != null)
         {
@@ -328,9 +326,9 @@ public class GrimwoodChest extends BlockContainer
         }
     }
 
-    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
+    public void breakBlock(World world, int x, int y, int z, Block block, int par6)
     {
-        TileEntityGrimwoodChest tileentitygrimwoodchest = (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4);
+        TileEntityGrimwoodChest tileentitygrimwoodchest = (TileEntityGrimwoodChest)world.getTileEntity(x, y, z);
 
         if (tileentitygrimwoodchest != null)
         {
@@ -344,7 +342,7 @@ public class GrimwoodChest extends BlockContainer
                     float f1 = this.random.nextFloat() * 0.8F + 0.1F;
                     EntityItem entityitem;
 
-                    for (float f2 = this.random.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; par1World.spawnEntityInWorld(entityitem))
+                    for (float f2 = this.random.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; world.spawnEntityInWorld(entityitem))
                     {
                         int k1 = this.random.nextInt(21) + 10;
 
@@ -354,7 +352,7 @@ public class GrimwoodChest extends BlockContainer
                         }
 
                         itemstack.stackSize -= k1;
-                        entityitem = new EntityItem(par1World, (double)((float)par2 + f), (double)((float)par3 + f1), (double)((float)par4 + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
+                        entityitem = new EntityItem(world, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
                         float f3 = 0.05F;
                         entityitem.motionX = (double)((float)this.random.nextGaussian() * f3);
                         entityitem.motionY = (double)((float)this.random.nextGaussian() * f3 + 0.2F);
@@ -368,10 +366,10 @@ public class GrimwoodChest extends BlockContainer
                 }
             }
 
-            par1World.func_96440_m(par2, par3, par4, par5);
+            world.func_147453_f(x, y, z, block);
         }
 
-        super.breakBlock(par1World, par2, par3, par4, par5, par6);
+        super.breakBlock(world, x, y, z, block, par6);
     }
     
     @Override
@@ -394,38 +392,38 @@ public class GrimwoodChest extends BlockContainer
         }
     }
     
-    public IInventory getInventory(World par1World, int par2, int par3, int par4)
+    public IInventory getInventory(World world, int x, int y, int z)
     {
-        Object object = (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4);
+        Object object = (TileEntityGrimwoodChest)world.getTileEntity(x, y, z);
 
         if (object == null)
         {
             return null;
         }
-        else if (par1World.isBlockSolidOnSide(par2, par3 + 1, par4, DOWN))
+        else if (world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN))
         {
             return null;
         }
         else
         {
-            if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID)
+            if (world.getBlock(x - 1, y, z) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)object);
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)world.getTileEntity(x - 1, y, z), (IInventory)object);
             }
 
-            if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
+            if (world.getBlock(x + 1, y, z) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2 + 1, par3, par4));
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)world.getTileEntity(x + 1, y, z));
             }
 
-            if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID)
+            if (world.getBlock(x, y, z - 1) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)object);
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)world.getTileEntity(x, y, z - 1), (IInventory)object);
             }
 
-            if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)
+            if (world.getBlock(x, y, z + 1) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)par1World.getBlockTileEntity(par2, par3, par4 + 1));
+                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)world.getTileEntity(x, y, z + 1));
             }
 
             return (IInventory)object;
@@ -433,13 +431,13 @@ public class GrimwoodChest extends BlockContainer
     }
 	
 	@Override
-	public TileEntity createNewTileEntity(World world)
+	public TileEntity createNewTileEntity(World world, int i)
 	{
 		return new TileEntityGrimwoodChest();
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:GrimwoodPlanks");
     }
