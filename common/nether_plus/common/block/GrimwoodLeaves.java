@@ -3,16 +3,16 @@ package nether_plus.common.block;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -49,7 +49,7 @@ public class GrimwoodLeaves extends BlockLeaves implements IShearable
 
 	public boolean isOpaqueCube()
 	{
-		return Block.leaves.isOpaqueCube();
+		return Blocks.leaves.isOpaqueCube();
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -68,12 +68,12 @@ public class GrimwoodLeaves extends BlockLeaves implements IShearable
 		return random.nextInt(20) == 0 ? 1 : 0;
 	}
 
-	public int idDropped(int metadata, Random random, int par3)
+	public Item idDropped(int metadata, Random random, int par3)
 	{
-		return NPProperties.GrimwoodSaplingID;
+		return Item.getItemFromBlock(NPBlockList.GrimwoodSapling);
 	}
 
-	public void getSubBlocks(int par1, CreativeTabs creativeTabs, List list)
+	public void getSubBlocks(Item par1, CreativeTabs creativeTabs, List list)
 	{
 		list.add(new ItemStack(par1, 1, 0));
 	}
@@ -91,20 +91,20 @@ public class GrimwoodLeaves extends BlockLeaves implements IShearable
 
 			if(world.rand.nextInt(var8) == 0)
 			{
-				int var9 = this.idDropped(par5, world.rand, par7);
-				this.dropBlockAsItem_do(world, x, y, z, new ItemStack(var9, 1, this.damageDropped(par5)));
+				Item var9 = this.idDropped(par5, world.rand, par7);
+				this.dropBlockAsItem(world, x, y, z, new ItemStack(var9, 1, this.damageDropped(par5)));
 			}
 		}
-	}
-
-	@Override
-	public boolean isLeaves(World world, int x, int y, int z)
-	{
-		return true;
 	}
 
 	public int colorMultiplier(IBlockAccess blockaccess, int x, int y, int z)
 	{
 		return -1;
+	}
+
+	@Override
+	public String[] func_150125_e()
+	{
+		return null;
 	}
 }
