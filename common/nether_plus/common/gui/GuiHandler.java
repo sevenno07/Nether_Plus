@@ -11,11 +11,11 @@ import nether_plus.common.tileentity.TileEntityGrimwoodChest;
 import nether_plus.common.tileentity.TileEntityGrimwoodWorkbench;
 import cpw.mods.fml.common.network.IGuiHandler;
 
-public class GuiHandler implements IGuiHandler{
-
+public class GuiHandler implements IGuiHandler
+{
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-	TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
+	TileEntity tile_entity = world.getTileEntity(x, y, z);
 
 	if(tile_entity instanceof TileEntityFour)
 	{
@@ -34,7 +34,7 @@ public class GuiHandler implements IGuiHandler{
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-	TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
+	TileEntity tile_entity = world.getTileEntity(x, y, z);
 	if(tile_entity instanceof TileEntityFour)
 	{
 		return new GuiFour(player.inventory, (TileEntityFour) tile_entity);
@@ -49,5 +49,4 @@ public class GuiHandler implements IGuiHandler{
 	}
 		return null;
 	}
-
 }
