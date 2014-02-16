@@ -139,7 +139,7 @@ public class NPBlockList
 		Crops = new Crops().setBlockName("Crops");
 		ChiliC = new ChiliC().setBlockName("ChiliC");
 		ChiliB = new ChiliB().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
-		RiceC = new RiceC(NPProperties.RiceCID).setBlockName("RiceC");
+		RiceC = new RiceC().setBlockName("RiceC");
 		
 		Ladder = new Ladder().setStepSound(Block.soundTypeLadder).setHardness(0.4F).setResistance(5.0F).setBlockName("Ladder");
 		NetherRail = new NetherRail(NPProperties.NetherRailID).setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);

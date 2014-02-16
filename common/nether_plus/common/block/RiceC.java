@@ -1,8 +1,8 @@
 package nether_plus.common.block;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,15 +10,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class RiceC extends Crops
 {
 	@SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+    private IIcon[] iconArray;
 	
-	public RiceC(int id)
+	public RiceC()
 	{
-		super(id);
+		super();
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public Icon getIcon(int par1, int par2)
+    public IIcon getIcon(int par1, int par2)
     {
         if (par2 < 7)
         {
@@ -35,20 +35,20 @@ public class RiceC extends Crops
         }
     }
 
-    protected int getSeedItem()
+    protected Item getSeedItem()
     {
-        return NPItemList.Rice.itemID;
+        return NPItemList.Rice;
     }
 
-    protected int getCropItem()
+    protected Item getCropItem()
     {
-        return NPItemList.Rice.itemID;
+        return NPItemList.Rice;
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.iconArray = new Icon[4];
+        this.iconArray = new IIcon[4];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
