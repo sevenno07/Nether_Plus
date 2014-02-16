@@ -5,10 +5,10 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
@@ -19,17 +19,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GrimwoodLeaves extends BlockLeaves implements IShearable
 	{
-	private Icon fastIcon;
+	private IIcon fastIcon;
 
-	public GrimwoodLeaves(int id)
+	public GrimwoodLeaves()
 	{
-		super(id);
+		super();
 		this.setTickRandomly(true);
 		this.setLightOpacity(1);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 
-	public void registerIcons(IconRegister iconregister)
+	public void registerIcons(IIconRegister iconregister)
 	{
 		blockIcon = iconregister.registerIcon("nether_plus:GrimwoodLeaves");
 		fastIcon = iconregister.registerIcon("nether_plus:GrimwoodLeaves_2");
@@ -58,7 +58,7 @@ public class GrimwoodLeaves extends BlockLeaves implements IShearable
 		return !this.isOpaqueCube() ? true : super.shouldSideBeRendered(blockaccess, x, y, z, side);
 	}
 
-	public Icon getIcon(int side, int metadata)
+	public IIcon getIcon(int side, int metadata)
 	{
 		return(isOpaqueCube() ? fastIcon : blockIcon);
 	}

@@ -1,34 +1,29 @@
 package nether_plus.common.block;
 
-import static net.minecraftforge.common.ForgeDirection.EAST;
-import static net.minecraftforge.common.ForgeDirection.NORTH;
-import static net.minecraftforge.common.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.ForgeDirection.WEST;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.BlockTorch;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import static net.minecraftforge.common.util.ForgeDirection.*;
 
-public class GrimwoodTorch extends Block
+public class GrimwoodTorch extends BlockTorch
 {
-    protected GrimwoodTorch(int par1)
+    protected GrimwoodTorch()
     {
-        super(par1, Material.circuits);
+        super();
         this.setTickRandomly(true);
-		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+        this.setCreativeTab(CreativeTabs.tabDecorations);
     }
 
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {
         return null;
     }
@@ -48,53 +43,53 @@ public class GrimwoodTorch extends Block
         return 2;
     }
 
-    private boolean canPlaceTorchOn(World par1World, int par2, int par3, int par4)
+    private boolean func_150107_m(World p_150107_1_, int p_150107_2_, int p_150107_3_, int p_150107_4_)
     {
-        if (par1World.doesBlockHaveSolidTopSurface(par2, par3, par4))
+        if (World.doesBlockHaveSolidTopSurface(p_150107_1_, p_150107_2_, p_150107_3_, p_150107_4_))
         {
             return true;
         }
         else
         {
-            int l = par1World.getBlockId(par2, par3, par4);
-            return (Block.blocksList[l] != null && Block.blocksList[l].canPlaceTorchOnTop(par1World, par2, par3, par4));
+            Block block = p_150107_1_.getBlock(p_150107_2_, p_150107_3_, p_150107_4_);
+            return block.canPlaceTorchOnTop(p_150107_1_, p_150107_2_, p_150107_3_, p_150107_4_);
         }
     }
 
-    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+    public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
-        return par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST,  true) ||
-               par1World.isBlockSolidOnSide(par2 + 1, par3, par4, WEST,  true) ||
-               par1World.isBlockSolidOnSide(par2, par3, par4 - 1, SOUTH, true) ||
-               par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH, true) ||
-               canPlaceTorchOn(par1World, par2, par3 - 1, par4);
+        return p_149742_1_.isSideSolid(p_149742_2_ - 1, p_149742_3_, p_149742_4_, EAST,  true) ||
+               p_149742_1_.isSideSolid(p_149742_2_ + 1, p_149742_3_, p_149742_4_, WEST,  true) ||
+               p_149742_1_.isSideSolid(p_149742_2_, p_149742_3_, p_149742_4_ - 1, SOUTH, true) ||
+               p_149742_1_.isSideSolid(p_149742_2_, p_149742_3_, p_149742_4_ + 1, NORTH, true) ||
+               func_150107_m(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_);
     }
 
-    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    public int onBlockPlaced(World p_149660_1_, int p_149660_2_, int p_149660_3_, int p_149660_4_, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
     {
-        int j1 = par9;
+        int j1 = p_149660_9_;
 
-        if (par5 == 1 && this.canPlaceTorchOn(par1World, par2, par3 - 1, par4))
+        if (p_149660_5_ == 1 && this.func_150107_m(p_149660_1_, p_149660_2_, p_149660_3_ - 1, p_149660_4_))
         {
             j1 = 5;
         }
 
-        if (par5 == 2 && par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH, true))
+        if (p_149660_5_ == 2 && p_149660_1_.isSideSolid(p_149660_2_, p_149660_3_, p_149660_4_ + 1, NORTH, true))
         {
             j1 = 4;
         }
 
-        if (par5 == 3 && par1World.isBlockSolidOnSide(par2, par3, par4 - 1, SOUTH, true))
+        if (p_149660_5_ == 3 && p_149660_1_.isSideSolid(p_149660_2_, p_149660_3_, p_149660_4_ - 1, SOUTH, true))
         {
             j1 = 3;
         }
 
-        if (par5 == 4 && par1World.isBlockSolidOnSide(par2 + 1, par3, par4, WEST, true))
+        if (p_149660_5_ == 4 && p_149660_1_.isSideSolid(p_149660_2_ + 1, p_149660_3_, p_149660_4_, WEST, true))
         {
             j1 = 2;
         }
 
-        if (par5 == 5 && par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST, true))
+        if (p_149660_5_ == 5 && p_149660_1_.isSideSolid(p_149660_2_ - 1, p_149660_3_, p_149660_4_, EAST, true))
         {
             j1 = 1;
         }
@@ -102,86 +97,86 @@ public class GrimwoodTorch extends Block
         return j1;
     }
 
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_)
     {
-        super.updateTick(par1World, par2, par3, par4, par5Random);
+        super.updateTick(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_, p_149674_5_);
 
-        if (par1World.getBlockMetadata(par2, par3, par4) == 0)
+        if (p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_) == 0)
         {
-            this.onBlockAdded(par1World, par2, par3, par4);
+            this.onBlockAdded(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_);
         }
     }
 
-    public void onBlockAdded(World par1World, int par2, int par3, int par4)
+    public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_)
     {
-        if (par1World.getBlockMetadata(par2, par3, par4) == 0)
+        if (p_149726_1_.getBlockMetadata(p_149726_2_, p_149726_3_, p_149726_4_) == 0)
         {
-            if (par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST, true))
+            if (p_149726_1_.isSideSolid(p_149726_2_ - 1, p_149726_3_, p_149726_4_, EAST, true))
             {
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, 1, 2);
+                p_149726_1_.setBlockMetadataWithNotify(p_149726_2_, p_149726_3_, p_149726_4_, 1, 2);
             }
-            else if (par1World.isBlockSolidOnSide(par2 + 1, par3, par4, WEST, true))
+            else if (p_149726_1_.isSideSolid(p_149726_2_ + 1, p_149726_3_, p_149726_4_, WEST, true))
             {
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 2);
+                p_149726_1_.setBlockMetadataWithNotify(p_149726_2_, p_149726_3_, p_149726_4_, 2, 2);
             }
-            else if (par1World.isBlockSolidOnSide(par2, par3, par4 - 1, SOUTH, true))
+            else if (p_149726_1_.isSideSolid(p_149726_2_, p_149726_3_, p_149726_4_ - 1, SOUTH, true))
             {
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, 3, 2);
+                p_149726_1_.setBlockMetadataWithNotify(p_149726_2_, p_149726_3_, p_149726_4_, 3, 2);
             }
-            else if (par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH, true))
+            else if (p_149726_1_.isSideSolid(p_149726_2_, p_149726_3_, p_149726_4_ + 1, NORTH, true))
             {
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 2);
+                p_149726_1_.setBlockMetadataWithNotify(p_149726_2_, p_149726_3_, p_149726_4_, 4, 2);
             }
-            else if (this.canPlaceTorchOn(par1World, par2, par3 - 1, par4))
+            else if (this.func_150107_m(p_149726_1_, p_149726_2_, p_149726_3_ - 1, p_149726_4_))
             {
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, 5, 2);
+                p_149726_1_.setBlockMetadataWithNotify(p_149726_2_, p_149726_3_, p_149726_4_, 5, 2);
             }
         }
 
-        this.dropTorchIfCantStay(par1World, par2, par3, par4);
+        this.func_150109_e(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
     }
 
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+    public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
     {
-        this.func_94397_d(par1World, par2, par3, par4, par5);
+        this.func_150108_b(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
     }
 
-    protected boolean func_94397_d(World par1World, int par2, int par3, int par4, int par5)
+    protected boolean func_150108_b(World p_150108_1_, int p_150108_2_, int p_150108_3_, int p_150108_4_, Block p_150108_5_)
     {
-        if (this.dropTorchIfCantStay(par1World, par2, par3, par4))
+        if (this.func_150109_e(p_150108_1_, p_150108_2_, p_150108_3_, p_150108_4_))
         {
-            int i1 = par1World.getBlockMetadata(par2, par3, par4);
+            int l = p_150108_1_.getBlockMetadata(p_150108_2_, p_150108_3_, p_150108_4_);
             boolean flag = false;
 
-            if (!par1World.isBlockSolidOnSide(par2 - 1, par3, par4, EAST, true) && i1 == 1)
+            if (!p_150108_1_.isSideSolid(p_150108_2_ - 1, p_150108_3_, p_150108_4_, EAST, true) && l == 1)
             {
                 flag = true;
             }
 
-            if (!par1World.isBlockSolidOnSide(par2 + 1, par3, par4, WEST, true) && i1 == 2)
+            if (!p_150108_1_.isSideSolid(p_150108_2_ + 1, p_150108_3_, p_150108_4_, WEST, true) && l == 2)
             {
                 flag = true;
             }
 
-            if (!par1World.isBlockSolidOnSide(par2, par3, par4 - 1, SOUTH, true) && i1 == 3)
+            if (!p_150108_1_.isSideSolid(p_150108_2_, p_150108_3_, p_150108_4_ - 1, SOUTH, true) && l == 3)
             {
                 flag = true;
             }
 
-            if (!par1World.isBlockSolidOnSide(par2, par3, par4 + 1, NORTH, true) && i1 == 4)
+            if (!p_150108_1_.isSideSolid(p_150108_2_, p_150108_3_, p_150108_4_ + 1, NORTH, true) && l == 4)
             {
                 flag = true;
             }
 
-            if (!this.canPlaceTorchOn(par1World, par2, par3 - 1, par4) && i1 == 5)
+            if (!this.func_150107_m(p_150108_1_, p_150108_2_, p_150108_3_ - 1, p_150108_4_) && l == 5)
             {
                 flag = true;
             }
 
             if (flag)
             {
-                this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-                par1World.setBlockToAir(par2, par3, par4);
+                this.dropBlockAsItem(p_150108_1_, p_150108_2_, p_150108_3_, p_150108_4_, p_150108_1_.getBlockMetadata(p_150108_2_, p_150108_3_, p_150108_4_), 0);
+                p_150108_1_.setBlockToAir(p_150108_2_, p_150108_3_, p_150108_4_);
                 return true;
             }
             else
@@ -195,14 +190,14 @@ public class GrimwoodTorch extends Block
         }
     }
 
-    protected boolean dropTorchIfCantStay(World par1World, int par2, int par3, int par4)
+    protected boolean func_150109_e(World p_150109_1_, int p_150109_2_, int p_150109_3_, int p_150109_4_)
     {
-        if (!this.canPlaceBlockAt(par1World, par2, par3, par4))
+        if (!this.canPlaceBlockAt(p_150109_1_, p_150109_2_, p_150109_3_, p_150109_4_))
         {
-            if (par1World.getBlockId(par2, par3, par4) == this.blockID)
+            if (p_150109_1_.getBlock(p_150109_2_, p_150109_3_, p_150109_4_) == this)
             {
-                this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-                par1World.setBlockToAir(par2, par3, par4);
+                this.dropBlockAsItem(p_150109_1_, p_150109_2_, p_150109_3_, p_150109_4_, p_150109_1_.getBlockMetadata(p_150109_2_, p_150109_3_, p_150109_4_), 0);
+                p_150109_1_.setBlockToAir(p_150109_2_, p_150109_3_, p_150109_4_);
             }
 
             return false;
@@ -213,9 +208,9 @@ public class GrimwoodTorch extends Block
         }
     }
 
-    public MovingObjectPosition collisionRayTrace(World par1World, int par2, int par3, int par4, Vec3 par5Vec3, Vec3 par6Vec3)
+    public MovingObjectPosition collisionRayTrace(World p_149731_1_, int p_149731_2_, int p_149731_3_, int p_149731_4_, Vec3 p_149731_5_, Vec3 p_149731_6_)
     {
-        int l = par1World.getBlockMetadata(par2, par3, par4) & 7;
+        int l = p_149731_1_.getBlockMetadata(p_149731_2_, p_149731_3_, p_149731_4_) & 7;
         float f = 0.15F;
 
         if (l == 1)
@@ -240,49 +235,43 @@ public class GrimwoodTorch extends Block
             this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.6F, 0.5F + f);
         }
 
-        return super.collisionRayTrace(par1World, par2, par3, par4, par5Vec3, par6Vec3);
+        return super.collisionRayTrace(p_149731_1_, p_149731_2_, p_149731_3_, p_149731_4_, p_149731_5_, p_149731_6_);
     }
 
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
     {
-        int l = par1World.getBlockMetadata(par2, par3, par4);
-        double d0 = (double)((float)par2 + 0.5F);
-        double d1 = (double)((float)par3 + 0.7F);
-        double d2 = (double)((float)par4 + 0.5F);
+        int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
+        double d0 = (double)((float)p_149734_2_ + 0.5F);
+        double d1 = (double)((float)p_149734_3_ + 0.7F);
+        double d2 = (double)((float)p_149734_4_ + 0.5F);
         double d3 = 0.2199999988079071D;
         double d4 = 0.27000001072883606D;
 
         if (l == 1)
         {
-            par1World.spawnParticle("smoke", d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
-            par1World.spawnParticle("portal", d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("smoke", d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("flame", d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
         }
         else if (l == 2)
         {
-            par1World.spawnParticle("smoke", d0 + d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
-            par1World.spawnParticle("portal", d0 + d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("smoke", d0 + d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("flame", d0 + d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
         }
         else if (l == 3)
         {
-            par1World.spawnParticle("smoke", d0, d1 + d3, d2 - d4, 0.0D, 0.0D, 0.0D);
-            par1World.spawnParticle("portal", d0, d1 + d3, d2 - d4, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("smoke", d0, d1 + d3, d2 - d4, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("flame", d0, d1 + d3, d2 - d4, 0.0D, 0.0D, 0.0D);
         }
         else if (l == 4)
         {
-            par1World.spawnParticle("smoke", d0, d1 + d3, d2 + d4, 0.0D, 0.0D, 0.0D);
-            par1World.spawnParticle("portal", d0, d1 + d3, d2 + d4, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("smoke", d0, d1 + d3, d2 + d4, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("flame", d0, d1 + d3, d2 + d4, 0.0D, 0.0D, 0.0D);
         }
         else
         {
-            par1World.spawnParticle("smoke", d0, d1, d2, 0.0D, 0.0D, 0.0D);
-            par1World.spawnParticle("portal", d0, d1, d2, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("smoke", d0, d1, d2, 0.0D, 0.0D, 0.0D);
+            p_149734_1_.spawnParticle("flame", d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
     }
-    
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
-	{
-        this.blockIcon = iconregister.registerIcon("nether_plus:GrimwoodTorch");
- 	}
 }
