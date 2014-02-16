@@ -114,8 +114,8 @@ public class NPBlockList
 		fourOn = new BlockFour(NPProperties.fourOnID, true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace");
 		fourOff = new BlockFour(NPProperties.fourOffID, false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
-		WhiteSkull = new WhiteSkull(NPProperties.WhiteSkullID).setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("WhiteSkull");
-		BlackSkull = new BlackSkull(NPProperties.BlackSkullID).setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("BlackSkull");
+		WhiteSkull = new WhiteSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("WhiteSkull");
+		BlackSkull = new BlackSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("BlackSkull");
 		
 		GrimwoodStairs = new ModStairs(NetherPlanks, 0).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodStairs");
 		CorruptedCobblestoneStairs = new ModStairs(CorruptedCobblestone, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedCobblestoneStairs");
@@ -180,7 +180,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(BlackIronBlock, "Black_Iron_Block");
 		GameRegistry.registerBlock(CharoiteBlock, "Charoite_Block");
 		
-		GameRegistry.registerBlock(GrimwoodPlanks, "Grimwood_Planks");
+		GameRegistry.registerBlock(NetherPlanks, "Grimwood_Planks");
 		GameRegistry.registerBlock(CorruptedBrick, "Corrupted_Brick");
 		GameRegistry.registerBlock(NetherrackBrick, "Netherrack_Brick");
 		GameRegistry.registerBlock(GrimwoodWorkbench, "Grimwood_Workbench");

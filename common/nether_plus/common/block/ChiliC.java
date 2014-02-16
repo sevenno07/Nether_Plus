@@ -3,16 +3,18 @@ package nether_plus.common.block;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.Icon;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,7 +23,7 @@ public class ChiliC extends BlockFlower
 {
     private final Block fruitType;
     @SideOnly(Side.CLIENT)
-    private Icon theIcon;
+    private IIcon theIcon;
 
     protected ChiliC(int par1, Block par2Block)
     {
@@ -257,7 +259,7 @@ public class ChiliC extends BlockFlower
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:stem_straight");
         this.theIcon = par1IconRegister.registerIcon("nether_plus:stem_bent");

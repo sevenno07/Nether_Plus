@@ -5,10 +5,10 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.IconFlipped;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
@@ -24,11 +24,11 @@ public class BlockGrimwoodDoor extends Block
 	private final int doorTypeForIcon;
 	
 	@SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+    private IIcon[] iconArray;
 	
 	public BlockGrimwoodDoor(int id, Material material)
 	{
-		super(id, material);
+		super(material);
 		if (material == Material.iron)
 	    {
 			this.doorTypeForIcon = 2;
@@ -42,7 +42,7 @@ public class BlockGrimwoodDoor extends Block
 	    this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f1, 0.5F + f);
 	}
 	
-	public Icon getIcon(int par1, int par2)
+	public IIcon getIcon(int par1, int par2)
     {
         return this.iconArray[this.doorTypeForIcon];
     }
@@ -52,7 +52,7 @@ public class BlockGrimwoodDoor extends Block
     /**
      * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
      */
-    public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    public IIcon getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
         if (par5 != 1 && par5 != 0)
         {
@@ -114,9 +114,9 @@ public class BlockGrimwoodDoor extends Block
         }
     }
 	
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.iconArray = new Icon[doorIconNames.length * 2];
+        this.iconArray = new IIcon[doorIconNames.length * 2];
 
         for (int i = 0; i < doorIconNames.length; ++i)
         {

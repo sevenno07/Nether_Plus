@@ -2,10 +2,10 @@ package nether_plus.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
@@ -14,12 +14,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class WhiteSkull extends Block
 {
-	private Icon IconTop;
-	private Icon IconBottom;
+	private IIcon IconTop;
+	private IIcon IconBottom;
 	
-	public WhiteSkull(int id)
+	public WhiteSkull()
 	{
-		super(id, Material.rock);
+		super(Material.rock);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
@@ -30,13 +30,13 @@ public class WhiteSkull extends Block
 	}
 	
 	 @SideOnly(Side.CLIENT)
-	 public Icon getIcon(int side, int metadata)
+	 public IIcon getIcon(int side, int metadata)
 	 {
 	 return side == 1 ? this.IconTop : (side == 0 ? this.IconBottom : (metadata == 2 && side == 2 ? this.blockIcon : (metadata == 3 && side == 5 ? this.blockIcon : (metadata == 0 && side == 3 ? this.blockIcon : (metadata == 1 && side == 4 ? this.blockIcon : this.IconTop)))));
 	 }
 	 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IIconRegister par1IconRegister)
 	{
 		this.blockIcon = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Front");
 	 	this.IconBottom = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Bottom");

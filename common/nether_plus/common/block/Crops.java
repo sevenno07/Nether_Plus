@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.BlockFlower;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class Crops extends BlockFlower
 {
 	@SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+    private IIcon[] iconArray;
 	
 	public Crops(int id)
 	{
@@ -122,7 +122,7 @@ public class Crops extends BlockFlower
 	
 	
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int par1, int par2)
+	public IIcon getIcon(int par1, int par2)
     {
         if (par2 < 0 || par2 > 7)
         {
@@ -187,9 +187,9 @@ public class Crops extends BlockFlower
     }
     
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.iconArray = new Icon[8];
+        this.iconArray = new IIcon[8];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
