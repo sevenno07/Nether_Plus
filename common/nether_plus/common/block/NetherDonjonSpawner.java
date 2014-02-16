@@ -2,24 +2,23 @@ package nether_plus.common.block;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class NetherDonjonSpawner extends BlockContainer
 {
-    protected NetherDonjonSpawner(int par1)
+    protected NetherDonjonSpawner()
     {
-        super(par1, Material.rock);
+        super(Material.rock);
     }
 
-    public TileEntity createNewTileEntity(World par1World)
+    public TileEntity createNewTileEntity(World par1World, int i)
     {
         return new TileEntityMobSpawner();
     }
@@ -54,7 +53,7 @@ public class NetherDonjonSpawner extends BlockContainer
     }
     
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
 	{
         this.blockIcon = iconregister.registerIcon("nether_plus:NetherDonjonSpawner");
  	}
