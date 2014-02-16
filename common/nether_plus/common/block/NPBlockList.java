@@ -143,7 +143,7 @@ public class NPBlockList
 		
 		Ladder = new Ladder().setStepSound(Block.soundTypeLadder).setHardness(0.4F).setResistance(5.0F).setBlockName("Ladder");
 		NetherRail = new NetherRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherDetectorRail = new NetherDetectorRail(NPProperties.NetherDetectorRailID).setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherDetectorRail = new NetherDetectorRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		NetherPoweredRail = new NetherPoweredRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		GrimwoodTorch = new GrimwoodTorch().setStepSound(Block.soundTypeWood).setLightLevel(0.9375F).setHardness(0.0F).setResistance(5.0F).setBlockName("GrimwoodTorch");
 		NetherDonjonSpawner = new NetherDonjonSpawner().setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(5.0F).setBlockName("NetherDonjonSpawner");

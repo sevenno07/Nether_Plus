@@ -4,27 +4,28 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.BlockRailBase;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.BlockRailDetector;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class NetherDetectorRail extends BlockRailBase
+public class NetherDetectorRail extends BlockRailDetector
 {
     @SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+    private IIcon[] iconArray;
 
-    public NetherDetectorRail(int par1)
+    public NetherDetectorRail()
     {
-        super(par1, true);
+        super();
         this.setTickRandomly(true);
     }
 
@@ -138,15 +139,15 @@ public class NetherDetectorRail extends BlockRailBase
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.iconArray = new Icon[2];
+        this.iconArray = new IIcon[2];
         this.iconArray[0] = par1IconRegister.registerIcon("nether_plus:NetherDetectorRail");
         this.iconArray[1] = par1IconRegister.registerIcon("nether_plus:NetherDetectorRail_on");
     }
 
     @SideOnly(Side.CLIENT)
-    public Icon getIcon(int par1, int par2)
+    public IIcon getIcon(int par1, int par2)
     {
         return (par2 & 8) != 0 ? this.iconArray[1] : this.iconArray[0];
     }
