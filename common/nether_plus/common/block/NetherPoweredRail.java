@@ -1,7 +1,6 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRailBase;
 import net.minecraft.block.BlockRailPowered;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -40,11 +39,31 @@ public class NetherPoweredRail extends BlockRailPowered
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:NetherPoweredRail");
     }
 
-    protected void func_94358_a(World par1World, int par2, int par3, int par4, int par5, int par6, int par7)
+    protected void func_150048_a(World world, int x, int y, int z, int par5, int par6, Block block)
     {
-        if (par7 > 0 && Block.blocksList[par7].canProvidePower() && (new BlockBaseRailLogic(this, par1World, par2, par3, par4)).getNumberOfAdjacentTracks() == 3)
+        boolean flag = world.isBlockIndirectlyGettingPowered(x, y, z);
+        flag = flag || this.func_150058_a(world, x, y, z, par5, true, 0) || this.func_150058_a(world, x, y, z, par5, false, 0);
+        boolean flag1 = false;
+
+        if (flag && (par5 & 8) == 0)
         {
-            this.refreshTrackShape(par1World, par2, par3, par4, false);
+            world.setBlockMetadataWithNotify(x, y, z, par6 | 8, 3);
+            flag1 = true;
+        }
+        else if (!flag && (par5 & 8) != 0)
+        {
+            world.setBlockMetadataWithNotify(x, y, z, par6, 3);
+            flag1 = true;
+        }
+
+        if (flag1)
+        {
+            world.notifyBlocksOfNeighborChange(x, y - 1, z, this);
+
+            if (par6 == 2 || par6 == 3 || par6 == 4 || par6 == 5)
+            {
+                world.notifyBlocksOfNeighborChange(x, y + 1, z, this);
+            }
         }
     }
 }

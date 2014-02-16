@@ -90,25 +90,25 @@ public class NetherDetectorRail extends BlockRailDetector
         if (flag1 && !flag)
         {
             par1World.setBlockMetadataWithNotify(par2, par3, par4, par5 | 8, 3);
-            par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this.blockID);
-            par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, this.blockID);
+            par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this);
+            par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, this);
             par1World.markBlockRangeForRenderUpdate(par2, par3, par4, par2, par3, par4);
         }
 
         if (!flag1 && flag)
         {
             par1World.setBlockMetadataWithNotify(par2, par3, par4, par5 & 7, 3);
-            par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this.blockID);
-            par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, this.blockID);
+            par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this);
+            par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, this);
             par1World.markBlockRangeForRenderUpdate(par2, par3, par4, par2, par3, par4);
         }
 
         if (flag1)
         {
-            par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, this.tickRate(par1World));
+            par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate(par1World));
         }
 
-        par1World.func_96440_m(par2, par3, par4, this.blockID);
+        par1World.func_147453_f(par2, par3, par4, this);
     }
 
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
