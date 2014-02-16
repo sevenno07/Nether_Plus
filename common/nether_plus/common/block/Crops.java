@@ -3,9 +3,12 @@ package nether_plus.common.block;
 import java.util.ArrayList;
 import java.util.Random;
 
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
+import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
@@ -15,94 +18,94 @@ import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Crops extends BlockFlower
+public class Crops extends BlockBush implements IGrowable
 {
 	@SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 	
-	public Crops(int id)
+	public Crops()
 	{
-		super(id);
+		super();
 		this.setTickRandomly(true);
         float f = 0.5F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
 		this.setHardness(0.0F);
-        this.setStepSound(soundGrassFootstep);
+        this.setStepSound(soundTypeGrass);
 		this.disableStats();
 		this.setCreativeTab((CreativeTabs)null);
 	}
 	
-	protected boolean canThisPlantGrowOnThisBlockID(int par1)
+	protected boolean canThisPlantGrowOnThisBlockID(Block block)
     {
-        return par1 == NPBlockList.Nether_Farm.blockID;
+        return block == NPBlockList.Nether_Farm;
     }
 
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void updateTick(World world, int x, int y, int z, Random rand)
     {
-        super.updateTick(par1World, par2, par3, par4, par5Random);
+        super.updateTick(world, x, y, z, rand);
 
-        if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9)
+        if (world.getBlockLightValue(x, y + 1, z) >= 9)
         {
-            int l = par1World.getBlockMetadata(par2, par3, par4);
+            int l = world.getBlockMetadata(x, y, z);
 
             if (l < 7)
             {
-                float f = this.getGrowthRate(par1World, par2, par3, par4);
+                float f = this.getGrowthRate(world, x, y, z);
 
-                if (par5Random.nextInt((int)(25.0F / f) + 1) == 0)
+                if (rand.nextInt((int)(25.0F / f) + 1) == 0)
                 {
                     ++l;
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+                    world.setBlockMetadataWithNotify(x, y, z, l, 2);
                 }
             }
         }
     }
 	
-	public void fertilize(World par1World, int par2, int par3, int par4)
+	public void fertilize(World world, int x, int y, int z)
     {
-        int l = par1World.getBlockMetadata(par2, par3, par4) + MathHelper.getRandomIntegerInRange(par1World.rand, 2, 5);
+        int l = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(world.rand, 2, 5);
 
         if (l > 7)
         {
             l = 7;
         }
 
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+        world.setBlockMetadataWithNotify(x, y, z, l, 2);
     }
 	
-	private float getGrowthRate(World par1World, int par2, int par3, int par4)
+	private float getGrowthRate(World world, int x, int y, int z)
     {
         float f = 1.0F;
-        int l = par1World.getBlockId(par2, par3, par4 - 1);
-        int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-        int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-        int k1 = par1World.getBlockId(par2 + 1, par3, par4);
-        int l1 = par1World.getBlockId(par2 - 1, par3, par4 - 1);
-        int i2 = par1World.getBlockId(par2 + 1, par3, par4 - 1);
-        int j2 = par1World.getBlockId(par2 + 1, par3, par4 + 1);
-        int k2 = par1World.getBlockId(par2 - 1, par3, par4 + 1);
-        boolean flag = j1 == this.blockID || k1 == this.blockID;
-        boolean flag1 = l == this.blockID || i1 == this.blockID;
-        boolean flag2 = l1 == this.blockID || i2 == this.blockID || j2 == this.blockID || k2 == this.blockID;
+        Block l = world.getBlock(x, y, z - 1);
+        Block i1 = world.getBlock(x, y, z + 1);
+        Block j1 = world.getBlock(x - 1, y, z);
+        Block k1 = world.getBlock(x + 1, y, z);
+        Block l1 = world.getBlock(x - 1, y, z - 1);
+        Block i2 = world.getBlock(x + 1, y, z - 1);
+        Block j2 = world.getBlock(x + 1, y, z + 1);
+        Block k2 = world.getBlock(x - 1, y, z + 1);
+        boolean flag = j1 == this || k1 == this;
+        boolean flag1 = l == this || i1 == this;
+        boolean flag2 = l1 == this || i2 == this || j2 == this || k2 == this;
 
-        for (int l2 = par2 - 1; l2 <= par2 + 1; ++l2)
+        for (int l2 = x - 1; l2 <= x + 1; ++l2)
         {
-            for (int i3 = par4 - 1; i3 <= par4 + 1; ++i3)
+            for (int i3 = z - 1; i3 <= z + 1; ++i3)
             {
-                int j3 = par1World.getBlockId(l2, par3 - 1, i3);
+                Block j3 = world.getBlock(l2, y - 1, i3);
                 float f1 = 0.0F;
 
-                if (blocksList[j3] != null && blocksList[j3].canSustainPlant(par1World, l2, par3 - 1, i3, ForgeDirection.UP, this))
+                if (j3 != null && j3.canSustainPlant(world, l2, y - 1, i3, ForgeDirection.UP, this))
                 {
                     f1 = 1.0F;
 
-                    if (blocksList[j3].isFertile(par1World, l2, par3 - 1, i3))
+                    if (j3.isFertile(world, l2, y - 1, i3))
                     {
                         f1 = 3.0F;
                     }
                 }
 
-                if (l2 != par2 || i3 != par4)
+                if (l2 != x || i3 != z)
                 {
                     f1 /= 4.0F;
                 }
@@ -137,25 +140,25 @@ public class Crops extends BlockFlower
         return 6;
     }
 
-    protected int getSeedItem()
+    protected Item getSeedItem()
     {
-        return NPItemList.WhiteWheatSeeds.itemID;
+        return NPItemList.WhiteWheatSeeds;
     }
 
-    protected int getCropItem()
+    protected Item getCropItem()
     {
-        return NPItemList.WhiteWheat.itemID;
+        return NPItemList.WhiteWheat;
     }
     
-    public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
+    public void dropBlockAsItemWithChance(World world, int x, int y, int z, int i, float par6, int par7)
     {
-        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, 0);
+        super.dropBlockAsItemWithChance(world, x, y, z, i, par6, 0);
     }
 
     @Override 
-    public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
-        ArrayList<ItemStack> ret = super.getBlockDropped(world, x, y, z, metadata, fortune);
+        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
 
         if (metadata >= 7)
         {
@@ -171,7 +174,7 @@ public class Crops extends BlockFlower
         return ret;
     }
     
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item idDropped(int par1, Random par2Random, int par3)
     {
         return par1 == 7 ? this.getCropItem() : this.getSeedItem();
     }
@@ -181,7 +184,7 @@ public class Crops extends BlockFlower
         return 1;
     }
     
-    public int idPicked(World par1World, int par2, int par3, int par4)
+    public Item idPicked(World par1World, int par2, int par3, int par4)
     {
         return this.getSeedItem();
     }
@@ -196,4 +199,22 @@ public class Crops extends BlockFlower
             this.iconArray[i] = par1IconRegister.registerIcon("nether_plus:Crops_" + i);
         }
     }
+
+	@Override
+	public boolean func_149851_a(World var1, int var2, int var3, int var4, boolean var5)
+	{
+		return false;
+	}
+
+	@Override
+	public boolean func_149852_a(World var1, Random var2, int var3, int var4, int var5)
+	{
+		return false;
+	}
+
+	@Override
+	public void func_149853_b(World var1, Random var2, int var3, int var4, int var5)
+	{
+		
+	}
 }

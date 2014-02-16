@@ -136,7 +136,7 @@ public class NPBlockList
 		BlockGrimwoodDoor = new BlockGrimwoodDoor(Material.wood).setHardness(3.0F).setStepSound(Block.soundTypeWood).setBlockName("BlockGrimwoodDoor");
 		
 		Nether_Farm = new Nether_Farm(NPProperties.Nether_FarmID).setStepSound(Block.soundTypeSand).setHardness(0.5F).setBlockName("Nether_Farm");
-		Crops = new Crops(NPProperties.CropsID).setBlockName("Crops");
+		Crops = new Crops().setBlockName("Crops");
 		ChiliC = new ChiliC().setBlockName("ChiliC");
 		ChiliB = new ChiliB().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
 		RiceC = new RiceC(NPProperties.RiceCID).setBlockName("RiceC");
