@@ -3,9 +3,9 @@ package nether_plus.common.block;
 import java.util.Random;
 
 import net.minecraft.block.BlockStone;
+import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import nether_plus.common.config.NPProperties;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.item.NPItemList;
 
@@ -19,7 +19,7 @@ public class CorruptedCharoiteOre extends BlockStone
 	
     public int quantityDroppedWithBonus(int par1, Random par2Random)
     {
-        if (par1 > 0 && this.blockID != this.idDropped(0, par2Random, par1))
+        if (par1 > 0 && Item.getItemFromBlock(this) != this.idDropped(0, par2Random, par1))
         {
             int j = par2Random.nextInt(par1 + 2) - 1;
 
@@ -36,16 +36,16 @@ public class CorruptedCharoiteOre extends BlockStone
         }
     }
 	
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item idDropped(int par1, Random par2Random, int par3)
     {
-      return NPItemList.CharoiteCrystal.itemID;
+      return NPItemList.CharoiteCrystal;
     }
 	
     public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
     {
         super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
         	int var8 = 0;
-        	if (this.blockID == NPBlockList.CorruptedCharoiteOre.blockID)
+        	if (this == NPBlockList.CorruptedCharoiteOre)
         	{
         		var8 = MathHelper.getRandomIntegerInRange(par1World.rand, 15, 20);
         	}
@@ -53,11 +53,11 @@ public class CorruptedCharoiteOre extends BlockStone
         {}
         super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
 
-        if (this.idDropped(par5, par1World.rand, par7) != this.blockID)
+        if (this.idDropped(par5, par1World.rand, par7) != Item.getItemFromBlock(this))
         {
             int j1 = 0;
 
-            if (this.blockID == NPProperties.CorruptedCharoiteOreID)
+            if (this == NPBlockList.CorruptedCharoiteOre)
             {
                 j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 3, 7);
             }
