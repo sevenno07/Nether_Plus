@@ -4,12 +4,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockStationary;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class SoulplasmStationary extends BlockStationary
@@ -33,9 +33,9 @@ public class SoulplasmStationary extends BlockStationary
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		this.theIcon = new Icon[]
+		this.theIcon = new IIcon[]
 				{
 				iconRegister.registerIcon("nether_plus:Soulplasm"),
 				iconRegister.registerIcon("nether_plus:Soulplasm_flow")
