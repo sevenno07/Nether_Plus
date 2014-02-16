@@ -233,9 +233,9 @@ public class FireSlime extends EntityLiving implements IMob
         this.dropItem(NPItemList.BloodGem, 1);
     }
     
-    protected int getDropItemId()
+    protected Object getDropItemId()
     {
-    	return this.getFireSlimeSize() == 1 ? NPItemList.Fireslimeball.itemID : 0;
+    	return this.getFireSlimeSize() == 1 ? NPItemList.Fireslimeball : 0;
     }
 
     protected float getSoundVolume()
