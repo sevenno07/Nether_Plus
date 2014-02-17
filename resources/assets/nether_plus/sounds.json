@@ -1,0 +1,34 @@
+"mob.Wight.death":
+  {
+    "category": "neutral",
+    "sounds":
+    [
+    "nether_plus:Wight.death"
+    ]
+  },
+  
+  
+"mob.Wight.hit":
+  {
+    "category": "neutral",
+    "sounds":
+    [
+    "nether_plus:Wight.hit1"
+    "nether_plus:Wight.hit2"
+    "nether_plus:Wight.hit3"
+    "nether_plus:Wight.hit4"
+    ]
+  },
+  
+  
+"mob.Wight.idle":
+  {
+    "category": "neutral",
+    "sounds":
+    [
+    "nether_plus:Wight.idle1"
+    "nether_plus:Wight.idle2"
+    "nether_plus:Wight.idle3"
+    "nether_plus:Wight.idle4"
+    ]
+  },
