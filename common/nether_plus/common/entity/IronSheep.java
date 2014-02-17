@@ -74,7 +74,7 @@ public class IronSheep extends EntityAnimal implements IShearable
 
     protected void updateAITasks()
     {
-        this.sheepTimer = this.aiEatGrass.getEatGrassTick();
+        //this.sheepTimer = this.aiEatGrass.getEatGrassTick();
         super.updateAITasks();
     }
 

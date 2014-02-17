@@ -1,4 +1,4 @@
-package nether_plus.proxy.network;
+/*package nether_plus.proxy.network;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -18,4 +18,4 @@ public class ServerPacketHandler implements IPacketHandler
 		 
 		EntityPlayer sender = (EntityPlayer) player;
 	}
-}
+}*/

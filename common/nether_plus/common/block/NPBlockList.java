@@ -87,7 +87,7 @@ public class NPBlockList
 	public static void loadBlock()
 	{
 		GlowstoneSand = new GlowstoneSand().setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand").setBlockTextureName("nether_plus:GlowstoneSand");
-		SoulGlass = new SoulGlass(null, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
+		SoulGlass = new SoulGlass(Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
 		Netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
 		BewitchedWood = new BewitchedWood().setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockName("BewitchedWood");
 		CorruptionStone = new CorruptionStone().setStepSound(Block.soundTypeStone).setHardness(1.0F).setBlockName("CorruptionStone").setBlockTextureName("nether_plus:CorruptionStone");

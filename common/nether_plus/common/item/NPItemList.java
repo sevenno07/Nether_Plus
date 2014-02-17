@@ -1,5 +1,6 @@
 package nether_plus.common.item;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -148,10 +149,60 @@ public class NPItemList
 	    
 	    SalamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
 
+	    GameRegistry.registerItem(CharoiteCrystal, "");
+	    GameRegistry.registerItem(BlackIronIngot, "");
+	    GameRegistry.registerItem(BlackBone, "");
+	    GameRegistry.registerItem(BlackBoneMeal, "");
+	    GameRegistry.registerItem(Fireslimeball, "");
+	    GameRegistry.registerItem(GrimwoodStick, "");
+	    GameRegistry.registerItem(BloodGem, "");
+	    GameRegistry.registerItem(InfernumIngot, "");
+	    GameRegistry.registerItem(ItemGrimwoodDoor, "");
+	    GameRegistry.registerItem(SalamanderLeather, "");
+	    GameRegistry.registerItem(SkeletonWhiteHelmet, "");
+	    GameRegistry.registerItem(SkeletonWhiteChestplate, "");
+	    GameRegistry.registerItem(SkeletonWhiteLeggings, "");
+	    GameRegistry.registerItem(SkeletonWhiteBoot, "");
+	    GameRegistry.registerItem(SkeletonBlackHelmet, "");
+	    GameRegistry.registerItem(SkeletonBlackChestplate, "");
+	    GameRegistry.registerItem(SkeletonBlackLeggings, "");
+	    GameRegistry.registerItem(SkeletonBlackBoot, "");
+	    GameRegistry.registerItem(GrimwoodSword, "");
+	    GameRegistry.registerItem(GrimwoodPickaxe, "");
+	    GameRegistry.registerItem(GrimwoodAxe, "");
+	    GameRegistry.registerItem(GrimwoodShovel, "");
+	    GameRegistry.registerItem(GrimwoodHoe, "");
+	    GameRegistry.registerItem(BlackIronHelmet, "");
+	    GameRegistry.registerItem(BlackIronChestplate, "");
+	    GameRegistry.registerItem(BlackIronLeggings, "");
+	    GameRegistry.registerItem(BlackIronBoot, "");
+	    GameRegistry.registerItem(BlackIronSword, "");
+	    GameRegistry.registerItem(BlackIronPickaxe, "");
+	    GameRegistry.registerItem(BlackIronShovel, "");
+	    GameRegistry.registerItem(BlackIronHoe, "");
+	    GameRegistry.registerItem(SalamanderHelmet, "");
+	    GameRegistry.registerItem(SalamanderChestplate, "");
+	    GameRegistry.registerItem(SalamanderLeggings, "");
+	    GameRegistry.registerItem(SalamanderBoot, "");
+	    GameRegistry.registerItem(WhiteWheatSeeds, "");
+	    GameRegistry.registerItem(WhiteWheat, "");
+	    GameRegistry.registerItem(ChiliSeed, "");
+	    GameRegistry.registerItem(Chili, "");
+	    GameRegistry.registerItem(Rice, "");
+	    GameRegistry.registerItem(DeadBread, "");
+	    GameRegistry.registerItem(GoldBucket, "");
+	    GameRegistry.registerItem(WaterBucket, "");
+	    GameRegistry.registerItem(LavaBucket, "");
+	    GameRegistry.registerItem(MilkBucket, "");
+	    GameRegistry.registerItem(QuickSilverBucket, "");
+	    GameRegistry.registerItem(SoulplasmBucket, "");
+	    GameRegistry.registerItem(AcidBucket1, "");
+	    GameRegistry.registerItem(AcidBucket2, "");
+	    GameRegistry.registerItem(SalamanderBoat, "");
 		}
 		catch(Exception ex)
 		{
-		Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Items!");
+			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Items!");
 		}
 		Nether_plus.NPlog.info("Initialisation des Items terminés!");
 	}

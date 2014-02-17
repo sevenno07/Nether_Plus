@@ -34,10 +34,10 @@ public class NetherRail extends BlockRail
 
     protected void func_150048_a(World world, int x, int y, int z, int par5, int par6, Block block)
     {
-        if (block.canProvidePower() && (new BlockRailBase.Rail(world, x, y, z)).func_150650_a() == 3)
+        /*if (block.canProvidePower() && (new BlockRailBase.Rail(world, x, y, z)).func_150650_a() == 3)
         {
             this.func_150052_a(world, x, y, z, false);
-        }
+        }*/
     }
 }
 

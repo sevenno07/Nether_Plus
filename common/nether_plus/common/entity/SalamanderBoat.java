@@ -462,7 +462,7 @@ public class SalamanderBoat extends EntityBoat
                         }
                         else if (block == Blocks.waterlily)
                         {
-                            this.worldObj.destroyBlock(i1, l1, j1, true);
+                            //this.worldObj.destroyBlock(i1, l1, j1, true);
                         }
                     }
                 }

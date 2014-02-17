@@ -11,7 +11,7 @@ public class NPSounds
 	{
 		try
 		{
-			event.manager.addSound("nether_plus:Wight.death.ogg");
+			/*event.manager.addSound("nether_plus:Wight.death.ogg");
 			event.manager.addSound("nether_plus:Wight.hit1.ogg");
 			event.manager.addSound("nether_plus:Wight.hit2.ogg");
 			event.manager.addSound("nether_plus:Wight.hit3.ogg"); 
@@ -19,7 +19,7 @@ public class NPSounds
 			event.manager.addSound("nether_plus:Wight.idle1.ogg");
 			event.manager.addSound("nether_plus:Wight.idle2.ogg");
 			event.manager.addSound("nether_plus:Wight.idle3.ogg");
-			event.manager.addSound("nether_plus:Wight.idle4.ogg");
+			event.manager.addSound("nether_plus:Wight.idle4.ogg");*/
 		}
 		catch(Exception ex)
 		{

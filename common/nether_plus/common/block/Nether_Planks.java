@@ -15,11 +15,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Nether_Planks extends Block
 {
-public static final String[] woodType = new String[] {"GrimwoodPlanks"};
-@SideOnly(Side.CLIENT)
-private IIcon[] IconArray;
+	public static final String[] woodType = new String[] {"GrimwoodPlanks"};
+	@SideOnly(Side.CLIENT)
+	private IIcon[] IconArray;
 
-public Nether_Planks()
+	public Nether_Planks()
     {
         super(Material.wood);
         this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
@@ -49,7 +49,7 @@ public Nether_Planks()
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.IconArray = new IIcon[woodType.length];
 

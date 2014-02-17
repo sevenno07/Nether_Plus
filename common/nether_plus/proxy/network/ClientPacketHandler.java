@@ -1,4 +1,4 @@
-package nether_plus.proxy.network;
+/*package nether_plus.proxy.network;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -15,4 +15,4 @@ public class ClientPacketHandler implements IPacketHandler
 	{
 		DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
 	}
-}
+}*/

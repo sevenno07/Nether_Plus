@@ -53,7 +53,7 @@ public class Nether_plus
 	@EventHandler
 	public void preload(FMLPreInitializationEvent event)
 	{
-		NPlog.setParent((Logger) FMLLog.getLogger());
+		//NPlog.setParent((Logger) FMLLog.getLogger());
 		
 		/*ConfigFile = new File(event.getModConfigurationDirectory(), "Nether_Plus.cfg");
 		Configuration cfg = new Configuration(ConfigFile);

@@ -1,4 +1,4 @@
-package nether_plus.common;
+/*package nether_plus.common;
 
 import java.util.Random;
 
@@ -208,4 +208,4 @@ public class GrimGenTree extends WorldGenerator
 	{
 		
 	}
-}
+}*/
