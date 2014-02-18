@@ -459,10 +459,12 @@ public class SalamanderBoat extends EntityBoat
                         if (block == Blocks.snow_layer)
                         {
                             this.worldObj.setBlockToAir(i1, l1, j1);
+                            this.isCollidedHorizontally = false;
                         }
                         else if (block == Blocks.waterlily)
                         {
-                            //this.worldObj.destroyBlock(i1, l1, j1, true);
+                            this.worldObj.func_147480_a(i1, l1, j1, true);
+                            this.isCollidedHorizontally = false;
                         }
                     }
                 }
