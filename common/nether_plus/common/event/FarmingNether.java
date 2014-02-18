@@ -4,12 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import nether_plus.common.block.NPBlockList;
-import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FarmingNether
 {
-	@EventHandler
+	@SubscribeEvent
 	public void onUseHoe(UseHoeEvent event)
 	{
 		Block blockId = event.world.getBlock(event.x, event.y, event.z);

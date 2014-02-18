@@ -11,6 +11,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraftforge.common.MinecraftForge;
+import nether_plus.common.achievement.NPAchievements;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
@@ -18,6 +19,7 @@ import nether_plus.common.event.FarmingNether;
 import nether_plus.common.event.GrimBoneMeal;
 import nether_plus.common.event.LivingEvent;
 import nether_plus.common.event.ModBucket;
+import nether_plus.common.event.PickupHandler;
 import nether_plus.common.gui.GuiHandler;
 import nether_plus.common.item.NPItemList;
 import nether_plus.common.recipe.NPRecipe;
@@ -203,6 +205,7 @@ public class Nether_plus
 		NetherPlusCreativeTabs.loadCreativeTab();//CreativeTab
 		NPBlockList.loadBlock();//Block
 		NPItemList.loadItem();//Item
+		NPAchievements.loadAchievements();
 		
 		proxy.initSound();//Sound
 	}
@@ -219,6 +222,7 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
+		//MinecraftForge.EVENT_BUS.register(new PickupHandler());
 		
 		//*1 /A enlevais d'apr� robin4002, mais j'attent son aide.
 		ModBucket.INSTANCE.buckets.put(NPBlockList.QuicksilverStill, NPItemList.QuickSilverBucket);
