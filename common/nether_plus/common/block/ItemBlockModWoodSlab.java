@@ -16,12 +16,12 @@ public class ItemBlockModWoodSlab extends ItemBlock
 	private final BlockSlab theHalfSlab;
 	private final BlockSlab doubleSlab;
 
-	public ItemBlockModWoodSlab(Block block, BlockSlab blockSlab, BlockSlab blockSlab2, boolean b)
+	public ItemBlockModWoodSlab(Block block, BlockSlab blockSlab, BlockSlab blockSlab2, boolean isFull)
 	{
 		super(block);
 		this.theHalfSlab = blockSlab;
 		this.doubleSlab = blockSlab2;
-		this.isFullBlock = b;
+		this.isFullBlock = isFull;
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 	}
