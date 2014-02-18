@@ -10,14 +10,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
 //import nether_plus.common.GrimGenTree;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class GrimwoodSapling extends BlockSapling
-	{
+{
 	public GrimwoodSapling()
 	{
 		super();
@@ -25,8 +24,9 @@ public class GrimwoodSapling extends BlockSapling
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
-
-	public void registerIcons(IIconRegister iconregister)
+	
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconregister)
 	{
 		blockIcon = iconregister.registerIcon("nether_plus:GrimwoodSapling");
 	}
@@ -48,7 +48,7 @@ public class GrimwoodSapling extends BlockSapling
 			world.setBlock(i, j, k, this, l, 3);
 		}*/
 	}
-
+	
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativetabs, List list)
 	{

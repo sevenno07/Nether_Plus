@@ -28,8 +28,9 @@ public class GrimwoodLeaves extends BlockLeaves implements IShearable
 		this.setLightOpacity(1);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
-
-	public void registerIcons(IIconRegister iconregister)
+	
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconregister)
 	{
 		blockIcon = iconregister.registerIcon("nether_plus:GrimwoodLeaves");
 		fastIcon = iconregister.registerIcon("nether_plus:GrimwoodLeaves_2");

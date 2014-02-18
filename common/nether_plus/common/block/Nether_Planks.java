@@ -9,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import nether_plus.common.Nether_plus;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -55,7 +56,7 @@ public class Nether_Planks extends Block
 
         for (int i = 0; i < this.IconArray.length; ++i)
         {
-            this.IconArray[i] = par1IconRegister.registerIcon(this.getTextureName() + "_" + woodType[i]);
+            this.IconArray[i] = par1IconRegister.registerIcon("nether_plus:" + woodType[i]);
         }
     }
 }

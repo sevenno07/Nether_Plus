@@ -178,6 +178,7 @@ public class NPItemList
 	    GameRegistry.registerItem(BlackIronBoot, "BlackIronBoot");
 	    GameRegistry.registerItem(BlackIronSword, "BlackIronSword");
 	    GameRegistry.registerItem(BlackIronPickaxe, "BlackIronPickaxe");
+	    GameRegistry.registerItem(BlackIronAxe, "BlackIronAxe");
 	    GameRegistry.registerItem(BlackIronShovel, "BlackIronShovel");
 	    GameRegistry.registerItem(BlackIronHoe, "BlackIronHoe");
 	    GameRegistry.registerItem(SalamanderHelmet, "SalamanderHelmet");

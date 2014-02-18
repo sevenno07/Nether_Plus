@@ -179,7 +179,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(BlackIronBlock, "Black_Iron_Block");
 		GameRegistry.registerBlock(CharoiteBlock, "Charoite_Block");
 		
-		GameRegistry.registerBlock(NetherPlanks, "Grimwood_Planks");
+		GameRegistry.registerBlock(NetherPlanks, "Nether_Planks");
 		GameRegistry.registerBlock(CorruptedBrick, "Corrupted_Brick");
 		GameRegistry.registerBlock(NetherrackBrick, "Netherrack_Brick");
 		GameRegistry.registerBlock(GrimwoodWorkbench, "Grimwood_Workbench");

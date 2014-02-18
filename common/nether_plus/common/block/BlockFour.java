@@ -52,7 +52,7 @@ public class BlockFour extends BlockContainer
 	 }
 	 
 	 @SideOnly(Side.CLIENT)
-	 public void registerIcons(IIconRegister par1IconRegister)
+	 public void registerBlockIcons(IIconRegister par1IconRegister)
 	 {
 		 this.blockIcon = par1IconRegister.registerIcon("Nether_Plus:CorruptedFurnace_side");
 		 this.furnaceIconFront = par1IconRegister.registerIcon(this.isActive ? "Nether_Plus:CorruptedFurnace_on" : "Nether_Plus:CorruptedFurnace_off");
