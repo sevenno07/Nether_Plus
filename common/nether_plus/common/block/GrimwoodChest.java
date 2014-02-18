@@ -437,7 +437,7 @@ public class GrimwoodChest extends BlockContainer
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:GrimwoodPlanks");
     }

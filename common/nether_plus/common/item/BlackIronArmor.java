@@ -47,6 +47,10 @@ public class BlackIronArmor extends ItemArmor
 	
 	public boolean getIsRepairable(ItemStack stack, ItemStack stack2)
     {
-        return true;
+		if(stack.getItem().equals(this) && stack2.getItem().equals(NPItemList.BlackIronIngot))
+		{
+			return true;
+		}
+		return false;
     }
 }

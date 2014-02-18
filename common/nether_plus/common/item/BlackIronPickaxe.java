@@ -9,7 +9,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlackIronPickaxe extends ItemPickaxe
 {
-
 	public BlackIronPickaxe(ToolMaterial toolmaterial)
 	{
 		super(toolmaterial);
@@ -18,7 +17,11 @@ public class BlackIronPickaxe extends ItemPickaxe
 	
 	public boolean getIsRepairable(ItemStack stack, ItemStack outputstack)
 	{
-		return true;
+		if(stack.getItem().equals(this) && outputstack.getItem().equals(NPItemList.BlackIronIngot))
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	@SideOnly(Side.CLIENT)

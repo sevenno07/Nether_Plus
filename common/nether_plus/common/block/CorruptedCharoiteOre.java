@@ -20,7 +20,7 @@ public class CorruptedCharoiteOre extends Block
 	
     public int quantityDroppedWithBonus(int par1, Random par2Random)
     {
-        if (par1 > 0 && Item.getItemFromBlock(this) != this.idDropped(0, par2Random, par1))
+        if (par1 > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, par2Random, par1))
         {
             int j = par2Random.nextInt(par1 + 2) - 1;
 
@@ -37,7 +37,7 @@ public class CorruptedCharoiteOre extends Block
         }
     }
 	
-    public Item idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
       return NPItemList.CharoiteCrystal;
     }
@@ -54,7 +54,7 @@ public class CorruptedCharoiteOre extends Block
         {}
         super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
 
-        if (this.idDropped(par5, par1World.rand, par7) != Item.getItemFromBlock(this))
+        if (this.getItemDropped(par5, par1World.rand, par7) != Item.getItemFromBlock(this))
         {
             int j1 = 0;
 

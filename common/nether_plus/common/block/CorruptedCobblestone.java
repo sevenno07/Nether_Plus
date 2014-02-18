@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -82,11 +81,6 @@ public class CorruptedCobblestone extends Block
         }
 
         return false;
-    }
-
-    public Item getItemDropped(int par1, Random par2Random, int par3)
-    {
-        return NPBlockList.CorruptedCobblestone.getItemDropped(0, par2Random, par3);
     }
 
     @SideOnly(Side.CLIENT)

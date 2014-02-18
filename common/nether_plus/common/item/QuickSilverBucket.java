@@ -17,6 +17,6 @@ public class QuickSilverBucket extends GoldBucket
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.itemIcon = par1IconRegister.registerIcon("nether_plus:QuickSilverBucket");
+        this.itemIcon = par1IconRegister.registerIcon("nether_plus:QuicksilverBucket");
     }
 }
