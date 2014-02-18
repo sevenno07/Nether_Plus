@@ -40,7 +40,7 @@ public class GrimwoodWorkbench extends BlockContainer
     }
 	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("Nether_plus:workbench_side");
         this.workbenchIconTop = par1IconRegister.registerIcon("Nether_plus:workbench_top");

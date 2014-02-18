@@ -30,7 +30,7 @@ public class Netherraze extends Block
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconregister)
+    public void registerBlockIcons(IIconRegister iconregister)
 	{
         this.blockIcon = iconregister.registerIcon("nether_plus:Netherraze");
  	}

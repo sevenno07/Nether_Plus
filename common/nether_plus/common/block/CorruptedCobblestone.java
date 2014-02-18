@@ -90,7 +90,7 @@ public class CorruptedCobblestone extends Block
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.field_94441_a = par1IconRegister.registerIcon("nether_plus:CorruptedCobblestone2");
         this.field_94440_b = par1IconRegister.registerIcon("nether_plus:CorruptedCobblestone1");

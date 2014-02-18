@@ -1,15 +1,14 @@
 package nether_plus.common.block;
 
-import net.minecraft.block.BlockSand;
+import net.minecraft.block.BlockFalling;
+import net.minecraft.block.material.Material;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
-public class GlowstoneSand extends BlockSand
-{
-    public static boolean fallInstantly = false;
-    
-	public GlowstoneSand() 
+public class GlowstoneSand extends BlockFalling
+{    
+	public GlowstoneSand(Material material) 
 	{
-		super();
+		super(material);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 }
