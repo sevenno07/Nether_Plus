@@ -2,15 +2,16 @@ package nether_plus.common.block;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockStone;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
-public class CorruptionStone extends BlockStone
+public class CorruptionStone extends Block
 {
 	public CorruptionStone() 
 	{
-		super();
+		super(Material.rock);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	

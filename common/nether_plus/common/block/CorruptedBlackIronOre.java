@@ -1,13 +1,14 @@
 package nether_plus.common.block;
 
-import net.minecraft.block.BlockStone;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 
-public class CorruptedBlackIronOre extends BlockStone
+public class CorruptedBlackIronOre extends Block
 {
 	public CorruptedBlackIronOre() 
 	{
-		super();
+		super(Material.rock);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 }

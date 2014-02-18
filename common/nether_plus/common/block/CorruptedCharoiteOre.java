@@ -2,18 +2,19 @@ package nether_plus.common.block;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockStone;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.item.NPItemList;
 
-public class CorruptedCharoiteOre extends BlockStone
+public class CorruptedCharoiteOre extends Block
 {
 	public CorruptedCharoiteOre() 
 	{
-		super();
+		super(Material.rock);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
