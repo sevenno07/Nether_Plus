@@ -9,7 +9,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.util.ForgeDirection;
+//import net.minecraftforge.common.util.ForgeDirection;
+import nether_plus.common.block.NPBlockList;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,13 +19,10 @@ public class WhiteWheatSeeds extends Item implements IPlantable
 {
 	private Block Blocktype;
 	
-	private Block soilBlockID;
-	
 	public WhiteWheatSeeds(Block block, Block block1)
 	{
 		super();
 		this.Blocktype = block;
-		this.soilBlockID = block1;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
@@ -36,9 +34,11 @@ public class WhiteWheatSeeds extends Item implements IPlantable
         }
         else if (player.canPlayerEdit(x, y, z, par7, itemStack) && player.canPlayerEdit(x, y + 1, z, par7, itemStack))
         {
-            if (world.getBlock(x, y, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z))
+        	System.out.println(world.getBlock(x, y, z) == null);
+//            if (world.getBlock(x, y, z).canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z))
+        	if (world.getBlock(x, y, z) == NPBlockList.Nether_Farm)
             {
-                world.setBlock(x, y + 1, z, this.soilBlockID);
+                world.setBlock(x, y + 1, z, this.Blocktype);
                 --itemStack.stackSize;
                 return true;
             }

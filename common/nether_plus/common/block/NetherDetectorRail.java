@@ -146,9 +146,9 @@ public class NetherDetectorRail extends BlockRailDetector
         this.iconArray[1] = par1IconRegister.registerIcon("nether_plus:NetherDetectorRail_on");
     }
 
-    @SideOnly(Side.CLIENT)
+/*    @SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int par2)
     {
         return (par2 & 8) != 0 ? this.iconArray[1] : this.iconArray[0];
-    }
+    }*/
 }

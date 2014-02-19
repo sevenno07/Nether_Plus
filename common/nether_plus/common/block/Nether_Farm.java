@@ -31,7 +31,7 @@ public class Nether_Farm extends Block
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
     }
 
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4, int par5)
     {
         return AxisAlignedBB.getAABBPool().getAABB((double)(par2 + 0), (double)(par3 + 0), (double)(par4 + 0), (double)(par2 + 1), (double)(par3 + 1), (double)(par4 + 1));
     }
@@ -47,7 +47,6 @@ public class Nether_Farm extends Block
     }
 
     @SideOnly(Side.CLIENT)
-
     public IIcon getIcon(int par1, int par2)
     {
         return par1 == 1 ? (par2 > 0 ? this.field_94441_a : this.field_94440_b) : Blocks.soul_sand.getBlockTextureFromSide(par1);
@@ -150,7 +149,7 @@ public class Nether_Farm extends Block
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.field_94441_a = par1IconRegister.registerIcon("nether_plus:Nether_Farm_wet");
         this.field_94440_b = par1IconRegister.registerIcon("nether_plus:Nether_Farm_dry");

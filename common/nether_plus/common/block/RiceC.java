@@ -1,5 +1,6 @@
 package nether_plus.common.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
@@ -16,6 +17,11 @@ public class RiceC extends Crops
 	{
 		super();
 	}
+	
+    protected boolean canPlaceBlockOn(Block Par1)
+    {
+        return Par1 == NPBlockList.Nether_Farm;
+    }
 	
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int par2)

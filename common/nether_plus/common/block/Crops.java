@@ -35,7 +35,7 @@ public class Crops extends BlockBush implements IGrowable
 		this.setCreativeTab((CreativeTabs)null);
 	}
 	
-	protected boolean canThisPlantGrowOnThisBlockID(Block block)
+	protected boolean canPlaceBlockOn(Block block)
     {
         return block == NPBlockList.Nether_Farm;
     }
@@ -190,7 +190,7 @@ public class Crops extends BlockBush implements IGrowable
     }
     
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.iconArray = new IIcon[8];
 
