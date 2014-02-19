@@ -9,10 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class LivingEvent
 {
-	@EventHandler
+	@SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event)
     {
 		if(event.entity instanceof EntityPigZombie)

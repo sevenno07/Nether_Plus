@@ -218,11 +218,11 @@ public class Nether_plus
 		
 		proxy.registerRender();
 		proxy.registerRenderEntity();
-
+		
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
-		//MinecraftForge.EVENT_BUS.register(new PickupHandler());
+		MinecraftForge.EVENT_BUS.register(new PickupHandler());
 		
 		//*1 /A enlevais d'apr� robin4002, mais j'attent son aide.
 		ModBucket.INSTANCE.buckets.put(NPBlockList.QuicksilverStill, NPItemList.QuickSilverBucket);

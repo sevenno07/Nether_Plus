@@ -8,10 +8,11 @@ import nether_plus.common.block.NPBlockList;
 import nether_plus.common.block.RiceC;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
  
 public class GrimBoneMeal
 {
-	@EventHandler
+	@SubscribeEvent
 	public void onUseBonemeal(BonemealEvent event)
 	{
 		if (event.block == NPBlockList.GrimwoodSapling)
