@@ -80,6 +80,11 @@ item.GrimwoodPickaxe.name = Grimwood Pickaxe
 item.GrimwoodAxe.name = Grimwood Axe
 item.GrimwoodShovel.name = Grimwood Shovel
 item.GrimwoodHoe.name = Grimwood Hoe
+item.CorruptionstoneSword.name = Corruptionstone Sword
+item.CorruptionstonePickaxe.name = Corruptionstone Pickaxe
+item.CorruptionstoneAxe.name = Corruptionstone Axe
+item.CorruptionstoneShovel.name = Corruptionstone Shovel
+item.CorruptionstoneHoe.name = Corruptionstone Hoe
 
 item.BlackIronHelmet.name = BlackIron Helmet
 item.BlackIronChestplate.name = BlackIron Chestplate
