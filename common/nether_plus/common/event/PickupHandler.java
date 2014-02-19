@@ -1,24 +1,24 @@
 package nether_plus.common.event;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
 import nether_plus.common.achievement.NPAchievements;
 import nether_plus.common.block.NPBlockList;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.ItemPickupEvent;
 
 public class PickupHandler
 {
 	@SubscribeEvent
-	public void ItemPickupEvent(EntityItem item, EntityPlayer player)
+	public void onItemPickup(ItemPickupEvent event)
 	{
-		if(item.getEntityItem().getItem().equals(NPBlockList.CorruptedCobblestone))
+		System.out.println("Player has pickup a item");
+		if(event.pickedUp.getEntityItem().getItem().equals(NPBlockList.CorruptedCobblestone))
 		{
-			player.triggerAchievement(NPAchievements.pickCorruptedCobblestone);
+			event.player.triggerAchievement(NPAchievements.pickCorruptedCobblestone);
 		}
-		
-		if(item.getEntityItem().getItem().equals(NPBlockList.GrimwoodLog))
+
+		if(event.pickedUp.getEntityItem().getItem().equals(NPBlockList.GrimwoodLog))
 		{
-			player.triggerAchievement(NPAchievements.pickGrimwoodLog);
+			event.player.triggerAchievement(NPAchievements.pickGrimwoodLog);
 		}
 	}
 }
