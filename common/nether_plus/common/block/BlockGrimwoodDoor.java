@@ -115,7 +115,8 @@ public class BlockGrimwoodDoor extends Block
         }
     }
 	
-	public void registerIcons(IIconRegister par1IconRegister)
+    @SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.iconArray = new IIcon[doorIconNames.length * 2];
 
@@ -370,7 +371,7 @@ public class BlockGrimwoodDoor extends Block
     
     public Item idDropped(int par1, Random par2Random, int par3)
     {
-        return Item.getItemFromBlock(NPBlockList.BlockGrimwoodDoor);
+        return NPItemList.ItemGrimwoodDoor;
     }
     
     public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 vec3, Vec3 vec32)
