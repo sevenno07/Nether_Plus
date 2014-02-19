@@ -132,7 +132,7 @@ public class NPItemList
 		WhiteWheat = new WhiteWheat().setUnlocalizedName("WhiteWheat");
 		ChiliSeed = new ChiliSeed(NPBlockList.ChiliC, NPBlockList.Nether_Farm).setUnlocalizedName("ChiliSeed");
 		Chili = new Chili(10, 0.6F, false).setUnlocalizedName("Chili");
-		Rice = new Rice(0, 0, NPBlockList.RiceC, NPBlockList.Nether_Farm).setUnlocalizedName("Rice");
+		Rice = new Rice(NPBlockList.RiceC, NPBlockList.Nether_Farm).setUnlocalizedName("Rice");
 		
 		DeadBread = new DeadBread(5, 0.6F, false).setUnlocalizedName("DeadBread");
 		GoldBucket = new GoldBucket(Blocks.air).setUnlocalizedName("GoldBucket").setMaxStackSize(16);

@@ -174,7 +174,7 @@ public class Crops extends BlockBush implements IGrowable
         return ret;
     }
     
-    public Item idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
         return par1 == 7 ? this.getCropItem() : this.getSeedItem();
     }
