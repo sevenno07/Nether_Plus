@@ -40,16 +40,22 @@ public class NPItemList
 	public static Item GrimwoodShovel;
 	public static Item GrimwoodHoe;
 	
-	public static Item BlackIronHelmet;
-	public static Item BlackIronChestplate;
-	public static Item BlackIronLeggings;
-	public static Item BlackIronBoot;
+	public static Item CorruptionstoneSword;
+	public static Item CorruptionstonePickaxe;
+	public static Item CorruptionstoneAxe;
+	public static Item CorruptionstoneShovel;
+	public static Item CorruptionstoneHoe;
 	
 	public static Item BlackIronSword;
 	public static Item BlackIronPickaxe;
 	public static Item BlackIronAxe;
 	public static Item BlackIronShovel;
 	public static Item BlackIronHoe;
+	
+	public static Item BlackIronHelmet;
+	public static Item BlackIronChestplate;
+	public static Item BlackIronLeggings;
+	public static Item BlackIronBoot;
 	
 	public static Item SalamanderHelmet;
 	public static Item SalamanderChestplate;
@@ -81,6 +87,7 @@ public class NPItemList
 	public static ArmorMaterial BlackIronArmor = EnumHelper.addArmorMaterial("BlackIronArmor", 23, new int[]{3, 9, 8, 3}, 14);
 	public static ArmorMaterial SalamanderArmor = EnumHelper.addArmorMaterial("SalamanderArmor", 8, new int[]{2, 5, 3, 2}, 23);
 	public static ToolMaterial GrimwoodTool = EnumHelper.addToolMaterial("GrimwoodTool", 0, 89, 3.0F, 0, 23);
+	public static ToolMaterial CorruptionStoneTool = EnumHelper.addToolMaterial("CorruptionStoneTool", 1, 131, 4.0F, 1, 5);
 	public static ToolMaterial BlackIronTool = EnumHelper.addToolMaterial("BlackIronTool", 3, 375, 9.0F, 3, 21);
 	
 	public static void loadItem()
@@ -114,6 +121,12 @@ public class NPItemList
 		GrimwoodAxe = new GrimwoodAxe(GrimwoodTool).setUnlocalizedName("GrimwoodAxe");
 		GrimwoodShovel = new GrimwoodShovel(GrimwoodTool).setUnlocalizedName("GrimwoodShovel");
 		GrimwoodHoe = new GrimwoodHoe(GrimwoodTool).setUnlocalizedName("GrimwoodHoe");
+		
+		CorruptionstoneSword = new CorruptionstoneSword(CorruptionStoneTool).setUnlocalizedName("CorruptionstoneSword");
+		CorruptionstonePickaxe = new CorruptionstonePickaxe(CorruptionStoneTool).setUnlocalizedName("CorruptionstonePickaxe");
+		CorruptionstoneAxe = new CorruptionstoneAxe(CorruptionStoneTool).setUnlocalizedName("CorruptionstoneAxe");
+		CorruptionstoneShovel = new CorruptionstoneShovel(CorruptionStoneTool).setUnlocalizedName("CorruptionstoneShovel");
+		CorruptionstoneHoe = new CorruptionstoneHoe(CorruptionStoneTool).setUnlocalizedName("CorruptionstoneHoe");
 		
 		WhiteWheatSeeds = new WhiteWheatSeeds(NPBlockList.Crops, NPBlockList.Nether_Farm).setUnlocalizedName("WhiteWheatSeeds");
 		WhiteWheat = new WhiteWheat().setUnlocalizedName("WhiteWheat");
@@ -172,6 +185,11 @@ public class NPItemList
 	    GameRegistry.registerItem(GrimwoodAxe, "GrimwoodAxe");
 	    GameRegistry.registerItem(GrimwoodShovel, "GrimwoodShovel");
 	    GameRegistry.registerItem(GrimwoodHoe, "GrimwoodHoe");
+	    GameRegistry.registerItem(CorruptionstoneSword, "CorruptionstoneSword");
+	    GameRegistry.registerItem(CorruptionstonePickaxe, "CorruptionstonePickaxe");
+	    GameRegistry.registerItem(CorruptionstoneAxe, "CorruptionstoneAxe");
+	    GameRegistry.registerItem(CorruptionstoneShovel, "CorruptionstoneShovel");
+	    GameRegistry.registerItem(CorruptionstoneHoe, "CorruptionstoneHoe");
 	    GameRegistry.registerItem(BlackIronHelmet, "BlackIronHelmet");
 	    GameRegistry.registerItem(BlackIronChestplate, "BlackIronChestplate");
 	    GameRegistry.registerItem(BlackIronLeggings, "BlackIronLeggings");
