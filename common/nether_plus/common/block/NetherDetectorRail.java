@@ -3,7 +3,6 @@ package nether_plus.common.block;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.BlockRailBase;
 import net.minecraft.block.BlockRailDetector;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.command.IEntitySelector;
@@ -139,16 +138,16 @@ public class NetherDetectorRail extends BlockRailDetector
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.iconArray = new IIcon[2];
         this.iconArray[0] = par1IconRegister.registerIcon("nether_plus:NetherDetectorRail");
         this.iconArray[1] = par1IconRegister.registerIcon("nether_plus:NetherDetectorRail_on");
     }
 
-/*    @SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int par2)
     {
         return (par2 & 8) != 0 ? this.iconArray[1] : this.iconArray[0];
-    }*/
+    }
 }

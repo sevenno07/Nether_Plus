@@ -32,7 +32,7 @@ public class NetherPoweredRail extends BlockRailPowered
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         super.registerBlockIcons(par1IconRegister);
         this.theIcon = par1IconRegister.registerIcon("nether_plus:NetherPoweredRail_Turn");

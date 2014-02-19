@@ -31,7 +31,7 @@ public class BlackIronArmor extends ItemArmor
 		}	
 	}
 	
-	public void onArmorTickUpdate(World world, EntityPlayer player, ItemStack stack)
+	public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
 	{
 		if(!stack.isItemEnchanted())
 		{
