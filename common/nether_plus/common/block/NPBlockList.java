@@ -214,6 +214,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(Crops, "Crops");
 		GameRegistry.registerBlock(ChiliC, "Chili_Crops");
 		GameRegistry.registerBlock(ChiliB, "Chili_Block");
+		GameRegistry.registerBlock(RiceC, "RiceC");
 		
 		GameRegistry.registerBlock(Ladder, "Ladder");
 		GameRegistry.registerBlock(NetherRail, "Nether_Rail");

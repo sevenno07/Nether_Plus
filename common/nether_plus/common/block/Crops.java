@@ -61,7 +61,19 @@ public class Crops extends BlockBush implements IGrowable
         }
     }
 	
-	public void fertilize(World world, int x, int y, int z)
+    public void fertilizeCrops(World part1, int part2, int part3, int part4)
+    {
+        int l = part1.getBlockMetadata(part2, part3, part4) + MathHelper.getRandomIntegerInRange(part1.rand, 2, 5);
+
+        if (l > 7)
+        {
+            l = 7;
+        }
+
+        part1.setBlockMetadataWithNotify(part2, part3, part4, l, 2);
+    }
+	
+/*	public void fertilize(World world, int x, int y, int z)
     {
         int l = world.getBlockMetadata(x, y, z) + MathHelper.getRandomIntegerInRange(world.rand, 2, 5);
 
@@ -71,7 +83,7 @@ public class Crops extends BlockBush implements IGrowable
         }
 
         world.setBlockMetadataWithNotify(x, y, z, l, 2);
-    }
+    }*/
 	
 	private float getGrowthRate(World world, int x, int y, int z)
     {

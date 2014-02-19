@@ -1,6 +1,6 @@
 package nether_plus.common.block;
 
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -196,7 +196,7 @@ public class RiceC extends BlockBush implements IGrowable
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon("nether_plus:rices_" + i);
+            this.iconArray[i] = par1IconRegister.registerIcon("nether_plus:Rices_" + i);
         }
     }
 
@@ -217,12 +217,14 @@ public class RiceC extends BlockBush implements IGrowable
 	{
 		
 	}
-}
+}*/
 
-/*import net.minecraft.block.Block;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -240,6 +242,18 @@ public class RiceC extends Crops
     protected boolean canPlaceBlockOn(Block Par1)
     {
         return Par1 == NPBlockList.Nether_Farm;
+    }
+    
+    public void fertilizeRiceC(World part1, int part2, int part3, int part4)
+    {
+        int l = part1.getBlockMetadata(part2, part3, part4) + MathHelper.getRandomIntegerInRange(part1.rand, 2, 5);
+
+        if (l > 7)
+        {
+            l = 7;
+        }
+
+        part1.setBlockMetadataWithNotify(part2, part3, part4, l, 2);
     }
 	
 	@SideOnly(Side.CLIENT)
@@ -277,7 +291,7 @@ public class RiceC extends Crops
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon("nether_plus:rices_" + i);
+            this.iconArray[i] = par1IconRegister.registerIcon("nether_plus:Rices_" + i);
         }
     }
-}*/
+}

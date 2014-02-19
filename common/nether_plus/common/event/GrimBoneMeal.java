@@ -26,7 +26,7 @@ public class GrimBoneMeal
 		{
 			if (!event.world.isRemote)
 			{
-				((Crops)NPBlockList.Crops).fertilize(event.world, event.x, event.y, event.z);
+				((Crops)NPBlockList.Crops).fertilizeCrops(event.world, event.x, event.y, event.z);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
@@ -42,7 +42,7 @@ public class GrimBoneMeal
 		{
 			if (!event.world.isRemote)
 			{
-				((RiceC)NPBlockList.RiceC).fertilize(event.world, event.x, event.y, event.z);
+				((RiceC)NPBlockList.RiceC).fertilizeRiceC(event.world, event.x, event.y, event.z);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
