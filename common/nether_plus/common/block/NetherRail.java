@@ -1,13 +1,12 @@
 package nether_plus.common.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
-import net.minecraft.block.BlockRailBase;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class NetherRail extends BlockRail
 {
@@ -28,8 +27,7 @@ public class NetherRail extends BlockRail
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_)
     {
-        super.registerBlockIcons(p_149651_1_);
-        this.field_150056_b = p_149651_1_.registerIcon(this.getTextureName() + "_turned");
+        this.field_150056_b = p_149651_1_.registerIcon(this.getTextureName() + "_Turn");
     }
 
     protected void func_150048_a(World world, int x, int y, int z, int par5, int par6, Block block)

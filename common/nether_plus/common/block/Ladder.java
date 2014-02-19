@@ -9,6 +9,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLadder;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
@@ -162,4 +163,10 @@ public class Ladder extends BlockLadder
     {
         return true;
     }
+    
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconregister)
+	{
+        this.blockIcon = iconregister.registerIcon("nether_plus:Ladder");
+ 	}
 }

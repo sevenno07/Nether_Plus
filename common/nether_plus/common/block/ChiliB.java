@@ -52,7 +52,7 @@ public class ChiliB extends Block
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister par1IconRegister)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("nether_plus:Chili_side");
         this.theIcon = par1IconRegister.registerIcon("nether_plus:Chili_top");

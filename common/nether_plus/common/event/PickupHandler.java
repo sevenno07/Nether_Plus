@@ -14,7 +14,7 @@ public class PickupHandler
 		{
 			event.player.triggerAchievement(NPAchievements.pickCorruptedCobblestone);
 		}
-		
+
 		if(event.pickedUp.getEntityItem().getItem().equals(NPBlockList.GrimwoodLog))
 		{
 			event.player.triggerAchievement(NPAchievements.pickGrimwoodLog);

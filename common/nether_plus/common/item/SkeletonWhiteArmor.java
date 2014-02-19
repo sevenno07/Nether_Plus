@@ -26,7 +26,6 @@ public class SkeletonWhiteArmor extends ItemArmor
 		{
 			return "/mods/nether_plus/textures/armors/WhiteSkeleton_1.png"; //armure WhiteSkeleton, casque + plastron + bottes
 		}
-
 	}
 
 	@SideOnly(Side.CLIENT)

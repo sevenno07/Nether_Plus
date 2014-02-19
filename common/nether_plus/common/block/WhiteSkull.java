@@ -36,7 +36,7 @@ public class WhiteSkull extends Block
 	 }
 	 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IconRegister)
+	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
 		this.blockIcon = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Front");
 	 	this.IconBottom = par1IconRegister.registerIcon("Nether_Plus:WhiteSkull_Bottom");
