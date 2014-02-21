@@ -25,7 +25,7 @@ public class RenderFireSlime extends RenderLiving
         this.scaleAmount = par2ModelBase;
     }
  	
-    protected int shouldFireSlimeRenderPass(FireSlime par1FireSlime, int par2, float par3)
+    protected int shouldRenderPass(FireSlime par1FireSlime, int par2, float par3)
     {
         if (par1FireSlime.isInvisible())
         {
@@ -51,22 +51,22 @@ public class RenderFireSlime extends RenderLiving
         }
     }
 
-    protected void scaleFireSlime(FireSlime FireSlime, float par2)
+    protected void preRenderCallback(FireSlime FireSlime, float par2)
     {
         float f1 = (float)FireSlime.getFireSlimeSize();
-        float f2 = (FireSlime.field_70812_c + (FireSlime.field_70811_b - FireSlime.field_70812_c) * par2) / (f1 * 0.5F + 1.0F);
+        float f2 = (FireSlime.prevSquishFactor + (FireSlime.squishFactor - FireSlime.prevSquishFactor) * par2) / (f1 * 0.5F + 1.0F);
         float f3 = 1.0F / (f2 + 1.0F);
         GL11.glScalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
     }
 
     protected void preRenderCallback(EntityLiving entityLiving, float par2)
     {
-        this.scaleFireSlime((FireSlime)entityLiving, par2);
+        this.preRenderCallback((FireSlime)entityLiving, par2);
     }
 
     protected int shouldRenderPass(EntityLiving entityLiving, int par2, float par3)
     {
-        return this.shouldFireSlimeRenderPass((FireSlime)entityLiving, par2, par3);
+        return this.shouldRenderPass((FireSlime)entityLiving, par2, par3);
     }
 
 	@Override
