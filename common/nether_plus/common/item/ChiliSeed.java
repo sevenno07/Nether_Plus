@@ -18,13 +18,10 @@ public class ChiliSeed extends Item implements IPlantable
 {
 	private Block Blocktype;
 	
-	private Block soilBlockID;
-	
 	public ChiliSeed(Block block, Block block1)
 	{
 		super();
 		this.Blocktype = block;
-		this.soilBlockID = block1;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
 	}
 	
@@ -36,9 +33,10 @@ public class ChiliSeed extends Item implements IPlantable
         }
         else if (player.canPlayerEdit(x, y, z, par7, itemStack) && player.canPlayerEdit(x, y + 1, z, par7, itemStack))
         {
+        	System.out.println(world.getBlock(x, y, z) == null);
             if (world.getBlock(x, y, z) == NPBlockList.Nether_Farm && world.isAirBlock(x, y + 1, z))
             {
-                world.setBlock(x, y + 1, z, this.soilBlockID);
+                world.setBlock(x, y + 1, z, this.Blocktype);
                 --itemStack.stackSize;
                 return true;
             }
