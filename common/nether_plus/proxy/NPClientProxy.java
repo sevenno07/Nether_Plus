@@ -40,11 +40,13 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class NPClientProxy extends NPCommonProxy
 {
 	public static int shouldRenderPass;
+	public static int renderStemModID;
 
 	@Override
 	public void registerRender()
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrimwoodChest.class, new TileEntityGrimwoodChestRenderer());
+		renderStemModID = RenderingRegistry.getNextAvailableRenderId();
 	}
 	
 	public void initSound()
@@ -64,5 +66,6 @@ public class NPClientProxy extends NPCommonProxy
 	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), new ModelFireSlime(0), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(SalamanderBoat.class, new RenderSalamanderBoat());
 	     RenderingRegistry.registerEntityRenderingHandler(IronSheep.class, new RenderIronSheep(new ModelIronSheep1(), new ModelIronSheep2(), 0.5F));
+	     RenderingRegistry.registerBlockHandler(renderStemModID, new renderStemMod());
 	}
 }
