@@ -24,14 +24,13 @@ public class RenderIronSheep extends RenderLiving
         this.setRenderPassModel(par2ModelBase);
     }
 
-    protected int setWoolColorAndRender(IronSheep par1IronSheep, int par2, float par3)
+    protected int shouldRenderPass(IronSheep par1IronSheep, int par2, float par3)
     {
         if (par2 == 0 && !par1IronSheep.getSheared())
         {
             this.bindTexture(sheepTexture);
-            float f1 = 1.0F;
             int j = par1IronSheep.getFleeceColor();
-            GL11.glColor3f(f1 * IronSheep.fleeceColorTable[j][0], f1 * IronSheep.fleeceColorTable[j][1], f1 * IronSheep.fleeceColorTable[j][2]);
+            GL11.glColor3f(IronSheep.fleeceColorTable[j][0], IronSheep.fleeceColorTable[j][1], IronSheep.fleeceColorTable[j][2]);
             return 1;
         }
         else
@@ -42,7 +41,7 @@ public class RenderIronSheep extends RenderLiving
 
     protected int shouldRenderPass(EntityLiving par1EntityLiving, int par2, float par3)
     {
-        return this.setWoolColorAndRender((IronSheep)par1EntityLiving, par2, par3);
+        return this.shouldRenderPass((IronSheep)par1EntityLiving, par2, par3);
     }
 
 	@Override

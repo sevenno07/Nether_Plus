@@ -28,6 +28,8 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 	private static final int[] slots_top = new int[] {0};
 	private static final int[] slots_bottom = new int[] {2, 1};
 	private static final int[] slots_sides = new int[] {1};
+	
+	private int direction;
 
 	public int furnaceBurnTime;
 	public int furnaceCookTime;
@@ -133,6 +135,7 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 		this.furnaceBurnTime = par1NBTTagCompound.getShort("BurnTime");
 		this.furnaceCookTime = par1NBTTagCompound.getShort("CookTime");
 		this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
+		this.direction = par1NBTTagCompound.getInteger("Direction");
 
 		if (par1NBTTagCompound.hasKey("CustomName"))
 		{
@@ -157,6 +160,8 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 				nbttaglist.appendTag(nbttagcompound1);
 			}
 		}
+		
+		par1NBTTagCompound.setInteger("Direction", this.direction);
 
 		par1NBTTagCompound.setTag("Items", nbttaglist);
 
@@ -385,4 +390,14 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 
 	@Override
 	public void closeInventory(){}
+
+	public int getDirection()
+	{
+		return direction;
+	}
+
+	public void setDirection(int direction)
+	{
+		this.direction = direction;
+	}
 }

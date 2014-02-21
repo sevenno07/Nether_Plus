@@ -103,7 +103,6 @@ public class BlockFour extends BlockContainer
 	 }
 	 
 	 @SideOnly(Side.CLIENT)
-
 	 public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	 {
 		 if (this.isActive)
@@ -115,12 +114,12 @@ public class BlockFour extends BlockContainer
 			 float f3 = 0.52F;
 			 float f4 = par5Random.nextFloat() * 0.6F - 0.3F;
 
-			 if (l == 1)
+			 if (l == 4)
 			 {
 				 par1World.spawnParticle("smoke", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 				 par1World.spawnParticle("flame", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 			 }
-			 else if (l == 3)
+			 else if (l == 5)
 			 {
 				 par1World.spawnParticle("smoke", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 				 par1World.spawnParticle("flame", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
@@ -130,7 +129,7 @@ public class BlockFour extends BlockContainer
 				 par1World.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
 				 par1World.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
 			 }
-			 else if (l == 0)
+			 else if (l == 3)
 			 {
 				 par1World.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
 				 par1World.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
