@@ -61,7 +61,7 @@ public class Salamander extends EntityAnimal
     
     protected Item getDropItemId()
     {
-    	return NPItemList.BlackBone;
+    	return NPItemList.blackBone;
     }
     
     protected void dropFewItems(boolean par1, int par2)
@@ -70,13 +70,13 @@ public class Salamander extends EntityAnimal
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.dropItem(NPItemList.SalamanderLeather, 1);
+            this.dropItem(NPItemList.salamanderLeather, 1);
         }
     }
     
     public boolean isBreedingItem(ItemStack par1ItemStack)
     {
-        return par1ItemStack != null && par1ItemStack.getItem().equals(NPItemList.BlackBone);
+        return par1ItemStack != null && par1ItemStack.getItem().equals(NPItemList.blackBone);
     }
     
     public Salamander spawnBabyAnimal(EntityAgeable par1EntityAgeable)
@@ -92,6 +92,6 @@ public class Salamander extends EntityAnimal
 	
 	protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem, 1);
+        this.dropItem(NPItemList.bloodGem, 1);
     }
 }

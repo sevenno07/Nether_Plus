@@ -14,6 +14,6 @@ public class NPCreativeTabsFood extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return NPItemList.DeadBread;
+		return NPItemList.deadBread;
 	}
 }

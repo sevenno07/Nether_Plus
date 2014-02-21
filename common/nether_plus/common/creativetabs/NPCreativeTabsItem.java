@@ -14,6 +14,6 @@ public class NPCreativeTabsItem extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return NPItemList.BloodGem;
+		return NPItemList.bloodGem;
 	}
 }

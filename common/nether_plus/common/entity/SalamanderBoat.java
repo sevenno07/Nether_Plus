@@ -134,7 +134,7 @@ public class SalamanderBoat extends EntityBoat
 
                 if (!flag)
                 {
-                    this.dropItem(NPItemList.SalamanderBoat, 1);
+                    this.dropItem(NPItemList.salamanderBoat, 1);
                 }
                 this.setDead();
             }
@@ -392,7 +392,7 @@ public class SalamanderBoat extends EntityBoat
 
                     for (k = 0; k < 2; ++k)
                     {
-                        this.dropItem(NPItemList.GrimwoodStick, 1);
+                        this.dropItem(NPItemList.grimwoodStick, 1);
                     }
                 }
             }

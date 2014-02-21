@@ -371,7 +371,7 @@ public class BlockGrimwoodDoor extends Block
     
     public Item idDropped(int par1, Random par2Random, int par3)
     {
-        return NPItemList.ItemGrimwoodDoor;
+        return NPItemList.itemGrimwoodDoor;
     }
     
     public MovingObjectPosition collisionRayTrace(World world, int x, int y, int z, Vec3 vec3, Vec3 vec32)
@@ -415,7 +415,7 @@ public class BlockGrimwoodDoor extends Block
     @SideOnly(Side.CLIENT)
     public Item idPicked(World par1World, int par2, int par3, int par4)
     {
-    	return NPItemList.ItemGrimwoodDoor;
+    	return NPItemList.itemGrimwoodDoor;
     }
     
     public void onBlockHarvested(World world, int x, int y, int z, int par5, EntityPlayer par6EntityPlayer)

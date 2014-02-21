@@ -151,10 +151,10 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
 		MinecraftForge.EVENT_BUS.register(new PickupHandler());
 
-		ModBucket.INSTANCE.buckets.put(NPBlockList.QuicksilverStill, NPItemList.QuickSilverBucket);
-		ModBucket.INSTANCE.buckets.put(NPBlockList.SoulplasmStill, NPItemList.SoulplasmBucket);
-		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.AcidBucket1);
-		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.AcidBucket2);
+		ModBucket.INSTANCE.buckets.put(NPBlockList.QuicksilverStill, NPItemList.quickSilverBucket);
+		ModBucket.INSTANCE.buckets.put(NPBlockList.SoulplasmStill, NPItemList.soulplasmBucket);
+		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.acidBucket1);
+		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.acidBucket2);
 		MinecraftForge.EVENT_BUS.register(ModBucket.INSTANCE);
 		// *1
 

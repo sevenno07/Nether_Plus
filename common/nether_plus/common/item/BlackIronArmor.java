@@ -21,7 +21,7 @@ public class BlackIronArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.getItem().equals(NPItemList.BlackIronLeggings))
+		if(stack.getItem().equals(NPItemList.blackIronLeggings))
 		{
 			return "/mods/nether_plus/textures/armors/BlackIron_2.png"; //armure BlackIron, jambières
 		}
@@ -47,7 +47,7 @@ public class BlackIronArmor extends ItemArmor
 	
 	public boolean getIsRepairable(ItemStack stack, ItemStack stack2)
     {
-		if(stack.getItem().equals(this) && stack2.getItem().equals(NPItemList.BlackIronIngot))
+		if(stack.getItem().equals(this) && stack2.getItem().equals(NPItemList.blackIronIngot))
 		{
 			return true;
 		}

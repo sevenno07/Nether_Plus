@@ -14,6 +14,6 @@ public class NPCreativeTabsTool extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return NPItemList.GrimwoodPickaxe;
+		return NPItemList.grimwoodPickaxe;
 	}
 }

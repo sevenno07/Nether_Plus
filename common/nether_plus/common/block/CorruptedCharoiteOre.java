@@ -39,7 +39,7 @@ public class CorruptedCharoiteOre extends Block
 	
     public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-      return NPItemList.CharoiteCrystal;
+      return NPItemList.charoiteCrystal;
     }
 	
     public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)

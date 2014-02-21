@@ -46,7 +46,7 @@ public class Mogus extends EntityCreature
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem, 1);
+        this.dropItem(NPItemList.bloodGem, 1);
     }
 
     protected Item getDropItemId()

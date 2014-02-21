@@ -6,7 +6,6 @@ import nether_plus.common.block.Crops;
 import nether_plus.common.block.GrimwoodSapling;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.block.RiceC;
-import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
  

@@ -170,7 +170,7 @@ public class RecipesWorkbench
         this.addRecipe(new ItemStack(Blocks.hopper), new Object[] {"I I", "ICI", " I ", 'I', Items.iron_ingot, 'C', Blocks.chest});
         
         //Nether_Plus
-		this.addShapelessRecipe(new ItemStack(NPItemList.BlackBoneMeal, 4), new Object[]{NPItemList.BlackBone});
+		this.addShapelessRecipe(new ItemStack(NPItemList.blackBoneMeal, 4), new Object[]{NPItemList.blackBone});
 		
 	    Collections.sort(this.recipes, new RecipeSorterWorkbench(this));
 	}

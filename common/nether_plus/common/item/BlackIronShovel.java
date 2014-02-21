@@ -17,7 +17,7 @@ public class BlackIronShovel extends ItemSpade
 	
 	public boolean getIsRepairable(ItemStack stack, ItemStack outputstack)
 	{
-		if(stack.getItem().equals(this) && outputstack.getItem().equals(NPItemList.BlackIronIngot))
+		if(stack.getItem().equals(this) && outputstack.getItem().equals(NPItemList.blackIronIngot))
 		{
 			return true;
 		}

@@ -31,7 +31,7 @@ public class ChiliB extends Block
 
     public Item idDropped(int par1, Random par2Random, int par3)
     {
-        return NPItemList.Chili;
+        return NPItemList.chili;
     }
 
     public int quantityDropped(Random par1Random)

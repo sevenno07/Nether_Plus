@@ -93,11 +93,11 @@ public class Pordenfer extends EntityMob
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem, 1);
+        this.dropItem(NPItemList.bloodGem, 1);
     }
     
     protected Item getDropItemId()
     {
-        return NPItemList.BlackBone;
+        return NPItemList.blackBone;
     }
 }

@@ -84,11 +84,11 @@ public class Wight extends EntityZombie
 
     protected Item getDropItemId()
     {
-        return NPItemList.BlackBone;
+        return NPItemList.blackBone;
     }
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem, 1);
+        this.dropItem(NPItemList.bloodGem, 1);
     }
 }

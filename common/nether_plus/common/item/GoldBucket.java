@@ -89,26 +89,26 @@ public class GoldBucket extends Item
                     if (material == Material.water && l == 0)
                     {
                         par2World.setBlockToAir(i, j, k);
-                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.WaterBucket);
+                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.waterBucket);
                     }
 
                     if (material == Material.lava && l == 0)
                     {
                         par2World.setBlockToAir(i, j, k);
-                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.LavaBucket);
+                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.lavaBucket);
                     }
                     
                     if (material == Material.water && l == 0)
                     {
                         par2World.setBlockToAir(i, j, k);
-                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.QuickSilverBucket);
+                        return this.func_150910_a(par1ItemStack, par3EntityPlayer, NPItemList.quickSilverBucket);
                     }
                 }
                 else
                 {
                     if (this.isFull == Blocks.air)
                     {
-                        return new ItemStack(NPItemList.GoldBucket);
+                        return new ItemStack(NPItemList.goldBucket);
                     }
 
                     if (movingobjectposition.sideHit == 0)
@@ -148,7 +148,7 @@ public class GoldBucket extends Item
 
                     if (this.tryPlaceContainedLiquid(par2World, i, j, k) && !par3EntityPlayer.capabilities.isCreativeMode)
                     {
-                        return new ItemStack(NPItemList.GoldBucket);
+                        return new ItemStack(NPItemList.goldBucket);
                     }
                 }
             }

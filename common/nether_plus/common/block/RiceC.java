@@ -276,12 +276,12 @@ public class RiceC extends Crops
 
     protected Item getSeedItem()
     {
-        return NPItemList.Rice;
+        return NPItemList.rice;
     }
 
     protected Item getCropItem()
     {
-        return NPItemList.Rice;
+        return NPItemList.rice;
     }
 
     @SideOnly(Side.CLIENT)

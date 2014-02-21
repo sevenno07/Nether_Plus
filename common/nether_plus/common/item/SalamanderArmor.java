@@ -23,7 +23,7 @@ public class SalamanderArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.getItem().equals(NPItemList.SalamanderLeggings))
+		if(stack.getItem().equals(NPItemList.salamanderLeggings))
 		{
 			return "/mods/nether_plus/textures/armors/Salamander_2.png"; //armure Salamander, jambières
 		}

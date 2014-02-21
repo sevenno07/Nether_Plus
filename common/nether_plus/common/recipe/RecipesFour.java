@@ -52,10 +52,10 @@ public class RecipesFour
 		this.addSmelting(Blocks.soul_sand, new ItemStack(NPBlockList.SoulGlass), 2.0F);
 		this.addSmelting(NPBlockList.GlowstoneSand, new ItemStack(Blocks.glowstone), 2.0F);
 		this.addSmelting(NPBlockList.CorruptedGoldOre, new ItemStack(Items.gold_ingot), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedBlackIronOre, new ItemStack(NPItemList.BlackIronIngot), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedCharoiteOre, new ItemStack(NPItemList.CharoiteCrystal), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedBlackIronOre, new ItemStack(NPItemList.blackIronIngot), 2.0F);
+		this.addSmelting(NPBlockList.CorruptedCharoiteOre, new ItemStack(NPItemList.charoiteCrystal), 2.0F);
 		this.addSmelting(NPBlockList.CorruptedCobblestone, new ItemStack(NPBlockList.CorruptionStone), 2.0F);
-		this.addSmelting(NPBlockList.InfernumOre, new ItemStack(NPItemList.InfernumIngot), 2.0F);
+		this.addSmelting(NPBlockList.InfernumOre, new ItemStack(NPItemList.infernumIngot), 2.0F);
 
 	}
 

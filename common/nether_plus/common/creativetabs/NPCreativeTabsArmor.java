@@ -14,6 +14,6 @@ public class NPCreativeTabsArmor extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return NPItemList.SkeletonBlackHelmet;
+		return NPItemList.skeletonBlackHelmet;
 	}
 }

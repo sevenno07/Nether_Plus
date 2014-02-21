@@ -142,12 +142,12 @@ public class Crops extends BlockBush implements IGrowable
 
     protected Item getSeedItem()
     {
-        return NPItemList.WhiteWheatSeeds;
+        return NPItemList.whiteWheatSeeds;
     }
 
     protected Item getCropItem()
     {
-        return NPItemList.WhiteWheat;
+        return NPItemList.whiteWheat;
     }
     
     public void dropBlockAsItemWithChance(World world, int x, int y, int z, int i, float par6, int par7)

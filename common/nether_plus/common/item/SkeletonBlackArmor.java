@@ -23,7 +23,7 @@ public class SkeletonBlackArmor extends ItemArmor
 	
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 	{
-		if(stack.getItem().equals(NPItemList.SkeletonBlackLeggings))
+		if(stack.getItem().equals(NPItemList.skeletonBlackLeggings))
 		{
 			return "/mods/nether_plus/textures/armors/BlackSkeleton_2.png"; //armure BlackSkeleton, jambières
 		}

@@ -232,12 +232,12 @@ public class FireSlime extends EntityLiving implements IMob
 
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem, 1);
+        this.dropItem(NPItemList.bloodGem, 1);
     }
     
     protected Item getDropItem()
     {
-    	return this.getFireSlimeSize() == 1 ? NPItemList.Fireslimeball : Item.getItemById(0);
+    	return this.getFireSlimeSize() == 1 ? NPItemList.fireslimeball : Item.getItemById(0);
     }
 
     protected float getSoundVolume()

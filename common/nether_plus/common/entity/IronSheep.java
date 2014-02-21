@@ -51,7 +51,7 @@ public class IronSheep extends EntityAnimal implements IShearable
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIPanic(this, 0.38F));
         this.tasks.addTask(2, new EntityAIMate(this, f));
-        this.tasks.addTask(3, new EntityAITempt(this, 0.25F, NPItemList.WhiteWheat, false));
+        this.tasks.addTask(3, new EntityAITempt(this, 0.25F, NPItemList.whiteWheat, false));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 0.25F));
         this.tasks.addTask(5, this.aiEatGrass);
         this.tasks.addTask(6, new EntityAIWander(this, f));

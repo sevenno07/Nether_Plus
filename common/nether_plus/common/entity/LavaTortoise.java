@@ -100,7 +100,7 @@ public class LavaTortoise extends EntityCreature
 
     protected Item getDropItemId()
     {
-        return NPItemList.BlackBone;
+        return NPItemList.blackBone;
     }
     
     protected void dropFewItems(boolean par1, int par2)
@@ -110,7 +110,7 @@ public class LavaTortoise extends EntityCreature
 
         for (k = 0; k < j; ++k)
         {
-            this.dropItem(NPItemList.BlackBone, 1);
+            this.dropItem(NPItemList.blackBone, 1);
         }
 
         j = this.rand.nextInt(2 + par2);
@@ -123,6 +123,6 @@ public class LavaTortoise extends EntityCreature
     
     protected void dropRareDrop(int par1)
     {
-        this.dropItem(NPItemList.BloodGem, 1);
+        this.dropItem(NPItemList.bloodGem, 1);
     }
 }

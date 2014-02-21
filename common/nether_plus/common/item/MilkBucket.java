@@ -31,7 +31,7 @@ public class MilkBucket extends Item
             par3EntityPlayer.curePotionEffects(par1ItemStack);
         }
 
-        return par1ItemStack.stackSize <= 0 ? new ItemStack(NPItemList.GoldBucket) : par1ItemStack;
+        return par1ItemStack.stackSize <= 0 ? new ItemStack(NPItemList.goldBucket) : par1ItemStack;
     }
 
     public int getMaxItemUseDuration(ItemStack par1ItemStack)

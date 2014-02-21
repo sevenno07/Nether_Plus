@@ -246,7 +246,7 @@ public class ChiliC extends BlockBush implements IGrowable
 
             if (this.ChiliIcon == NPBlockList.ChiliB)
             {
-                item = NPItemList.ChiliSeed;
+                item = NPItemList.chiliSeed;
             }
 
 /*            if (this.field_149877_a == Blocks.melon_block)
@@ -294,7 +294,7 @@ public class ChiliC extends BlockBush implements IGrowable
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
-        return this.ChiliIcon == NPBlockList.ChiliB ? NPItemList.ChiliSeed : (/*this.ChiliIcon == Blocks.melon_block ? Items.melon_seeds :*/ Item.getItemById(0));
+        return this.ChiliIcon == NPBlockList.ChiliB ? NPItemList.chiliSeed : (/*this.ChiliIcon == Blocks.melon_block ? Items.melon_seeds :*/ Item.getItemById(0));
     }
 
     @SideOnly(Side.CLIENT)
@@ -322,7 +322,7 @@ public class ChiliC extends BlockBush implements IGrowable
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
         Item item = null;
-        item = ChiliIcon == NPBlockList.ChiliB ? NPItemList.ChiliSeed : item;
+        item = ChiliIcon == NPBlockList.ChiliB ? NPItemList.chiliSeed : item;
 //        item = field_149877_a == Blocks.melon_block ? Items.melon_seeds : item;
 
         for (int i = 0; item != null && i < 3; i++)
