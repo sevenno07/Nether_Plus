@@ -47,6 +47,7 @@ public class NPClientProxy extends NPCommonProxy
 	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrimwoodChest.class, new TileEntityGrimwoodChestRenderer());
 		renderStemModID = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(renderStemModID, new renderStemMod());
 	}
 	
 	public void initSound()

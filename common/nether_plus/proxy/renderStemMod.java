@@ -178,5 +178,4 @@ public class renderStemMod implements ISimpleBlockRenderingHandler {
 	{
 		return NPClientProxy.renderStemModID;
 	}
-
 }
