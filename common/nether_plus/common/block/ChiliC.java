@@ -19,6 +19,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
+import nether_plus.proxy.NPClientProxy;
 import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class ChiliC extends BlockBush implements IGrowable
@@ -44,6 +45,11 @@ public class ChiliC extends BlockBush implements IGrowable
         return block == NPBlockList.Nether_Farm;
     }
 
+	public boolean renderAsNormalBlock()
+	{
+		return false;
+	}
+    
     /**
      * Ticks the block if it's been scheduled
      */
@@ -216,10 +222,22 @@ public class ChiliC extends BlockBush implements IGrowable
     /**
      * The type of render function that is called for this block
      */
-    public int getRenderType()
+    @SideOnly(Side.CLIENT)
+	public int getRenderType()
     {
-        return -1 /*19*/;
+    	return NPClientProxy.renderStemModID;
     }
+    
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side)
+    {
+    	return true;
+    }
+    
+//    public int getRenderType()
+//    {
+//        return -1 /*19*/;
+//    }
 
     /**
      * Returns the current state of the stem. Returns -1 if the stem is not fully grown, or a value between 0 and 3
