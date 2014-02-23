@@ -87,9 +87,9 @@ public class NPBlockList
 	public static void loadBlock()
 	{
 		//liquides
-		quickSilver = new Fluid("quickSilver").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("quickSilver");
-		soulPlasm = new Fluid("soulPlasm").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("soulPlasm");
-		acid = new Fluid("acid").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("acid");
+		quickSilver = new Fluid("quickSilver").setDensity(4000).setViscosity(1000).setTemperature(288).setLuminosity(0).setUnlocalizedName("quickSilver");
+		soulPlasm = new Fluid("soulPlasm").setDensity(4000).setViscosity(6000).setTemperature(288).setLuminosity(0).setUnlocalizedName("soulPlasm");
+		acid = new Fluid("acid").setDensity(4000).setViscosity(1000).setTemperature(288).setLuminosity(0).setUnlocalizedName("acid");
 		FluidRegistry.registerFluid(quickSilver);
 		FluidRegistry.registerFluid(soulPlasm);
 		FluidRegistry.registerFluid(acid);
@@ -98,7 +98,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(blockQuicksilver, "Quicksilver");
 		quickSilver.setBlock(blockQuicksilver);
 
-		blockSoulplasm = new Soulplasm(soulPlasm, Material.lava).setLightLevel(1.0F).setBlockName("Soulplasm");
+		blockSoulplasm = new Soulplasm(soulPlasm, Material.water).setLightLevel(1.0F).setBlockName("Soulplasm");
 		GameRegistry.registerBlock(blockSoulplasm, "Soulplasm");
 		soulPlasm.setBlock(blockSoulplasm);
 
