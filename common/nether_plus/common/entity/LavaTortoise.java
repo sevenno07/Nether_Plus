@@ -98,7 +98,7 @@ public class LavaTortoise extends EntityCreature
         return super.attackEntityFrom(damagesource, i);
     }
 
-    protected Item getDropItemId()
+    protected Item getDropItem()
     {
         return NPItemList.blackBone;
     }

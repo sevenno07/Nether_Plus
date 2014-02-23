@@ -16,7 +16,6 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
@@ -98,13 +97,13 @@ public class IronSheep extends EntityAnimal implements IShearable
     {
         if (!this.getSheared())
         {
-            this.entityDropItem(new ItemStack(Blocks.wool, 1, this.getFleeceColor()), 0.0F);
+            this.entityDropItem(new ItemStack(NPBlockList.steelWool, 1, this.getFleeceColor()), 0.0F);
         }
     }
 
-    protected Item getDropItemId()
+    protected Item getDropItem()
     {
-        return Item.getItemFromBlock(Blocks.wool);
+        return Item.getItemFromBlock(NPBlockList.steelWool);
     }
 
     @SideOnly(Side.CLIENT)

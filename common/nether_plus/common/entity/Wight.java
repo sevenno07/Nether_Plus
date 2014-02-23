@@ -82,7 +82,7 @@ public class Wight extends EntityZombie
         return false;
     }
 
-    protected Item getDropItemId()
+    protected Item getDropItem()
     {
         return NPItemList.blackBone;
     }

@@ -59,7 +59,7 @@ public class Salamander extends EntityAnimal
     	return super.attackEntityFrom(damagesource, i);
     }
     
-    protected Item getDropItemId()
+    protected Item getDropItem()
     {
     	return NPItemList.blackBone;
     }

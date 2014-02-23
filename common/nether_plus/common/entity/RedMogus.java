@@ -44,7 +44,7 @@ public class RedMogus extends EntityCreature
         return "mob.zombiedeath";
     }
 
-    protected Item getDropItemId()
+    protected Item getDropItem()
     {
         return Item.getItemFromBlock(Blocks.red_mushroom);
     }

@@ -49,7 +49,7 @@ public class Mogus extends EntityCreature
         this.dropItem(NPItemList.bloodGem, 1);
     }
 
-    protected Item getDropItemId()
+    protected Item getDropItem()
     {
         return Item.getItemFromBlock(Blocks.brown_mushroom);
     }

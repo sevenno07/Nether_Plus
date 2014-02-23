@@ -33,7 +33,7 @@ public class LivingEvent
 		else if(event.entity instanceof EntityMagmaCube)
 		{
 			EntityItem newdrop = new EntityItem(event.entity.worldObj, event.entity.posX, event.entity.posY, event.entity.posZ, new ItemStack(NPItemList.bloodGem, 1));
-				event.drops.add(newdrop);
+			event.drops.add(newdrop);
 		}
     }
 }

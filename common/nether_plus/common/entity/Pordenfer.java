@@ -96,7 +96,7 @@ public class Pordenfer extends EntityMob
         this.dropItem(NPItemList.bloodGem, 1);
     }
     
-    protected Item getDropItemId()
+    protected Item getDropItem()
     {
         return NPItemList.blackBone;
     }
