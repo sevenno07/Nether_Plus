@@ -27,6 +27,7 @@ public class NetherRail extends BlockRail
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_)
     {
+        super.registerBlockIcons(p_149651_1_);
         this.field_150056_b = p_149651_1_.registerIcon(this.getTextureName() + "_Turn");
     }
 

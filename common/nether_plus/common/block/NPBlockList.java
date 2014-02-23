@@ -61,6 +61,7 @@ public class NPBlockList
 	public static Block SoulGlassPane;
 	
 	public static Block BlockGrimwoodDoor;
+	public static Block BlockBlackironDoor;
 	
 	public static Block Nether_Farm;
 	public static Block Crops;
@@ -132,18 +133,19 @@ public class NPBlockList
 		NetherrackBrickWall = new NetherrackBrickWall(NetherrackBrick).setBlockName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
 		SoulGlassPane = new SoulGlassPane("nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.5F).setResistance(5.0F).setBlockName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		BlockGrimwoodDoor = new BlockGrimwoodDoor(Material.wood).setHardness(3.0F).setStepSound(Block.soundTypeWood).setBlockName("BlockGrimwoodDoor");
+		BlockGrimwoodDoor = new BlockModDoor(Material.wood).setHardness(3.0F).setStepSound(Block.soundTypeWood).setBlockName("BlockGrimwoodDoor").setBlockTextureName("nether_plus:doorGrimwood");
+		BlockBlackironDoor = new BlockModDoor(Material.iron).setHardness(5.0F).setStepSound(Block.soundTypeMetal).setBlockName("BlockBlackironDoor").setBlockTextureName("nether_plus:doorBlackiron");
 		
 		Nether_Farm = new Nether_Farm().setStepSound(Block.soundTypeSand).setHardness(0.5F).setBlockName("Nether_Farm");
 		Crops = new Crops().setBlockName("Crops");
 		ChiliB = new ChiliB().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
-		ChiliC = new ChiliC(ChiliB).setBlockName("ChiliC").setBlockTextureName("nether_plus:stem");;
+		ChiliC = new ChiliC(ChiliB).setBlockName("ChiliC").setBlockTextureName("nether_plus:stem");
 		RiceC = new RiceC().setBlockName("RiceC");
 		
 		Ladder = new Ladder().setStepSound(Block.soundTypeLadder).setHardness(0.4F).setResistance(5.0F).setBlockName("Ladder");
-		NetherRail = new NetherRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherRail = new NetherRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherRail");
 		NetherDetectorRail = new NetherDetectorRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherPoweredRail = new NetherPoweredRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherPoweredRail = new NetherPoweredRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherPoweredRail");
 		GrimwoodTorch = new GrimwoodTorch().setStepSound(Block.soundTypeWood).setLightLevel(0.9375F).setHardness(0.0F).setResistance(5.0F).setBlockName("GrimwoodTorch");
 		NetherDonjonSpawner = new NetherDonjonSpawner().setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(5.0F).setBlockName("NetherDonjonSpawner");
 		
@@ -210,6 +212,7 @@ public class NPBlockList
 		
 		GameRegistry.registerBlock(SoulGlassPane, "Soul_Glass_Pane");
 		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
+		GameRegistry.registerBlock(BlockBlackironDoor, "BlockBlackironDoor");
 		GameRegistry.registerBlock(Nether_Farm, "Nether_Farm");
 		GameRegistry.registerBlock(Crops, "Crops");
 		GameRegistry.registerBlock(ChiliC, "Chili_Crops");

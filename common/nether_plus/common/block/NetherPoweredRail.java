@@ -1,6 +1,44 @@
 package nether_plus.common.block;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockRail;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class NetherPoweredRail extends BlockRail
+{
+    @SideOnly(Side.CLIENT)
+    private IIcon field_150056_b;
+
+    protected NetherPoweredRail()
+    {
+        super();
+    }
+    
+    public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
+    {
+        par5Entity.motionX *= 1.22D;
+        par5Entity.motionZ *= 1.22D;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
+    {
+        return p_149691_2_ >= 6 ? this.field_150056_b : this.blockIcon;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister p_149651_1_)
+    {
+        super.registerBlockIcons(p_149651_1_);
+        this.field_150056_b = p_149651_1_.registerIcon(this.getTextureName() + "_Turn");
+    }
+}
+
+/*import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailPowered;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -66,4 +104,4 @@ public class NetherPoweredRail extends BlockRailPowered
             }
         }
     }
-}
+}*/
