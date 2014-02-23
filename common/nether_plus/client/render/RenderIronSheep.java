@@ -3,7 +3,7 @@ package nether_plus.client.render;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import nether_plus.common.entity.IronSheep;
 
@@ -39,7 +39,7 @@ public class RenderIronSheep extends RenderLiving
         }
     }
 
-    protected int shouldRenderPass(EntityLiving par1EntityLiving, int par2, float par3)
+    protected int shouldRenderPass(EntityLivingBase par1EntityLiving, int par2, float par3)
     {
         return this.shouldRenderPass((IronSheep)par1EntityLiving, par2, par3);
     }
