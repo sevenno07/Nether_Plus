@@ -95,7 +95,7 @@ public class NPBlockList
 		acid = new Fluid("acid").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("acid");
 		
 		FluidRegistry.registerFluid(quickSilver);
-		quickSilver = FluidRegistry.getFluid("quickSilver");
+		//quickSilver = FluidRegistry.getFluid("quickSilver");
 
 		blockQuicksilver = new Quicksilver(quickSilver, Material.water).setBlockName("Quicksilver");
 		GameRegistry.registerBlock(blockQuicksilver, "Quicksilver");
