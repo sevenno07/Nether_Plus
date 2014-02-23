@@ -3,7 +3,7 @@ package nether_plus.client.render;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import nether_plus.common.entity.FireSlime;
 
@@ -59,12 +59,12 @@ public class RenderFireSlime extends RenderLiving
         GL11.glScalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
     }
 
-    protected void preRenderCallback(EntityLiving entityLiving, float par2)
+    protected void preRenderCallback(EntityLivingBase entityLiving, float par2)
     {
         this.preRenderCallback((FireSlime)entityLiving, par2);
     }
 
-    protected int shouldRenderPass(EntityLiving entityLiving, int par2, float par3)
+    protected int shouldRenderPass(EntityLivingBase entityLiving, int par2, float par3)
     {
         return this.shouldRenderPass((FireSlime)entityLiving, par2, par3);
     }

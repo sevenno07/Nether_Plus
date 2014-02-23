@@ -1,14 +1,15 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLiquid;
-//import net.minecraft.block.BlockFlowing;
-//import net.minecraft.block.BlockFluid;
 import net.minecraft.block.material.Material;
-//import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
+//import net.minecraft.block.BlockFlowing;
+//import net.minecraft.block.BlockFluid;
+//import net.minecraftforge.common.MinecraftForge;
 
 public class NPBlockList
 {
@@ -61,6 +62,7 @@ public class NPBlockList
 	public static Block SoulGlassPane;
 	
 	public static Block BlockGrimwoodDoor;
+	public static Block BlockBlackironDoor;
 	
 	public static Block Nether_Farm;
 	public static Block Crops;
@@ -75,17 +77,39 @@ public class NPBlockList
 	public static Block GrimwoodTorch;
 	public static Block NetherDonjonSpawner;
 	
-	public static BlockLiquid QuicksilverMoving;
-	public static Block QuicksilverStill;
-	public static BlockLiquid SoulplasmMoving;
-	public static Block SoulplasmStill;
-	public static BlockLiquid AcidMoving;
-	public static Block AcidStill;
+	//Liquid
+	public static Fluid quickSilver;
+	public static Fluid soulPlasm;
+	public static Fluid acid;
+	public static Block blockQuicksilver;
+	public static Block blockSoulplasm;
+	public static Block blockAcid;
 	
 	public static Block SteelWool;
 	
 	public static void loadBlock()
 	{
+		//liquides
+		quickSilver = new Fluid("quickSilver").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("quickSilver");
+		soulPlasm = new Fluid("soulPlasm").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("soulPlasm");
+		acid = new Fluid("acid").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("acid");
+		FluidRegistry.registerFluid(quickSilver);
+		FluidRegistry.registerFluid(soulPlasm);
+		FluidRegistry.registerFluid(acid);
+		//quickSilver = FluidRegistry.getFluid("quickSilver");
+
+		blockQuicksilver = new Quicksilver(quickSilver, Material.water).setBlockName("Quicksilver");
+		GameRegistry.registerBlock(blockQuicksilver, "Quicksilver");
+		quickSilver.setBlock(blockQuicksilver);
+
+		blockSoulplasm = new Soulplasm(soulPlasm, Material.lava).setLightLevel(1.0F).setBlockName("Soulplasm");
+		GameRegistry.registerBlock(blockSoulplasm, "Soulplasm");
+		soulPlasm.setBlock(blockSoulplasm);
+
+		blockAcid = new Acid(acid, Material.water).setBlockName("AcidStill");
+		GameRegistry.registerBlock(blockAcid, "Acid");
+		acid.setBlock(blockAcid);
+
 		GlowstoneSand = new GlowstoneSand(Material.sand).setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand").setBlockTextureName("nether_plus:GlowstoneSand");
 		SoulGlass = new SoulGlass(Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
 		Netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
@@ -132,30 +156,23 @@ public class NPBlockList
 		NetherrackBrickWall = new NetherrackBrickWall(NetherrackBrick).setBlockName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
 		SoulGlassPane = new SoulGlassPane("nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.5F).setResistance(5.0F).setBlockName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		BlockGrimwoodDoor = new BlockGrimwoodDoor(Material.wood).setHardness(3.0F).setStepSound(Block.soundTypeWood).setBlockName("BlockGrimwoodDoor");
+		BlockGrimwoodDoor = new BlockModDoor(Material.wood).setHardness(3.0F).setStepSound(Block.soundTypeWood).setBlockName("BlockGrimwoodDoor").setBlockTextureName("nether_plus:doorGrimwood");
+		BlockBlackironDoor = new BlockModDoor(Material.iron).setHardness(5.0F).setStepSound(Block.soundTypeMetal).setBlockName("BlockBlackironDoor").setBlockTextureName("nether_plus:doorBlackiron");
 		
 		Nether_Farm = new Nether_Farm().setStepSound(Block.soundTypeSand).setHardness(0.5F).setBlockName("Nether_Farm");
 		Crops = new Crops().setBlockName("Crops");
 		ChiliB = new ChiliB().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
-		ChiliC = new ChiliC(ChiliB).setBlockName("ChiliC").setBlockTextureName("nether_plus:stem");;
+		ChiliC = new ChiliC(ChiliB).setBlockName("ChiliC").setBlockTextureName("nether_plus:stem");
 		RiceC = new RiceC().setBlockName("RiceC");
 		
 		Ladder = new Ladder().setStepSound(Block.soundTypeLadder).setHardness(0.4F).setResistance(5.0F).setBlockName("Ladder");
-		NetherRail = new NetherRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherRail = new NetherRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherRail");
 		NetherDetectorRail = new NetherDetectorRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherPoweredRail = new NetherPoweredRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		NetherPoweredRail = new NetherPoweredRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherPoweredRail");
 		GrimwoodTorch = new GrimwoodTorch().setStepSound(Block.soundTypeWood).setLightLevel(0.9375F).setHardness(0.0F).setResistance(5.0F).setBlockName("GrimwoodTorch");
 		NetherDonjonSpawner = new NetherDonjonSpawner().setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(5.0F).setBlockName("NetherDonjonSpawner");
 		
 		SteelWool = new SteelWool().setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
-		
-		//liquides
-		QuicksilverMoving = (BlockLiquid) new QuicksilverFluid().setBlockName("QuicksilverMoving");
-		QuicksilverStill = new QuicksilverStationary().setBlockName("QuicksilverStill");
-		SoulplasmMoving = (BlockLiquid) new SoulplasmFluid().setLightLevel(1.0F).setBlockName("SoulplasmMoving");
-		SoulplasmStill = new SoulplasmStationary().setLightLevel(1.0F).setBlockName("SoulplasmStill");
-		AcidMoving = (BlockLiquid) new AcidFluid().setBlockName("AcidMoving");
-		AcidStill = new AcidStationary().setBlockName("AcidStill");
 		
 		try
 		{
@@ -210,6 +227,7 @@ public class NPBlockList
 		
 		GameRegistry.registerBlock(SoulGlassPane, "Soul_Glass_Pane");
 		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
+		GameRegistry.registerBlock(BlockBlackironDoor, "BlockBlackironDoor");
 		GameRegistry.registerBlock(Nether_Farm, "Nether_Farm");
 		GameRegistry.registerBlock(Crops, "Crops");
 		GameRegistry.registerBlock(ChiliC, "Chili_Crops");
@@ -223,12 +241,6 @@ public class NPBlockList
 		GameRegistry.registerBlock(GrimwoodTorch, "Grimwood_Torch");
 		GameRegistry.registerBlock(NetherDonjonSpawner, "Nether_Donjon_Spawner");
 		
-		GameRegistry.registerBlock(QuicksilverMoving, "Quicksilver_Moving");
-		GameRegistry.registerBlock(QuicksilverStill, "Quicksilver_Still");
-		GameRegistry.registerBlock(SoulplasmMoving, "Soulplasm_Moving");
-		GameRegistry.registerBlock(SoulplasmStill, "Soulplasm_Still");
-		GameRegistry.registerBlock(AcidMoving, "Acid_Moving");
-		GameRegistry.registerBlock(AcidStill, "Acid_Still");
 		GameRegistry.registerBlock(SteelWool, "Iron_Wool");
 
 		//MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);

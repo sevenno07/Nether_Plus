@@ -6,7 +6,10 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.block.NPBlockList;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -22,6 +25,7 @@ public class NPItemList
 	public static Item bloodGem;
 	public static Item infernumIngot;
 	public static Item itemGrimwoodDoor;
+	public static Item itemBlackironDoor;
 	public static Item salamanderLeather;
 
 	public static Item skeletonWhiteHelmet;
@@ -102,19 +106,20 @@ public class NPItemList
 			grimwoodStick = new GrimwoodStick().setUnlocalizedName("GrimwoodStick");
 			bloodGem = new BloodGem().setUnlocalizedName("BloodGem");
 			infernumIngot = new InfernumIngot().setUnlocalizedName("InfernumIngot");
-			itemGrimwoodDoor = new ItemGrimwoodDoor(Material.wood).setUnlocalizedName("ItemGrimwoodDoor");
+			itemGrimwoodDoor = new ItemModDoor(Material.wood).setUnlocalizedName("ItemGrimwoodDoor").setTextureName("nether_plus:ItemGrimwoodDoor");
+			itemBlackironDoor = new ItemModDoor(Material.iron).setUnlocalizedName("itemBlackironDoor").setTextureName("nether_plus:ItemBlackironDoor");
 
 			salamanderLeather = new SalamanderLeather().setUnlocalizedName("SalamanderLeather");
 
-			skeletonWhiteHelmet = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet");
-			skeletonWhiteChestplate = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate");
-			skeletonWhiteLeggings = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 2).setUnlocalizedName("SkeletonWhiteLeggings");
-			skeletonWhiteBoot = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 3).setUnlocalizedName("SkeletonWhiteBoot");
+			skeletonWhiteHelmet = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet").setTextureName("nether_plus:SkeletonWhiteHelmet");
+			skeletonWhiteChestplate = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate").setTextureName("nether_plus:SkeletonWhiteChestplate");
+			skeletonWhiteLeggings = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 2).setUnlocalizedName("SkeletonWhiteLeggings").setTextureName("nether_plus:SkeletonWhiteLeggings");
+			skeletonWhiteBoot = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 3).setUnlocalizedName("SkeletonWhiteBoot").setTextureName("nether_plus:SkeletonWhiteBoot");
 
-			skeletonBlackHelmet = new SkeletonBlackArmor(skeletonBlackArmor, 0, 0).setUnlocalizedName("SkeletonBlackHelmet");
-			skeletonBlackChestplate = new SkeletonBlackArmor(skeletonBlackArmor, 0, 1).setUnlocalizedName("SkeletonBlackChestplate");
-			skeletonBlackLeggings = new SkeletonBlackArmor(skeletonBlackArmor, 0, 2).setUnlocalizedName("SkeletonBlackLeggings");
-			skeletonBlackBoot = new SkeletonBlackArmor(skeletonBlackArmor, 0, 3).setUnlocalizedName("SkeletonBlackBoot");
+			skeletonBlackHelmet = new SkeletonBlackArmor(skeletonBlackArmor, 0, 0).setUnlocalizedName("SkeletonBlackHelmet").setTextureName("nether_plus:SkeletonBlackHelmet");
+			skeletonBlackChestplate = new SkeletonBlackArmor(skeletonBlackArmor, 0, 1).setUnlocalizedName("SkeletonBlackChestplate").setTextureName("nether_plus:SkeletonBlackChestplate");
+			skeletonBlackLeggings = new SkeletonBlackArmor(skeletonBlackArmor, 0, 2).setUnlocalizedName("SkeletonBlackLeggings").setTextureName("nether_plus:SkeletonBlackLeggings");
+			skeletonBlackBoot = new SkeletonBlackArmor(skeletonBlackArmor, 0, 3).setUnlocalizedName("SkeletonBlackBoot").setTextureName("nether_plus:SkeletonBlackBoot");
 
 			grimwoodSword = new GrimwoodSword(grimwoodTool).setUnlocalizedName("GrimwoodSword");
 			grimwoodPickaxe = new GrimwoodPickaxe(grimwoodTool).setUnlocalizedName("GrimwoodPickaxe");
@@ -139,15 +144,15 @@ public class NPItemList
 			waterBucket = new WaterBucket(Blocks.flowing_water).setUnlocalizedName("WaterBucket").setContainerItem(goldBucket);
 			lavaBucket = new LavaBucket(Blocks.flowing_lava).setUnlocalizedName("LavaBucket").setContainerItem(goldBucket);
 			milkBucket = new MilkBucket().setUnlocalizedName("MilkBucket").setContainerItem(goldBucket);
-			quickSilverBucket = new QuickSilverBucket(NPBlockList.QuicksilverMoving).setUnlocalizedName("QuickSilverBucket").setContainerItem(goldBucket);
-			soulplasmBucket = new SoulplasmBucket(NPBlockList.SoulplasmMoving).setUnlocalizedName("SoulplasmBucket").setContainerItem(goldBucket);
-			acidBucket1 = new AcidBucket1(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket1").setContainerItem(goldBucket);
-			acidBucket2 = new AcidBucket2(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
+			quickSilverBucket = new QuickSilverBucket(NPBlockList.blockQuicksilver).setUnlocalizedName("QuickSilverBucket").setContainerItem(goldBucket);
+			soulplasmBucket = new SoulplasmBucket(NPBlockList.blockSoulplasm).setUnlocalizedName("SoulplasmBucket").setContainerItem(goldBucket);
+			acidBucket1 = new AcidBucket1(NPBlockList.blockAcid).setUnlocalizedName("AcidBucket1").setContainerItem(goldBucket);
+			acidBucket2 = new AcidBucket2(NPBlockList.blockAcid).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
 
-			blackIronHelmet = new BlackIronArmor(blackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
-			blackIronChestplate = new BlackIronArmor(blackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
-			blackIronLeggings = new BlackIronArmor(blackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings");
-			blackIronBoot = new BlackIronArmor(blackIronArmor, 0, 3).setUnlocalizedName("BlackIronBoot");
+			blackIronHelmet = new BlackIronArmor(blackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet").setTextureName("nether_plus:BlackIronHelmet");
+			blackIronChestplate = new BlackIronArmor(blackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate").setTextureName("nether_plus:BlackIronChestplate");
+			blackIronLeggings = new BlackIronArmor(blackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings").setTextureName("nether_plus:BlackIronLeggings");
+			blackIronBoot = new BlackIronArmor(blackIronArmor, 0, 3).setUnlocalizedName("BlackIronBoot").setTextureName("nether_plus:BlackIronBoot");
 
 			blackIronSword = new BlackIronSword(blackIronTool).setUnlocalizedName("BlackIronSword");
 			blackIronPickaxe = new BlackIronPickaxe(blackIronTool).setUnlocalizedName("BlackIronPickaxe");
@@ -155,13 +160,13 @@ public class NPItemList
 			blackIronShovel = new BlackIronShovel(blackIronTool).setUnlocalizedName("BlackIronShovel");
 			blackIronHoe = new BlackIronHoe(blackIronTool).setUnlocalizedName("BlackIronHoe");
 
-			salamanderHelmet = new SalamanderArmor(salamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet");
-			salamanderChestplate = new SalamanderArmor(salamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate");
-			salamanderLeggings = new SalamanderArmor(salamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings");
-			salamanderBoot = new SalamanderArmor(salamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot");
+			salamanderHelmet = new SalamanderArmor(salamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet").setTextureName("nether_plus:SalamanderHelmet");
+			salamanderChestplate = new SalamanderArmor(salamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate").setTextureName("nether_plus:SalamanderChestplate");
+			salamanderLeggings = new SalamanderArmor(salamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings").setTextureName("nether_plus:SalamanderLeggings");
+			salamanderBoot = new SalamanderArmor(salamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot").setTextureName("nether_plus:SalamanderBoot");
 
 			salamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
-
+			
 			GameRegistry.registerItem(charoiteCrystal, "CharoiteCrystal");
 			GameRegistry.registerItem(blackIronIngot, "BlackIronIngot");
 			GameRegistry.registerItem(blackBone, "BlackBone");
@@ -171,6 +176,7 @@ public class NPItemList
 			GameRegistry.registerItem(bloodGem, "BloodGem");
 			GameRegistry.registerItem(infernumIngot, "InfernumIngot");
 			GameRegistry.registerItem(itemGrimwoodDoor, "ItemGrimwoodDoor");
+			GameRegistry.registerItem(itemBlackironDoor, "ItemBlackironDoor");
 			GameRegistry.registerItem(salamanderLeather, "SalamanderLeather");
 			GameRegistry.registerItem(skeletonWhiteHelmet, "SkeletonWhiteHelmet");
 			GameRegistry.registerItem(skeletonWhiteChestplate, "SkeletonWhiteChestplate");
@@ -218,6 +224,11 @@ public class NPItemList
 			GameRegistry.registerItem(acidBucket1, "AcidBucket1");
 			GameRegistry.registerItem(acidBucket2, "AcidBucket2");
 			GameRegistry.registerItem(salamanderBoat, "SalamanderBoat");
+			
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("quickSilver", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(quickSilverBucket), FluidContainerRegistry.EMPTY_BUCKET);
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("soulPlasm", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(soulplasmBucket), FluidContainerRegistry.EMPTY_BUCKET);
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("acid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(acidBucket1), FluidContainerRegistry.EMPTY_BUCKET);
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("acid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(acidBucket2), FluidContainerRegistry.EMPTY_BUCKET);
 		}catch(Exception ex)
 		{
 			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Items!");
