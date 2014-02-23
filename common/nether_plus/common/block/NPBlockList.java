@@ -7,9 +7,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
-//import net.minecraft.block.BlockFlowing;
-//import net.minecraft.block.BlockFluid;
-//import net.minecraftforge.common.MinecraftForge;
 
 public class NPBlockList
 {
@@ -96,7 +93,6 @@ public class NPBlockList
 		FluidRegistry.registerFluid(quickSilver);
 		FluidRegistry.registerFluid(soulPlasm);
 		FluidRegistry.registerFluid(acid);
-		//quickSilver = FluidRegistry.getFluid("quickSilver");
 
 		blockQuicksilver = new Quicksilver(quickSilver, Material.water).setBlockName("Quicksilver");
 		GameRegistry.registerBlock(blockQuicksilver, "Quicksilver");
