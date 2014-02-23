@@ -29,7 +29,7 @@ public class ChiliB extends Block
         return par1 != 1 && par1 != 0 ? this.blockIcon : this.theIcon;
     }
 
-    public Item idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int par1, Random par2Random, int par3)
     {
         return NPItemList.chili;
     }

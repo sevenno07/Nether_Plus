@@ -2,31 +2,26 @@ package nether_plus.common.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemGrimwoodDoor extends Item
+public class ItemModDoor extends Item
 {
-	private Material doorMaterial;
+    private Material doorMaterial;
 
-	public ItemGrimwoodDoor(Material material)
-	{
-		super();
-        this.doorMaterial = material;
+    public ItemModDoor(Material ModDoor)
+    {
+        this.doorMaterial = ModDoor;
         this.maxStackSize = 1;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
-	}
-	
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10)
+    }
+
+    public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
     {
         if (par7 != 1)
         {
@@ -34,7 +29,7 @@ public class ItemGrimwoodDoor extends Item
         }
         else
         {
-            ++y;
+            ++par5;
             Block block;
 
             if (this.doorMaterial == Material.wood)
@@ -43,20 +38,20 @@ public class ItemGrimwoodDoor extends Item
             }
             else
             {
-                block = Blocks.iron_door;
+                block = NPBlockList.BlockBlackironDoor;
             }
 
-            if (player.canPlayerEdit(x, y, z, par7, itemStack) && player.canPlayerEdit(x, y + 1, z, par7, itemStack))
+            if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
             {
-                if (!block.canPlaceBlockAt(world, x, y, z))
+                if (!block.canPlaceBlockAt(par3World, par4, par5, par6))
                 {
                     return false;
                 }
                 else
                 {
-                    int i1 = MathHelper.floor_double((double)((player.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
-                    placeDoorBlock(world, x, y, z, i1, block);
-                    --itemStack.stackSize;
+                    int i1 = MathHelper.floor_double((double)((par2EntityPlayer.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
+                    placeDoorBlock(par3World, par4, par5, par6, i1, block);
+                    --par1ItemStack.stackSize;
                     return true;
                 }
             }
@@ -67,27 +62,27 @@ public class ItemGrimwoodDoor extends Item
         }
     }
 
-    public static void placeDoorBlock(World world, int x, int y, int z, int par4, Block block)
+    public static void placeDoorBlock(World world, int x, int y, int z, int part4, Block block)
     {
         byte b0 = 0;
         byte b1 = 0;
 
-        if (par4 == 0)
+        if (part4 == 0)
         {
             b1 = 1;
         }
 
-        if (par4 == 1)
+        if (part4 == 1)
         {
             b0 = -1;
         }
 
-        if (par4 == 2)
+        if (part4 == 2)
         {
             b1 = -1;
         }
 
-        if (par4 == 3)
+        if (part4 == 3)
         {
             b0 = 1;
         }
@@ -107,15 +102,9 @@ public class ItemGrimwoodDoor extends Item
             flag2 = true;
         }
 
-        world.setBlock(x, y, y, block, par4, 2);
-        world.setBlock(x, y + 1, y, block, 8 | (flag2 ? 1 : 0), 2);
-        world.notifyBlocksOfNeighborChange(x, y, y, block);
-        world.notifyBlocksOfNeighborChange(x, y + 1, y, block);
+        world.setBlock(x, y, z, block, part4, 2);
+        world.setBlock(x, y + 1, z, block, 8 | (flag2 ? 1 : 0), 2);
+        world.notifyBlocksOfNeighborChange(x, y, z, block);
+        world.notifyBlocksOfNeighborChange(x, y + 1, z, block);
     }
-    
-	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconregister)
-	{
-        this.itemIcon = iconregister.registerIcon("nether_plus:ItemGrimwoodDoor");
- 	}
 }

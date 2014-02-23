@@ -22,6 +22,7 @@ public class NPItemList
 	public static Item bloodGem;
 	public static Item infernumIngot;
 	public static Item itemGrimwoodDoor;
+	public static Item itemBlackironDoor;
 	public static Item salamanderLeather;
 
 	public static Item skeletonWhiteHelmet;
@@ -102,7 +103,8 @@ public class NPItemList
 			grimwoodStick = new GrimwoodStick().setUnlocalizedName("GrimwoodStick");
 			bloodGem = new BloodGem().setUnlocalizedName("BloodGem");
 			infernumIngot = new InfernumIngot().setUnlocalizedName("InfernumIngot");
-			itemGrimwoodDoor = new ItemGrimwoodDoor(Material.wood).setUnlocalizedName("ItemGrimwoodDoor");
+			itemGrimwoodDoor = new ItemModDoor(Material.wood).setUnlocalizedName("ItemGrimwoodDoor").setTextureName("nether_plus:ItemGrimwoodDoor");
+			itemBlackironDoor = new ItemModDoor(Material.iron).setUnlocalizedName("itemBlackironDoor").setTextureName("nether_plus:ItemBlackironDoor");
 
 			salamanderLeather = new SalamanderLeather().setUnlocalizedName("SalamanderLeather");
 
@@ -171,6 +173,7 @@ public class NPItemList
 			GameRegistry.registerItem(bloodGem, "BloodGem");
 			GameRegistry.registerItem(infernumIngot, "InfernumIngot");
 			GameRegistry.registerItem(itemGrimwoodDoor, "ItemGrimwoodDoor");
+			GameRegistry.registerItem(itemBlackironDoor, "ItemBlackironDoor");
 			GameRegistry.registerItem(salamanderLeather, "SalamanderLeather");
 			GameRegistry.registerItem(skeletonWhiteHelmet, "SkeletonWhiteHelmet");
 			GameRegistry.registerItem(skeletonWhiteChestplate, "SkeletonWhiteChestplate");
