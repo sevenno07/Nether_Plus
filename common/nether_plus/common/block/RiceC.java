@@ -241,7 +241,7 @@ public class RiceC extends Crops
 	
     protected boolean canPlaceBlockOn(Block Par1)
     {
-        return Par1 == NPBlockList.Nether_Farm;
+        return Par1 == NPBlockList.nether_Farm;
     }
     
     public void fertilizeRiceC(World part1, int part2, int part3, int part4)

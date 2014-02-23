@@ -34,7 +34,7 @@ public class WhiteWheatSeeds extends Item implements IPlantable
         else if (player.canPlayerEdit(x, y, z, par7, itemStack) && player.canPlayerEdit(x, y + 1, z, par7, itemStack))
         {
         	System.out.println(world.getBlock(x, y, z) == null);
-        	if (world.getBlock(x, y, z) == NPBlockList.Nether_Farm)
+        	if (world.getBlock(x, y, z) == NPBlockList.nether_Farm)
             {
                 world.setBlock(x, y + 1, z, this.Blocktype);
                 --itemStack.stackSize;

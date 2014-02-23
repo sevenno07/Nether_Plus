@@ -17,6 +17,6 @@ public class CorruptionStone extends Block
 	
 	public Item getItemDropped(int par1, Random par2Random, int par3)
     {
-		return Item.getItemFromBlock(NPBlockList.CorruptedCobblestone);
+		return Item.getItemFromBlock(NPBlockList.corruptedCobblestone);
     }
 }

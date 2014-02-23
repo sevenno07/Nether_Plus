@@ -49,13 +49,13 @@ public class RecipesFour
 		this.addSmelting(Blocks.redstone_ore, new ItemStack(Items.redstone), 0.7F);
 		this.addSmelting(Blocks.lapis_ore, new ItemStack(Items.dye, 1, 4), 0.2F);
 		this.addSmelting(Blocks.quartz_ore, new ItemStack(Items.quartz), 0.2F);
-		this.addSmelting(Blocks.soul_sand, new ItemStack(NPBlockList.SoulGlass), 2.0F);
-		this.addSmelting(NPBlockList.GlowstoneSand, new ItemStack(Blocks.glowstone), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedGoldOre, new ItemStack(Items.gold_ingot), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedBlackIronOre, new ItemStack(NPItemList.blackIronIngot), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedCharoiteOre, new ItemStack(NPItemList.charoiteCrystal), 2.0F);
-		this.addSmelting(NPBlockList.CorruptedCobblestone, new ItemStack(NPBlockList.CorruptionStone), 2.0F);
-		this.addSmelting(NPBlockList.InfernumOre, new ItemStack(NPItemList.infernumIngot), 2.0F);
+		this.addSmelting(Blocks.soul_sand, new ItemStack(NPBlockList.soulGlass), 2.0F);
+		this.addSmelting(NPBlockList.glowstoneSand, new ItemStack(Blocks.glowstone), 2.0F);
+		this.addSmelting(NPBlockList.corruptedGoldOre, new ItemStack(Items.gold_ingot), 2.0F);
+		this.addSmelting(NPBlockList.corruptedBlackIronOre, new ItemStack(NPItemList.blackIronIngot), 2.0F);
+		this.addSmelting(NPBlockList.corruptedCharoiteOre, new ItemStack(NPItemList.charoiteCrystal), 2.0F);
+		this.addSmelting(NPBlockList.corruptedCobblestone, new ItemStack(NPBlockList.corruptionStone), 2.0F);
+		this.addSmelting(NPBlockList.infernumOre, new ItemStack(NPItemList.infernumIngot), 2.0F);
 
 	}
 

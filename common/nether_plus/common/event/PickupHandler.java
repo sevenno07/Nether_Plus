@@ -10,12 +10,12 @@ public class PickupHandler
 	@SubscribeEvent
 	public void ItemPickupEvent(PlayerEvent.ItemPickupEvent event)
 	{
-		if(event.pickedUp.getEntityItem().getItem().equals(NPBlockList.CorruptedCobblestone))
+		if(event.pickedUp.getEntityItem().getItem().equals(NPBlockList.corruptedCobblestone))
 		{
 			event.player.triggerAchievement(NPAchievements.pickCorruptedCobblestone);
 		}
 
-		if(event.pickedUp.getEntityItem().getItem().equals(NPBlockList.GrimwoodLog))
+		if(event.pickedUp.getEntityItem().getItem().equals(NPBlockList.grimwoodLog))
 		{
 			event.player.triggerAchievement(NPAchievements.pickGrimwoodLog);
 		}

@@ -14,6 +14,6 @@ public class NPCreativeTabsBlock extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return Item.getItemFromBlock(NPBlockList.CorruptionStone);
+		return Item.getItemFromBlock(NPBlockList.corruptionStone);
 	}
 }

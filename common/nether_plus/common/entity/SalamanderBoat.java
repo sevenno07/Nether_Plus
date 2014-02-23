@@ -387,7 +387,7 @@ public class SalamanderBoat extends EntityBoat
 
                     for (k = 0; k < 3; ++k)
                     {
-                        this.dropItem(Item.getItemFromBlock(NPBlockList.NetherPlanks), 0);
+                        this.dropItem(Item.getItemFromBlock(NPBlockList.netherPlanks), 0);
                     }
 
                     for (k = 0; k < 2; ++k)

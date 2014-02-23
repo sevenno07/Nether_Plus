@@ -133,11 +133,11 @@ public class NPItemList
 			corruptionstoneShovel = new CorruptionstoneShovel(corruptionStoneTool).setUnlocalizedName("CorruptionstoneShovel");
 			corruptionstoneHoe = new CorruptionstoneHoe(corruptionStoneTool).setUnlocalizedName("CorruptionstoneHoe");
 
-			whiteWheatSeeds = new WhiteWheatSeeds(NPBlockList.Crops,NPBlockList.Nether_Farm).setUnlocalizedName("WhiteWheatSeeds");
+			whiteWheatSeeds = new WhiteWheatSeeds(NPBlockList.crops,NPBlockList.nether_Farm).setUnlocalizedName("WhiteWheatSeeds");
 			whiteWheat = new WhiteWheat().setUnlocalizedName("WhiteWheat");
-			chiliSeed = new ChiliSeed(NPBlockList.ChiliC,NPBlockList.Nether_Farm).setUnlocalizedName("ChiliSeed");
+			chiliSeed = new ChiliSeed(NPBlockList.chiliC,NPBlockList.nether_Farm).setUnlocalizedName("ChiliSeed");
 			chili = new Chili(10, 0.6F, false).setUnlocalizedName("Chili");
-			rice = new Rice(NPBlockList.RiceC, NPBlockList.Nether_Farm).setUnlocalizedName("Rice");
+			rice = new Rice(NPBlockList.riceC, NPBlockList.nether_Farm).setUnlocalizedName("Rice");
 
 			deadBread = new DeadBread(5, 0.6F, false).setUnlocalizedName("DeadBread");
 			goldBucket = new GoldBucket(Blocks.air).setUnlocalizedName("GoldBucket").setMaxStackSize(16);

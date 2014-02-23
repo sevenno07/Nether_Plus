@@ -25,17 +25,17 @@ public class ModWoodSlab extends BlockSlab
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata)
 	{
-		return NPBlockList.NetherPlanks.getIcon(side, metadata & 7);
+		return NPBlockList.netherPlanks.getIcon(side, metadata & 7);
 	}
 
 	public Item idDropped(int id, Random rand, int fortune)
 	{
-		return Item.getItemFromBlock(NPBlockList.ModWoodSlab);
+		return Item.getItemFromBlock(NPBlockList.modWoodSlab);
 	}
 
 	protected ItemStack createStackedBlock(int metadata)
 	{
-		return new ItemStack(Item.getItemFromBlock(NPBlockList.ModWoodSlab), 2, metadata & 7);
+		return new ItemStack(Item.getItemFromBlock(NPBlockList.modWoodSlab), 2, metadata & 7);
 	}
 
 	public String func_150002_b(int metadata)
@@ -50,7 +50,7 @@ public class ModWoodSlab extends BlockSlab
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
 	{
-		if (item != Item.getItemFromBlock(NPBlockList.ModWoodDoubleSlab))
+		if (item != Item.getItemFromBlock(NPBlockList.modWoodDoubleSlab))
 		{
 			for (int i = 0; i < StepTypes.length; i++)
 			{

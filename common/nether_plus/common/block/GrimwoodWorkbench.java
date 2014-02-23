@@ -36,7 +36,7 @@ public class GrimwoodWorkbench extends BlockContainer
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int par2)
     {
-        return par1 == 1 ? this.workbenchIconTop : (par1 == 0 ? NPBlockList.NetherPlanks.getBlockTextureFromSide(par1) : (par1 != 2 && par1 != 4 ? this.blockIcon : this.workbenchIconFront));
+        return par1 == 1 ? this.workbenchIconTop : (par1 == 0 ? NPBlockList.netherPlanks.getBlockTextureFromSide(par1) : (par1 != 2 && par1 != 4 ? this.blockIcon : this.workbenchIconFront));
     }
 	
 	@SideOnly(Side.CLIENT)

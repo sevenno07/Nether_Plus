@@ -71,7 +71,7 @@ public class GrimwoodLeaves extends BlockLeaves implements IShearable
 
 	public Item idDropped(int metadata, Random random, int par3)
 	{
-		return Item.getItemFromBlock(NPBlockList.GrimwoodSapling);
+		return Item.getItemFromBlock(NPBlockList.grimwoodSapling);
 	}
 
 	public void getSubBlocks(Item par1, CreativeTabs creativeTabs, List list)

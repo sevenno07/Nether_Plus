@@ -15,7 +15,7 @@ public class FarmingNether
 		Block block = event.world.getBlock(event.x, event.y, event.z);
 		if(block == Blocks.soul_sand)
 		{
-			event.world.setBlock(event.x, event.y, event.z, NPBlockList.Nether_Farm, 0, 3);
+			event.world.setBlock(event.x, event.y, event.z, NPBlockList.nether_Farm, 0, 3);
 			event.world.playSoundAtEntity(event.entityPlayer, block.stepSound.getBreakSound(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
 			event.setResult(Result.ALLOW);
 		}

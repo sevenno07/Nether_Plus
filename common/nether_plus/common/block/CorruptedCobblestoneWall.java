@@ -13,6 +13,6 @@ public class CorruptedCobblestoneWall extends BlockWall
 	
 	public IIcon getIcon(int par1, int par2)
 	{
-		return NPBlockList.CorruptedCobblestone.getBlockTextureFromSide(par1);
+		return NPBlockList.corruptedCobblestone.getBlockTextureFromSide(par1);
 	}
 }

@@ -46,7 +46,7 @@ public class CorruptedCharoiteOre extends Block
     {
         super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
         	int var8 = 0;
-        	if (this == NPBlockList.CorruptedCharoiteOre)
+        	if (this == NPBlockList.corruptedCharoiteOre)
         	{
         		var8 = MathHelper.getRandomIntegerInRange(par1World.rand, 15, 20);
         	}
@@ -58,7 +58,7 @@ public class CorruptedCharoiteOre extends Block
         {
             int j1 = 0;
 
-            if (this == NPBlockList.CorruptedCharoiteOre)
+            if (this == NPBlockList.corruptedCharoiteOre)
             {
                 j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 3, 7);
             }

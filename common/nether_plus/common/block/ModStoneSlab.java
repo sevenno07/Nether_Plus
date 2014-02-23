@@ -23,12 +23,12 @@ public class ModStoneSlab extends BlockSlab
 
 	public Item idDropped(int id, Random rand, int fortune)
 	{
-		return Item.getItemFromBlock(NPBlockList.ModStoneSlab);
+		return Item.getItemFromBlock(NPBlockList.modStoneSlab);
 	}
 
 	protected ItemStack createStackedBlock(int metadata)
 	{
-		return new ItemStack(Item.getItemFromBlock(NPBlockList.ModStoneSlab), 2, metadata & 7);
+		return new ItemStack(Item.getItemFromBlock(NPBlockList.modStoneSlab), 2, metadata & 7);
 	}
 
 	public String func_150002_b(int metadata)
@@ -43,7 +43,7 @@ public class ModStoneSlab extends BlockSlab
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
 	{
-		if (item != Item.getItemFromBlock(NPBlockList.ModStoneDoubleSlab))
+		if (item != Item.getItemFromBlock(NPBlockList.modStoneDoubleSlab))
 		{
 			for (int i = 0; i < StepTypes.length; i++)
 			{
@@ -56,6 +56,6 @@ public class ModStoneSlab extends BlockSlab
 	public IIcon getIcon(int side, int metadata)
 	{
 		int k = metadata & 7;
-		return k == 0 ? NPBlockList.CorruptedCobblestone.getBlockTextureFromSide(side) : k == 1 ? NPBlockList.CorruptedBrick.getBlockTextureFromSide(side) : k == 2 ? NPBlockList.NetherrackBrick.getBlockTextureFromSide(side) : NPBlockList.CorruptedCobblestone.getBlockTextureFromSide(side);
+		return k == 0 ? NPBlockList.corruptedCobblestone.getBlockTextureFromSide(side) : k == 1 ? NPBlockList.corruptedBrick.getBlockTextureFromSide(side) : k == 2 ? NPBlockList.netherrackBrick.getBlockTextureFromSide(side) : NPBlockList.corruptedCobblestone.getBlockTextureFromSide(side);
 	}
 }

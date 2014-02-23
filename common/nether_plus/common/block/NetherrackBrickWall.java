@@ -13,6 +13,6 @@ public class NetherrackBrickWall extends BlockWall
 	
 	public IIcon getIcon(int par1, int par2)
 	{
-		return NPBlockList.NetherrackBrick.getBlockTextureFromSide(par1);
+		return NPBlockList.netherrackBrick.getBlockTextureFromSide(par1);
 	}
 }

@@ -14,35 +14,35 @@ public class GrimBoneMeal
 	@SubscribeEvent
 	public void onUseBonemeal(BonemealEvent event)
 	{
-		if (event.block == NPBlockList.GrimwoodSapling)
+		if (event.block == NPBlockList.grimwoodSapling)
 		{
 			if (!event.world.isRemote)
 			{
-				((GrimwoodSapling)NPBlockList.GrimwoodSapling).growTree(event.world, event.x, event.y, event.z, event.world.rand);
+				((GrimwoodSapling)NPBlockList.grimwoodSapling).growTree(event.world, event.x, event.y, event.z, event.world.rand);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
-		else if (event.block == NPBlockList.Crops)
+		else if (event.block == NPBlockList.crops)
 		{
 			if (!event.world.isRemote)
 			{
-				((Crops)NPBlockList.Crops).fertilizeCrops(event.world, event.x, event.y, event.z);
+				((Crops)NPBlockList.crops).fertilizeCrops(event.world, event.x, event.y, event.z);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
-		else if (event.block == NPBlockList.ChiliC)
+		else if (event.block == NPBlockList.chiliC)
 		{
 			if (!event.world.isRemote)
 			{
-				((ChiliC)NPBlockList.ChiliC).fertilizeStem(event.world, event.x, event.y, event.z);
+				((ChiliC)NPBlockList.chiliC).fertilizeStem(event.world, event.x, event.y, event.z);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}
-		else if (event.block == NPBlockList.RiceC)
+		else if (event.block == NPBlockList.riceC)
 		{
 			if (!event.world.isRemote)
 			{
-				((RiceC)NPBlockList.RiceC).fertilizeRiceC(event.world, event.x, event.y, event.z);
+				((RiceC)NPBlockList.riceC).fertilizeRiceC(event.world, event.x, event.y, event.z);
 				event.setResult(Event.Result.ALLOW);
 			}
 		}

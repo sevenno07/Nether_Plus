@@ -10,69 +10,69 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class NPBlockList
 {
-	public static Block GlowstoneSand;
-	public static Block SoulGlass;
-	public static Block Netherraze;
-	public static Block BewitchedWood;
-	public static Block CorruptionStone;
-	public static Block CorruptedCobblestone;
+	public static Block glowstoneSand;
+	public static Block soulGlass;
+	public static Block netherraze;
+	public static Block bewitchedWood;
+	public static Block corruptionStone;
+	public static Block corruptedCobblestone;
 	
-	public static Block GrimwoodLog;
-	public static Block GrimwoodLeaves;
-	public static Block GrimwoodSapling;
+	public static Block grimwoodLog;
+	public static Block grimwoodLeaves;
+	public static Block grimwoodSapling;
 	
-	public static Block CorruptedGoldOre;
-	public static Block CorruptedCharoiteOre;
-	public static Block CorruptedBlackIronOre;
-	public static Block InfernumOre;
-	public static Block InfernumBlock;
-	public static Block BlackIronBlock;
-	public static Block CharoiteBlock;
+	public static Block corruptedGoldOre;
+	public static Block corruptedCharoiteOre;
+	public static Block corruptedBlackIronOre;
+	public static Block infernumOre;
+	public static Block infernumBlock;
+	public static Block blackIronBlock;
+	public static Block charoiteBlock;
 	
-	public static Block NetherPlanks;
-	public static Block CorruptedBrick;
-	public static Block NetherrackBrick;
+	public static Block netherPlanks;
+	public static Block corruptedBrick;
+	public static Block netherrackBrick;
 	
-	public static Block GrimwoodWorkbench;
+	public static Block grimwoodWorkbench;
 	public static Block fourOff;
 	public static Block fourOn;
-	public static Block GrimwoodChest;
+	public static Block grimwoodChest;
 	
-	public static Block GrimwoodStairs;
-	public static Block CorruptedCobblestoneStairs;
-	public static Block CorruptedBrickStairs;
-	public static Block NetherrackBrickStairs;
+	public static Block grimwoodStairs;
+	public static Block corruptedCobblestoneStairs;
+	public static Block corruptedBrickStairs;
+	public static Block netherrackBrickStairs;
 	
-	public static Block ModWoodSlab;
-	public static Block ModWoodDoubleSlab;
-	public static Block ModStoneSlab;
-	public static Block ModStoneDoubleSlab;
+	public static Block modWoodSlab;
+	public static Block modWoodDoubleSlab;
+	public static Block modStoneSlab;
+	public static Block modStoneDoubleSlab;
 	
-	public static Block ModFence;
-	public static Block CorruptedCobblestoneWall;
-	public static Block CorruptedBrickWall;
-	public static Block NetherrackBrickWall;
+	public static Block modFence;
+	public static Block corruptedCobblestoneWall;
+	public static Block corruptedBrickWall;
+	public static Block netherrackBrickWall;
 	
-	public static Block WhiteSkull;
-	public static Block BlackSkull;
+	public static Block whiteSkull;
+	public static Block blackSkull;
 	
-	public static Block SoulGlassPane;
+	public static Block soulGlassPane;
 	
-	public static Block BlockGrimwoodDoor;
-	public static Block BlockBlackironDoor;
+	public static Block blockGrimwoodDoor;
+	public static Block blockBlackironDoor;
 	
-	public static Block Nether_Farm;
-	public static Block Crops;
-	public static Block ChiliC;
-	public static Block ChiliB;
-	public static Block RiceC;
+	public static Block nether_Farm;
+	public static Block crops;
+	public static Block chiliC;
+	public static Block chiliB;
+	public static Block riceC;
 	
-	public static Block Ladder;
-	public static Block NetherRail;
-	public static Block NetherDetectorRail;
-	public static Block NetherPoweredRail;
-	public static Block GrimwoodTorch;
-	public static Block NetherDonjonSpawner;
+	public static Block ladder;
+	public static Block netherRail;
+	public static Block netherDetectorRail;
+	public static Block netherPoweredRail;
+	public static Block grimwoodTorch;
+	public static Block netherDonjonSpawner;
 	
 	//Liquid
 	public static Fluid quickSilver;
@@ -82,7 +82,7 @@ public class NPBlockList
 	public static Block blockSoulplasm;
 	public static Block blockAcid;
 	
-	public static Block SteelWool;
+	public static Block steelWool;
 	
 	public static void loadBlock()
 	{
@@ -106,138 +106,138 @@ public class NPBlockList
 		GameRegistry.registerBlock(blockAcid, "Acid");
 		acid.setBlock(blockAcid);
 
-		GlowstoneSand = new GlowstoneSand(Material.sand).setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand").setBlockTextureName("nether_plus:GlowstoneSand");
-		SoulGlass = new SoulGlass(Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
-		Netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
-		BewitchedWood = new BewitchedWood().setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockName("BewitchedWood");
-		CorruptionStone = new CorruptionStone().setStepSound(Block.soundTypeStone).setHardness(1.0F).setBlockName("CorruptionStone").setBlockTextureName("nether_plus:CorruptionStone");
-		CorruptedCobblestone = new CorruptedCobblestone().setStepSound(Block.soundTypeStone).setHardness(1.5F).setBlockName("CorruptedCobblestone");
+		glowstoneSand = new GlowstoneSand(Material.sand).setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand").setBlockTextureName("nether_plus:GlowstoneSand");
+		soulGlass = new SoulGlass(Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
+		netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
+		bewitchedWood = new BewitchedWood().setStepSound(Block.soundTypeWood).setHardness(2.0F).setBlockName("BewitchedWood");
+		corruptionStone = new CorruptionStone().setStepSound(Block.soundTypeStone).setHardness(1.0F).setBlockName("CorruptionStone").setBlockTextureName("nether_plus:CorruptionStone");
+		corruptedCobblestone = new CorruptedCobblestone().setStepSound(Block.soundTypeStone).setHardness(1.5F).setBlockName("CorruptedCobblestone");
 		
-		GrimwoodLog = new GrimwoodLog().setHardness(1.0F).setResistance(5F).setStepSound(Block.soundTypeWood).setBlockName("GrimwoodLog");
-		GrimwoodLeaves = new GrimwoodLeaves().setHardness(0.5F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodLeaves");
-		GrimwoodSapling = new GrimwoodSapling().setHardness(0.0F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodSapling");
+		grimwoodLog = new GrimwoodLog().setHardness(1.0F).setResistance(5F).setStepSound(Block.soundTypeWood).setBlockName("GrimwoodLog");
+		grimwoodLeaves = new GrimwoodLeaves().setHardness(0.5F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodLeaves");
+		grimwoodSapling = new GrimwoodSapling().setHardness(0.0F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodSapling");
 		
-		CorruptedGoldOre = new CorruptedGoldOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedGoldOre").setBlockTextureName("nether_plus:CorruptedGoldOre");
-		CorruptedCharoiteOre = new CorruptedCharoiteOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedCharoiteOre").setBlockTextureName("nether_plus:CorruptedCharoiteOre");
-		CorruptedBlackIronOre = new CorruptedBlackIronOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedBlackIronOre").setBlockTextureName("nether_plus:CorruptedBlackIronOre");
-		InfernumOre = new InfernumOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumOre").setBlockTextureName("nether_plus:InfernumOre");
-		InfernumBlock = new InfernumBlock().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumBlock").setBlockTextureName("nether_plus:InfernumBlock");
-		BlackIronBlock = new BlackIronBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("BlackIronBlock").setBlockTextureName("nether_plus:BlackIronBlock");
-		CharoiteBlock = new CharoiteBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("CharoiteBlock").setBlockTextureName("nether_plus:CharoiteBlock");
+		corruptedGoldOre = new CorruptedGoldOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedGoldOre").setBlockTextureName("nether_plus:CorruptedGoldOre");
+		corruptedCharoiteOre = new CorruptedCharoiteOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedCharoiteOre").setBlockTextureName("nether_plus:CorruptedCharoiteOre");
+		corruptedBlackIronOre = new CorruptedBlackIronOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedBlackIronOre").setBlockTextureName("nether_plus:CorruptedBlackIronOre");
+		infernumOre = new InfernumOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumOre").setBlockTextureName("nether_plus:InfernumOre");
+		infernumBlock = new InfernumBlock().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("InfernumBlock").setBlockTextureName("nether_plus:InfernumBlock");
+		blackIronBlock = new BlackIronBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("BlackIronBlock").setBlockTextureName("nether_plus:BlackIronBlock");
+		charoiteBlock = new CharoiteBlock().setStepSound(Block.soundTypeMetal).setHardness(3.0F).setResistance(5.0F).setBlockName("CharoiteBlock").setBlockTextureName("nether_plus:CharoiteBlock");
 		
-		NetherPlanks = new Nether_Planks().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodPlanks").setBlockTextureName("nether_plus:GrimwoodPlanks");
-		CorruptedBrick = new CorruptedBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedBrick").setBlockTextureName("nether_plus:CorruptedBrick");
-		NetherrackBrick = new NetherrackBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("NetherrackBrick").setBlockTextureName("nether_plus:NetherrackBrick");
-		GrimwoodWorkbench  = new GrimwoodWorkbench().setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("GrimwoodWorkbench");
-		GrimwoodChest = new GrimwoodChest().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodChest");
+		netherPlanks = new Nether_Planks().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodPlanks").setBlockTextureName("nether_plus:GrimwoodPlanks");
+		corruptedBrick = new CorruptedBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedBrick").setBlockTextureName("nether_plus:CorruptedBrick");
+		netherrackBrick = new NetherrackBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("NetherrackBrick").setBlockTextureName("nether_plus:NetherrackBrick");
+		grimwoodWorkbench  = new GrimwoodWorkbench().setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("GrimwoodWorkbench");
+		grimwoodChest = new GrimwoodChest().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodChest");
 		fourOn = new BlockFour(true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace");
 		fourOff = new BlockFour(false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
-		WhiteSkull = new WhiteSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("WhiteSkull");
-		BlackSkull = new BlackSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("BlackSkull");
+		whiteSkull = new WhiteSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("WhiteSkull");
+		blackSkull = new BlackSkull().setStepSound(Block.soundTypeStone).setHardness(1.0F).setResistance(1.0F).setBlockName("BlackSkull");
 		
-		GrimwoodStairs = new ModStairs(NetherPlanks, 0).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodStairs");
-		CorruptedCobblestoneStairs = new ModStairs(CorruptedCobblestone, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedCobblestoneStairs");
-		CorruptedBrickStairs = new ModStairs(CorruptedBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedBrickStairs");
-		NetherrackBrickStairs = new ModStairs(NetherrackBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("NetherrackBrickStairs");
+		grimwoodStairs = new ModStairs(netherPlanks, 0).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodStairs");
+		corruptedCobblestoneStairs = new ModStairs(corruptedCobblestone, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedCobblestoneStairs");
+		corruptedBrickStairs = new ModStairs(corruptedBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("CorruptedBrickStairs");
+		netherrackBrickStairs = new ModStairs(netherrackBrick, 0).setStepSound(Block.soundTypeStone).setHardness(2.0F).setResistance(5.0F).setBlockName("NetherrackBrickStairs");
 		
-		ModWoodSlab = new ModWoodSlab(false).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		ModWoodDoubleSlab = new ModWoodSlab(true).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab");
-		ModStoneSlab = new ModStoneSlab(false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		ModStoneDoubleSlab = new ModStoneSlab(true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab");
+		modWoodSlab = new ModWoodSlab(false).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		modWoodDoubleSlab = new ModWoodSlab(true).setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("ModWoodSlab");
+		modStoneSlab = new ModStoneSlab(false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		modStoneDoubleSlab = new ModStoneSlab(true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setBlockName("ModStoneSlab");
 		
-		ModFence = new ModFence("nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ModFence");
-		CorruptedCobblestoneWall = new CorruptedCobblestoneWall(CorruptedCobblestone).setBlockName("CorruptedCobblestoneWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		CorruptedBrickWall = new CorruptedBrickWall(CorruptedBrick).setBlockName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherrackBrickWall = new NetherrackBrickWall(NetherrackBrick).setBlockName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		modFence = new ModFence("nether_plus:GrimwoodPlanks", Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ModFence");
+		corruptedCobblestoneWall = new CorruptedCobblestoneWall(corruptedCobblestone).setBlockName("CorruptedCobblestoneWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		corruptedBrickWall = new CorruptedBrickWall(corruptedBrick).setBlockName("CorruptedBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		netherrackBrickWall = new NetherrackBrickWall(netherrackBrick).setBlockName("NetherrackBrickWall").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
-		SoulGlassPane = new SoulGlassPane("nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.5F).setResistance(5.0F).setBlockName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		BlockGrimwoodDoor = new BlockModDoor(Material.wood).setHardness(3.0F).setStepSound(Block.soundTypeWood).setBlockName("BlockGrimwoodDoor").setBlockTextureName("nether_plus:doorGrimwood");
-		BlockBlackironDoor = new BlockModDoor(Material.iron).setHardness(5.0F).setStepSound(Block.soundTypeMetal).setBlockName("BlockBlackironDoor").setBlockTextureName("nether_plus:doorBlackiron");
+		soulGlassPane = new SoulGlassPane("nether_plus:SoulGlasspane", "nether_plus:SoulGlasspane_top", Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.5F).setResistance(5.0F).setBlockName("SoulGlassPane").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		blockGrimwoodDoor = new BlockModDoor(Material.wood).setHardness(3.0F).setStepSound(Block.soundTypeWood).setBlockName("BlockGrimwoodDoor").setBlockTextureName("nether_plus:doorGrimwood");
+		blockBlackironDoor = new BlockModDoor(Material.iron).setHardness(5.0F).setStepSound(Block.soundTypeMetal).setBlockName("BlockBlackironDoor").setBlockTextureName("nether_plus:doorBlackiron");
 		
-		Nether_Farm = new Nether_Farm().setStepSound(Block.soundTypeSand).setHardness(0.5F).setBlockName("Nether_Farm");
-		Crops = new Crops().setBlockName("Crops");
-		ChiliB = new ChiliB().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
-		ChiliC = new ChiliC(ChiliB).setBlockName("ChiliC").setBlockTextureName("nether_plus:stem");
-		RiceC = new RiceC().setBlockName("RiceC");
+		nether_Farm = new Nether_Farm().setStepSound(Block.soundTypeSand).setHardness(0.5F).setBlockName("Nether_Farm");
+		crops = new Crops().setBlockName("Crops");
+		chiliB = new ChiliB().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("ChiliB");
+		chiliC = new ChiliC(chiliB).setBlockName("ChiliC").setBlockTextureName("nether_plus:stem");
+		riceC = new RiceC().setBlockName("RiceC");
 		
-		Ladder = new Ladder().setStepSound(Block.soundTypeLadder).setHardness(0.4F).setResistance(5.0F).setBlockName("Ladder");
-		NetherRail = new NetherRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherRail");
-		NetherDetectorRail = new NetherDetectorRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
-		NetherPoweredRail = new NetherPoweredRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherPoweredRail");
-		GrimwoodTorch = new GrimwoodTorch().setStepSound(Block.soundTypeWood).setLightLevel(0.9375F).setHardness(0.0F).setResistance(5.0F).setBlockName("GrimwoodTorch");
-		NetherDonjonSpawner = new NetherDonjonSpawner().setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(5.0F).setBlockName("NetherDonjonSpawner");
+		ladder = new Ladder().setStepSound(Block.soundTypeLadder).setHardness(0.4F).setResistance(5.0F).setBlockName("Ladder");
+		netherRail = new NetherRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherRail");
+		netherDetectorRail = new NetherDetectorRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherDetectorRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
+		netherPoweredRail = new NetherPoweredRail().setStepSound(Block.soundTypeMetal).setHardness(0.7F).setResistance(5.0F).setBlockName("NetherPoweredRail").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock).setBlockTextureName("nether_plus:NetherPoweredRail");
+		grimwoodTorch = new GrimwoodTorch().setStepSound(Block.soundTypeWood).setLightLevel(0.9375F).setHardness(0.0F).setResistance(5.0F).setBlockName("GrimwoodTorch");
+		netherDonjonSpawner = new NetherDonjonSpawner().setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(5.0F).setBlockName("NetherDonjonSpawner");
 		
-		SteelWool = new SteelWool().setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
+		steelWool = new SteelWool().setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
 		
 		try
 		{
-		GameRegistry.registerBlock(GlowstoneSand, "Glowstone_Sand");
-		GameRegistry.registerBlock(SoulGlass, "Soul_Glass");
-		GameRegistry.registerBlock(Netherraze, "Netherraze");
-		GameRegistry.registerBlock(BewitchedWood, "bewitched_Wood");
-		GameRegistry.registerBlock(CorruptionStone, "Corruption_Stone");
-		GameRegistry.registerBlock(CorruptedCobblestone, "Corrupted_Cobblestone");
+		GameRegistry.registerBlock(glowstoneSand, "Glowstone_Sand");
+		GameRegistry.registerBlock(soulGlass, "Soul_Glass");
+		GameRegistry.registerBlock(netherraze, "Netherraze");
+		GameRegistry.registerBlock(bewitchedWood, "bewitched_Wood");
+		GameRegistry.registerBlock(corruptionStone, "Corruption_Stone");
+		GameRegistry.registerBlock(corruptedCobblestone, "Corrupted_Cobblestone");
 		
-		GameRegistry.registerBlock(GrimwoodLog, "Grimwood_Log");
-		GameRegistry.registerBlock(GrimwoodLeaves, "Grimwood_Leaves");
-		GameRegistry.registerBlock(GrimwoodSapling, "Grimwood_Sapling");
+		GameRegistry.registerBlock(grimwoodLog, "Grimwood_Log");
+		GameRegistry.registerBlock(grimwoodLeaves, "Grimwood_Leaves");
+		GameRegistry.registerBlock(grimwoodSapling, "Grimwood_Sapling");
 		
-		GameRegistry.registerBlock(CorruptedGoldOre, "Corrupted_Gold_Ore");
-		GameRegistry.registerBlock(CorruptedCharoiteOre, "Corrupted_Charoite_Ore");
-		GameRegistry.registerBlock(CorruptedBlackIronOre, "Corrupted_Black_Iron_Ore");
-		GameRegistry.registerBlock(InfernumOre, "InfernumOre");
+		GameRegistry.registerBlock(corruptedGoldOre, "Corrupted_Gold_Ore");
+		GameRegistry.registerBlock(corruptedCharoiteOre, "Corrupted_Charoite_Ore");
+		GameRegistry.registerBlock(corruptedBlackIronOre, "Corrupted_Black_Iron_Ore");
+		GameRegistry.registerBlock(infernumOre, "InfernumOre");
 
-		GameRegistry.registerBlock(InfernumBlock, "Infernum_Block");
-		GameRegistry.registerBlock(BlackIronBlock, "Black_Iron_Block");
-		GameRegistry.registerBlock(CharoiteBlock, "Charoite_Block");
+		GameRegistry.registerBlock(infernumBlock, "Infernum_Block");
+		GameRegistry.registerBlock(blackIronBlock, "Black_Iron_Block");
+		GameRegistry.registerBlock(charoiteBlock, "Charoite_Block");
 		
-		GameRegistry.registerBlock(NetherPlanks, "Nether_Planks");
-		GameRegistry.registerBlock(CorruptedBrick, "Corrupted_Brick");
-		GameRegistry.registerBlock(NetherrackBrick, "Netherrack_Brick");
-		GameRegistry.registerBlock(GrimwoodWorkbench, "Grimwood_Workbench");
-		GameRegistry.registerBlock(GrimwoodChest, "Grimwood_Chest");
+		GameRegistry.registerBlock(netherPlanks, "Nether_Planks");
+		GameRegistry.registerBlock(corruptedBrick, "Corrupted_Brick");
+		GameRegistry.registerBlock(netherrackBrick, "Netherrack_Brick");
+		GameRegistry.registerBlock(grimwoodWorkbench, "Grimwood_Workbench");
+		GameRegistry.registerBlock(grimwoodChest, "Grimwood_Chest");
 		
 		GameRegistry.registerBlock(fourOn, "four_On");
 		GameRegistry.registerBlock(fourOff, "four_Off");
 		
-		GameRegistry.registerBlock(GrimwoodStairs, "Grimwood_Stairs");
-		GameRegistry.registerBlock(CorruptedCobblestoneStairs, "Corrupted_Cobblestone_Stairs");
-		GameRegistry.registerBlock(CorruptedBrickStairs, "Corrupted_Brick_Stairs");
-		GameRegistry.registerBlock(NetherrackBrickStairs, "Netherrack_Brick_Stairs");
+		GameRegistry.registerBlock(grimwoodStairs, "Grimwood_Stairs");
+		GameRegistry.registerBlock(corruptedCobblestoneStairs, "Corrupted_Cobblestone_Stairs");
+		GameRegistry.registerBlock(corruptedBrickStairs, "Corrupted_Brick_Stairs");
+		GameRegistry.registerBlock(netherrackBrickStairs, "Netherrack_Brick_Stairs");
 		
 		/*
 		// TODO fix slab
-		GameRegistry.registerBlock(ModWoodSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Slab", "nether_plus");
-		GameRegistry.registerBlock(ModWoodDoubleSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Double_Slab", "nether_plus");
-		GameRegistry.registerBlock(ModStoneSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Slab", "nether_plus");
-		GameRegistry.registerBlock(ModStoneDoubleSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Double_Slab", "nether_plus");
+		GameRegistry.registerBlock(modWoodSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Slab", "nether_plus");
+		GameRegistry.registerBlock(modWoodDoubleSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Double_Slab", "nether_plus");
+		GameRegistry.registerBlock(modStoneSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Slab", "nether_plus");
+		GameRegistry.registerBlock(modStoneDoubleSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Double_Slab", "nether_plus");
 		*/
-		GameRegistry.registerBlock(ModFence, "Mod_Fence");
-		GameRegistry.registerBlock(CorruptedCobblestoneWall, "Corrupted_Cobblestone_Wall");
-		GameRegistry.registerBlock(CorruptedBrickWall, "Corrupted_Brick_Wall");
-		GameRegistry.registerBlock(NetherrackBrickWall, "Netherrack_Brick_Wall");
+		GameRegistry.registerBlock(modFence, "Mod_Fence");
+		GameRegistry.registerBlock(corruptedCobblestoneWall, "Corrupted_Cobblestone_Wall");
+		GameRegistry.registerBlock(corruptedBrickWall, "Corrupted_Brick_Wall");
+		GameRegistry.registerBlock(netherrackBrickWall, "Netherrack_Brick_Wall");
 		
-		GameRegistry.registerBlock(WhiteSkull, "White_Skull");
-		GameRegistry.registerBlock(BlackSkull, "Black_Skull");
+		GameRegistry.registerBlock(whiteSkull, "White_Skull");
+		GameRegistry.registerBlock(blackSkull, "Black_Skull");
 		
-		GameRegistry.registerBlock(SoulGlassPane, "Soul_Glass_Pane");
-		GameRegistry.registerBlock(BlockGrimwoodDoor, "BlockGrimwoodDoor");
-		GameRegistry.registerBlock(BlockBlackironDoor, "BlockBlackironDoor");
-		GameRegistry.registerBlock(Nether_Farm, "Nether_Farm");
-		GameRegistry.registerBlock(Crops, "Crops");
-		GameRegistry.registerBlock(ChiliC, "Chili_Crops");
-		GameRegistry.registerBlock(ChiliB, "Chili_Block");
-		GameRegistry.registerBlock(RiceC, "RiceC");
+		GameRegistry.registerBlock(soulGlassPane, "Soul_Glass_Pane");
+		GameRegistry.registerBlock(blockGrimwoodDoor, "BlockGrimwoodDoor");
+		GameRegistry.registerBlock(blockBlackironDoor, "BlockBlackironDoor");
+		GameRegistry.registerBlock(nether_Farm, "Nether_Farm");
+		GameRegistry.registerBlock(crops, "Crops");
+		GameRegistry.registerBlock(chiliC, "Chili_Crops");
+		GameRegistry.registerBlock(chiliB, "Chili_Block");
+		GameRegistry.registerBlock(riceC, "RiceC");
 		
-		GameRegistry.registerBlock(Ladder, "Ladder");
-		GameRegistry.registerBlock(NetherRail, "Nether_Rail");
-		GameRegistry.registerBlock(NetherDetectorRail, "Nether_Detector_Rail");
-		GameRegistry.registerBlock(NetherPoweredRail, "Nether_Powered_Rail");
-		GameRegistry.registerBlock(GrimwoodTorch, "Grimwood_Torch");
-		GameRegistry.registerBlock(NetherDonjonSpawner, "Nether_Donjon_Spawner");
+		GameRegistry.registerBlock(ladder, "Ladder");
+		GameRegistry.registerBlock(netherRail, "Nether_Rail");
+		GameRegistry.registerBlock(netherDetectorRail, "Nether_Detector_Rail");
+		GameRegistry.registerBlock(netherPoweredRail, "Nether_Powered_Rail");
+		GameRegistry.registerBlock(grimwoodTorch, "Grimwood_Torch");
+		GameRegistry.registerBlock(netherDonjonSpawner, "Nether_Donjon_Spawner");
 		
-		GameRegistry.registerBlock(SteelWool, "Iron_Wool");
+		GameRegistry.registerBlock(steelWool, "Iron_Wool");
 
 		//MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
 		//MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);

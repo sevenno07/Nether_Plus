@@ -37,7 +37,7 @@ public class Crops extends BlockBush implements IGrowable
 	
 	protected boolean canPlaceBlockOn(Block block)
     {
-        return block == NPBlockList.Nether_Farm;
+        return block == NPBlockList.nether_Farm;
     }
 
 	public void updateTick(World world, int x, int y, int z, Random rand)

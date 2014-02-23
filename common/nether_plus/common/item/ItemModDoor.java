@@ -34,11 +34,11 @@ public class ItemModDoor extends Item
 
             if (this.doorMaterial == Material.wood)
             {
-                block = NPBlockList.BlockGrimwoodDoor;
+                block = NPBlockList.blockGrimwoodDoor;
             }
             else
             {
-                block = NPBlockList.BlockBlackironDoor;
+                block = NPBlockList.blockBlackironDoor;
             }
 
             if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
