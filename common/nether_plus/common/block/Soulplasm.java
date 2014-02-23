@@ -3,7 +3,7 @@ package nether_plus.common.block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
@@ -28,10 +28,10 @@ public class Soulplasm extends BlockFluidClassic
        
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		if (entity instanceof EntityLiving)
+		if (entity instanceof EntityLivingBase)
 		{
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.confusion.getId(),300, 20));
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.fireResistance.getId(),1000, 10));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.confusion.getId(),300, 20));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.fireResistance.getId(),1000, 10));
 		}
 	}
 	

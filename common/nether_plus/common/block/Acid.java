@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.init.Blocks;
 import net.minecraft.potion.Potion;
@@ -31,11 +31,11 @@ public class Acid extends BlockFluidClassic
        
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		if (entity instanceof EntityLiving)
+		if (entity instanceof EntityLivingBase)
 		{
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(),200, 500));
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.confusion.getId(),200, 10));
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.poison.getId(),100, 500));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(),200, 500));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.confusion.getId(),200, 10));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.getId(),100, 500));
 		}
 	}
 	

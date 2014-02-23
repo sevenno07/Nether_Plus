@@ -3,7 +3,7 @@ package nether_plus.common.block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
@@ -28,10 +28,10 @@ public class Quicksilver extends BlockFluidClassic
 	
 	public void onEntityCollidedWithBlock(World world, int par2, int par3, int par4, Entity entity)
 	{
-		if (entity instanceof EntityLiving)
+		if (entity instanceof EntityLivingBase)
 		{
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.poison.getId(),25, 500));
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(),200, 10));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.getId(),25, 500));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(),200, 10));
 		}
 	}
 	
