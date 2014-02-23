@@ -66,8 +66,7 @@ public class NPRecipe
 		GameRegistry.addRecipe(new ItemStack(NPItemList.salamanderBoot, 1), new Object[]{"X X", "X X", 'X', NPItemList.salamanderLeather});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.chiliSeed, 1), new Object[]{"X", 'X', NPItemList.chili});
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.ChiliB, 1), new Object[]{"XXX", "XXX", "XXX", 'X', NPItemList.chili});
-		GameRegistry.addRecipe(new ItemStack(NPBlockList.GrimwoodTorch, 4), new Object[]{"X", "Y",  'X', Items.coal, 'Y', NPItemList.grimwoodStick});
-		GameRegistry.addRecipe(new ItemStack(NPBlockList.GrimwoodTorch, 4), new Object[]{"X", "Y",  'X', new ItemStack(Items.coal, 1, 1), 'Y', NPItemList.grimwoodStick});
+		GameRegistry.addRecipe(new ItemStack(NPBlockList.GrimwoodTorch, 4), new Object[]{"X", "Y",  'X', NPItemList.charoiteCrystal, 'Y', NPItemList.grimwoodStick});
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.Ladder, 3), new Object[]{"X X", "XXX", "X X", 'X', NPItemList.grimwoodStick});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.goldBucket, 1), new Object[]{"X X", " X ", 'X', Items.gold_ingot});
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.SoulGlassPane, 16), new Object[]{"XXX", "XXX", 'X', NPBlockList.SoulGlass});
