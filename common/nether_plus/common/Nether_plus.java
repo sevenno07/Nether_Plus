@@ -15,10 +15,10 @@ import nether_plus.common.achievement.NPAchievements;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
+import nether_plus.common.event.BucketEvent;
 import nether_plus.common.event.FarmingNether;
 import nether_plus.common.event.GrimBoneMeal;
 import nether_plus.common.event.LivingEvent;
-import nether_plus.common.event.ModBucket;
 import nether_plus.common.event.PickupHandler;
 import nether_plus.common.gui.GuiHandler;
 import nether_plus.common.item.NPItemList;
@@ -150,12 +150,7 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
 		MinecraftForge.EVENT_BUS.register(new PickupHandler());
-
-		ModBucket.INSTANCE.buckets.put(NPBlockList.QuicksilverStill, NPItemList.quickSilverBucket);
-		ModBucket.INSTANCE.buckets.put(NPBlockList.SoulplasmStill, NPItemList.soulplasmBucket);
-		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.acidBucket1);
-		ModBucket.INSTANCE.buckets.put(NPBlockList.AcidStill, NPItemList.acidBucket2);
-		MinecraftForge.EVENT_BUS.register(ModBucket.INSTANCE);
+		MinecraftForge.EVENT_BUS.register(new BucketEvent());
 		// *1
 
 		NPTEntityList.loadTileEntity();

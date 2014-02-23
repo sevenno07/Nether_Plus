@@ -6,7 +6,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.block.NPBlockList;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -141,10 +145,10 @@ public class NPItemList
 			waterBucket = new WaterBucket(Blocks.flowing_water).setUnlocalizedName("WaterBucket").setContainerItem(goldBucket);
 			lavaBucket = new LavaBucket(Blocks.flowing_lava).setUnlocalizedName("LavaBucket").setContainerItem(goldBucket);
 			milkBucket = new MilkBucket().setUnlocalizedName("MilkBucket").setContainerItem(goldBucket);
-			quickSilverBucket = new QuickSilverBucket(NPBlockList.QuicksilverMoving).setUnlocalizedName("QuickSilverBucket").setContainerItem(goldBucket);
-			soulplasmBucket = new SoulplasmBucket(NPBlockList.SoulplasmMoving).setUnlocalizedName("SoulplasmBucket").setContainerItem(goldBucket);
-			acidBucket1 = new AcidBucket1(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket1").setContainerItem(goldBucket);
-			acidBucket2 = new AcidBucket2(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
+			quickSilverBucket = new QuickSilverBucket(NPBlockList.blockQuicksilver).setUnlocalizedName("QuickSilverBucket").setContainerItem(goldBucket);
+			soulplasmBucket = new SoulplasmBucket(NPBlockList.SoulplasmStill).setUnlocalizedName("SoulplasmBucket").setContainerItem(goldBucket);
+			acidBucket1 = new AcidBucket1(NPBlockList.AcidStill).setUnlocalizedName("AcidBucket1").setContainerItem(goldBucket);
+			acidBucket2 = new AcidBucket2(NPBlockList.AcidStill).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
 
 			blackIronHelmet = new BlackIronArmor(blackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
 			blackIronChestplate = new BlackIronArmor(blackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
@@ -164,6 +168,8 @@ public class NPItemList
 
 			salamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
 
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("quickSilver", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(quickSilverBucket), FluidContainerRegistry.EMPTY_BUCKET);
+			
 			GameRegistry.registerItem(charoiteCrystal, "CharoiteCrystal");
 			GameRegistry.registerItem(blackIronIngot, "BlackIronIngot");
 			GameRegistry.registerItem(blackBone, "BlackBone");

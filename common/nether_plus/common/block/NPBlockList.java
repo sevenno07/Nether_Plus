@@ -1,14 +1,15 @@
 package nether_plus.common.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLiquid;
-//import net.minecraft.block.BlockFlowing;
-//import net.minecraft.block.BlockFluid;
 import net.minecraft.block.material.Material;
-//import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
+//import net.minecraft.block.BlockFlowing;
+//import net.minecraft.block.BlockFluid;
+//import net.minecraftforge.common.MinecraftForge;
 
 public class NPBlockList
 {
@@ -76,17 +77,34 @@ public class NPBlockList
 	public static Block GrimwoodTorch;
 	public static Block NetherDonjonSpawner;
 	
-	public static BlockLiquid QuicksilverMoving;
-	public static Block QuicksilverStill;
-	public static BlockLiquid SoulplasmMoving;
+	//Liquid
+	public static Fluid quickSilver;
+	public static Fluid soulPlasm;
+	public static Fluid acid;
+	public static Block blockQuicksilver;
 	public static Block SoulplasmStill;
-	public static BlockLiquid AcidMoving;
 	public static Block AcidStill;
 	
 	public static Block SteelWool;
 	
 	public static void loadBlock()
 	{
+		//liquides
+		quickSilver = new Fluid("quickSilver").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("quickSilver");
+		soulPlasm = new Fluid("soulPlasm").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("soulPlasm");
+		acid = new Fluid("acid").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("acid");
+		
+		FluidRegistry.registerFluid(quickSilver);
+		quickSilver = FluidRegistry.getFluid("quickSilver");
+
+		blockQuicksilver = new Quicksilver(quickSilver, Material.water).setBlockName("Quicksilver");
+		GameRegistry.registerBlock(blockQuicksilver, "Quicksilver");
+		quickSilver.setBlock(blockQuicksilver);
+
+		
+		SoulplasmStill = new SoulplasmStationary().setLightLevel(1.0F).setBlockName("SoulplasmStill");
+		AcidStill = new AcidStationary().setBlockName("AcidStill");
+		
 		GlowstoneSand = new GlowstoneSand(Material.sand).setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand").setBlockTextureName("nether_plus:GlowstoneSand");
 		SoulGlass = new SoulGlass(Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
 		Netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
@@ -150,14 +168,6 @@ public class NPBlockList
 		NetherDonjonSpawner = new NetherDonjonSpawner().setStepSound(Block.soundTypeMetal).setHardness(5.0F).setResistance(5.0F).setBlockName("NetherDonjonSpawner");
 		
 		SteelWool = new SteelWool().setStepSound(Block.soundTypeCloth).setHardness(2.0F).setResistance(5.0F).setBlockName("SteelWool");
-		
-		//liquides
-		QuicksilverMoving = (BlockLiquid) new QuicksilverFluid().setBlockName("QuicksilverMoving");
-		QuicksilverStill = new QuicksilverStationary().setBlockName("QuicksilverStill");
-		SoulplasmMoving = (BlockLiquid) new SoulplasmFluid().setLightLevel(1.0F).setBlockName("SoulplasmMoving");
-		SoulplasmStill = new SoulplasmStationary().setLightLevel(1.0F).setBlockName("SoulplasmStill");
-		AcidMoving = (BlockLiquid) new AcidFluid().setBlockName("AcidMoving");
-		AcidStill = new AcidStationary().setBlockName("AcidStill");
 		
 		try
 		{
@@ -226,11 +236,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(GrimwoodTorch, "Grimwood_Torch");
 		GameRegistry.registerBlock(NetherDonjonSpawner, "Nether_Donjon_Spawner");
 		
-		GameRegistry.registerBlock(QuicksilverMoving, "Quicksilver_Moving");
-		GameRegistry.registerBlock(QuicksilverStill, "Quicksilver_Still");
-		GameRegistry.registerBlock(SoulplasmMoving, "Soulplasm_Moving");
 		GameRegistry.registerBlock(SoulplasmStill, "Soulplasm_Still");
-		GameRegistry.registerBlock(AcidMoving, "Acid_Moving");
 		GameRegistry.registerBlock(AcidStill, "Acid_Still");
 		GameRegistry.registerBlock(SteelWool, "Iron_Wool");
 
