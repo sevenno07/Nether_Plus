@@ -43,8 +43,8 @@ public class Quicksilver extends BlockFluidClassic
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.stillIcon = iconRegister.registerIcon("nether_plus:Quicksilver");
-		this.flowingIcon = iconRegister.registerIcon("nether_plus:Quicksilver_flow");
+		this.stillIcon = iconRegister.registerIcon("nether_plus:Quicksilver_flow");
+		this.flowingIcon = iconRegister.registerIcon("nether_plus:Quicksilver");
 	}
 	
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z)

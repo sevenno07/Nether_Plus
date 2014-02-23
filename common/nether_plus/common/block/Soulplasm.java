@@ -43,8 +43,8 @@ public class Soulplasm extends BlockFluidClassic
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.stillIcon = iconRegister.registerIcon("nether_plus:Soulplasm");
-		this.flowingIcon = iconRegister.registerIcon("nether_plus:Soulplasm_flow");
+		this.stillIcon = iconRegister.registerIcon("nether_plus:Soulplasm_flow");
+		this.flowingIcon = iconRegister.registerIcon("nether_plus:Soulplasm");
 	}
 	
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z)

@@ -75,8 +75,8 @@ public class Acid extends BlockFluidClassic
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.stillIcon = iconRegister.registerIcon("nether_plus:Acid");
-		this.flowingIcon = iconRegister.registerIcon("nether_plus:Acid_flow");
+		this.stillIcon = iconRegister.registerIcon("nether_plus:Acid_flow");
+		this.flowingIcon = iconRegister.registerIcon("nether_plus:Acid");
 	}
 	
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z)
