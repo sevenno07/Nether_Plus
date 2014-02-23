@@ -14,24 +14,24 @@ import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Quicksilver extends BlockFluidClassic
+public class Soulplasm extends BlockFluidClassic
 {
     private IIcon stillIcon, flowingIcon;
 	
-	protected Quicksilver(Fluid fluid, Material material)
+	public Soulplasm(Fluid fluid, Material material)
 	{
 		super(fluid, material);
 		this.blockHardness = 100.0F;
 		this.setLightOpacity(3);
 		this.disableStats();
 	}
-	
-	public void onEntityCollidedWithBlock(World world, int par2, int par3, int par4, Entity entity)
+       
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (entity instanceof EntityLiving)
 		{
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.poison.getId(),25, 500));
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(),200, 10));
+			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.confusion.getId(),300, 20));
+			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.fireResistance.getId(),1000, 10));
 		}
 	}
 	
@@ -43,8 +43,8 @@ public class Quicksilver extends BlockFluidClassic
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.stillIcon = iconRegister.registerIcon("nether_plus:Quicksilver");
-		this.flowingIcon = iconRegister.registerIcon("nether_plus:Quicksilver_flow");
+		this.stillIcon = iconRegister.registerIcon("nether_plus:Soulplasm");
+		this.flowingIcon = iconRegister.registerIcon("nether_plus:Soulplasm_flow");
 	}
 	
 	public boolean canDisplace(IBlockAccess world, int x, int y, int z)

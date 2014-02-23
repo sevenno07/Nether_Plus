@@ -82,8 +82,8 @@ public class NPBlockList
 	public static Fluid soulPlasm;
 	public static Fluid acid;
 	public static Block blockQuicksilver;
-	public static Block SoulplasmStill;
-	public static Block AcidStill;
+	public static Block blockSoulplasm;
+	public static Block blockAcid;
 	
 	public static Block SteelWool;
 	
@@ -93,18 +93,23 @@ public class NPBlockList
 		quickSilver = new Fluid("quickSilver").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("quickSilver");
 		soulPlasm = new Fluid("soulPlasm").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("soulPlasm");
 		acid = new Fluid("acid").setDensity(4000).setViscosity(500).setTemperature(288).setLuminosity(0).setUnlocalizedName("acid");
-		
 		FluidRegistry.registerFluid(quickSilver);
+		FluidRegistry.registerFluid(soulPlasm);
+		FluidRegistry.registerFluid(acid);
 		//quickSilver = FluidRegistry.getFluid("quickSilver");
 
 		blockQuicksilver = new Quicksilver(quickSilver, Material.water).setBlockName("Quicksilver");
 		GameRegistry.registerBlock(blockQuicksilver, "Quicksilver");
 		quickSilver.setBlock(blockQuicksilver);
 
-		
-		SoulplasmStill = new SoulplasmStationary().setLightLevel(1.0F).setBlockName("SoulplasmStill");
-		AcidStill = new AcidStationary().setBlockName("AcidStill");
-		
+		blockSoulplasm = new Soulplasm(soulPlasm, Material.lava).setLightLevel(1.0F).setBlockName("Soulplasm");
+		GameRegistry.registerBlock(blockSoulplasm, "Soulplasm");
+		soulPlasm.setBlock(blockSoulplasm);
+
+		blockAcid = new Acid(acid, Material.water).setBlockName("AcidStill");
+		GameRegistry.registerBlock(blockAcid, "Acid");
+		acid.setBlock(blockAcid);
+
 		GlowstoneSand = new GlowstoneSand(Material.sand).setStepSound(Block.soundTypeSand).setLightLevel(1.0F).setHardness(0.5F).setBlockName("GlowstoneSand").setBlockTextureName("nether_plus:GlowstoneSand");
 		SoulGlass = new SoulGlass(Material.glass, false).setStepSound(Block.soundTypeGlass).setHardness(0.3F).setBlockName("SoulGlass").setBlockTextureName("nether_plus:SoulGlass");
 		Netherraze = new Netherraze().setStepSound(Block.soundTypeStone).setLightLevel(0.4F).setHardness(3.0F).setBlockName("Netherraze");
@@ -236,8 +241,6 @@ public class NPBlockList
 		GameRegistry.registerBlock(GrimwoodTorch, "Grimwood_Torch");
 		GameRegistry.registerBlock(NetherDonjonSpawner, "Nether_Donjon_Spawner");
 		
-		GameRegistry.registerBlock(SoulplasmStill, "Soulplasm_Still");
-		GameRegistry.registerBlock(AcidStill, "Acid_Still");
 		GameRegistry.registerBlock(SteelWool, "Iron_Wool");
 
 		//MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);

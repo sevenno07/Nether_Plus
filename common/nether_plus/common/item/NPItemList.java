@@ -8,7 +8,6 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import nether_plus.common.Nether_plus;
@@ -146,9 +145,9 @@ public class NPItemList
 			lavaBucket = new LavaBucket(Blocks.flowing_lava).setUnlocalizedName("LavaBucket").setContainerItem(goldBucket);
 			milkBucket = new MilkBucket().setUnlocalizedName("MilkBucket").setContainerItem(goldBucket);
 			quickSilverBucket = new QuickSilverBucket(NPBlockList.blockQuicksilver).setUnlocalizedName("QuickSilverBucket").setContainerItem(goldBucket);
-			soulplasmBucket = new SoulplasmBucket(NPBlockList.SoulplasmStill).setUnlocalizedName("SoulplasmBucket").setContainerItem(goldBucket);
-			acidBucket1 = new AcidBucket1(NPBlockList.AcidStill).setUnlocalizedName("AcidBucket1").setContainerItem(goldBucket);
-			acidBucket2 = new AcidBucket2(NPBlockList.AcidStill).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
+			soulplasmBucket = new SoulplasmBucket(NPBlockList.blockSoulplasm).setUnlocalizedName("SoulplasmBucket").setContainerItem(goldBucket);
+			acidBucket1 = new AcidBucket1(NPBlockList.blockAcid).setUnlocalizedName("AcidBucket1").setContainerItem(goldBucket);
+			acidBucket2 = new AcidBucket2(NPBlockList.blockAcid).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
 
 			blackIronHelmet = new BlackIronArmor(blackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet").setTextureName("nether_plus:BlackIronHelmet");
 			blackIronChestplate = new BlackIronArmor(blackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate").setTextureName("nether_plus:BlackIronChestplate");
@@ -227,6 +226,9 @@ public class NPItemList
 			GameRegistry.registerItem(salamanderBoat, "SalamanderBoat");
 			
 			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("quickSilver", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(quickSilverBucket), FluidContainerRegistry.EMPTY_BUCKET);
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("soulPlasm", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(soulplasmBucket), FluidContainerRegistry.EMPTY_BUCKET);
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("acid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(acidBucket1), FluidContainerRegistry.EMPTY_BUCKET);
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("acid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(acidBucket2), FluidContainerRegistry.EMPTY_BUCKET);
 		}catch(Exception ex)
 		{
 			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Items!");

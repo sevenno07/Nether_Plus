@@ -22,5 +22,26 @@ public class BucketEvent
 			event.result = new ItemStack(NPItemList.quickSilverBucket);
 			event.setResult(Result.ALLOW);
 		}
+		
+		if(block.equals(NPBlockList.blockSoulplasm) && metadata == 0)
+		{
+			event.world.setBlockToAir(event.target.blockX, event.target.blockY, event.target.blockZ);
+			event.result = new ItemStack(NPItemList.soulplasmBucket);
+			event.setResult(Result.ALLOW);
+		}
+		
+		if(block.equals(NPBlockList.blockAcid) && metadata == 0)
+		{
+			event.world.setBlockToAir(event.target.blockX, event.target.blockY, event.target.blockZ);
+			event.result = new ItemStack(NPItemList.acidBucket1);
+			event.setResult(Result.ALLOW);
+		}
+		
+		if(block.equals(NPBlockList.blockAcid) && metadata == 0)
+		{
+			event.world.setBlockToAir(event.target.blockX, event.target.blockY, event.target.blockZ);
+			event.result = new ItemStack(NPItemList.acidBucket2);
+			event.setResult(Result.ALLOW);
+		}
 	}
 }
