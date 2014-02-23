@@ -167,8 +167,6 @@ public class NPItemList
 			salamanderBoot = new SalamanderArmor(salamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot").setTextureName("nether_plus:SalamanderBoot");
 
 			salamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
-
-			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("quickSilver", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(quickSilverBucket), FluidContainerRegistry.EMPTY_BUCKET);
 			
 			GameRegistry.registerItem(charoiteCrystal, "CharoiteCrystal");
 			GameRegistry.registerItem(blackIronIngot, "BlackIronIngot");
@@ -227,6 +225,8 @@ public class NPItemList
 			GameRegistry.registerItem(acidBucket1, "AcidBucket1");
 			GameRegistry.registerItem(acidBucket2, "AcidBucket2");
 			GameRegistry.registerItem(salamanderBoat, "SalamanderBoat");
+			
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("quickSilver", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(quickSilverBucket), FluidContainerRegistry.EMPTY_BUCKET);
 		}catch(Exception ex)
 		{
 			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Items!");
