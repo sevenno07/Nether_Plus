@@ -108,15 +108,15 @@ public class NPItemList
 
 			salamanderLeather = new SalamanderLeather().setUnlocalizedName("SalamanderLeather");
 
-			skeletonWhiteHelmet = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet");
-			skeletonWhiteChestplate = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate");
-			skeletonWhiteLeggings = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 2).setUnlocalizedName("SkeletonWhiteLeggings");
-			skeletonWhiteBoot = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 3).setUnlocalizedName("SkeletonWhiteBoot");
+			skeletonWhiteHelmet = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 0).setUnlocalizedName("SkeletonWhiteHelmet").setTextureName("nether_plus:SkeletonWhiteHelmet");
+			skeletonWhiteChestplate = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 1).setUnlocalizedName("SkeletonWhiteChestplate").setTextureName("nether_plus:SkeletonWhiteChestplate");
+			skeletonWhiteLeggings = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 2).setUnlocalizedName("SkeletonWhiteLeggings").setTextureName("nether_plus:SkeletonWhiteLeggings");
+			skeletonWhiteBoot = new SkeletonWhiteArmor(skeletonWhiteArmor, 0, 3).setUnlocalizedName("SkeletonWhiteBoot").setTextureName("nether_plus:SkeletonWhiteBoot");
 
-			skeletonBlackHelmet = new SkeletonBlackArmor(skeletonBlackArmor, 0, 0).setUnlocalizedName("SkeletonBlackHelmet");
-			skeletonBlackChestplate = new SkeletonBlackArmor(skeletonBlackArmor, 0, 1).setUnlocalizedName("SkeletonBlackChestplate");
-			skeletonBlackLeggings = new SkeletonBlackArmor(skeletonBlackArmor, 0, 2).setUnlocalizedName("SkeletonBlackLeggings");
-			skeletonBlackBoot = new SkeletonBlackArmor(skeletonBlackArmor, 0, 3).setUnlocalizedName("SkeletonBlackBoot");
+			skeletonBlackHelmet = new SkeletonBlackArmor(skeletonBlackArmor, 0, 0).setUnlocalizedName("SkeletonBlackHelmet").setTextureName("nether_plus:SkeletonBlackHelmet");
+			skeletonBlackChestplate = new SkeletonBlackArmor(skeletonBlackArmor, 0, 1).setUnlocalizedName("SkeletonBlackChestplate").setTextureName("nether_plus:SkeletonBlackChestplate");
+			skeletonBlackLeggings = new SkeletonBlackArmor(skeletonBlackArmor, 0, 2).setUnlocalizedName("SkeletonBlackLeggings").setTextureName("nether_plus:SkeletonBlackLeggings");
+			skeletonBlackBoot = new SkeletonBlackArmor(skeletonBlackArmor, 0, 3).setUnlocalizedName("SkeletonBlackBoot").setTextureName("nether_plus:SkeletonBlackBoot");
 
 			grimwoodSword = new GrimwoodSword(grimwoodTool).setUnlocalizedName("GrimwoodSword");
 			grimwoodPickaxe = new GrimwoodPickaxe(grimwoodTool).setUnlocalizedName("GrimwoodPickaxe");
@@ -146,10 +146,10 @@ public class NPItemList
 			acidBucket1 = new AcidBucket1(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket1").setContainerItem(goldBucket);
 			acidBucket2 = new AcidBucket2(NPBlockList.AcidMoving).setUnlocalizedName("AcidBucket2").setContainerItem(Items.bucket);
 
-			blackIronHelmet = new BlackIronArmor(blackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet");
-			blackIronChestplate = new BlackIronArmor(blackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate");
-			blackIronLeggings = new BlackIronArmor(blackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings");
-			blackIronBoot = new BlackIronArmor(blackIronArmor, 0, 3).setUnlocalizedName("BlackIronBoot");
+			blackIronHelmet = new BlackIronArmor(blackIronArmor, 0, 0).setUnlocalizedName("BlackIronHelmet").setTextureName("nether_plus:BlackIronHelmet");
+			blackIronChestplate = new BlackIronArmor(blackIronArmor, 0, 1).setUnlocalizedName("BlackIronChestplate").setTextureName("nether_plus:BlackIronChestplate");
+			blackIronLeggings = new BlackIronArmor(blackIronArmor, 0, 2).setUnlocalizedName("BlackIronLeggings").setTextureName("nether_plus:BlackIronLeggings");
+			blackIronBoot = new BlackIronArmor(blackIronArmor, 0, 3).setUnlocalizedName("BlackIronBoot").setTextureName("nether_plus:BlackIronBoot");
 
 			blackIronSword = new BlackIronSword(blackIronTool).setUnlocalizedName("BlackIronSword");
 			blackIronPickaxe = new BlackIronPickaxe(blackIronTool).setUnlocalizedName("BlackIronPickaxe");
@@ -157,10 +157,10 @@ public class NPItemList
 			blackIronShovel = new BlackIronShovel(blackIronTool).setUnlocalizedName("BlackIronShovel");
 			blackIronHoe = new BlackIronHoe(blackIronTool).setUnlocalizedName("BlackIronHoe");
 
-			salamanderHelmet = new SalamanderArmor(salamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet");
-			salamanderChestplate = new SalamanderArmor(salamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate");
-			salamanderLeggings = new SalamanderArmor(salamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings");
-			salamanderBoot = new SalamanderArmor(salamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot");
+			salamanderHelmet = new SalamanderArmor(salamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet").setTextureName("nether_plus:SalamanderHelmet");
+			salamanderChestplate = new SalamanderArmor(salamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate").setTextureName("nether_plus:SalamanderChestplate");
+			salamanderLeggings = new SalamanderArmor(salamanderArmor, 0, 2).setUnlocalizedName("SalamanderLeggings").setTextureName("nether_plus:SalamanderLeggings");
+			salamanderBoot = new SalamanderArmor(salamanderArmor, 0, 3).setUnlocalizedName("SalamanderBoot").setTextureName("nether_plus:SalamanderBoot");
 
 			salamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
 
