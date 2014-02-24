@@ -10,8 +10,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-//import nether_plus.common.GrimGenTree;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import nether_plus.common.worldgenerator.GrimGenTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -39,14 +40,14 @@ public class GrimwoodSapling extends BlockSapling
 
 	public void growTree(World world, int i, int j, int k, Random random)
 	{
-		/*int l = world.getBlockMetadata(i, j, k) & 3;
+		int l = world.getBlockMetadata(i, j, k) & 3;
 		world.setBlock(i, j, k, this, 0, l);
 		Object obj = null;
 		obj = new GrimGenTree(false);
 		if(!((WorldGenerator)(obj)).generate(world, random, i, j, k))
 		{
 			world.setBlock(i, j, k, this, l, 3);
-		}*/
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)

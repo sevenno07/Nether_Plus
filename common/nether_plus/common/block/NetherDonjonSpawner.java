@@ -53,7 +53,7 @@ public class NetherDonjonSpawner extends BlockContainer
     }
     
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconregister)
+    public void registerBlockIcons(IIconRegister iconregister)
 	{
         this.blockIcon = iconregister.registerIcon("nether_plus:NetherDonjonSpawner");
  	}

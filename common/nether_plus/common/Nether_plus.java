@@ -1,6 +1,5 @@
 package nether_plus.common;
 
-import java.io.File;
 import java.util.List;
 import java.util.logging.Logger;
 

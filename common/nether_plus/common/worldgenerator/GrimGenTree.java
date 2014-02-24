@@ -1,4 +1,4 @@
-/*package nether_plus.common;
+package nether_plus.common.worldgenerator;
 
 import java.util.Random;
 
@@ -60,7 +60,7 @@ public class GrimGenTree extends WorldGenerator
 					if (i1 >= 0 && i1 < 256)
 					{
 						Block i3 = world.getBlock(k1, i1, i2);
-						if (i3 != NPBlockList.GrimwoodLeaves && i3 != Blocks.grass && i3 != NPBlockList.GrimwoodLog && i3 != Blocks.dirt && i3 != NPBlockList.CorruptionStone)
+						if (i3 != NPBlockList.grimwoodLeaves && i3 != Blocks.grass && i3 != NPBlockList.grimwoodLog && i3 != Blocks.dirt && i3 != NPBlockList.corruptionStone)
 						{
 							flag = false;
 						}
@@ -80,12 +80,12 @@ public class GrimGenTree extends WorldGenerator
 
 		Block j1 = world.getBlock(i, j - 1, k);
 
-		if (j1 != Blocks.dirt && j1 != Blocks.grass && j1 != NPBlockList.CorruptionStone || j >= 256 - l - 1)
+		if (j1 != Blocks.dirt && j1 != Blocks.grass && j1 != NPBlockList.corruptionStone || j >= 256 - l - 1)
 		{
 			return false;
 		}
 
-		func_50073_a(world, i, j - 1, k, NPBlockList.GrimwoodLog);
+		func_50073_a(world, i, j - 1, k, NPBlockList.grimwoodLog);
 		byte byte1 = 3;
 		int l1 = 0;
 
@@ -102,9 +102,9 @@ public class GrimGenTree extends WorldGenerator
 				{
 					int l5 = k5 - k;
 
-					if ((Math.abs(i5) != i4 || Math.abs(l5) != i4 || random.nextInt(2) != 0 && j3 != 0) && !Block.opaqueCubeLookup[world.getBlock(k4, j2, k5)])
+					if ((Math.abs(i5) != i4 || Math.abs(l5) != i4 || random.nextInt(2) != 0 && j3 != 0) && !world.getBlock(k4, j2, k5).isBlockNormalCube())
 					{
-						setBlockAndMetadata(world, k4, j2, k5, NPBlockList.GrimwoodLeaves, field_48199_d);
+						setBlockAndNotifyAdequately(world, k4, j2, k5, NPBlockList.grimwoodLeaves, field_48199_d);
 					}
 				}
 			}
@@ -114,12 +114,12 @@ public class GrimGenTree extends WorldGenerator
 		{
 			Block k3 = world.getBlock(i, j + k2, k);
 
-			if (k3 != NPBlockList.GrimwoodLeaves)
+			if (k3 != NPBlockList.grimwoodLeaves)
 			{
 				continue;
 			}
 
-			setBlockAndMetadata(world, i, j + k2, k, NPBlockList.GrimwoodLog, field_48201_c);
+			setBlockAndNotifyAdequately(world, i, j + k2, k, NPBlockList.grimwoodLog, field_48201_c);
 
 			if (!field_48200_b || k2 <= 0)
 			{
@@ -128,22 +128,22 @@ public class GrimGenTree extends WorldGenerator
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i - 1, j + k2, k))
 			{
-				setBlockAndMetadata(world, i - 1, j + k2, k, Blocks.dirt, 8);
+				setBlockAndNotifyAdequately(world, i - 1, j + k2, k, Blocks.dirt, 8);
 			}
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i + 1, j + k2, k))
 			{
-				setBlockAndMetadata(world, i + 1, j + k2, k, Blocks.dirt, 2);
+				setBlockAndNotifyAdequately(world, i + 1, j + k2, k, Blocks.dirt, 2);
 			}
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k - 1))
 			{
-				setBlockAndMetadata(world, i, j + k2, k - 1, Blocks.dirt, 1);
+				setBlockAndNotifyAdequately(world, i, j + k2, k - 1, Blocks.dirt, 1);
 			}
 
 			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k + 1))
 			{
-				setBlockAndMetadata(world, i, j + k2, k + 1, Blocks.dirt, 4);
+				setBlockAndNotifyAdequately(world, i, j + k2, k + 1, Blocks.dirt, 4);
 			}
 		}
 
@@ -158,27 +158,27 @@ public class GrimGenTree extends WorldGenerator
 				{
 					for (int j5 = k - j4; j5 <= k + j4; j5++)
 					{
-						if (world.getBlock(l4, l2, j5) != NPBlockList.GrimwoodLog)
+						if (world.getBlock(l4, l2, j5) != NPBlockList.grimwoodLog)
 						{
 							continue;
 						}
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4 - 1, l2, j5) == 0)
+						if (random.nextInt(4) == 0 && world.getBlock(l4 - 1, l2, j5) == null)
 						{
 							func_48198_a(world, l4 - 1, l2, j5, 8);
 						}
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4 + 1, l2, j5) == 0)
+						if (random.nextInt(4) == 0 && world.getBlock(l4 + 1, l2, j5) == null)
 						{
 							func_48198_a(world, l4 + 1, l2, j5, 2);
 						}
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4, l2, j5 - 1) == 0)
+						if (random.nextInt(4) == 0 && world.getBlock(l4, l2, j5 - 1) == null)
 						{
 							func_48198_a(world, l4, l2, j5 - 1, 1);
 						}
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4, l2, j5 + 1) == 0)
+						if (random.nextInt(4) == 0 && world.getBlock(l4, l2, j5 + 1) == null)
 						{
 							func_48198_a(world, l4, l2, j5 + 1, 4);
 						}
@@ -190,17 +190,17 @@ public class GrimGenTree extends WorldGenerator
 		return true;
 	}
 
-	private void func_50073_a(World world, int i, int j, int k, Block blockID)
+	private void func_50073_a(World world, int i, int j, int k, Block block)
 	{
 	}
 
 	private void func_48198_a(World world, int i, int j, int k, int l)
 	{
-		setBlockAndMetadata(world, i, j, k, Blocks.dirt, l);
+		setBlockAndNotifyAdequately(world, i, j, k, Blocks.dirt, l);
 
-		for (int i1 = 4; world.getBlock(i, --j, k) == 0 && i1 > 0; i1--)
+		for (int i1 = 4; world.getBlock(i, --j, k) == null && i1 > 0; i1--)
 		{
-			setBlockAndMetadata(world, i, j, k, Blocks.dirt, l);
+			setBlockAndNotifyAdequately(world, i, j, k, Blocks.dirt, l);
 		}
 	}
 
@@ -208,4 +208,4 @@ public class GrimGenTree extends WorldGenerator
 	{
 		
 	}
-}*/
+}
