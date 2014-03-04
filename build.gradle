@@ -22,7 +22,7 @@ group= "nether_plus" // http://maven.apache.org/guides/mini/guide-naming-convent
 archivesBaseName = "Nether_Plus"
 
 minecraft {
-    version = "1.7.2-10.12.0.1033"
+    version = "1.7.2-10.12.0.1034"
     assetDir = "eclipse/assets"
 }
 
