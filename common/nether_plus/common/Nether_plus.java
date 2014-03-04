@@ -15,6 +15,7 @@ import nether_plus.common.block.NPBlockList;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.event.BucketEvent;
+import nether_plus.common.event.CraftingHandler;
 import nether_plus.common.event.FarmingNether;
 import nether_plus.common.event.GrimBoneMeal;
 import nether_plus.common.event.LivingEvent;
@@ -79,6 +80,7 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new FarmingNether());
 		MinecraftForge.EVENT_BUS.register(new PickupHandler());
 		MinecraftForge.EVENT_BUS.register(new BucketEvent());
+		MinecraftForge.EVENT_BUS.register(new CraftingHandler());
 		// *1
 
 		NPTEntityList.loadTileEntity();
