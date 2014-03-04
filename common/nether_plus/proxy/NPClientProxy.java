@@ -22,6 +22,7 @@ import nether_plus.client.render.RenderRedMogus;
 import nether_plus.client.render.RenderSalamander;
 import nether_plus.client.render.RenderSalamanderBoat;
 import nether_plus.client.render.RenderWight;
+import nether_plus.common.block.NPBlockList;
 import nether_plus.common.entity.BlackSalamander;
 import nether_plus.common.entity.FireSlime;
 import nether_plus.common.entity.IronSheep;
@@ -32,6 +33,8 @@ import nether_plus.common.entity.RedMogus;
 import nether_plus.common.entity.Salamander;
 import nether_plus.common.entity.SalamanderBoat;
 import nether_plus.common.entity.Wight;
+import nether_plus.common.tileentity.TESRGrimwoodChest;
+import nether_plus.common.tileentity.TESRGrimwoodChest.TESRIndex;
 import nether_plus.common.tileentity.TileEntityGrimwoodChest;
 import nether_plus.common.tileentity.TileEntityGrimwoodChestRenderer;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -41,11 +44,13 @@ public class NPClientProxy extends NPCommonProxy
 {
 	public static int shouldRenderPass;
 	public static int renderStemModID;
+	public static int renderGrimwoodChest;
 
 	@Override
 	public void registerRender()
 	{
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrimwoodChest.class, new TileEntityGrimwoodChestRenderer());
+		renderGrimwoodChest = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(new TESRGrimwoodChest());
 		renderStemModID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(renderStemModID, new renderStemMod());
 	}
@@ -55,6 +60,7 @@ public class NPClientProxy extends NPCommonProxy
 		MinecraftForge.EVENT_BUS.register(new NPSounds());
 	}
 	
+	@Override
 	public void registerRenderEntity()
 	{
 	     RenderingRegistry.registerEntityRenderingHandler(Salamander.class, new RenderSalamander(new ModelSalamander(), 0.5F));
@@ -67,6 +73,12 @@ public class NPClientProxy extends NPCommonProxy
 	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), new ModelFireSlime(0), 0.5F));
 	     RenderingRegistry.registerEntityRenderingHandler(SalamanderBoat.class, new RenderSalamanderBoat());
 	     RenderingRegistry.registerEntityRenderingHandler(IronSheep.class, new RenderIronSheep(new ModelIronSheep1(), new ModelIronSheep2(), 0.5F));
-	     RenderingRegistry.registerBlockHandler(renderStemModID, new renderStemMod());
+	}
+	
+	@Override
+	public void registerTileEntityRender()
+	{
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrimwoodChest.class, new TileEntityGrimwoodChestRenderer());
+		TESRGrimwoodChest.blockByTESR.put(new TESRIndex(NPBlockList.grimwoodChest, 0), new TileEntityGrimwoodChestRenderer());
 	}
 }

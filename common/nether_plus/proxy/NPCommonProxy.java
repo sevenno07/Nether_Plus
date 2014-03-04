@@ -16,4 +16,9 @@ public class NPCommonProxy
 	{
 		
 	}
+	
+	public void registerTileEntityRender()
+	{
+		
+	}
 }

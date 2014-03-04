@@ -21,6 +21,7 @@ import nether_plus.common.Nether_plus;
 import nether_plus.common.block.container.InventoryGrimwoodLargeChest;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.tileentity.TileEntityGrimwoodChest;
+import nether_plus.proxy.NPClientProxy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -44,10 +45,11 @@ public class GrimwoodChest extends BlockContainer
     {
         return false;
     }
-
+    
+    @SideOnly(Side.CLIENT)
     public int getRenderType()
     {
-        return 22;
+        return NPClientProxy.renderGrimwoodChest;
     }
     
     public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)

@@ -72,6 +72,7 @@ public class Nether_plus
 
 		proxy.registerRender();
 		proxy.registerRenderEntity();
+		proxy.registerTileEntityRender();
 
 		MinecraftForge.EVENT_BUS.register(new GrimBoneMeal());
 		MinecraftForge.EVENT_BUS.register(new LivingEvent());

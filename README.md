@@ -2,4 +2,5 @@ Nether_Plus
 ===========
 
 TODO List:
-Débug du GrimwoodChest, du BlocFour, etc...
+-Débug BlocFour, etc...
+-Fix du rendu dans l'inventaire du GrimwoodChest.
