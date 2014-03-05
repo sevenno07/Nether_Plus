@@ -204,14 +204,13 @@ public class NPBlockList
 		GameRegistry.registerBlock(grimwoodStairs, "Grimwood_Stairs");
 		GameRegistry.registerBlock(corruptedCobblestoneStairs, "Corrupted_Cobblestone_Stairs");
 		GameRegistry.registerBlock(corruptedBrickStairs, "Corrupted_Brick_Stairs");
-		GameRegistry.registerBlock(netherrackBrickStairs, "Netherrack_Brick_Stairs");
+		GameRegistry.registerBlock(netherrackBrickStairs, "Netherrack_Brick_Stairs");		
 		
-		
-		// TODO fix slab
+/*		// TODO fix slab
 		GameRegistry.registerBlock(modWoodSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Slab", "nether_plus");
 		GameRegistry.registerBlock(modWoodDoubleSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Double_Slab", "nether_plus");
 		GameRegistry.registerBlock(modStoneSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Slab", "nether_plus");
-		GameRegistry.registerBlock(modStoneDoubleSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Double_Slab", "nether_plus");
+		GameRegistry.registerBlock(modStoneDoubleSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Double_Slab", "nether_plus");*/
 		
 		GameRegistry.registerBlock(modFence, "Mod_Fence");
 		GameRegistry.registerBlock(corruptedCobblestoneWall, "Corrupted_Cobblestone_Wall");
@@ -222,8 +221,8 @@ public class NPBlockList
 		GameRegistry.registerBlock(blackSkull, "Black_Skull");
 		
 		GameRegistry.registerBlock(soulGlassPane, "Soul_Glass_Pane");
-		GameRegistry.registerBlock(blockGrimwoodDoor, "BlockGrimwoodDoor");
-		GameRegistry.registerBlock(blockBlackironDoor, "BlockBlackironDoor");
+		GameRegistry.registerBlock(blockGrimwoodDoor, "Bloc_Grimwood_Door");
+		GameRegistry.registerBlock(blockBlackironDoor, "Block_Blackiron_Door");
 		GameRegistry.registerBlock(nether_Farm, "Nether_Farm");
 		GameRegistry.registerBlock(crops, "Crops");
 		GameRegistry.registerBlock(chiliC, "Chili_Crops");
