@@ -2,25 +2,25 @@
   "mob.Wight.death": {
    	"category": "hostile",
     "sounds": [
-      "nether_plus:Wight.death"
+      "mob/wight/death"
     ]
   },
   "mob.Wight.hit": {
     "category": "hostile",
     "sounds": [
-      "nether_plus:Wight.hit1",
-      "nether_plus:Wight.hit2",
-      "nether_plus:Wight.hit3",
-      "nether_plus:Wight.hit4"
+      "mob/wight/hit1",
+      "mob/wight/hit2",
+      "mob/wight/hit3",
+      "mob/wight/hit4"
     ]
   },
   "mob.Wight.idle": {
     "category": "hostile",
     "sounds": [
-      "nether_plus:Wight.idle1",
-      "nether_plus:Wight.idle2",
-      "nether_plus:Wight.idle3",
-      "nether_plus:Wight.idle4"
+      "mob/wight/idle1",
+      "mob/wight/idle2",
+      "mob/wight/idle3",
+      "mob/wight/idle4"
     ]
   }
 }
