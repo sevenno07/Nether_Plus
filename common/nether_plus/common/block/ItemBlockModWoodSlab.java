@@ -39,7 +39,7 @@ public class ItemBlockModWoodSlab extends ItemBlock
 
 	public String getUnlocalizedName(ItemStack stack)
 	{
-		return ((ModWoodSlab)theHalfSlab).func_150002_b(stack.getItemDamage());
+		return this.theHalfSlab.func_150002_b(stack.getItemDamage());
 	}
 
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
@@ -58,12 +58,12 @@ public class ItemBlockModWoodSlab extends ItemBlock
 		}
 		else
 		{
-			Block i1 = world.getBlock(x, y, z);
+			Block block = world.getBlock(x, y, z);
 			int j1 = world.getBlockMetadata(x, y, z);
 			int k1 = j1 & 7;
 			boolean flag = (j1 & 8) != 0;
 
-			if((side == 1 && !flag || side == 0 && flag) && i1 == this.theHalfSlab && k1 == stack.getItemDamage())
+			if((side == 1 && !flag || side == 0 && flag) && block == this.theHalfSlab && k1 == stack.getItemDamage())
 			{
 				if(world.checkNoEntityCollision(this.doubleSlab.getCollisionBoundingBoxFromPool(world, x, y, z)) && world.setBlock(x, y, z, this.doubleSlab, k1, 3))
 				{
@@ -74,23 +74,23 @@ public class ItemBlockModWoodSlab extends ItemBlock
 			}
 			else
 			{
-				return this.placeDoubleSlabFromTop(stack, player, world, x, y, z, side) ? true : super.onItemUse(stack, player, world, x, y, z, side, par8, par9, par10);
+				return this.func_150946_a(stack, player, world, x, y, z, side) ? true : super.onItemUse(stack, player, world, x, y, z, side, par8, par9, par10);
 			}
 		}
 	}
 
 	@SideOnly(Side.CLIENT)
-	public boolean canPlaceItemBlockOnSide(World world, int x, int y, int z, int side, EntityPlayer player, ItemStack stack)
+	public boolean func_150936_a(World world, int x, int y, int z, int side, EntityPlayer player, ItemStack stack)
 	{
 		int i1 = x;
 		int j1 = y;
 		int k1 = z;
-		Block id = world.getBlock(x, y, z);
+		Block block = world.getBlock(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
 		int j2 = meta & 7;
 		boolean flag = (meta & 8) != 0;
 
-		if((side == 1 && !flag || side == 0 && flag) && id == this.theHalfSlab && j2 == stack.getItemDamage())
+		if((side == 1 && !flag || side == 0 && flag) && block == this.theHalfSlab && j2 == stack.getItemDamage())
 		{
 			return true;
 		}
@@ -126,15 +126,15 @@ public class ItemBlockModWoodSlab extends ItemBlock
 				++x;
 			}
 
-			id = world.getBlock(x, y, z);
+			Block block1 = world.getBlock(x, y, z);
 			meta = world.getBlockMetadata(x, y, z);
 			j2 = meta & 7;
 			flag = (meta & 8) != 0;
-			return id == this.theHalfSlab && j2 == stack.getItemDamage() ? true : super.func_150936_a(world, i1, j1, k1, side, player, stack);
+			return block == this.theHalfSlab && j2 == stack.getItemDamage() ? true : super.func_150936_a(world, i1, j1, k1, side, player, stack);
 		}
 	}
 
-	private boolean placeDoubleSlabFromTop(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side)
+	private boolean func_150946_a(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side)
 	{
 		if(side == 0)
 		{

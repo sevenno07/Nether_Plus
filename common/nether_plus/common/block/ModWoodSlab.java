@@ -28,7 +28,7 @@ public class ModWoodSlab extends BlockSlab
 		return NPBlockList.netherPlanks.getIcon(side, metadata & 7);
 	}
 
-	public Item idDropped(int id, Random rand, int fortune)
+	public Item getItemDropped(int id, Random rand, int fortune)
 	{
 		return Item.getItemFromBlock(NPBlockList.modWoodSlab);
 	}
@@ -60,5 +60,5 @@ public class ModWoodSlab extends BlockSlab
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IconRegister) {}
+	public void registerBlockIcons(IIconRegister par1IconRegister) {}
 }
