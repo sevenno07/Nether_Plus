@@ -24,6 +24,7 @@ import nether_plus.common.gui.GuiHandler;
 import nether_plus.common.item.NPItemList;
 import nether_plus.common.recipe.NPRecipe;
 import nether_plus.common.tileentity.NPTEntityList;
+import nether_plus.common.worldgenerator.NPWorldGenerator;
 import nether_plus.proxy.NPCommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -85,6 +86,7 @@ public class Nether_plus
 
 		NPTEntityList.loadTileEntity();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler);
+		NPWorldGenerator.loadWorldGenerator();
 	}
 
 	@EventHandler
