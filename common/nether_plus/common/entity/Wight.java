@@ -64,17 +64,17 @@ public class Wight extends EntityZombie
 
     public String getLivingSound()
     {
-        return "nether_plus:Wight.idle";
+        return "nether_plus:mob.Wight.idle";
     }
 
     protected String getHurtSound()
     {
-        return "nether_plus:Wight.hit";
+        return "nether_plus:mob.Wight.hit";
     }
 
     protected String getDeathSound()
     {
-        return "nether_plus:Wight.death";
+        return "nether_plus:mob.Wight.death";
     }
 
     public boolean interact(EntityPlayer par1EntityPlayer)

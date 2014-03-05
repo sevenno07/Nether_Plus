@@ -1,16 +1,21 @@
 package nether_plus.client.audio;
 
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import nether_plus.common.Nether_plus;
-import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class NPSounds
 {
-	@EventHandler
+	public static ResourceLocation sounds = new ResourceLocation("nether_plus:sounds");
+	
+	@SubscribeEvent
 	public void onSoundsLoad(SoundLoadEvent event)
 	{
 		try
 		{
+			//TODO fix sounds
+			//event.getResult(null).getSoundPoolEntryLocation().equals(sounds);
 			/*event.manager.addSound("nether_plus:Wight.death.ogg");
 			event.manager.addSound("nether_plus:Wight.hit1.ogg");
 			event.manager.addSound("nether_plus:Wight.hit2.ogg");
