@@ -66,7 +66,6 @@ public class TileEntityFour extends TileEntity implements ISidedInventory
 				{
 					this.furnaceItemStacks[par1] = null;
 				}
-
 				return itemstack;
 			}
 		}
