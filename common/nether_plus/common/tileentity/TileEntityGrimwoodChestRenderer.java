@@ -155,6 +155,13 @@ public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer i
 	@Override
 	public void renderInventory(double x, double y, double z)
 	{
-		this.renderTileEntityGrimwoodChestAt(null, x, y, z, 0.0F);
+		ModelChest modelchest;
+		modelchest = this.chestModel;
+		this.bindTexture(SINGLE);
+		GL11.glPushMatrix();
+		GL11.glTranslated(x + 0.5F, y + 1.5F, z + 0.5F);
+		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
+		modelchest.renderAll();
+		GL11.glPopMatrix();
 	}
 }
