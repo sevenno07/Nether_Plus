@@ -98,7 +98,7 @@ public class NPBlockList
 		GameRegistry.registerBlock(blockQuicksilver, "Quicksilver");
 		quickSilver.setBlock(blockQuicksilver);
 
-		blockSoulplasm = new Soulplasm(soulPlasm, Material.water).setLightLevel(1.0F).setBlockName("Soulplasm");
+		blockSoulplasm = new Soulplasm(soulPlasm, Material.lava).setLightLevel(1.0F).setBlockName("Soulplasm");
 		GameRegistry.registerBlock(blockSoulplasm, "Soulplasm");
 		soulPlasm.setBlock(blockSoulplasm);
 
