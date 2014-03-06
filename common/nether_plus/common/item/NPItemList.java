@@ -12,6 +12,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.block.NPBlockList;
+import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class NPItemList
@@ -83,6 +84,9 @@ public class NPItemList
 	public static Item soulplasmBucket;
 	public static Item acidBucket1;
 	public static Item acidBucket2;
+	
+	public static Item grimwoodBow;
+	public static Item grimwoodArrow;
 
 	public static Item salamanderBoat;
 
@@ -167,6 +171,9 @@ public class NPItemList
 
 			salamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
 			
+			grimwoodArrow = new GrimwoodArrow().setUnlocalizedName("GrimwoodArrow").setTextureName("nether_plus:GrimwoodArrow").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
+			grimwoodBow = new GrimwoodBow().setUnlocalizedName("GrimwoodBow").setTextureName("nether_plus:GrimwoodBow");
+			
 			GameRegistry.registerItem(charoiteCrystal, "CharoiteCrystal");
 			GameRegistry.registerItem(blackIronIngot, "BlackIronIngot");
 			GameRegistry.registerItem(blackBone, "BlackBone");
@@ -224,6 +231,9 @@ public class NPItemList
 			GameRegistry.registerItem(acidBucket1, "AcidBucket1");
 			GameRegistry.registerItem(acidBucket2, "AcidBucket2");
 			GameRegistry.registerItem(salamanderBoat, "SalamanderBoat");
+			
+			GameRegistry.registerItem(grimwoodArrow, "GrimwoodArrow");
+			GameRegistry.registerItem(grimwoodBow, "GrimwoodBow");
 			
 			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("quickSilver", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(quickSilverBucket), FluidContainerRegistry.EMPTY_BUCKET);
 			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("soulPlasm", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(soulplasmBucket), FluidContainerRegistry.EMPTY_BUCKET);
