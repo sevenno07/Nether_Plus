@@ -14,6 +14,7 @@ import nether_plus.client.model.ModelSalamander;
 import nether_plus.client.model.ModelWight;
 import nether_plus.client.render.RenderBlackSalamander;
 import nether_plus.client.render.RenderFireSlime;
+import nether_plus.client.render.RenderGrimwoodArrow;
 import nether_plus.client.render.RenderIronSheep;
 import nether_plus.client.render.RenderLavaTortoise;
 import nether_plus.client.render.RenderMogus;
@@ -24,6 +25,7 @@ import nether_plus.client.render.RenderSalamanderBoat;
 import nether_plus.client.render.RenderWight;
 import nether_plus.common.block.NPBlockList;
 import nether_plus.common.entity.BlackSalamander;
+import nether_plus.common.entity.EntityGrimwoodArrow;
 import nether_plus.common.entity.FireSlime;
 import nether_plus.common.entity.IronSheep;
 import nether_plus.common.entity.LavaTortoise;
@@ -63,16 +65,17 @@ public class NPClientProxy extends NPCommonProxy
 	@Override
 	public void registerRenderEntity()
 	{
-	     RenderingRegistry.registerEntityRenderingHandler(Salamander.class, new RenderSalamander(new ModelSalamander(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(BlackSalamander.class, new RenderBlackSalamander(new ModelBlackSalamander(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(Wight.class, new RenderWight(new ModelWight(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(Mogus.class, new RenderMogus(new ModelMogus(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(RedMogus.class, new RenderRedMogus(new ModelRedMogus(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(LavaTortoise.class, new RenderLavaTortoise(new ModelLavaTortoise(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(Pordenfer.class, new RenderPordenfer(new ModelPordenfer(), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), new ModelFireSlime(0), 0.5F));
-	     RenderingRegistry.registerEntityRenderingHandler(SalamanderBoat.class, new RenderSalamanderBoat());
-	     RenderingRegistry.registerEntityRenderingHandler(IronSheep.class, new RenderIronSheep(new ModelIronSheep1(), new ModelIronSheep2(), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrimwoodArrow.class, new RenderGrimwoodArrow());
+	    RenderingRegistry.registerEntityRenderingHandler(Salamander.class, new RenderSalamander(new ModelSalamander(), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(BlackSalamander.class, new RenderBlackSalamander(new ModelBlackSalamander(), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(Wight.class, new RenderWight(new ModelWight(), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(Mogus.class, new RenderMogus(new ModelMogus(), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(RedMogus.class, new RenderRedMogus(new ModelRedMogus(), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(LavaTortoise.class, new RenderLavaTortoise(new ModelLavaTortoise(), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(Pordenfer.class, new RenderPordenfer(new ModelPordenfer(), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(FireSlime.class, new RenderFireSlime(new ModelFireSlime(1), new ModelFireSlime(0), 0.5F));
+	    RenderingRegistry.registerEntityRenderingHandler(SalamanderBoat.class, new RenderSalamanderBoat());
+	    RenderingRegistry.registerEntityRenderingHandler(IronSheep.class, new RenderIronSheep(new ModelIronSheep1(), new ModelIronSheep2(), 0.5F));
 	}
 	
 	@Override
