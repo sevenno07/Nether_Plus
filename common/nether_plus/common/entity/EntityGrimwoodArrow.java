@@ -27,10 +27,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityGrimwoodArrow extends EntityArrow
 {
-	private int field_145791_d = -1;
-	private int field_145792_e = -1;
-	private int field_145789_f = -1;
-	private Block field_145790_g;
+	private int xTile = -1;
+	private int yTile = -1;
+	private int zTile = -1;
+	private Block blockInside;
 	private int inData;
 	private boolean inGround;
 	/**
@@ -69,21 +69,21 @@ public class EntityGrimwoodArrow extends EntityArrow
 		this.yOffset = 0.0F;
 	}
 
-	public EntityGrimwoodArrow(World world, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
+	public EntityGrimwoodArrow(World world, EntityLivingBase entityWhoShooting, EntityLivingBase par3EntityLivingBase, float par4, float par5)
 	{
 		super(world);
 		this.renderDistanceWeight = 10.0D;
-		this.shootingEntity = par2EntityLivingBase;
+		this.shootingEntity = entityWhoShooting;
 
-		if (par2EntityLivingBase instanceof EntityPlayer)
+		if (entityWhoShooting instanceof EntityPlayer)
 		{
 			this.canBePickedUp = 1;
 		}
 
-		this.posY = par2EntityLivingBase.posY + (double) par2EntityLivingBase.getEyeHeight() - 0.10000000149011612D;
-		double d0 = par3EntityLivingBase.posX - par2EntityLivingBase.posX;
+		this.posY = entityWhoShooting.posY + (double) entityWhoShooting.getEyeHeight() - 0.10000000149011612D;
+		double d0 = par3EntityLivingBase.posX - entityWhoShooting.posX;
 		double d1 = par3EntityLivingBase.boundingBox.minY + (double) (par3EntityLivingBase.height / 3.0F) - this.posY;
-		double d2 = par3EntityLivingBase.posZ - par2EntityLivingBase.posZ;
+		double d2 = par3EntityLivingBase.posZ - entityWhoShooting.posZ;
 		double d3 = (double) MathHelper.sqrt_double(d0 * d0 + d2 * d2);
 
 		if (d3 >= 1.0E-7D)
@@ -92,26 +92,26 @@ public class EntityGrimwoodArrow extends EntityArrow
 			float f3 = (float) (-(Math.atan2(d1, d3) * 180.0D / Math.PI));
 			double d4 = d0 / d3;
 			double d5 = d2 / d3;
-			this.setLocationAndAngles(par2EntityLivingBase.posX + d4, this.posY, par2EntityLivingBase.posZ + d5, f2, f3);
+			this.setLocationAndAngles(entityWhoShooting.posX + d4, this.posY, entityWhoShooting.posZ + d5, f2, f3);
 			this.yOffset = 0.0F;
 			float f4 = (float) d3 * 0.2F;
 			this.setThrowableHeading(d0, d1 + (double) f4, d2, par4, par5);
 		}
 	}
 
-	public EntityGrimwoodArrow(World world, EntityLivingBase par2EntityLivingBase, float par3)
+	public EntityGrimwoodArrow(World world, EntityLivingBase entityWhoShooting, float par3)
 	{
 		super(world);
 		this.renderDistanceWeight = 10.0D;
-		this.shootingEntity = par2EntityLivingBase;
+		this.shootingEntity = entityWhoShooting;
 
-		if (par2EntityLivingBase instanceof EntityPlayer)
+		if (entityWhoShooting instanceof EntityPlayer)
 		{
 			this.canBePickedUp = 1;
 		}
 
 		this.setSize(0.5F, 0.5F);
-		this.setLocationAndAngles( par2EntityLivingBase.posX, par2EntityLivingBase.posY + (double) par2EntityLivingBase.getEyeHeight(), par2EntityLivingBase.posZ, par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
+		this.setLocationAndAngles( entityWhoShooting.posX, entityWhoShooting.posY + (double) entityWhoShooting.getEyeHeight(), entityWhoShooting.posZ, entityWhoShooting.rotationYaw, entityWhoShooting.rotationPitch);
 		this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
 		this.posY -= 0.10000000149011612D;
 		this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
@@ -200,12 +200,12 @@ public class EntityGrimwoodArrow extends EntityArrow
 			this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(this.motionY, (double) f) * 180.0D / Math.PI);
 		}
 
-		Block block = this.worldObj.getBlock(this.field_145791_d,this.field_145792_e, this.field_145789_f);
+		Block block = this.worldObj.getBlock(this.xTile,this.yTile, this.zTile);
 
 		if (block.getMaterial() != Material.air)
 		{
-			block.setBlockBoundsBasedOnState(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
-			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+			block.setBlockBoundsBasedOnState(this.worldObj, this.xTile, this.yTile, this.zTile);
+			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.xTile, this.yTile, this.zTile);
 
 			if (axisalignedbb != null && axisalignedbb.isVecInside(this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ)))
 			{
@@ -220,9 +220,9 @@ public class EntityGrimwoodArrow extends EntityArrow
 
 		if (this.inGround)
 		{
-			int j = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+			int j = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
 
-			if (block == this.field_145790_g && j == this.inData)
+			if (block == this.blockInside && j == this.inData)
 			{
 				++this.ticksInGround;
 
@@ -382,11 +382,11 @@ public class EntityGrimwoodArrow extends EntityArrow
 				}
 				else
 				{
-					this.field_145791_d = movingobjectposition.blockX;
-					this.field_145792_e = movingobjectposition.blockY;
-					this.field_145789_f = movingobjectposition.blockZ;
-					this.field_145790_g = block;
-					this.inData = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+					this.xTile = movingobjectposition.blockX;
+					this.yTile = movingobjectposition.blockY;
+					this.zTile = movingobjectposition.blockZ;
+					this.blockInside = block;
+					this.inData = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
 					this.motionX = (double) ((float) (movingobjectposition.hitVec.xCoord - this.posX));
 					this.motionY = (double) ((float) (movingobjectposition.hitVec.yCoord - this.posY));
 					this.motionZ = (double) ((float) (movingobjectposition.hitVec.zCoord - this.posZ));
@@ -399,9 +399,9 @@ public class EntityGrimwoodArrow extends EntityArrow
 					this.arrowShake = 7;
 					this.setIsCritical(false);
 
-					if (this.field_145790_g.getMaterial() != Material.air)
+					if (this.blockInside.getMaterial() != Material.air)
 					{
-						this.field_145790_g.onEntityCollidedWithBlock(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f, this);
+						this.blockInside.onEntityCollidedWithBlock(this.worldObj, this.xTile, this.yTile, this.zTile, this);
 					}
 				}
 			}
@@ -475,11 +475,11 @@ public class EntityGrimwoodArrow extends EntityArrow
 	 */
 	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
 	{
-		par1NBTTagCompound.setShort("xTile", (short) this.field_145791_d);
-		par1NBTTagCompound.setShort("yTile", (short) this.field_145792_e);
-		par1NBTTagCompound.setShort("zTile", (short) this.field_145789_f);
+		par1NBTTagCompound.setShort("xTile", (short) this.xTile);
+		par1NBTTagCompound.setShort("yTile", (short) this.yTile);
+		par1NBTTagCompound.setShort("zTile", (short) this.zTile);
 		par1NBTTagCompound.setShort("life", (short) this.ticksInGround);
-		par1NBTTagCompound.setByte("inTile", (byte) Block.getIdFromBlock(this.field_145790_g));
+		par1NBTTagCompound.setByte("inTile", (byte) Block.getIdFromBlock(this.blockInside));
 		par1NBTTagCompound.setByte("inData", (byte) this.inData);
 		par1NBTTagCompound.setByte("shake", (byte) this.arrowShake);
 		par1NBTTagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
@@ -492,11 +492,11 @@ public class EntityGrimwoodArrow extends EntityArrow
 	 */
 	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
 	{
-		this.field_145791_d = par1NBTTagCompound.getShort("xTile");
-		this.field_145792_e = par1NBTTagCompound.getShort("yTile");
-		this.field_145789_f = par1NBTTagCompound.getShort("zTile");
+		this.xTile = par1NBTTagCompound.getShort("xTile");
+		this.yTile = par1NBTTagCompound.getShort("yTile");
+		this.zTile = par1NBTTagCompound.getShort("zTile");
 		this.ticksInGround = par1NBTTagCompound.getShort("life");
-		this.field_145790_g = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 255);
+		this.blockInside = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 255);
 		this.inData = par1NBTTagCompound.getByte("inData") & 255;
 		this.arrowShake = par1NBTTagCompound.getByte("shake") & 255;
 		this.inGround = par1NBTTagCompound.getByte("inGround") == 1;
