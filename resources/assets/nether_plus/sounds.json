@@ -1,11 +1,11 @@
 {
-  "mob.Wight.death": {
+  "mob.wight.death": {
    	"category": "hostile",
     "sounds": [
       "mob/wight/death"
     ]
   },
-  "mob.Wight.hit": {
+  "mob.wight.hit": {
     "category": "hostile",
     "sounds": [
       "mob/wight/hit1",
@@ -14,7 +14,7 @@
       "mob/wight/hit4"
     ]
   },
-  "mob.Wight.idle": {
+  "mob.wight.idle": {
     "category": "hostile",
     "sounds": [
       "mob/wight/idle1",
