@@ -1,9 +1,5 @@
 package nether_plus.common.block;
 
-import sevenno_addons.common.block.StrangeTree;
-import sevenno_addons.common.block.StrangeTreeLeaves;
-import sevenno_addons.common.block.StrangeTreeLog;
-import sevenno_addons.common.block.StrangeTreeLog_N;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.Fluid;
