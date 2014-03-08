@@ -1,5 +1,9 @@
 package nether_plus.common.block;
 
+import sevenno_addons.common.block.StrangeTree;
+import sevenno_addons.common.block.StrangeTreeLeaves;
+import sevenno_addons.common.block.StrangeTreeLog;
+import sevenno_addons.common.block.StrangeTreeLog_N;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.Fluid;
@@ -113,9 +117,9 @@ public class NPBlockList
 		corruptionStone = new CorruptionStone().setStepSound(Block.soundTypeStone).setHardness(1.0F).setBlockName("CorruptionStone").setBlockTextureName("nether_plus:CorruptionStone");
 		corruptedCobblestone = new CorruptedCobblestone().setStepSound(Block.soundTypeStone).setHardness(1.5F).setBlockName("CorruptedCobblestone");
 		
-		grimwoodLog = new GrimwoodLog().setHardness(1.0F).setResistance(5F).setStepSound(Block.soundTypeWood).setBlockName("GrimwoodLog");
-		grimwoodLeaves = new GrimwoodLeaves().setHardness(0.5F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodLeaves");
-		grimwoodSapling = new GrimwoodSapling().setHardness(0.0F).setResistance(5F).setStepSound(Block.soundTypeGrass).setBlockName("GrimwoodSapling");
+		grimwoodSapling = new GrimwoodSapling().setStepSound(Block.soundTypeGrass).setResistance(5.0F).setBlockName("GrimwoodSapling");
+		grimwoodLog = new GrimwoodLog().setStepSound(Block.soundTypeWood).setHardness(1.0F).setResistance(5.0F).setBlockName("GrimwoodLog");
+		grimwoodLeaves = new GrimwoodLeaves().setStepSound(Block.soundTypeGrass).setHardness(0.2F).setResistance(5.0F).setBlockName("GrimwoodLeaves");
 		
 		corruptedGoldOre = new CorruptedGoldOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedGoldOre").setBlockTextureName("nether_plus:CorruptedGoldOre");
 		corruptedCharoiteOre = new CorruptedCharoiteOre().setStepSound(Block.soundTypeStone).setHardness(3.0F).setResistance(5.0F).setBlockName("CorruptedCharoiteOre").setBlockTextureName("nether_plus:CorruptedCharoiteOre");

@@ -14,15 +14,7 @@ public class GrimBoneMeal
 	@SubscribeEvent
 	public void onUseBonemeal(BonemealEvent event)
 	{
-		if (event.block == NPBlockList.grimwoodSapling)
-		{
-			if (!event.world.isRemote)
-			{
-				((GrimwoodSapling)NPBlockList.grimwoodSapling).growTree(event.world, event.x, event.y, event.z, event.world.rand);
-				event.setResult(Event.Result.ALLOW);
-			}
-		}
-		else if (event.block == NPBlockList.crops)
+		if (event.block == NPBlockList.crops)
 		{
 			if (!event.world.isRemote)
 			{

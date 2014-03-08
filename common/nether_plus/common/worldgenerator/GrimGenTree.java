@@ -3,210 +3,228 @@ package nether_plus.common.worldgenerator;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraftforge.common.util.ForgeDirection;
 import nether_plus.common.block.NPBlockList;
 
-public class GrimGenTree extends WorldGenerator
+public class GrimGenTree extends WorldGenAbstractTree
 {
-	//TODO fix generation tree
-	private final int field_48202_a;
-	private final boolean field_48200_b;
-	private final int field_48201_c;
-	private final int field_48199_d;
+    private final int minTreeHeight;
+    private final boolean vinesGrow;
+    private final int metaWood;
+    private final int metaLeaves;
 
-	public GrimGenTree(boolean flag)
-	{
-		this(flag, 4, 0, 0, false);
-	}
+    public GrimGenTree(boolean par1)
+    {
+        this(par1, 4, 0, 0, false);
+    }
 
-	public GrimGenTree(boolean flag, int i, int j, int k, boolean flag1)
-	{
-		super(flag);
-		field_48202_a = i;
-		field_48201_c = j;
-		field_48199_d = k;
-		field_48200_b = flag1;
-	}
+    public GrimGenTree(boolean par1, int par2, int par3, int par4, boolean par5)
+    {
+        super(par1);
+        this.minTreeHeight = par2;
+        this.metaWood = par3;
+        this.metaLeaves = par4;
+        this.vinesGrow = par5;
+    }
 
-	public boolean generate(World world, Random random, int i, int j, int k)
-	{
-		int l = random.nextInt(3) + field_48202_a;
-		boolean flag = true;
+    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+    {
+        int l = par2Random.nextInt(3) + this.minTreeHeight;
+        boolean flag = true;
 
-		if (j < 1 || j + l + 1 > 256)
-		{
-			return false;
-		}
+        if (par4 >= 1 && par4 + l + 1 <= 256)
+        {
+            byte b0;
+            int k1;
+            Block block;
 
-		for (int i1 = j; i1 <= j + 1 + l; i1++)
-		{
-			byte byte0 = 1;
+            for (int i1 = par4; i1 <= par4 + 1 + l; ++i1)
+            {
+                b0 = 1;
 
-			if (i1 == j)
-			{
-				byte0 = 0;
-			}
+                if (i1 == par4)
+                {
+                    b0 = 0;
+                }
 
-			if (i1 >= (j + 1 + l) - 2)
-			{
-				byte0 = 2;
-			}
+                if (i1 >= par4 + 1 + l - 2)
+                {
+                    b0 = 2;
+                }
 
-			for (int k1 = i - byte0; k1 <= i + byte0 && flag; k1++)
-			{
-				for (int i2 = k - byte0; i2 <= k + byte0 && flag; i2++)
-				{
-					if (i1 >= 0 && i1 < 256)
-					{
-						Block i3 = world.getBlock(k1, i1, i2);
-						if (i3 != NPBlockList.grimwoodLeaves && i3 != Blocks.grass && i3 != NPBlockList.grimwoodLog && i3 != Blocks.dirt && i3 != NPBlockList.corruptionStone)
-						{
-							flag = false;
-						}
-					}
-					else
-					{
-						flag = false;
-					}
-				}
-			}
-		}
+                for (int j1 = par3 - b0; j1 <= par3 + b0 && flag; ++j1)
+                {
+                    for (k1 = par5 - b0; k1 <= par5 + b0 && flag; ++k1)
+                    {
+                        if (i1 >= 0 && i1 < 256)
+                        {
+                            block = par1World.getBlock(j1, i1, k1);
 
-		if (!flag)
-		{
-			return false;
-		}
+                            if (!this.isReplaceable(par1World, j1, i1, k1))
+                            {
+                                flag = false;
+                            }
+                        }
+                        else
+                        {
+                            flag = false;
+                        }
+                    }
+                }
+            }
 
-		Block j1 = world.getBlock(i, j - 1, k);
+            if (!flag)
+            {
+                return false;
+            }
+            else
+            {
+                Block block2 = par1World.getBlock(par3, par4 - 1, par5);
 
-		if (j1 != Blocks.dirt && j1 != Blocks.grass && j1 != NPBlockList.corruptionStone || j >= 256 - l - 1)
-		{
-			return false;
-		}
+                boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)NPBlockList.grimwoodSapling);
+                if (isSoil && par4 < 256 - l - 1)
+                {
+                    block2.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
+                    b0 = 3;
+                    byte b1 = 0;
+                    int l1;
+                    int i2;
+                    int j2;
+                    int i3;
 
-		func_50073_a(world, i, j - 1, k, NPBlockList.grimwoodLog);
-		byte byte1 = 3;
-		int l1 = 0;
+                    for (k1 = par4 - b0 + l; k1 <= par4 + l; ++k1)
+                    {
+                        i3 = k1 - (par4 + l);
+                        l1 = b1 + 1 - i3 / 2;
 
-		for (int j2 = (j - byte1) + l; j2 <= j + l; j2++)
-		{
-			int j3 = j2 - (j + l);
-			int i4 = (l1 + 1) - j3 / 2;
+                        for (i2 = par3 - l1; i2 <= par3 + l1; ++i2)
+                        {
+                            j2 = i2 - par3;
 
-			for (int k4 = i - i4; k4 <= i + i4; k4++)
-			{
-				int i5 = k4 - i;
+                            for (int k2 = par5 - l1; k2 <= par5 + l1; ++k2)
+                            {
+                                int l2 = k2 - par5;
 
-				for (int k5 = k - i4; k5 <= k + i4; k5++)
-				{
-					int l5 = k5 - k;
+                                if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || par2Random.nextInt(2) != 0 && i3 != 0)
+                                {
+                                    Block block1 = par1World.getBlock(i2, k1, k2);
 
-					if ((Math.abs(i5) != i4 || Math.abs(l5) != i4 || random.nextInt(2) != 0 && j3 != 0) && !world.getBlock(k4, j2, k5).isBlockNormalCube())
-					{
-						setBlockAndNotifyAdequately(world, k4, j2, k5, NPBlockList.grimwoodLeaves, field_48199_d);
-					}
-				}
-			}
-		}
+                                    if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2))
+                                    {
+                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, NPBlockList.grimwoodLeaves, this.metaLeaves);
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-		for (int k2 = 0; k2 < l; k2++)
-		{
-			Block k3 = world.getBlock(i, j + k2, k);
+                    for (k1 = 0; k1 < l; ++k1)
+                    {
+                        block = par1World.getBlock(par3, par4 + k1, par5);
 
-			if (k3 != NPBlockList.grimwoodLeaves)
-			{
-				continue;
-			}
+                        if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5))
+                        {
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, NPBlockList.grimwoodLog, this.metaWood);
 
-			setBlockAndNotifyAdequately(world, i, j + k2, k, NPBlockList.grimwoodLog, field_48201_c);
+                            if (this.vinesGrow && k1 > 0)
+                            {
+                                if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 - 1, par4 + k1, par5))
+                                {
+                                    this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + k1, par5, Blocks.vine, 8);
+                                }
 
-			if (!field_48200_b || k2 <= 0)
-			{
-				continue;
-			}
+                                if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 + 1, par4 + k1, par5))
+                                {
+                                    this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + k1, par5, Blocks.vine, 2);
+                                }
 
-			if (random.nextInt(3) > 0 && world.isAirBlock(i - 1, j + k2, k))
-			{
-				setBlockAndNotifyAdequately(world, i - 1, j + k2, k, Blocks.dirt, 8);
-			}
+                                if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + k1, par5 - 1))
+                                {
+                                    this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 - 1, Blocks.vine, 1);
+                                }
 
-			if (random.nextInt(3) > 0 && world.isAirBlock(i + 1, j + k2, k))
-			{
-				setBlockAndNotifyAdequately(world, i + 1, j + k2, k, Blocks.dirt, 2);
-			}
+                                if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + k1, par5 + 1))
+                                {
+                                    this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 + 1, Blocks.vine, 4);
+                                }
+                            }
+                        }
+                    }
 
-			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k - 1))
-			{
-				setBlockAndNotifyAdequately(world, i, j + k2, k - 1, Blocks.dirt, 1);
-			}
+                    if (this.vinesGrow)
+                    {
+                        for (k1 = par4 - 3 + l; k1 <= par4 + l; ++k1)
+                        {
+                            i3 = k1 - (par4 + l);
+                            l1 = 2 - i3 / 2;
 
-			if (random.nextInt(3) > 0 && world.isAirBlock(i, j + k2, k + 1))
-			{
-				setBlockAndNotifyAdequately(world, i, j + k2, k + 1, Blocks.dirt, 4);
-			}
-		}
+                            for (i2 = par3 - l1; i2 <= par3 + l1; ++i2)
+                            {
+                                for (j2 = par5 - l1; j2 <= par5 + l1; ++j2)
+                                {
+                                    if (par1World.getBlock(i2, k1, j2).isLeaves(par1World, i2, k1, j2))
+                                    {
+                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2 - 1, k1, j2).isAir(par1World, i2 - 1, k1, j2))
+                                        {
+                                            this.growVines(par1World, i2 - 1, k1, j2, 8);
+                                        }
 
-		if (field_48200_b)
-		{
-			for (int l2 = (j - 3) + l; l2 <= j + l; l2++)
-			{
-				int l3 = l2 - (j + l);
-				int j4 = 2 - l3 / 2;
+                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2 + 1, k1, j2).isAir(par1World, i2 + 1, k1, j2))
+                                        {
+                                            this.growVines(par1World, i2 + 1, k1, j2, 2);
+                                        }
 
-				for (int l4 = i - j4; l4 <= i + j4; l4++)
-				{
-					for (int j5 = k - j4; j5 <= k + j4; j5++)
-					{
-						if (world.getBlock(l4, l2, j5) != NPBlockList.grimwoodLog)
-						{
-							continue;
-						}
+                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2, k1, j2 - 1).isAir(par1World, i2, k1, j2 - 1))
+                                        {
+                                            this.growVines(par1World, i2, k1, j2 - 1, 1);
+                                        }
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4 - 1, l2, j5) == null)
-						{
-							func_48198_a(world, l4 - 1, l2, j5, 8);
-						}
+                                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2, k1, j2 + 1).isAir(par1World, i2, k1, j2 + 1))
+                                        {
+                                            this.growVines(par1World, i2, k1, j2 + 1, 4);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4 + 1, l2, j5) == null)
-						{
-							func_48198_a(world, l4 + 1, l2, j5, 2);
-						}
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    private void growVines(World par1World, int par2, int par3, int par4, int par5)
+    {
+        this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, Blocks.vine, par5);
+        int i1 = 4;
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4, l2, j5 - 1) == null)
-						{
-							func_48198_a(world, l4, l2, j5 - 1, 1);
-						}
+        while (true)
+        {
+            --par3;
 
-						if (random.nextInt(4) == 0 && world.getBlock(l4, l2, j5 + 1) == null)
-						{
-							func_48198_a(world, l4, l2, j5 + 1, 4);
-						}
-					}
-				}
-			}
-		}
+            if (par1World.getBlock(par2, par3, par4).isAir(par1World, par2, par3, par4) || i1 <= 0)
+            {
+                return;
+            }
 
-		return true;
-	}
-
-	private void func_50073_a(World world, int i, int j, int k, Block block)
-	{
-	}
-
-	private void func_48198_a(World world, int i, int j, int k, int l)
-	{
-		setBlockAndNotifyAdequately(world, i, j, k, Blocks.dirt, l);
-
-		for (int i1 = 4; world.getBlock(i, --j, k) == null && i1 > 0; i1--)
-		{
-			setBlockAndNotifyAdequately(world, i, j, k, Blocks.dirt, l);
-		}
-	}
-
-	public void fertilize(World world, int x, int y, int z)
-	{
-		
-	}
+            this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, Blocks.vine, par5);
+            --i1;
+        }
+    }
 }

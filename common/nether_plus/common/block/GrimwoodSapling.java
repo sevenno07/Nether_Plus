@@ -3,15 +3,18 @@ package nether_plus.common.block;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
+import nether_plus.common.worldgenerator.GrimGenBigTree;
 import nether_plus.common.worldgenerator.GrimGenTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -38,17 +41,60 @@ public class GrimwoodSapling extends BlockSapling
 		return blockIcon;
 	}
 
-	public void growTree(World world, int i, int j, int k, Random random)
-	{
-		int l = world.getBlockMetadata(i, j, k) & 3;
-		world.setBlock(i, j, k, this, 0, l);
-		Object obj = null;
-		obj = new GrimGenTree(false);
-		if(!((WorldGenerator)(obj)).generate(world, random, i, j, k))
-		{
-			world.setBlock(i, j, k, this, l, 3);
-		}
-	}
+    public void func_149878_d(World world, int x, int y, int z, Random random)
+    {
+        if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, random, x, y, z)) return;
+        int l = world.getBlockMetadata(x, y, z) & 7;
+        Object object = random.nextInt(10) == 0 ? new GrimGenBigTree(true) : new GrimGenTree(true);
+        int i1 = 0;
+        int j1 = 0;
+        boolean flag = false;
+
+        switch (l)
+        {
+        case 0:
+        default:
+        	break;
+        case 1:
+        	
+        		if (!flag)
+        		{
+                    return;
+                }
+        }
+
+        Block block = Blocks.air;
+
+        if (flag)
+        {
+        	world.setBlock(x + i1, y, z + j1, block, 0, 4);
+        	world.setBlock(x + i1 + 1, y, z + j1, block, 0, 4);
+        	world.setBlock(x + i1, y, z + j1 + 1, block, 0, 4);
+        	world.setBlock(x + i1 + 1, y, z + j1 + 1, block, 0, 4);
+        }
+        else
+        {
+        	world.setBlock(x, y, z, block, 0, 4);
+        }
+
+        if (!((WorldGenerator)object).generate(world, random, x + i1, y, z + j1))
+        {
+            if (flag)
+            {
+            	world.setBlock(x + i1, y, z + j1, this, l, 4);
+            	world.setBlock(x + i1 + 1, y, z + j1, this, l, 4);
+            	world.setBlock(x + i1, y, z + j1 + 1, this, l, 4);
+            	world.setBlock(x + i1 + 1, y, z + j1 + 1, this, l, 4);
+            }
+            else
+            {
+            	world.setBlock(x, y, z, this, l, 4);
+            }
+        }
+    }
+	
+	
+	
 	
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativetabs, List list)
