@@ -172,7 +172,7 @@ public class NPItemList
 			salamanderBoat = new ItemSalamanderBoat().setUnlocalizedName("SalamanderBoat");
 			
 			grimwoodArrow = new GrimwoodArrow().setUnlocalizedName("GrimwoodArrow").setTextureName("nether_plus:GrimwoodArrow").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsItem);
-			grimwoodBow = new GrimwoodBow().setUnlocalizedName("GrimwoodBow").setTextureName("nether_plus:GrimwoodBow");
+			grimwoodBow = new GrimwoodBow().setUnlocalizedName("GrimwoodBow").setTextureName("nether_plus:GrimwoodBow").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsArmor);
 			
 			GameRegistry.registerItem(charoiteCrystal, "CharoiteCrystal");
 			GameRegistry.registerItem(blackIronIngot, "BlackIronIngot");
