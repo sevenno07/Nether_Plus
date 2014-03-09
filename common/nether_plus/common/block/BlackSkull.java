@@ -32,7 +32,7 @@ public class BlackSkull extends Block
 	 @SideOnly(Side.CLIENT)
 	 public IIcon getIcon(int side, int metadata)
 	 {
-	 return side == 1 ? this.IconTop : (side == 0 ? this.IconBottom : (metadata == 2 && side == 2 ? this.blockIcon : (metadata == 3 && side == 5 ? this.blockIcon : (metadata == 0 && side == 3 ? this.blockIcon : (metadata == 1 && side == 4 ? this.blockIcon : this.IconTop)))));
+		 return side == 1 ? this.IconTop : (side == 0 ? this.IconBottom : (metadata == 2 && side == 2 ? this.blockIcon : (metadata == 3 && side == 5 ? this.blockIcon : (metadata == 0 && side == 3 ? this.blockIcon : (metadata == 1 && side == 4 ? this.blockIcon : this.IconTop)))));
 	 }
 	 
 	@SideOnly(Side.CLIENT)
