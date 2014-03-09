@@ -70,6 +70,8 @@ public class NPRecipe
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.ladder, 3), new Object[]{"X X", "XXX", "X X", 'X', NPItemList.grimwoodStick});
 		GameRegistry.addRecipe(new ItemStack(NPItemList.goldBucket, 1), new Object[]{"X X", " X ", 'X', Items.gold_ingot});
 		GameRegistry.addRecipe(new ItemStack(NPBlockList.soulGlassPane, 16), new Object[]{"XXX", "XXX", 'X', NPBlockList.soulGlass});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.grimwoodBow, 1), new Object[] {" XY", "X Y", " XY" , 'X',  NPItemList.grimwoodStick, 'Y', Items.string});
+		GameRegistry.addRecipe(new ItemStack(NPItemList.grimwoodArrow, 4), new Object[] {"Y", "X", "Z", 'X', NPItemList.grimwoodStick, 'Y', Items.quartz, 'Z', NPBlockList.steelWool});
 	}
 	
 	public static void loadSmelting()
