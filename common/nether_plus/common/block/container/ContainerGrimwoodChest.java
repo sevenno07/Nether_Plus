@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerGrimwoodChest extends Container
 {
-	private IInventory lowerChestInventory;
+    private IInventory lowerChestInventory;
     private int numRows;
 
     public ContainerGrimwoodChest(IInventory par1IInventory, IInventory par2IInventory)

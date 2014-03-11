@@ -3,6 +3,9 @@ package nether_plus.common.tileentity;
 import java.util.Iterator;
 import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -38,6 +41,17 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
     private int ticksSinceSync;
     private int cachedChestType;
     private String customName;
+    
+    public TileEntityGrimwoodChest()
+    {
+        this.cachedChestType = -1;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public TileEntityGrimwoodChest(int par1)
+    {
+        this.cachedChestType = par1;
+    }
 	
 	@Override
 	public int getSizeInventory()
@@ -390,11 +404,6 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             return super.receiveClientEvent(par1, par2);
         }
     }
-
-	public boolean isStackValidForSlot(int i, ItemStack itemstack) 
-	{
-		return true;
-	}
 	
 	public void invalidate()
     {
