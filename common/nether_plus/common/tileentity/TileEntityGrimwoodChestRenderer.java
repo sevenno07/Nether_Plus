@@ -47,7 +47,7 @@ public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer i
 				{
 					try
 					{
-						((GrimwoodChest) block).unifyAdjacentChests(te.getWorldObj(), te.xCoord, te.yCoord, te.zCoord);
+						((GrimwoodChest) block).func_149954_e(te.getWorldObj(), te.xCoord, te.yCoord, te.zCoord);
 					} catch (ClassCastException e)
 					{
 						FMLLog.severe("Attempted to render a chest at %d,  %d, %d that was not a chest", te.xCoord, te.yCoord, te.zCoord);
@@ -61,7 +61,7 @@ public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer i
 			{
 				ModelChest modelchest;
 
-				if (te.adjacentChestXPos == null && te.adjacentChestZPosition == null)
+				if (te.adjacentChestXPos == null && te.adjacentChestZPos == null)
 				{
 					modelchest = this.chestModel;
 					this.bindTexture(SINGLE);
@@ -105,7 +105,7 @@ public class TileEntityGrimwoodChestRenderer extends TileEntitySpecialRenderer i
 					GL11.glTranslatef(1.0F, 0.0F, 0.0F);
 				}
 
-				if (i == 5 && te.adjacentChestZPosition != null)
+				if (i == 5 && te.adjacentChestZPos != null)
 				{
 					GL11.glTranslatef(0.0F, 0.0F, -1.0F);
 				}

@@ -12,22 +12,22 @@ public class InventoryGrimwoodLargeChest implements IInventory
 
     private IInventory lowerChest;
 
-    public InventoryGrimwoodLargeChest(String par1Str, IInventory par2IInventory, IInventory par3IInventory)
+    public InventoryGrimwoodLargeChest(String string, IInventory inventory, IInventory inventory2)
     {
-        this.name = par1Str;
+        this.name = string;
 
-        if (par2IInventory == null)
+        if (inventory == null)
         {
-            par2IInventory = par3IInventory;
+            inventory = inventory2;
         }
 
-        if (par3IInventory == null)
+        if (inventory2 == null)
         {
-            par3IInventory = par2IInventory;
+            inventory2 = inventory;
         }
 
-        this.upperChest = par2IInventory;
-        this.lowerChest = par3IInventory;
+        this.upperChest = inventory;
+        this.lowerChest = inventory2;
     }
 
     public int getSizeInventory()
@@ -38,6 +38,16 @@ public class InventoryGrimwoodLargeChest implements IInventory
     public boolean isPartOfLargeChest(IInventory par1IInventory)
     {
         return this.upperChest == par1IInventory || this.lowerChest == par1IInventory;
+    }
+
+    public String getInventoryName()
+    {
+        return this.upperChest.hasCustomInventoryName() ? this.upperChest.getInventoryName() : (this.lowerChest.hasCustomInventoryName() ? this.lowerChest.getInventoryName() : this.name);
+    }
+
+    public boolean hasCustomInventoryName()
+    {
+        return this.upperChest.hasCustomInventoryName() || this.lowerChest.hasCustomInventoryName();
     }
 
     public ItemStack getStackInSlot(int par1)
@@ -72,52 +82,31 @@ public class InventoryGrimwoodLargeChest implements IInventory
         return this.upperChest.getInventoryStackLimit();
     }
 
-    public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
+    public void markDirty()
     {
-        return this.upperChest.isUseableByPlayer(par1EntityPlayer) && this.lowerChest.isUseableByPlayer(par1EntityPlayer);
+        this.upperChest.markDirty();
+        this.lowerChest.markDirty();
     }
 
-    public boolean isStackValidForSlot(int par1, ItemStack par2ItemStack)
+    public boolean isUseableByPlayer(EntityPlayer player)
+    {
+        return this.upperChest.isUseableByPlayer(player) && this.lowerChest.isUseableByPlayer(player);
+    }
+
+    public void openInventory()
+    {
+        this.upperChest.openInventory();
+        this.lowerChest.openInventory();
+    }
+
+    public void closeInventory()
+    {
+        this.upperChest.closeInventory();
+        this.lowerChest.closeInventory();
+    }
+
+    public boolean isItemValidForSlot(int par1, ItemStack par2ItemStack)
     {
         return true;
     }
-
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack)
-	{
-		return false;
-	}
-
-	@Override
-	public String getInventoryName()
-	{
-        return this.upperChest.hasCustomInventoryName() ? this.upperChest.getInventoryName() : (this.lowerChest.hasCustomInventoryName() ? this.lowerChest.getInventoryName() : this.name);
-	}
-
-	@Override
-	public boolean hasCustomInventoryName()
-	{
-        return this.upperChest.hasCustomInventoryName() || this.lowerChest.hasCustomInventoryName();
-	}
-
-	@Override
-	public void markDirty()
-	{
-        this.upperChest.markDirty();
-        this.lowerChest.markDirty();
-	}
-
-	@Override
-	public void openInventory()
-	{
-        this.upperChest.openInventory();
-        this.lowerChest.openInventory();
-	}
-
-	@Override
-	public void closeInventory()
-	{
-        this.upperChest.closeInventory();
-        this.lowerChest.closeInventory();
-	}
 }

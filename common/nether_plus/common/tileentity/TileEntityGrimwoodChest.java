@@ -3,6 +3,7 @@ package nether_plus.common.tileentity;
 import java.util.Iterator;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -18,7 +19,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 {
 	private ItemStack[] chestContents = new ItemStack[36];
 	
-	public boolean adjacentChestChecked = false;
+	public boolean adjacentChestChecked;
 
     public TileEntityGrimwoodChest adjacentChestZNeg;
 
@@ -26,7 +27,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 
     public TileEntityGrimwoodChest adjacentChestXNeg;
 
-    public TileEntityGrimwoodChest adjacentChestZPosition;
+    public TileEntityGrimwoodChest adjacentChestZPos;
 
     public float lidAngle;
 
@@ -35,8 +36,8 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
     public int numUsingPlayers;
 
     private int ticksSinceSync;
-    private int field_94046_i = -1;
-    private String field_94045_s;
+    private int cachedChestType;
+    private String customName;
 	
 	@Override
 	public int getSizeInventory()
@@ -112,9 +113,9 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
         this.markDirty();
 	}
 	
-	public void func_94043_a(String par1Str)
+	public void func_145976_a(String par1Str)
     {
-        this.field_94045_s = par1Str;
+        this.customName = par1Str;
     }
 	
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
@@ -125,7 +126,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 
         if (par1NBTTagCompound.hasKey("CustomName"))
         {
-            this.field_94045_s = par1NBTTagCompound.getString("CustomName");
+            this.customName = par1NBTTagCompound.getString("CustomName");
         }
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i)
@@ -160,7 +161,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 
         if (this.hasCustomInventoryName())
         {
-            par1NBTTagCompound.setString("CustomName", this.field_94045_s);
+            par1NBTTagCompound.setString("CustomName", this.customName);
         }
     }
 	
@@ -182,7 +183,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
         this.adjacentChestChecked = false;
     }
 
-    private void func_90009_a(TileEntityGrimwoodChest TileEntityGrimwoodChest, int par2)
+    private void func_145978_a(TileEntityGrimwoodChest TileEntityGrimwoodChest, int par2)
     {
         if (TileEntityGrimwoodChest.isInvalid())
         {
@@ -193,7 +194,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
             switch (par2)
             {
                 case 0:
-                    if (this.adjacentChestZPosition != TileEntityGrimwoodChest)
+                    if (this.adjacentChestZPos != TileEntityGrimwoodChest)
                     {
                         this.adjacentChestChecked = false;
                     }
@@ -224,39 +225,65 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
     
     public void checkForAdjacentChests()
     {
-        if (!this.adjacentChestChecked)
+    	if (!this.adjacentChestChecked)
         {
             this.adjacentChestChecked = true;
             this.adjacentChestZNeg = null;
             this.adjacentChestXPos = null;
             this.adjacentChestXNeg = null;
-            this.adjacentChestZPosition = null;
+            this.adjacentChestZPos = null;
+
+            if (this.func_145977_a(this.xCoord - 1, this.yCoord, this.zCoord))
+            {
+                this.adjacentChestXNeg = (TileEntityGrimwoodChest)this.worldObj.getTileEntity(this.xCoord - 1, this.yCoord, this.zCoord);
+            }
+
+            if (this.func_145977_a(this.xCoord + 1, this.yCoord, this.zCoord))
+            {
+                this.adjacentChestXPos = (TileEntityGrimwoodChest)this.worldObj.getTileEntity(this.xCoord + 1, this.yCoord, this.zCoord);
+            }
+
+            if (this.func_145977_a(this.xCoord, this.yCoord, this.zCoord - 1))
+            {
+                this.adjacentChestZNeg = (TileEntityGrimwoodChest)this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord - 1);
+            }
+
+            if (this.func_145977_a(this.xCoord, this.yCoord, this.zCoord + 1))
+            {
+                this.adjacentChestZPos = (TileEntityGrimwoodChest)this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord + 1);
+            }
 
             if (this.adjacentChestZNeg != null)
             {
-                this.adjacentChestZNeg.func_90009_a(this, 0);
+                this.adjacentChestZNeg.func_145978_a(this, 0);
             }
 
-            if (this.adjacentChestZPosition != null)
+            if (this.adjacentChestZPos != null)
             {
-                this.adjacentChestZPosition.func_90009_a(this, 2);
+                this.adjacentChestZPos.func_145978_a(this, 2);
             }
 
             if (this.adjacentChestXPos != null)
             {
-                this.adjacentChestXPos.func_90009_a(this, 1);
+                this.adjacentChestXPos.func_145978_a(this, 1);
             }
 
             if (this.adjacentChestXNeg != null)
             {
-                this.adjacentChestXNeg.func_90009_a(this, 3);
+                this.adjacentChestXNeg.func_145978_a(this, 3);
             }
         }
     }
     
+    private boolean func_145977_a(int x, int y, int z)
+    {
+        Block block = this.worldObj.getBlock(x, y, z);
+        return block instanceof GrimwoodChest && ((GrimwoodChest)block).field_149956_a == this.func_145980_j();
+    }
+    
     public void updateEntity()
     {
-        super.updateEntity();
+    	super.updateEntity();
         this.checkForAdjacentChests();
         ++this.ticksSinceSync;
         float f;
@@ -286,16 +313,16 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 
         this.prevLidAngle = this.lidAngle;
         f = 0.1F;
-        double d0;
+        double d2;
 
         if (this.numUsingPlayers > 0 && this.lidAngle == 0.0F && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null)
         {
             double d1 = (double)this.xCoord + 0.5D;
-            d0 = (double)this.zCoord + 0.5D;
+            d2 = (double)this.zCoord + 0.5D;
 
-            if (this.adjacentChestZPosition != null)
+            if (this.adjacentChestZPos != null)
             {
-                d0 += 0.5D;
+                d2 += 0.5D;
             }
 
             if (this.adjacentChestXPos != null)
@@ -303,7 +330,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
                 d1 += 0.5D;
             }
 
-            this.worldObj.playSoundEffect(d1, (double)this.yCoord + 0.5D, d0, "random.chestopen", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
+            this.worldObj.playSoundEffect(d1, (double)this.yCoord + 0.5D, d2, "random.chestopen", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
         }
 
         if (this.numUsingPlayers == 0 && this.lidAngle > 0.0F || this.numUsingPlayers > 0 && this.lidAngle < 1.0F)
@@ -328,20 +355,20 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 
             if (this.lidAngle < f2 && f1 >= f2 && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null)
             {
-                d0 = (double)this.xCoord + 0.5D;
-                double d2 = (double)this.zCoord + 0.5D;
+                d2 = (double)this.xCoord + 0.5D;
+                double d0 = (double)this.zCoord + 0.5D;
 
-                if (this.adjacentChestZPosition != null)
-                {
-                    d2 += 0.5D;
-                }
-
-                if (this.adjacentChestXPos != null)
+                if (this.adjacentChestZPos != null)
                 {
                     d0 += 0.5D;
                 }
 
-                this.worldObj.playSoundEffect(d0, (double)this.yCoord + 0.5D, d2, "random.chestclosed", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
+                if (this.adjacentChestXPos != null)
+                {
+                    d2 += 0.5D;
+                }
+
+                this.worldObj.playSoundEffect(d2, (double)this.yCoord + 0.5D, d0, "random.chestclosed", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
             }
 
             if (this.lidAngle < 0.0F)
@@ -379,19 +406,19 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack)
 	{
-		return false;
+		return true;
 	}
 
 	@Override
 	public String getInventoryName()
 	{
-		return this.hasCustomInventoryName() ? this.field_94045_s : "container.grimwoodchest";
+		return this.hasCustomInventoryName() ? this.customName : "container.grimwoodchest";
 	}
 
 	@Override
 	public boolean hasCustomInventoryName()
 	{
-		return this.field_94045_s != null && this.field_94045_s.length() > 0;
+		return this.customName != null && this.customName.length() > 0;
 	}
 
 	@Override
@@ -411,7 +438,7 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 	@Override
 	public void closeInventory()
 	{
-		if (this.getBlockType() != null && this.getBlockType() instanceof GrimwoodChest)
+		if (this.getBlockType() instanceof GrimwoodChest)
 	    {
 			--this.numUsingPlayers;
 			this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType(), 1, this.numUsingPlayers);
@@ -419,4 +446,19 @@ public class TileEntityGrimwoodChest extends TileEntity implements IInventory
 			this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType());
 	    }
 	}
+	
+	public int func_145980_j()
+    {
+        if (this.cachedChestType == -1)
+        {
+            if (this.worldObj == null || !(this.getBlockType() instanceof GrimwoodChest))
+            {
+                return 0;
+            }
+
+            this.cachedChestType = ((GrimwoodChest)this.getBlockType()).field_149956_a;
+        }
+
+        return this.cachedChestType;
+    }
 }

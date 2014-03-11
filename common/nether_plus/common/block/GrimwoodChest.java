@@ -1,5 +1,8 @@
 package nether_plus.common.block;
 
+import static net.minecraftforge.common.util.ForgeDirection.DOWN;
+
+import java.util.Iterator;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -8,15 +11,17 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 import nether_plus.common.Nether_plus;
 import nether_plus.common.block.container.InventoryGrimwoodLargeChest;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
@@ -28,10 +33,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class GrimwoodChest extends BlockContainer
 {
 	private final Random random = new Random();
+    public final int field_149956_a;
 	
-	protected GrimwoodChest()
+	protected GrimwoodChest(int i)
 	{
 		super(Material.wood);
+		this.field_149956_a = i;
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
@@ -79,7 +86,7 @@ public class GrimwoodChest extends BlockContainer
     public void onBlockAdded(World world, int x, int y, int z)
     {
         super.onBlockAdded(world, x, y, z);
-        this.unifyAdjacentChests(world, x, y, z);
+        this.func_149954_e(world, x, y, z);
         Block l = world.getBlock(x, y, z - 1);
         Block i1 = world.getBlock(x, y, z + 1);
         Block j1 = world.getBlock(x - 1, y, z);
@@ -87,22 +94,22 @@ public class GrimwoodChest extends BlockContainer
 
         if (l == this)
         {
-            this.unifyAdjacentChests(world, x, y, z - 1);
+            this.func_149954_e(world, x, y, z - 1);
         }
 
         if (i1 == this)
         {
-            this.unifyAdjacentChests(world, x, y, z + 1);
+            this.func_149954_e(world, x, y, z + 1);
         }
 
         if (j1 == this)
         {
-            this.unifyAdjacentChests(world, x - 1, y, z);
+            this.func_149954_e(world, x - 1, y, z);
         }
 
         if (k1 == this)
         {
-            this.unifyAdjacentChests(world, x + 1, y, z);
+            this.func_149954_e(world, x + 1, y, z);
         }
     }
     
@@ -172,11 +179,11 @@ public class GrimwoodChest extends BlockContainer
 
         if (itemStack.hasDisplayName())
         {
-            ((TileEntityGrimwoodChest)world.getTileEntity(x, y, z)).func_94043_a(itemStack.getDisplayName());
+            ((TileEntityGrimwoodChest)world.getTileEntity(x, y, z)).func_145976_a(itemStack.getDisplayName());
         }
     }
 
-    public void unifyAdjacentChests(World world, int x, int y, int z)
+    public void func_149954_e(World world, int x, int y, int z)
     {
         if (!world.isRemote)
         {
@@ -309,10 +316,10 @@ public class GrimwoodChest extends BlockContainer
             ++l;
         }
 
-        return l > 1 ? false : (this.isThereANeighborChest(world, x - 1, y, z) ? false : (this.isThereANeighborChest(world, x + 1, y, z) ? false : (this.isThereANeighborChest(world, x, y, z - 1) ? false : !this.isThereANeighborChest(world, x, y, z + 1))));
+        return l > 1 ? false : (this.func_149952_n(world, x - 1, y, z) ? false : (this.func_149952_n(world, x + 1, y, z) ? false : (this.func_149952_n(world, x, y, z - 1) ? false : !this.func_149952_n(world, x, y, z + 1))));
     }
 
-    private boolean isThereANeighborChest(World world, int x, int y, int z)
+    private boolean func_149952_n(World world, int x, int y, int z)
     {
         return world.getBlock(x, y, z) != this ? false : (world.getBlock(x - 1, y, z) == this ? true : (world.getBlock(x + 1, y, z) == this ? true : (world.getBlock(x, y, z - 1) == this ? true : world.getBlock(x, y, z + 1) == this)));
     }
@@ -383,7 +390,7 @@ public class GrimwoodChest extends BlockContainer
         }
         else
         {
-            IInventory iinventory = this.getInventory(world, x, y, z);
+            IInventory iinventory = this.func_149951_m(world, x, y, z);
 
             if (iinventory != null)
             {
@@ -394,15 +401,35 @@ public class GrimwoodChest extends BlockContainer
         }
     }
     
-    public IInventory getInventory(World world, int x, int y, int z)
+    public IInventory func_149951_m(World world, int x, int y, int z)
     {
-        Object object = (TileEntityGrimwoodChest)world.getTileEntity(x, y, z);
+    	Object object = (TileEntityGrimwoodChest)world.getTileEntity(x, y, z);
 
         if (object == null)
         {
             return null;
         }
-        else if (world.isSideSolid(x, y + 1, z, ForgeDirection.DOWN))
+        else if (world.isSideSolid(x, y + 1, z, DOWN))
+        {
+            return null;
+        }
+        else if (func_149953_o(world, x, y, z))
+        {
+            return null;
+        }
+        else if (world.getBlock(x - 1, y, z) == this && (world.isSideSolid(x - 1, y + 1, z, DOWN) || func_149953_o(world, x - 1, y, z)))
+        {
+            return null;
+        }
+        else if (world.getBlock(x + 1, y, z) == this && (world.isSideSolid(x + 1, y + 1, z, DOWN) || func_149953_o(world, x + 1, y, z)))
+        {
+            return null;
+        }
+        else if (world.getBlock(x, y, z - 1) == this && (world.isSideSolid(x, y + 1, z - 1, DOWN) || func_149953_o(world, x, y, z - 1)))
+        {
+            return null;
+        }
+        else if (world.getBlock(x, y, z + 1) == this && (world.isSideSolid(x, y + 1, z + 1, DOWN) || func_149953_o(world, x, y, z + 1)))
         {
             return null;
         }
@@ -410,22 +437,22 @@ public class GrimwoodChest extends BlockContainer
         {
             if (world.getBlock(x - 1, y, z) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)world.getTileEntity(x - 1, y, z), (IInventory)object);
+                object = new InventoryGrimwoodLargeChest("container.chestDouble", (TileEntityGrimwoodChest)world.getTileEntity(x - 1, y, z), (IInventory)object);
             }
 
             if (world.getBlock(x + 1, y, z) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)world.getTileEntity(x + 1, y, z));
+                object = new InventoryGrimwoodLargeChest("container.chestDouble", (IInventory)object, (TileEntityGrimwoodChest)world.getTileEntity(x + 1, y, z));
             }
 
             if (world.getBlock(x, y, z - 1) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (TileEntityGrimwoodChest)world.getTileEntity(x, y, z - 1), (IInventory)object);
+                object = new InventoryGrimwoodLargeChest("container.chestDouble", (TileEntityGrimwoodChest)world.getTileEntity(x, y, z - 1), (IInventory)object);
             }
 
             if (world.getBlock(x, y, z + 1) == this)
             {
-                object = new InventoryGrimwoodLargeChest("container.grimwoodchestDouble", (IInventory)object, (TileEntityGrimwoodChest)world.getTileEntity(x, y, z + 1));
+                object = new InventoryGrimwoodLargeChest("container.chestDouble", (IInventory)object, (TileEntityGrimwoodChest)world.getTileEntity(x, y, z + 1));
             }
 
             return (IInventory)object;
@@ -437,6 +464,59 @@ public class GrimwoodChest extends BlockContainer
 	{
 		return new TileEntityGrimwoodChest();
 	}
+	
+	public boolean canProvidePower()
+    {
+        return this.field_149956_a == 1;
+    }
+
+    public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int p_149709_5_)
+    {
+        if (!this.canProvidePower())
+        {
+            return 0;
+        }
+        else
+        {
+            int i1 = ((TileEntityGrimwoodChest)world.getTileEntity(x, y, z)).numUsingPlayers;
+            return MathHelper.clamp_int(i1, 0, 15);
+        }
+    }
+
+    public int isProvidingStrongPower(IBlockAccess world, int x, int y, int z, int p_149748_5_)
+    {
+        return p_149748_5_ == 1 ? this.isProvidingWeakPower(world, x, y, z, p_149748_5_) : 0;
+    }
+
+    private static boolean func_149953_o(World world, int x, int y, int z)
+    {
+        Iterator iterator = world.getEntitiesWithinAABB(EntityOcelot.class, AxisAlignedBB.getAABBPool().getAABB((double)x, (double)(y + 1), (double)z, (double)(x + 1), (double)(y + 2), (double)(z + 1))).iterator();
+        EntityOcelot entityocelot1;
+
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                return false;
+            }
+
+            EntityOcelot entityocelot = (EntityOcelot)iterator.next();
+            entityocelot1 = (EntityOcelot)entityocelot;
+        }
+        while (!entityocelot1.isSitting());
+
+        return true;
+    }
+    
+    public boolean hasComparatorInputOverride()
+    {
+        return true;
+    }
+
+    public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
+    {
+        return Container.calcRedstoneFromInventory(this.func_149951_m(p_149736_1_, p_149736_2_, p_149736_3_, p_149736_4_));
+    }
 	
 	@SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister par1IconRegister)

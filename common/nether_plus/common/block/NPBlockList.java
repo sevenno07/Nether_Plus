@@ -129,7 +129,7 @@ public class NPBlockList
 		corruptedBrick = new CorruptedBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedBrick").setBlockTextureName("nether_plus:CorruptedBrick");
 		netherrackBrick = new NetherrackBrick().setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("NetherrackBrick").setBlockTextureName("nether_plus:NetherrackBrick");
 		grimwoodWorkbench  = new GrimwoodWorkbench().setStepSound(Block.soundTypeWood).setHardness(1.5F).setResistance(5.0F).setBlockName("GrimwoodWorkbench");
-		grimwoodChest = new GrimwoodChest().setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodChest");
+		grimwoodChest = new GrimwoodChest(0).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(5.0F).setBlockName("GrimwoodChest");
 		fourOn = new BlockFour(true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace");
 		fourOff = new BlockFour(false).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(7.0F).setBlockName("CorruptedFurnace").setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 		
