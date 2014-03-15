@@ -23,8 +23,8 @@ public class NetherPlusCreativeTabs
 		}
 		catch(Exception ex)
 		{
-			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des CreativeTabs!");	
+			Nether_plus.npLog.severe("Erreur lors de l'initialisation des CreativeTabs!");	
 		}
-		Nether_plus.NPlog.info("Initialisation des CreativeTabs terminées!");
+		Nether_plus.npLog.info("Initialisation des CreativeTabs terminées!");
 	}
 }

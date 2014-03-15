@@ -99,7 +99,7 @@ public class Version implements Runnable
 						if (VERSION.matches(tokens[2]))
 						{
 							recommendedVersion = tokens[2];
-							Nether_plus.NPlog.finer("Using the latest version [" + getVersion() + "] for Minecraft " + MC_VERSION);
+							Nether_plus.npLog.finer("Using the latest version [" + getVersion() + "] for Minecraft " + MC_VERSION);
 							currentVersion = EnumUpdateState.CURRENT;
 							return;
 						}
@@ -107,15 +107,15 @@ public class Version implements Runnable
 				}
 			}
 
-			Nether_plus.NPlog.warning("Using outdated version [" + VERSION + " (build:" + BUILD_NUMBER + ")] for Minecraft " + MC_VERSION + ". Consider updating.");
+			Nether_plus.npLog.warning("Using outdated version [" + VERSION + " (build:" + BUILD_NUMBER + ")] for Minecraft " + MC_VERSION + ". Consider updating.");
 			currentVersion = EnumUpdateState.OUTDATED;
 
 			conn.disconnect();
 			reader.close();
 		} catch (Exception e)
 		{
-			Nether_plus.NPlog.warning("Unable to read from remote version authority.");
-			Nether_plus.NPlog.warning(e.toString());
+			Nether_plus.npLog.warning("Unable to read from remote version authority.");
+			Nether_plus.npLog.warning(e.toString());
 			currentVersion = EnumUpdateState.CONNECTION_ERROR;
 		}
 	}
@@ -173,7 +173,7 @@ public class Version implements Runnable
 		} catch (Exception ex)
 		{
 			ex.printStackTrace();
-			Nether_plus.NPlog.warning("Unable to read changelog from remote site.");
+			Nether_plus.npLog.warning("Unable to read changelog from remote site.");
 		}
 		return new String[]{String.format("Unable to retrieve changelog for %s %s", NPProperties.mod, version)};
 	}
@@ -184,7 +184,7 @@ public class Version implements Runnable
 		int count = 0;
 		currentVersion = null;
 
-		Nether_plus.NPlog.info("Beginning version check");
+		Nether_plus.npLog.info("Beginning version check");
 
 		try {
 			while ((count < 3) && ((currentVersion == null) || (currentVersion == EnumUpdateState.CONNECTION_ERROR)))
@@ -194,7 +194,7 @@ public class Version implements Runnable
 
 				if (currentVersion == EnumUpdateState.CONNECTION_ERROR)
 				{
-					Nether_plus.NPlog.info("Version check attempt " + count + " failed, trying again in 10 seconds");
+					Nether_plus.npLog.info("Version check attempt " + count + " failed, trying again in 10 seconds");
 					Thread.sleep(10000);
 				}
 			}
@@ -205,7 +205,7 @@ public class Version implements Runnable
 
 		if (currentVersion == EnumUpdateState.CONNECTION_ERROR)
 		{
-			Nether_plus.NPlog.info("Version check failed");
+			Nether_plus.npLog.info("Version check failed");
 		}
 	}
 	

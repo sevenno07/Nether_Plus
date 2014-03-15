@@ -54,11 +54,11 @@ public class Nether_plus
 	@Instance("nether_plus")
 	public static Nether_plus instance;
 
-	public static Logger NPlog = Logger.getLogger("Nether_Plus");
+	public static Logger npLog = Logger.getLogger("Nether_Plus");
 
 	public static ConfigFile configFile;
 
-	protected static final GuiHandler GuiHandler = new GuiHandler();
+	protected static final GuiHandler guiHandler = new GuiHandler();
 
 	@EventHandler
 	public void preload(FMLPreInitializationEvent event)
@@ -79,7 +79,7 @@ public class Nether_plus
 		}
 		catch(Exception ex)
 		{
-			NPlog.severe("Erreur lors de l'initialisation des configs!");
+			npLog.severe("Erreur lors de l'initialisation des configs!");
 		}
 		finally
 		{
@@ -87,7 +87,7 @@ public class Nether_plus
 			{
 				configFile.save();
 			}
-			NPlog.info("Initialisation des configs terminés!");
+			npLog.info("Initialisation des configs terminés!");
 		}
 
 		NetherPlusCreativeTabs.loadCreativeTab();// CreativeTab
@@ -116,7 +116,7 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new CraftingHandler());
 		
 		NPTEntityList.loadTileEntity();
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler);
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
 		NPWorldGenerator.loadWorldGenerator();
 	}
 

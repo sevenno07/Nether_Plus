@@ -28,11 +28,11 @@ public class NPSounds
 		}
 		catch(Exception ex)
 		{
-			Nether_plus.NPlog.severe("Failed to register one or more sounds.");
+			Nether_plus.npLog.severe("Failed to register one or more sounds.");
 		}
 		finally
 		{
-			Nether_plus.NPlog.info("Initialisation des sons terminés!");
+			Nether_plus.npLog.info("Initialisation des sons terminés!");
 		}
 	}
 }

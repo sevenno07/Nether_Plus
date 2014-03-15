@@ -244,8 +244,8 @@ public class NPBlockList
 		}
 		catch(Exception ex)
 		{
-			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Blocks!");
+			Nether_plus.npLog.severe("Erreur lors de l'initialisation des Blocks!");
 		}
-		Nether_plus.NPlog.info("Initialisation des Blocks terminés!");
+		Nether_plus.npLog.info("Initialisation des Blocks terminés!");
 	}
 }

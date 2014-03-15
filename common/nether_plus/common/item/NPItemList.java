@@ -241,8 +241,8 @@ public class NPItemList
 			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("acid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(acidBucket2), FluidContainerRegistry.EMPTY_BUCKET);
 		}catch(Exception ex)
 		{
-			Nether_plus.NPlog.severe("Erreur lors de l'initialisation des Items!");
+			Nether_plus.npLog.severe("Erreur lors de l'initialisation des Items!");
 		}
-		Nether_plus.NPlog.info("Initialisation des Items terminés!");
+		Nether_plus.npLog.info("Initialisation des Items terminés!");
 	}
 }
