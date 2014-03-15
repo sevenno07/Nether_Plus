@@ -1,5 +1,6 @@
 package nether_plus.common.config;
 
+import net.minecraftforge.common.config.Property;
 
 public class NPProperties
 {
@@ -139,5 +140,8 @@ public class NPProperties
 	public static int AcidBucket2ID;
 	
 	public static int SalamanderBoatID;
-
+	
+	//Other
+	public static String mod;
+	public static Property updateCheck;
 }

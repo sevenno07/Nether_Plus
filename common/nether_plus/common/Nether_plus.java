@@ -1,5 +1,6 @@
 package nether_plus.common;
 
+import java.io.File;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -10,8 +11,12 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
 import nether_plus.common.achievement.NPAchievements;
 import nether_plus.common.block.NPBlockList;
+import nether_plus.common.config.ConfigFile;
+import nether_plus.common.config.NPProperties;
+import nether_plus.common.config.Version;
 import nether_plus.common.creativetabs.NetherPlusCreativeTabs;
 import nether_plus.common.entity.NPEntityList;
 import nether_plus.common.event.BucketEvent;
@@ -35,7 +40,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod(modid = "nether_plus", name = "Nether plus", version = "1.0.0")
+@Mod(modid = "nether_plus", name = "Nether plus", version = Version.VERSION, acceptedMinecraftVersions=Version.MC_VERSION)
 // @NetworkMod(clientSideRequired = true, serverSideRequired = false,
 // clientPacketHandlerSpec = @SidedPacketHandler(channels = {"Nether_Plus"},
 // packetHandler = ClientPacketHandler.class),
@@ -51,12 +56,39 @@ public class Nether_plus
 
 	public static Logger NPlog = Logger.getLogger("Nether_Plus");
 
+	public static ConfigFile configFile;
+
 	protected static final GuiHandler GuiHandler = new GuiHandler();
 
 	@EventHandler
 	public void preload(FMLPreInitializationEvent event)
 	{
 		// NPlog.setParent((Logger) FMLLog.getLogger());
+		
+		configFile = new ConfigFile(new File(event.getModConfigurationDirectory(), "Nether_Plus.cfg"));
+		
+		try
+		{
+			configFile.load();
+			
+			NPProperties.updateCheck = configFile.get(Configuration.CATEGORY_GENERAL, "update.check", true);
+			NPProperties.updateCheck.comment = "set to true for version check on startup";
+			if (NPProperties.updateCheck.getBoolean(true)) {
+				Version.check();
+			}
+		}
+		catch(Exception ex)
+		{
+			NPlog.severe("Erreur lors de l'initialisation des configs!");
+		}
+		finally
+		{
+			if(configFile.hasChanged())
+			{
+				configFile.save();
+			}
+			NPlog.info("Initialisation des configs terminés!");
+		}
 
 		NetherPlusCreativeTabs.loadCreativeTab();// CreativeTab
 		NPBlockList.loadBlock();// Block
@@ -82,8 +114,7 @@ public class Nether_plus
 		MinecraftForge.EVENT_BUS.register(new PickupHandler());
 		MinecraftForge.EVENT_BUS.register(new BucketEvent());
 		MinecraftForge.EVENT_BUS.register(new CraftingHandler());
-		// *1
-
+		
 		NPTEntityList.loadTileEntity();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, GuiHandler);
 		NPWorldGenerator.loadWorldGenerator();
