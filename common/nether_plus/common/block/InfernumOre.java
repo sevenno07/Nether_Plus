@@ -9,6 +9,7 @@ public class InfernumOre extends Block
 	public InfernumOre() 
 	{
 		super(Material.rock);
+		this.setHarvestLevel("pickaxe", 2);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 }

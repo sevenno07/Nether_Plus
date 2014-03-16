@@ -9,6 +9,7 @@ public class CorruptedBlackIronOre extends Block
 	public CorruptedBlackIronOre() 
 	{
 		super(Material.rock);
+		this.setHarvestLevel("pickaxe", 2);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 }

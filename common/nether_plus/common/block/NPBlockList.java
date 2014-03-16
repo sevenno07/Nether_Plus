@@ -172,75 +172,71 @@ public class NPBlockList
 		
 		try
 		{
-		GameRegistry.registerBlock(glowstoneSand, "Glowstone_Sand");
-		GameRegistry.registerBlock(soulGlass, "Soul_Glass");
-		GameRegistry.registerBlock(netherraze, "Netherraze");
-		GameRegistry.registerBlock(bewitchedWood, "bewitched_Wood");
-		GameRegistry.registerBlock(corruptionStone, "Corruption_Stone");
-		GameRegistry.registerBlock(corruptedCobblestone, "Corrupted_Cobblestone");
+			GameRegistry.registerBlock(glowstoneSand, "Glowstone_Sand");
+			GameRegistry.registerBlock(soulGlass, "Soul_Glass");
+			GameRegistry.registerBlock(netherraze, "Netherraze");
+			GameRegistry.registerBlock(bewitchedWood, "bewitched_Wood");
+			GameRegistry.registerBlock(corruptionStone, "Corruption_Stone");
+			GameRegistry.registerBlock(corruptedCobblestone, "Corrupted_Cobblestone");
 		
-		GameRegistry.registerBlock(grimwoodLog, "Grimwood_Log");
-		GameRegistry.registerBlock(grimwoodLeaves, "Grimwood_Leaves");
-		GameRegistry.registerBlock(grimwoodSapling, "Grimwood_Sapling");
+			GameRegistry.registerBlock(grimwoodLog, "Grimwood_Log");
+			GameRegistry.registerBlock(grimwoodLeaves, "Grimwood_Leaves");
+			GameRegistry.registerBlock(grimwoodSapling, "Grimwood_Sapling");
 		
-		GameRegistry.registerBlock(corruptedGoldOre, "Corrupted_Gold_Ore");
-		GameRegistry.registerBlock(corruptedCharoiteOre, "Corrupted_Charoite_Ore");
-		GameRegistry.registerBlock(corruptedBlackIronOre, "Corrupted_Black_Iron_Ore");
-		GameRegistry.registerBlock(infernumOre, "InfernumOre");
+			GameRegistry.registerBlock(corruptedGoldOre, "Corrupted_Gold_Ore");
+			GameRegistry.registerBlock(corruptedCharoiteOre, "Corrupted_Charoite_Ore");
+			GameRegistry.registerBlock(corruptedBlackIronOre, "Corrupted_Black_Iron_Ore");
+			GameRegistry.registerBlock(infernumOre, "InfernumOre");
 
-		GameRegistry.registerBlock(infernumBlock, "Infernum_Block");
-		GameRegistry.registerBlock(blackIronBlock, "Black_Iron_Block");
-		GameRegistry.registerBlock(charoiteBlock, "Charoite_Block");
+			GameRegistry.registerBlock(infernumBlock, "Infernum_Block");
+			GameRegistry.registerBlock(blackIronBlock, "Black_Iron_Block");
+			GameRegistry.registerBlock(charoiteBlock, "Charoite_Block");
 		
-		GameRegistry.registerBlock(netherPlanks, "Nether_Planks");
-		GameRegistry.registerBlock(corruptedBrick, "Corrupted_Brick");
-		GameRegistry.registerBlock(netherrackBrick, "Netherrack_Brick");
-		GameRegistry.registerBlock(grimwoodWorkbench, "Grimwood_Workbench");
-		GameRegistry.registerBlock(grimwoodChest, "Grimwood_Chest");
+			GameRegistry.registerBlock(netherPlanks, "Nether_Planks");
+			GameRegistry.registerBlock(corruptedBrick, "Corrupted_Brick");
+			GameRegistry.registerBlock(netherrackBrick, "Netherrack_Brick");
+			GameRegistry.registerBlock(grimwoodWorkbench, "Grimwood_Workbench");
+			GameRegistry.registerBlock(grimwoodChest, "Grimwood_Chest");
 		
-		GameRegistry.registerBlock(fourOn, "CorruptedFurnace_on");
-		GameRegistry.registerBlock(fourOff, "CorruptedFurnace");
+			GameRegistry.registerBlock(fourOn, "CorruptedFurnace_on");
+			GameRegistry.registerBlock(fourOff, "CorruptedFurnace");
 		
-		GameRegistry.registerBlock(grimwoodStairs, "Grimwood_Stairs");
-		GameRegistry.registerBlock(corruptedCobblestoneStairs, "Corrupted_Cobblestone_Stairs");
-		GameRegistry.registerBlock(corruptedBrickStairs, "Corrupted_Brick_Stairs");
-		GameRegistry.registerBlock(netherrackBrickStairs, "Netherrack_Brick_Stairs");		
+			GameRegistry.registerBlock(grimwoodStairs, "Grimwood_Stairs");
+			GameRegistry.registerBlock(corruptedCobblestoneStairs, "Corrupted_Cobblestone_Stairs");
+			GameRegistry.registerBlock(corruptedBrickStairs, "Corrupted_Brick_Stairs");
+			GameRegistry.registerBlock(netherrackBrickStairs, "Netherrack_Brick_Stairs");		
 		
 /*		// TODO fix slab
-		GameRegistry.registerBlock(modWoodSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Slab", "nether_plus");
-		GameRegistry.registerBlock(modWoodDoubleSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Double_Slab", "nether_plus");
-		GameRegistry.registerBlock(modStoneSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Slab", "nether_plus");
-		GameRegistry.registerBlock(modStoneDoubleSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Double_Slab", "nether_plus");*/
+			GameRegistry.registerBlock(modWoodSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Slab", "nether_plus");
+			GameRegistry.registerBlock(modWoodDoubleSlab, ItemBlockModWoodSlab.class, "Mod_Wood_Double_Slab", "nether_plus");
+			GameRegistry.registerBlock(modStoneSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Slab", "nether_plus");
+			GameRegistry.registerBlock(modStoneDoubleSlab, ItemBlockModStoneSlab.class, "Mod_Stone_Double_Slab", "nether_plus");*/
 		
-		GameRegistry.registerBlock(modFence, "Mod_Fence");
-		GameRegistry.registerBlock(corruptedCobblestoneWall, "Corrupted_Cobblestone_Wall");
-		GameRegistry.registerBlock(corruptedBrickWall, "Corrupted_Brick_Wall");
-		GameRegistry.registerBlock(netherrackBrickWall, "Netherrack_Brick_Wall");
+			GameRegistry.registerBlock(modFence, "Mod_Fence");
+			GameRegistry.registerBlock(corruptedCobblestoneWall, "Corrupted_Cobblestone_Wall");
+			GameRegistry.registerBlock(corruptedBrickWall, "Corrupted_Brick_Wall");
+			GameRegistry.registerBlock(netherrackBrickWall, "Netherrack_Brick_Wall");
 		
-		GameRegistry.registerBlock(whiteSkull, "White_Skull");
-		GameRegistry.registerBlock(blackSkull, "Black_Skull");
+			GameRegistry.registerBlock(whiteSkull, "White_Skull");
+			GameRegistry.registerBlock(blackSkull, "Black_Skull");
 		
-		GameRegistry.registerBlock(soulGlassPane, "Soul_Glass_Pane");
-		GameRegistry.registerBlock(blockGrimwoodDoor, "Bloc_Grimwood_Door");
-		GameRegistry.registerBlock(blockBlackironDoor, "Block_Blackiron_Door");
-		GameRegistry.registerBlock(nether_Farm, "Nether_Farm");
-		GameRegistry.registerBlock(crops, "Crops");
-		GameRegistry.registerBlock(chiliC, "Chili_Crops");
-		GameRegistry.registerBlock(chiliB, "Chili_Block");
-		GameRegistry.registerBlock(riceC, "RiceC");
+			GameRegistry.registerBlock(soulGlassPane, "Soul_Glass_Pane");
+			GameRegistry.registerBlock(blockGrimwoodDoor, "Bloc_Grimwood_Door");
+			GameRegistry.registerBlock(blockBlackironDoor, "Block_Blackiron_Door");
+			GameRegistry.registerBlock(nether_Farm, "Nether_Farm");
+			GameRegistry.registerBlock(crops, "Crops");
+			GameRegistry.registerBlock(chiliC, "Chili_Crops");
+			GameRegistry.registerBlock(chiliB, "Chili_Block");
+			GameRegistry.registerBlock(riceC, "RiceC");
 		
-		GameRegistry.registerBlock(ladder, "Ladder");
-		GameRegistry.registerBlock(netherRail, "Nether_Rail");
-		GameRegistry.registerBlock(netherDetectorRail, "Nether_Detector_Rail");
-		GameRegistry.registerBlock(netherPoweredRail, "Nether_Powered_Rail");
-		GameRegistry.registerBlock(grimwoodTorch, "Grimwood_Torch");
-		GameRegistry.registerBlock(netherDonjonSpawner, "Nether_Donjon_Spawner");
+			GameRegistry.registerBlock(ladder, "Ladder");
+			GameRegistry.registerBlock(netherRail, "Nether_Rail");
+			GameRegistry.registerBlock(netherDetectorRail, "Nether_Detector_Rail");
+			GameRegistry.registerBlock(netherPoweredRail, "Nether_Powered_Rail");
+			GameRegistry.registerBlock(grimwoodTorch, "Grimwood_Torch");
+			GameRegistry.registerBlock(netherDonjonSpawner, "Nether_Donjon_Spawner");
 		
-		GameRegistry.registerBlock(steelWool, "Iron_Wool");
-
-		//MinecraftForge.setBlockHarvestLevel(CorruptedGoldOre, "pickaxe", 2);
-		//MinecraftForge.setBlockHarvestLevel(CorruptedCharoiteOre, "pickaxe", 2);
-		//MinecraftForge.setBlockHarvestLevel(CorruptedBlackIronOre, "pickaxe", 2);
+			GameRegistry.registerBlock(steelWool, "Iron_Wool");
 		}
 		catch(Exception ex)
 		{

@@ -15,6 +15,7 @@ public class CorruptedCharoiteOre extends Block
 	public CorruptedCharoiteOre() 
 	{
 		super(Material.rock);
+		this.setHarvestLevel("pickaxe", 2);
 		this.setCreativeTab(NetherPlusCreativeTabs.NPCreativeTabsBlock);
 	}
 	
