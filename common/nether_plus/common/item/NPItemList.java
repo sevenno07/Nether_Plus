@@ -1,6 +1,8 @@
 package nether_plus.common.item;
 
+import net.minecraft.block.BlockDispenser;
 import net.minecraft.block.material.Material;
+import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -239,6 +241,13 @@ public class NPItemList
 			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("soulPlasm", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(soulplasmBucket), FluidContainerRegistry.EMPTY_BUCKET);
 			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("acid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(acidBucket1), FluidContainerRegistry.EMPTY_BUCKET);
 			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("acid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(acidBucket2), FluidContainerRegistry.EMPTY_BUCKET);
+			
+			//TODO Fix des liquides avec les dispensers
+			/*BlockDispenser.dispenseBehaviorRegistry.putObject(quickSilverBucket, new BehaviorDefaultDispenseItem());
+			BlockDispenser.dispenseBehaviorRegistry.putObject(soulplasmBucket, new BehaviorDefaultDispenseItem());
+			BlockDispenser.dispenseBehaviorRegistry.putObject(acidBucket1, new BehaviorDefaultDispenseItem());
+			BlockDispenser.dispenseBehaviorRegistry.putObject(acidBucket2, new BehaviorDefaultDispenseItem());
+			BlockDispenser.dispenseBehaviorRegistry.putObject(goldBucket, new BehaviorDefaultDispenseItem());*/
 		}catch(Exception ex)
 		{
 			Nether_plus.npLog.severe("Erreur lors de l'initialisation des Items!");

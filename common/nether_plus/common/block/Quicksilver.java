@@ -24,7 +24,7 @@ public class Quicksilver extends BlockFluidClassic
 		this.setTickRandomly(true);
 	}
 	
-	public void onEntityCollidedWithBlock(World world, int par2, int par3, int par4, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (entity instanceof EntityLivingBase)
 		{
