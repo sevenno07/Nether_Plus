@@ -58,6 +58,12 @@ public class NPItemList
 	public static Item blackIronAxe;
 	public static Item blackIronShovel;
 	public static Item blackIronHoe;
+	
+	public static Item bloodSword;
+	public static Item bloodPickaxe;
+	public static Item bloodAxe;
+	public static Item bloodShovel;
+	public static Item bloodHoe;
 
 	public static Item blackIronHelmet;
 	public static Item blackIronChestplate;
@@ -98,7 +104,8 @@ public class NPItemList
 	public static ArmorMaterial salamanderArmor = EnumHelper.addArmorMaterial("SalamanderArmor", 8, new int[] { 2, 5, 3, 2 }, 23);
 	public static ToolMaterial grimwoodTool = EnumHelper.addToolMaterial("GrimwoodTool", 0, 89, 3.0F, 0, 23);
 	public static ToolMaterial corruptionStoneTool = EnumHelper.addToolMaterial("CorruptionStoneTool", 1, 131, 4.0F, 1, 5);
-	public static ToolMaterial blackIronTool = EnumHelper.addToolMaterial("BlackIronTool", 3, 375, 9.0F, 3, 21);
+	public static ToolMaterial blackIronTool = EnumHelper.addToolMaterial("BlackIronTool", 2, 375, 9.0F, 3, 21);
+	public static ToolMaterial bloodTool = EnumHelper.addToolMaterial("BloodTool", 3, 1561, 8.0F, 3.0F, 20);
 
 	public static void loadItem()
 	{
@@ -165,6 +172,12 @@ public class NPItemList
 			blackIronAxe = new BlackIronAxe(blackIronTool).setUnlocalizedName("BlackIronAxe");
 			blackIronShovel = new BlackIronShovel(blackIronTool).setUnlocalizedName("BlackIronShovel");
 			blackIronHoe = new BlackIronHoe(blackIronTool).setUnlocalizedName("BlackIronHoe");
+			
+			bloodSword = new BloodSword(bloodTool).setUnlocalizedName("bloodSword");
+			bloodPickaxe = new BloodPickaxe(bloodTool).setUnlocalizedName("bloodPickaxe");
+			bloodAxe = new BloodAxe(bloodTool).setUnlocalizedName("bloodAxe");
+			bloodShovel = new BloodShovel(bloodTool).setUnlocalizedName("bloodShovel");
+			bloodHoe = new BloodHoe(bloodTool).setUnlocalizedName("bloodHoe");
 
 			salamanderHelmet = new SalamanderArmor(salamanderArmor, 0, 0).setUnlocalizedName("SalamanderHelmet").setTextureName("nether_plus:SalamanderHelmet");
 			salamanderChestplate = new SalamanderArmor(salamanderArmor, 0, 1).setUnlocalizedName("SalamanderChestplate").setTextureName("nether_plus:SalamanderChestplate");
@@ -214,6 +227,13 @@ public class NPItemList
 			GameRegistry.registerItem(blackIronAxe, "BlackIronAxe");
 			GameRegistry.registerItem(blackIronShovel, "BlackIronShovel");
 			GameRegistry.registerItem(blackIronHoe, "BlackIronHoe");
+			
+			GameRegistry.registerItem(bloodSword, "BloodSword");
+			GameRegistry.registerItem(bloodPickaxe, "BloodPickaxe");
+			GameRegistry.registerItem(bloodAxe, "BloodAxe");
+			GameRegistry.registerItem(bloodShovel, "BloodShovel");
+			GameRegistry.registerItem(bloodHoe, "BloodHoe");
+			
 			GameRegistry.registerItem(salamanderHelmet, "SalamanderHelmet");
 			GameRegistry.registerItem(salamanderChestplate, "SalamanderChestplate");
 			GameRegistry.registerItem(salamanderLeggings, "SalamanderLeggings");
