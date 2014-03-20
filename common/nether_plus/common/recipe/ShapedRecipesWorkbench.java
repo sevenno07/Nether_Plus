@@ -1,83 +1,130 @@
 package nether_plus.common.recipe;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class ShapedRecipesWorkbench implements IRecipe
 {
-	public final List recipeItems;
-	private final ItemStack recipeOutput;
+	private final int recipeWidth;
+	private final int recipeHeight;
 	
-	public ShapedRecipesWorkbench(ItemStack par1ItemStack, List par2List)
+	private final ItemStack[] recipeItems;
+	private final ItemStack recipeOutput;
+	private boolean field_92101_f;
+	
+	public ShapedRecipesWorkbench(int width, int height, ItemStack[] item, ItemStack item2)
 	{
-        this.recipeOutput = par1ItemStack;
-        this.recipeItems = par2List;
+		recipeWidth = width;
+		recipeHeight = height;
+		recipeItems = item;
+		recipeOutput = item2;
 	}
-    public ItemStack getRecipeOutput()
-    {
-        return this.recipeOutput;
-    }
 
-    /**
-     * Used to check if a recipe matches current crafting inventory
-     */
-    public boolean matches(InventoryCrafting par1InventoryCrafting, World par2World)
-    {
-        ArrayList arraylist = new ArrayList(this.recipeItems);
-
-        for (int i = 0; i < 3; ++i)
+	@Override
+	public boolean matches(InventoryCrafting crafting, World world)
+	{
+		for (int width = 0; width <= 3 - this.recipeWidth; ++width)
         {
-            for (int j = 0; j < 3; ++j)
+            for (int height = 0; height <= 3 - this.recipeHeight; ++height)
             {
-                ItemStack itemstack = par1InventoryCrafting.getStackInRowAndColumn(j, i);
-
-                if (itemstack != null)
+                if (this.checkMatch(crafting, width, height, true))
                 {
-                    boolean flag = false;
-                    Iterator iterator = arraylist.iterator();
+                    return true;
+                }
 
-                    while (iterator.hasNext())
+                if (this.checkMatch(crafting, width, height, false))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+	}
+
+	private boolean checkMatch(InventoryCrafting crafting, int width, int height, boolean b)
+	{
+		for (int k = 0; k < 3; ++k)
+        {
+            for (int l = 0; l < 3; ++l)
+            {
+                int i1 = k - width;
+                int j1 = l - height;
+                ItemStack itemstack = null;
+
+                if (i1 >= 0 && j1 >= 0 && i1 < this.recipeWidth && j1 < this.recipeHeight)
+                {
+                    if(b)
                     {
-                        ItemStack itemstack1 = (ItemStack)iterator.next();
+                        itemstack = this.recipeItems[this.recipeWidth - i1 - 1 + j1 * this.recipeWidth];
+                    }
+                    else
+                    {
+                        itemstack = this.recipeItems[i1 + j1 * this.recipeWidth];
+                    }
+                }
 
-                        if (itemstack.getItem() == itemstack1.getItem() && (itemstack1.getItemDamage() == 32767 || itemstack.getItemDamage() == itemstack1.getItemDamage()))
-                        {
-                            flag = true;
-                            arraylist.remove(itemstack1);
-                            break;
-                        }
+                ItemStack itemstack1 = crafting.getStackInRowAndColumn(k, l);
+
+                if (itemstack1 != null || itemstack != null)
+                {
+                    if (itemstack1 == null && itemstack != null || itemstack1 != null && itemstack == null)
+                    {
+                        return false;
                     }
 
-                    if (!flag)
+                    if (itemstack.getItem() != itemstack1.getItem())
+                    {
+                        return false;
+                    }
+
+                    if (itemstack.getItemDamage() != 32767 && itemstack.getItemDamage() != itemstack1.getItemDamage())
                     {
                         return false;
                     }
                 }
             }
         }
+        return true;
+	}
 
-        return arraylist.isEmpty();
-    }
+	@Override
+	public ItemStack getCraftingResult(InventoryCrafting crafting)
+	{
+		ItemStack itemstack = this.getRecipeOutput().copy();
 
-    /**
-     * Returns an Item that is the result of this recipe
-     */
-    public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting)
+        if (this.field_92101_f)
+        {
+            for (int i = 0; i < crafting.getSizeInventory(); ++i)
+            {
+                ItemStack itemstack1 = crafting.getStackInSlot(i);
+
+                if (itemstack1 != null && itemstack1.hasTagCompound())
+                {
+                    itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
+                }
+            }
+        }
+        return itemstack;
+	}
+
+	@Override
+	public int getRecipeSize()
+	{
+		return this.recipeWidth * this.recipeHeight;
+	}
+
+	@Override
+	public ItemStack getRecipeOutput()
+	{
+		return this.recipeOutput;
+	}
+	
+	public ShapedRecipesWorkbench func_92100_c()
     {
-        return this.recipeOutput.copy();
-    }
-
-    /**
-     * Returns the size of the recipe area
-     */
-    public int getRecipeSize()
-    {
-        return this.recipeItems.size();
+        this.field_92101_f = true;
+        return this;
     }
 }

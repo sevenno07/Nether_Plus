@@ -18,17 +18,17 @@ public class GuiWorkbench extends GuiContainer
 {
     private static final ResourceLocation craftingTableGuiTextures = new ResourceLocation("textures/gui/container/crafting_table.png");
 
-	private TileEntityGrimwoodWorkbench WorkbenchInventory;
+	private TileEntityGrimwoodWorkbench workbenchInventory;
 
 	public GuiWorkbench(InventoryPlayer player_inventory, TileEntityGrimwoodWorkbench tileEntityGrimwoodWorkbench, World world)
 	{
 		super(new ContainerWorkbench(player_inventory, tileEntityGrimwoodWorkbench, world));
-		this.WorkbenchInventory = tileEntityGrimwoodWorkbench;
+		this.workbenchInventory = tileEntityGrimwoodWorkbench;
 	}
 	
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	 {
-		 String s = this.WorkbenchInventory.hasCustomInventoryName() ? this.WorkbenchInventory.getInventoryName() : StatCollector.translateToLocal(this.WorkbenchInventory.getInventoryName());
+		 String s = this.workbenchInventory.hasCustomInventoryName() ? this.workbenchInventory.getInventoryName() : StatCollector.translateToLocal(this.workbenchInventory.getInventoryName());
 		 this.fontRendererObj.drawString(s, 28, 6, 4210752);
 		 this.fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	 }

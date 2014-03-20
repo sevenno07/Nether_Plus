@@ -3,7 +3,6 @@ package nether_plus.common.recipe;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -13,18 +12,6 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.RecipeFireworks;
-import net.minecraft.item.crafting.RecipesArmor;
-import net.minecraft.item.crafting.RecipesArmorDyes;
-import net.minecraft.item.crafting.RecipesCrafting;
-import net.minecraft.item.crafting.RecipesDyes;
-import net.minecraft.item.crafting.RecipesFood;
-import net.minecraft.item.crafting.RecipesIngots;
-import net.minecraft.item.crafting.RecipesMapCloning;
-import net.minecraft.item.crafting.RecipesMapExtending;
-import net.minecraft.item.crafting.RecipesTools;
-import net.minecraft.item.crafting.RecipesWeapons;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
 import nether_plus.common.item.NPItemList;
@@ -43,7 +30,9 @@ public class RecipesWorkbench
 	private RecipesWorkbench()
 	{
 		//Minecraft
-		this.recipes.add(new RecipesTools());
+		
+		//TODO Trouvé un moyen de fixer les recettes vanilla
+		/*this.recipes.add(new RecipesTools());
 		this.recipes.add(new RecipesWeapons());
 		this.recipes.add(new RecipesIngots());
 		this.recipes.add(new RecipesFood());
@@ -53,8 +42,8 @@ public class RecipesWorkbench
         this.recipes.add(new RecipesArmorDyes());
         this.recipes.add(new RecipesMapCloning());
         this.recipes.add(new RecipesMapExtending());
-        this.recipes.add(new RecipeFireworks());
-        this.addRecipe(new ItemStack(Items.paper, 3), new Object[] {"###", '#', Items.reeds});
+        this.recipes.add(new RecipeFireworks());*/
+		this.addRecipe(new ItemStack(Items.paper, 3), new Object[] {"###", '#', Items.reeds});
         this.addShapelessRecipe(new ItemStack(Items.book, 1), new Object[] {Items.paper, Items.paper, Items.paper, Items.leather});
         this.addShapelessRecipe(new ItemStack(Items.writable_book, 1), new Object[] {Items.book, new ItemStack(Items.dye, 1, 0), Items.feather});
         this.addRecipe(new ItemStack(Blocks.fence, 2), new Object[] {"###", "###", '#', Items.stick});
@@ -175,7 +164,7 @@ public class RecipesWorkbench
 	    Collections.sort(this.recipes, new RecipeSorterWorkbench(this));
 	}
 
-	public ShapedRecipes addRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
+	public ShapedRecipesWorkbench addRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
     {
         String s = "";
         int i = 0;
@@ -244,12 +233,12 @@ public class RecipesWorkbench
             }
         }
 
-        ShapedRecipes shapedrecipes = new ShapedRecipes(j, k, aitemstack, par1ItemStack);
-        this.recipes.add(shapedrecipes);
-        return shapedrecipes;
+        ShapedRecipesWorkbench shapedRecipesWorkbench = new ShapedRecipesWorkbench(j, k, aitemstack, par1ItemStack);
+        this.recipes.add(shapedRecipesWorkbench);
+        return shapedRecipesWorkbench;
     }
 
-    public void addShapelessRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
+    void addShapelessRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
     {
         ArrayList arraylist = new ArrayList();
         Object[] aobject = par2ArrayOfObj;
