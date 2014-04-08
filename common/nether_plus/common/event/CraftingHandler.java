@@ -1,5 +1,6 @@
 package nether_plus.common.event;
 
+import net.minecraft.item.Item;
 import nether_plus.common.achievement.NPAchievements;
 import nether_plus.common.block.NPBlockList;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -11,7 +12,7 @@ public class CraftingHandler
 	@SubscribeEvent
 	public void ItemCraftedEvent(ItemCraftedEvent event)
 	{
-		if(event.crafting.getItem().equals(NPBlockList.grimwoodWorkbench))
+		if(event.crafting.getItem().equals(Item.getItemFromBlock(NPBlockList.grimwoodWorkbench)))
 		{
 			event.player.addStat(NPAchievements.craftGrimwoodWorkbench, 1);
 		}
